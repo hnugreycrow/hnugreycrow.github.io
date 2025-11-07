@@ -19,26 +19,26 @@
   <meta name="author" content="hnugreycrow">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在Electron开发过程中，我遇到一个有趣的问题：使用import Database from &quot;better-sqlite3&quot;导入模块时，不仅出现类型声明文件缺失的警告，还会报__filename is not defined的运行时错误。而换成const Database &#x3D; require(&quot;better-sqlite3&quot;)后，一切正常。这个现象背后">
+    <meta name="description" content="eidetic &#x2F;aɪˈdetɪk&#x2F; ：形容词，意为”异常清晰的，过目不忘的” 正如其名，希望这个工具能帮你记住每一个复制的瞬间。  Eideticlip 是一款基于 Electron 和 Vue 3 开发的智能剪贴板管理工具。它能够自动记录您复制的所有文本内容，构建完整的剪贴板历史，让您随时回溯、查找并重用之前的复制记录。 作为学习 Electron 开发的一个小项目，它在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Electron中导入better-sqlite3：为什么import不行，require却可以？">
-<meta property="og:url" content="https://hnugreycrow.github.io/2025/09/01/50951d80d876/index.html">
+<meta property="og:title" content="一个剪贴板管理工具">
+<meta property="og:url" content="https://hnugreycrow.github.io/2025/11/07/365fb68131e2/index.html">
 <meta property="og:site_name" content="hnugreycrow&#39;s blog">
-<meta property="og:description" content="在Electron开发过程中，我遇到一个有趣的问题：使用import Database from &quot;better-sqlite3&quot;导入模块时，不仅出现类型声明文件缺失的警告，还会报__filename is not defined的运行时错误。而换成const Database &#x3D; require(&quot;better-sqlite3&quot;)后，一切正常。这个现象背后">
+<meta property="og:description" content="eidetic &#x2F;aɪˈdetɪk&#x2F; ：形容词，意为”异常清晰的，过目不忘的” 正如其名，希望这个工具能帮你记住每一个复制的瞬间。  Eideticlip 是一款基于 Electron 和 Vue 3 开发的智能剪贴板管理工具。它能够自动记录您复制的所有文本内容，构建完整的剪贴板历史，让您随时回溯、查找并重用之前的复制记录。 作为学习 Electron 开发的一个小项目，它在">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://hnugreycrow.github.io/img/posts/problem.png">
-<meta property="article:published_time" content="2025-09-01T14:42:46.000Z">
-<meta property="article:modified_time" content="2025-09-01T12:00:00.000Z">
+<meta property="og:image" content="https://hnugreycrow.github.io/2025/11/07/365fb68131e2/image-20251107213300571.png">
+<meta property="og:image" content="https://hnugreycrow.github.io/2025/11/07/365fb68131e2/image-20251107211934334.png">
+<meta property="article:published_time" content="2025-11-07T13:10:19.000Z">
+<meta property="article:modified_time" content="2025-11-07T13:44:08.145Z">
 <meta property="article:author" content="hnugreycrow">
 <meta property="article:tag" content="Electron">
-<meta property="article:tag" content="ESM">
-<meta property="article:tag" content="CommonJS">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://hnugreycrow.github.io/img/posts/problem.png">
+<meta name="twitter:image" content="https://hnugreycrow.github.io/2025/11/07/365fb68131e2/image-20251107213300571.png">
   
   
   
-  <title>Electron中导入better-sqlite3：为什么import不行，require却可以？ - hnugreycrow&#39;s blog</title>
+  <title>一个剪贴板管理工具 - hnugreycrow&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -242,7 +242,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Electron中导入better-sqlite3：为什么import不行，require却可以？"></span>
+            <span id="subtitle" data-typed-text="一个剪贴板管理工具"></span>
           
         </div>
 
@@ -253,8 +253,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-09-01 22:42" pubdate>
-          2025年9月1日 晚上
+        <time datetime="2025-11-07 21:10" pubdate>
+          2025年11月7日 晚上
         </time>
       </span>
     
@@ -265,7 +265,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          581 字
         
       </span>
     
@@ -276,7 +276,7 @@
         
         
         
-          10 分钟
+          5 分钟
         
       </span>
     
@@ -315,67 +315,6 @@
   <div class="row nomargin-x">
     <div class="side-col d-none d-lg-block col-lg-2">
       
-  <aside class="sidebar category-bar" style="margin-right: -1rem">
-    
-
-
-
-
-
-<div class="category-list">
-  
-  
-    
-    
-    
-    <div class="category row nomargin-x">
-      <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="技术踩坑"
-        id="heading-196ca9d74431433ba376c4bbd52e5132" role="tab" data-toggle="collapse" href="#collapse-196ca9d74431433ba376c4bbd52e5132"
-        aria-expanded="true"
-      >
-        技术踩坑
-        <span class="list-group-count">(2)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse show" id="collapse-196ca9d74431433ba376c4bbd52e5132"
-           role="tabpanel" aria-labelledby="heading-196ca9d74431433ba376c4bbd52e5132">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/2025/08/13/f15e0618f3e1/" title="解决SpringBoot中Lombok注解失效的那些坑"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">解决SpringBoot中Lombok注解失效的那些坑</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2025/09/01/50951d80d876/" title="Electron中导入better-sqlite3：为什么import不行，require却可以？"
-           class="list-group-item list-group-item-action
-           active">
-          <span class="category-post">Electron中导入better-sqlite3：为什么import不行，require却可以？</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-</div>
-
-
-  </aside>
-
 
     </div>
 
@@ -383,12 +322,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Electron中导入better-sqlite3：为什么import不行，require却可以？</h1>
+            <h1 id="seo-header">一个剪贴板管理工具</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年9月1日 晚上
+                    本文最后更新于 2025年11月7日 晚上
                   
                 
               </p>
@@ -396,75 +335,46 @@
             
               <div class="markdown-body">
                 
-                <p>在Electron开发过程中，我遇到一个有趣的问题：使用<code>import Database from &quot;better-sqlite3&quot;</code>导入模块时，不仅出现类型声明文件缺失的警告，还会报<code>__filename is not defined</code>的运行时错误。而换成<code>const Database = require(&quot;better-sqlite3&quot;)</code>后，一切正常。这个现象背后，其实是JavaScript两种主流模块系统——ESM与CommonJS的差异在作祟。</p>
-<h2 id="问题现象与直接原因"><a href="#问题现象与直接原因" class="headerlink" title="问题现象与直接原因"></a>问题现象与直接原因</h2><p>当使用ES模块语法导入better-sqlite3时，会遇到两个问题：</p>
-<ol>
-<li>类型检查错误：<code>无法找到模块“better-sqlite3”的声明文件</code></li>
-<li>运行时错误：<code>ReferenceError: __filename is not defined</code></li>
-</ol>
-<p>而切换到CommonJS的require语法后，这两个问题都消失了。要理解其中的原因，我们需要先深入了解ESM与CommonJS这两种模块系统的核心差异。</p>
-<h2 id="模块化的两种-“流派”：ESM-和-CommonJS"><a href="#模块化的两种-“流派”：ESM-和-CommonJS" class="headerlink" title="模块化的两种 “流派”：ESM 和 CommonJS"></a>模块化的两种 “流派”：ESM 和 CommonJS</h2><p>JavaScript 一开始是没有 “模块” 概念的，后来为了让代码更好管理，才出现了两种主流的模块系统：</p>
-<h3 id="1-CommonJS：Node-js-的-“老规矩”"><a href="#1-CommonJS：Node-js-的-“老规矩”" class="headerlink" title="1. CommonJS：Node.js 的 “老规矩”"></a>1. CommonJS：Node.js 的 “老规矩”</h3><p><strong>诞生背景</strong>：2009 年前后，Node.js 刚出来，需要一套规则管理服务器端的代码（比如读取文件、操作数据库），于是 CommonJS 就成了 Node.js 的 “默认规范”。</p>
-<p><strong>核心特点</strong>：</p>
-<ul>
-<li><p>用<code>require</code>导入模块，用<code>module.exports</code>导出模块</p>
-</li>
-<li><p>比如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 导出（math.js）</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">a, b</span>) &#123; <span class="hljs-keyword">return</span> a + b; &#125;<br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123; add &#125;;<br><br><span class="hljs-comment">// 导入（app.js）</span><br><span class="hljs-keyword">const</span> math = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./math&#x27;</span>); <span class="hljs-comment">// 可以省略.js后缀</span><br>math.<span class="hljs-title function_">add</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">// 结果是3</span><br></code></pre></td></tr></table></figure>
-</li>
-<li><p>运行时才加载模块，支持 “动态导入”（比如在<code>if</code>条件里加载不同模块）</p>
-</li>
-<li><p>每个模块里自带几个 “全局变量”：<code>__filename</code>（当前文件路径）、<code>__dirname</code>（当前文件夹路径），方便处理文件路径</p>
-</li>
+                <blockquote>
+<p><strong>eidetic</strong> &#x2F;aɪˈdetɪk&#x2F; ：形容词，意为”异常清晰的，过目不忘的”</p>
+<p>正如其名，希望这个工具能帮你记住每一个复制的瞬间。</p>
+</blockquote>
+<p>Eideticlip 是一款基于 Electron 和 Vue 3 开发的智能剪贴板管理工具。它能够自动记录您复制的所有文本内容，构建完整的剪贴板历史，让您随时回溯、查找并重用之前的复制记录。</p>
+<p>作为学习 Electron 开发的一个小项目，它在功能上可能不如 Windows 系统自带的剪贴板历史完善，但提供了更加个性化和可控的管理体验。</p>
+<h2 id="核心功能亮点"><a href="#核心功能亮点" class="headerlink" title="核心功能亮点"></a>核心功能亮点</h2><h3 id="📋-智能历史记录"><a href="#📋-智能历史记录" class="headerlink" title="📋 智能历史记录"></a>📋 智能历史记录</h3><ul>
+<li><strong>自动保存</strong>：后台静默记录所有复制的文本内容</li>
+<li><strong>快速检索</strong>：轻松查找之前的复制记录，支持关键词搜索</li>
+<li><strong>一键重用</strong>：点击即可重新使用历史剪贴板内容</li>
 </ul>
-<h3 id="2-ESM：浏览器和-Node-js-通用的-“新规范”"><a href="#2-ESM：浏览器和-Node-js-通用的-“新规范”" class="headerlink" title="2. ESM：浏览器和 Node.js 通用的 “新规范”"></a>2. ESM：浏览器和 Node.js 通用的 “新规范”</h3><p><strong>诞生背景</strong>：后来前端项目越来越大，也需要模块化。2015 年 ES6 推出了 ESM（ES Modules），想统一浏览器和服务器的模块化标准。</p>
-<p><strong>核心特点</strong>：</p>
-<ul>
-<li><p>用<code>import</code>导入模块，用<code>export</code>导出模块</p>
-</li>
-<li><p>比如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 导出（math.js）</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">a, b</span>) &#123; <span class="hljs-keyword">return</span> a + b; &#125;<br><br><span class="hljs-comment">// 导入（app.js）</span><br><span class="hljs-keyword">import</span> &#123; add &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./math.js&#x27;</span>; <span class="hljs-comment">// 必须写全.js后缀</span><br><span class="hljs-title function_">add</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">// 结果是3</span><br></code></pre></td></tr></table></figure>
-</li>
-<li><p>加载前先分析依赖（编译时静态分析），不支持在<code>if</code>里动态导入</p>
-</li>
-<li><p>没有<code>__filename</code>、<code>__dirname</code>这些变量（设计上更 “纯粹”，不绑定 Node.js 的文件系统）</p>
-</li>
+<h3 id="⌨️-高效操作体验"><a href="#⌨️-高效操作体验" class="headerlink" title="⌨️ 高效操作体验"></a>⌨️ 高效操作体验</h3><ul>
+<li><strong>全局快捷键</strong>：自定义唤醒快捷键，随时调出剪贴板历史</li>
+<li><strong>系统托盘集成</strong>：最小化至系统托盘，不干扰正常工作流程</li>
+<li><strong>即时呼出</strong>：通过快捷键快速唤出界面，提升工作效率</li>
 </ul>
-<h2 id="关键差异：为什么这些区别会导致报错？"><a href="#关键差异：为什么这些区别会导致报错？" class="headerlink" title="关键差异：为什么这些区别会导致报错？"></a>关键差异：为什么这些区别会导致报错？</h2><p>回到开头的问题：<code>better-sqlite3</code>为啥认<code>require</code>不认<code>import</code>？</p>
-<p>关键就在 <strong>CommonJS 的 “全局变量”</strong> 上。</p>
-<p><code>better-sqlite3</code>是一个 “Node.js 原生扩展”（底层用 C++ 写的，需要操作本地文件），它的代码里可能直接用了<code>__filename</code>来处理路径（比如找数据库文件的位置）。</p>
-<p>当你用<code>import</code>时：</p>
-<ul>
-<li>代码会按 ESM 规范运行，环境里没有<code>__filename</code>这个变量</li>
-<li><code>better-sqlite3</code>找不到这个变量，就会报<code>ReferenceError</code></li>
+<h3 id="🎨-个性化定制"><a href="#🎨-个性化定制" class="headerlink" title="🎨 个性化定制"></a>🎨 个性化定制</h3><ul>
+<li><strong>主题切换</strong>：支持亮色与暗色主题，适应不同使用环境</li>
+<li><strong>数据保存周期</strong>：可自定义历史记录的保存时长</li>
+<li><strong>快捷键自定义</strong>：根据使用习惯设置专属快捷键</li>
 </ul>
-<p>当你用<code>require</code>时：</p>
+<h2 id="界面展示"><a href="#界面展示" class="headerlink" title="界面展示"></a>界面展示</h2><h3 id="主界面"><a href="#主界面" class="headerlink" title="主界面"></a>主界面</h3><p>清晰展示剪贴板历史记录，支持快速查看和重复使用<br><img src="/2025/11/07/365fb68131e2/image-20251107213300571.png" srcset="/img/loading.gif" lazyload alt="image-20251107213300571"></p>
+<h3 id="设置界面"><a href="#设置界面" class="headerlink" title="设置界面"></a>设置界面</h3><p><img src="/2025/11/07/365fb68131e2/image-20251107211934334.png" srcset="/img/loading.gif" lazyload alt="image-20251107211934334"></p>
+<p>集成化设置面板，一站式管理所有个性化选项：</p>
 <ul>
-<li>代码会按 CommonJS 规范运行，<code>__filename</code>这些变量自动存在</li>
-<li><code>better-sqlite3</code>能正常找到需要的变量，自然就不报错了</li>
+<li>主题切换（亮色&#x2F;暗色）</li>
+<li>数据保存时间配置</li>
+<li>全局快捷键设置</li>
+<li>版本信息与更新检查</li>
 </ul>
-<p>在我的 Electron + Vue + Vite 项目中，整个项目采用 ES 模块（ESM）规范开发，并通过<code>package.json</code>中配置<code>&quot;type&quot;: &quot;module&quot;</code>实现了统一的模块化管理。</p>
-<p>针对<code>better-sqlite3</code>这类依赖 CommonJS 环境的模块，我们通过以下方式解决了 ESM 下的导入兼容问题：</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// 在ES模块中模拟CommonJS的require功能（因为Electron有时需要使用CommonJS模块）</span><br><span class="hljs-keyword">const</span> <span class="hljs-built_in">require</span> = <span class="hljs-title function_">createRequire</span>(<span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>.<span class="hljs-property">url</span>);<br><span class="hljs-keyword">const</span> <span class="hljs-title class_">Database</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;better-sqlite3&quot;</span>);<br></code></pre></td></tr></table></figure>
-
-<p>通过<code>createRequire</code>从当前模块的<code>import.meta.url</code>创建一个兼容 CommonJS 的<code>require</code>函数，既保留了项目整体的 ESM 规范，又能顺利导入<code>better-sqlite3</code>这类依赖传统 CommonJS 特性的模块，确保了项目的正常运行。</p>
-<h2 id="类型声明问题：另一个小插曲"><a href="#类型声明问题：另一个小插曲" class="headerlink" title="类型声明问题：另一个小插曲"></a>类型声明问题：另一个小插曲</h2><p>开头还提到 “找不到声明文件” 的警告，这是 TypeScript 的 “小脾气”：</p>
+<h2 id="更新机制"><a href="#更新机制" class="headerlink" title="更新机制"></a>更新机制</h2><p>Eideticlip 提供了便捷的更新体验：</p>
 <ul>
-<li><p><code>better-sqlite3</code>本身是用 JavaScript&#x2F;C++ 写的，没有自带 TypeScript 的类型说明</p>
-</li>
-<li><p>解决办法很简单：安装社区提供的类型声明文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install @types/better-sqlite3 --save-dev<br></code></pre></td></tr></table></figure>
-
-<p>（但这只能解决类型提示问题，解决不了<code>__filename</code>的报错，因为那是运行时问题）</p>
-</li>
+<li><strong>自动更新检查</strong>：应用启动时自动检测新版本</li>
+<li><strong>手动更新触发</strong>：在设置界面随时点击“检查更新”</li>
+<li><strong>下载安装一体化</strong>：检测到新版本后，自动下载并提示安装</li>
 </ul>
-<h2 id="总结：该用-import-还是-require？"><a href="#总结：该用-import-还是-require？" class="headerlink" title="总结：该用 import 还是 require？"></a>总结：该用 import 还是 require？</h2><p>简单说，看模块 “脾气”：</p>
-<ol>
-<li>像<code>better-sqlite3</code>这种依赖 Node.js 原生特性（比如<code>__filename</code>）的模块，优先用<code>require</code></li>
-<li>纯 JavaScript 写的现代模块（尤其是前端库），可以用<code>import</code></li>
-<li>如果项目里两种模块都有，可以混合使用（Electron 支持这种混合模式）</li>
-</ol>
-<p>ESM 是未来的趋势（浏览器和 Node.js 都在推广），但很多 Node.js 原生模块还依赖 CommonJS 的特性。了解这两种规范的区别，能帮你少踩很多 “导入报错” 的坑～</p>
+<blockquote>
+<p><strong>注意</strong>：自动更新功能需要能够访问 GitHub 网站。如遇网络限制，您也可以前往项目发布页面手动下载最新版本。</p>
+</blockquote>
+<p>Github仓库链接：<a target="_blank" rel="noopener" href="https://github.com/hnugreycrow/Eideticlip">https://github.com/hnugreycrow/Eideticlip</a></p>
 
                 
               </div>
@@ -483,7 +393,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B8%A9%E5%9D%91/" class="category-chain-item">技术踩坑</a>
+  <a href="/categories/%E5%85%B6%E4%BB%96/" class="category-chain-item">其他</a>
   
   
 
@@ -500,9 +410,7 @@
       
         <a href="/tags/Electron/" class="print-no-link">#Electron</a>
       
-        <a href="/tags/ESM/" class="print-no-link">#ESM</a>
-      
-        <a href="/tags/CommonJS/" class="print-no-link">#CommonJS</a>
+        <a href="/tags/vue/" class="print-no-link">#vue</a>
       
     </div>
   
@@ -514,8 +422,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Electron中导入better-sqlite3：为什么import不行，require却可以？</div>
-      <div>https://hnugreycrow.github.io/2025/09/01/50951d80d876/</div>
+      <div>一个剪贴板管理工具</div>
+      <div>https://hnugreycrow.github.io/2025/11/07/365fb68131e2/</div>
     </div>
     <div class="license-meta">
       
@@ -527,13 +435,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年9月1日</div>
+          <div>2025年11月7日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年9月1日</div>
+          <div>2025年11月7日</div>
         </div>
       
       
@@ -564,18 +472,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/11/07/365fb68131e2/" title="一个剪贴板管理工具">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">一个剪贴板管理工具</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/22/ef79f9bbfc55/" title="Vue3 笔记：透传 Attributes">
-                        <span class="hidden-mobile">Vue3 笔记：透传 Attributes</span>
+                      <a href="/2025/09/01/50951d80d876/" title="Electron中导入better-sqlite3：为什么import不行，require却可以？">
+                        <span class="hidden-mobile">Electron中导入better-sqlite3：为什么import不行，require却可以？</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

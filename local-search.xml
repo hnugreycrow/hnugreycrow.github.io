@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>一个剪贴板管理工具</title>
+    <link href="/2025/11/07/365fb68131e2/"/>
+    <url>/2025/11/07/365fb68131e2/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p><strong>eidetic</strong> &#x2F;aɪˈdetɪk&#x2F; ：形容词，意为”异常清晰的，过目不忘的”</p><p>正如其名，希望这个工具能帮你记住每一个复制的瞬间。</p></blockquote><p>Eideticlip 是一款基于 Electron 和 Vue 3 开发的智能剪贴板管理工具。它能够自动记录您复制的所有文本内容，构建完整的剪贴板历史，让您随时回溯、查找并重用之前的复制记录。</p><p>作为学习 Electron 开发的一个小项目，它在功能上可能不如 Windows 系统自带的剪贴板历史完善，但提供了更加个性化和可控的管理体验。</p><h2 id="核心功能亮点"><a href="#核心功能亮点" class="headerlink" title="核心功能亮点"></a>核心功能亮点</h2><h3 id="📋-智能历史记录"><a href="#📋-智能历史记录" class="headerlink" title="📋 智能历史记录"></a>📋 智能历史记录</h3><ul><li><strong>自动保存</strong>：后台静默记录所有复制的文本内容</li><li><strong>快速检索</strong>：轻松查找之前的复制记录，支持关键词搜索</li><li><strong>一键重用</strong>：点击即可重新使用历史剪贴板内容</li></ul><h3 id="⌨️-高效操作体验"><a href="#⌨️-高效操作体验" class="headerlink" title="⌨️ 高效操作体验"></a>⌨️ 高效操作体验</h3><ul><li><strong>全局快捷键</strong>：自定义唤醒快捷键，随时调出剪贴板历史</li><li><strong>系统托盘集成</strong>：最小化至系统托盘，不干扰正常工作流程</li><li><strong>即时呼出</strong>：通过快捷键快速唤出界面，提升工作效率</li></ul><h3 id="🎨-个性化定制"><a href="#🎨-个性化定制" class="headerlink" title="🎨 个性化定制"></a>🎨 个性化定制</h3><ul><li><strong>主题切换</strong>：支持亮色与暗色主题，适应不同使用环境</li><li><strong>数据保存周期</strong>：可自定义历史记录的保存时长</li><li><strong>快捷键自定义</strong>：根据使用习惯设置专属快捷键</li></ul><h2 id="界面展示"><a href="#界面展示" class="headerlink" title="界面展示"></a>界面展示</h2><h3 id="主界面"><a href="#主界面" class="headerlink" title="主界面"></a>主界面</h3><p>清晰展示剪贴板历史记录，支持快速查看和重复使用<br><img src="/2025/11/07/365fb68131e2/image-20251107213300571.png" alt="image-20251107213300571"></p><h3 id="设置界面"><a href="#设置界面" class="headerlink" title="设置界面"></a>设置界面</h3><p><img src="/2025/11/07/365fb68131e2/image-20251107211934334.png" alt="image-20251107211934334"></p><p>集成化设置面板，一站式管理所有个性化选项：</p><ul><li>主题切换（亮色&#x2F;暗色）</li><li>数据保存时间配置</li><li>全局快捷键设置</li><li>版本信息与更新检查</li></ul><h2 id="更新机制"><a href="#更新机制" class="headerlink" title="更新机制"></a>更新机制</h2><p>Eideticlip 提供了便捷的更新体验：</p><ul><li><strong>自动更新检查</strong>：应用启动时自动检测新版本</li><li><strong>手动更新触发</strong>：在设置界面随时点击“检查更新”</li><li><strong>下载安装一体化</strong>：检测到新版本后，自动下载并提示安装</li></ul><blockquote><p><strong>注意</strong>：自动更新功能需要能够访问 GitHub 网站。如遇网络限制，您也可以前往项目发布页面手动下载最新版本。</p></blockquote><p>Github仓库链接：<a href="https://github.com/hnugreycrow/Eideticlip">https://github.com/hnugreycrow/Eideticlip</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>其他</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Electron</tag>
+      
+      <tag>vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Electron中导入better-sqlite3：为什么import不行，require却可以？</title>
     <link href="/2025/09/01/50951d80d876/"/>
     <url>/2025/09/01/50951d80d876/</url>
