@@ -1,0 +1,2584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>hnugreycrow</title>
+  <subtitle>欢迎来到我的博客</subtitle>
+  <link href="https://github.com/hnugreycrow/hnugreycrow.github.io/" rel="alternate" type="text/html"/>
+  <link href="https://github.com/hnugreycrow/hnugreycrow.github.io/atom.xml" rel="self" type="application/atom+xml"/>
+  <id>https://github.com/hnugreycrow/hnugreycrow.github.io/</id>
+  <updated>2025-11-24T13:25:33.488Z</updated>
+  <language>zh_CN</language>
+  <entry>
+    <title>一个剪贴板管理工具</title>
+    <link href="https://github.com/posts/eideticlip/eideticlip/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/eideticlip/eideticlip/</id>
+    <published>2025-11-07T00:00:00.000Z</published>
+    <updated>2025-11-07T00:00:00.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<blockquote>
+<p><strong>eidetic</strong> /aɪˈdetɪk/ ：形容词，意为"异常清晰的，过目不忘的"</p>
+<p>正如其名，希望这个工具能帮你记住每一个复制的瞬间。</p>
+</blockquote>
+<p>Eideticlip 是一款基于 Electron 和 Vue 3 开发的智能剪贴板管理工具。它能够自动记录您复制的所有文本内容，构建完整的剪贴板历史，让您随时回溯、查找并重用之前的复制记录。</p>
+<p>作为学习 Electron 开发的一个小项目，它在功能上可能不如 Windows 系统自带的剪贴板历史完善，但提供了更加个性化和可控的管理体验。</p>
+<h2>核心功能亮点</h2>
+<h3>📋 智能历史记录</h3>
+<ul>
+<li><strong>自动保存</strong>：后台静默记录所有复制的文本内容</li>
+<li><strong>快速检索</strong>：轻松查找之前的复制记录，支持关键词搜索</li>
+<li><strong>一键重用</strong>：点击即可重新使用历史剪贴板内容</li>
+</ul>
+<h3>⌨️ 高效操作体验</h3>
+<ul>
+<li><strong>全局快捷键</strong>：自定义唤醒快捷键，随时调出剪贴板历史</li>
+<li><strong>系统托盘集成</strong>：最小化至系统托盘，不干扰正常工作流程</li>
+<li><strong>即时呼出</strong>：通过快捷键快速唤出界面，提升工作效率</li>
+</ul>
+<h3>🎨 个性化定制</h3>
+<ul>
+<li><strong>主题切换</strong>：支持亮色与暗色主题，适应不同使用环境</li>
+<li><strong>数据保存周期</strong>：可自定义历史记录的保存时长</li>
+<li><strong>快捷键自定义</strong>：根据使用习惯设置专属快捷键</li>
+</ul>
+<h2>界面展示</h2>
+<h3>主界面</h3>
+<p>清晰展示剪贴板历史记录，支持快速查看和重复使用
+<img src="./image-20251107213300571.png" alt="image-20251107213300571" /></p>
+<h3>设置界面</h3>
+<p><img src="./image-20251107211934334.png" alt="image-20251107211934334" /></p>
+<p>集成化设置面板，一站式管理所有个性化选项：</p>
+<ul>
+<li>主题切换（亮色/暗色）</li>
+<li>数据保存时间配置</li>
+<li>全局快捷键设置</li>
+<li>版本信息与更新检查</li>
+</ul>
+<h2>更新机制</h2>
+<p>Eideticlip 提供了便捷的更新体验：</p>
+<ul>
+<li><strong>自动更新检查</strong>：应用启动时自动检测新版本</li>
+<li><strong>手动更新触发</strong>：在设置界面随时点击“检查更新”</li>
+<li><strong>下载安装一体化</strong>：检测到新版本后，自动下载并提示安装</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>：自动更新功能需要能够访问 GitHub 网站。如遇网络限制，您也可以前往项目发布页面手动下载最新版本。</p>
+</blockquote>
+<p>Github仓库链接：<a href="https://github.com/hnugreycrow/Eideticlip">https://github.com/hnugreycrow/Eideticlip</a></p>
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Electron中导入better-sqlite3：为什么import不行，require却可以？</title>
+    <link href="https://github.com/posts/bug/electron%E4%B8%AD%E5%AF%BC%E5%85%A5better-sqlite3/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/bug/electron%E4%B8%AD%E5%AF%BC%E5%85%A5better-sqlite3/</id>
+    <published>2025-09-01T00:00:00.000Z</published>
+    <updated>2025-09-01T00:00:00.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>在Electron开发过程中，我遇到一个有趣的问题：使用<code>import Database from "better-sqlite3"</code>导入模块时，不仅出现类型声明文件缺失的警告，还会报<code>__filename is not defined</code>的运行时错误。而换成<code>const Database = require("better-sqlite3")</code>后，一切正常。这个现象背后，其实是JavaScript两种主流模块系统——ESM与CommonJS的差异在作祟。</p>
+<h2>问题现象与直接原因</h2>
+<p>当使用ES模块语法导入better-sqlite3时，会遇到两个问题：</p>
+<ol>
+<li>类型检查错误：<code>无法找到模块“better-sqlite3”的声明文件</code></li>
+<li>运行时错误：<code>ReferenceError: __filename is not defined</code></li>
+</ol>
+<p>而切换到CommonJS的require语法后，这两个问题都消失了。要理解其中的原因，我们需要先深入了解ESM与CommonJS这两种模块系统的核心差异。</p>
+<h2>模块化的两种 "流派"：ESM 和 CommonJS</h2>
+<p>JavaScript 一开始是没有 "模块" 概念的，后来为了让代码更好管理，才出现了两种主流的模块系统：</p>
+<h3>1. CommonJS：Node.js 的 "老规矩"</h3>
+<p><strong>诞生背景</strong>：2009 年前后，Node.js 刚出来，需要一套规则管理服务器端的代码（比如读取文件、操作数据库），于是 CommonJS 就成了 Node.js 的 "默认规范"。</p>
+<p><strong>核心特点</strong>：</p>
+<ul>
+<li>
+<p>用<code>require</code>导入模块，用<code>module.exports</code>导出模块</p>
+</li>
+<li>
+<p>比如：</p>
+<pre><code>// 导出（math.js）
+function add(a, b) { return a + b; }
+module.exports = { add };
+
+// 导入（app.js）
+const math = require('./math'); // 可以省略.js后缀
+math.add(1, 2); // 结果是3
+</code></pre>
+</li>
+<li>
+<p>运行时才加载模块，支持 "动态导入"（比如在<code>if</code>条件里加载不同模块）</p>
+</li>
+<li>
+<p>每个模块里自带几个 "全局变量"：<code>__filename</code>（当前文件路径）、<code>__dirname</code>（当前文件夹路径），方便处理文件路径</p>
+</li>
+</ul>
+<h3>2. ESM：浏览器和 Node.js 通用的 "新规范"</h3>
+<p><strong>诞生背景</strong>：后来前端项目越来越大，也需要模块化。2015 年 ES6 推出了 ESM（ES Modules），想统一浏览器和服务器的模块化标准。</p>
+<p><strong>核心特点</strong>：</p>
+<ul>
+<li>
+<p>用<code>import</code>导入模块，用<code>export</code>导出模块</p>
+</li>
+<li>
+<p>比如：</p>
+<pre><code>// 导出（math.js）
+export function add(a, b) { return a + b; }
+
+// 导入（app.js）
+import { add } from './math.js'; // 必须写全.js后缀
+add(1, 2); // 结果是3
+</code></pre>
+</li>
+<li>
+<p>加载前先分析依赖（编译时静态分析），不支持在<code>if</code>里动态导入</p>
+</li>
+<li>
+<p>没有<code>__filename</code>、<code>__dirname</code>这些变量（设计上更 "纯粹"，不绑定 Node.js 的文件系统）</p>
+</li>
+</ul>
+<h2>关键差异：为什么这些区别会导致报错？</h2>
+<p>回到开头的问题：<code>better-sqlite3</code>为啥认<code>require</code>不认<code>import</code>？</p>
+<p>关键就在 <strong>CommonJS 的 "全局变量"</strong> 上。</p>
+<p><code>better-sqlite3</code>是一个 "Node.js 原生扩展"（底层用 C++ 写的，需要操作本地文件），它的代码里可能直接用了<code>__filename</code>来处理路径（比如找数据库文件的位置）。</p>
+<p>当你用<code>import</code>时：</p>
+<ul>
+<li>代码会按 ESM 规范运行，环境里没有<code>__filename</code>这个变量</li>
+<li><code>better-sqlite3</code>找不到这个变量，就会报<code>ReferenceError</code></li>
+</ul>
+<p>当你用<code>require</code>时：</p>
+<ul>
+<li>代码会按 CommonJS 规范运行，<code>__filename</code>这些变量自动存在</li>
+<li><code>better-sqlite3</code>能正常找到需要的变量，自然就不报错了</li>
+</ul>
+<p>在我的 Electron + Vue + Vite 项目中，整个项目采用 ES 模块（ESM）规范开发，并通过<code>package.json</code>中配置<code>"type": "module"</code>实现了统一的模块化管理。</p>
+<p>针对<code>better-sqlite3</code>这类依赖 CommonJS 环境的模块，我们通过以下方式解决了 ESM 下的导入兼容问题：</p>
+<pre><code>// 在ES模块中模拟CommonJS的require功能（因为Electron有时需要使用CommonJS模块）
+const require = createRequire(import.meta.url);
+const Database = require("better-sqlite3");
+</code></pre>
+<p>通过<code>createRequire</code>从当前模块的<code>import.meta.url</code>创建一个兼容 CommonJS 的<code>require</code>函数，既保留了项目整体的 ESM 规范，又能顺利导入<code>better-sqlite3</code>这类依赖传统 CommonJS 特性的模块，确保了项目的正常运行。</p>
+<h2>类型声明问题：另一个小插曲</h2>
+<p>开头还提到 "找不到声明文件" 的警告，这是 TypeScript 的 "小脾气"：</p>
+<ul>
+<li>
+<p><code>better-sqlite3</code>本身是用 JavaScript/C++ 写的，没有自带 TypeScript 的类型说明</p>
+</li>
+<li>
+<p>解决办法很简单：安装社区提供的类型声明文件</p>
+<pre><code>npm install @types/better-sqlite3 --save-dev
+</code></pre>
+<p>（但这只能解决类型提示问题，解决不了<code>__filename</code>的报错，因为那是运行时问题）</p>
+</li>
+</ul>
+<h2>总结：该用 import 还是 require？</h2>
+<p>简单说，看模块 "脾气"：</p>
+<ol>
+<li>像<code>better-sqlite3</code>这种依赖 Node.js 原生特性（比如<code>__filename</code>）的模块，优先用<code>require</code></li>
+<li>纯 JavaScript 写的现代模块（尤其是前端库），可以用<code>import</code></li>
+<li>如果项目里两种模块都有，可以混合使用（Electron 支持这种混合模式）</li>
+</ol>
+<p>ESM 是未来的趋势（浏览器和 Node.js 都在推广），但很多 Node.js 原生模块还依赖 CommonJS 的特性。了解这两种规范的区别，能帮你少踩很多 "导入报错" 的坑～</p>
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+    <category term="技术踩坑"></category>
+  </entry>
+  <entry>
+    <title>Vue3 笔记：透传 Attributes</title>
+    <link href="https://github.com/posts/vue/vue3-%E9%80%8F%E4%BC%A0attributes/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/vue/vue3-%E9%80%8F%E4%BC%A0attributes/</id>
+    <published>2025-08-22T00:00:00.000Z</published>
+    <updated>2025-08-22T00:00:00.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>在 Vue 组件开发中，属性传递是核心场景之一。props 适用于明确声明的属性，但当需要灵活传递未声明的属性或事件、封装第三方组件时，<strong>透传 Attributes</strong> 成为更高效的解决方案。</p>
+<h2>一、什么是透传 Attributes？</h2>
+<p>官方定义：<strong>透传 Attributes 指传递给组件但未被声明为 props 或 emits 的 attribute 或 v-on 事件监听器</strong>，最常见的包括 <code>class</code>、<code>style</code>、<code>id</code> 以及自定义事件等。</p>
+<p>在 Vue3 中，透传 Attributes 会被收集到组件实例的 <code>$attrs</code> 中，可通过 <code>useAttrs()</code>（script setup）或 <code>this.$attrs</code>（选项式 API）访问。</p>
+<h3>访问 $attrs 的两种方式</h3>
+<ol>
+<li>
+<p>script setup 中：useAttrs ()</p>
+<pre><code>import { useAttrs } from 'vue';
+const attrs = useAttrs();
+</code></pre>
+</li>
+<li>
+<p>选项式 API 中：this.$attrs</p>
+<pre><code>export default {
+  mounted() {
+    console.log(this.$attrs); // 直接通过实例访问
+  }
+};
+</code></pre>
+</li>
+</ol>
+<p>官方明确指出，<code>$attrs</code> <strong>不是响应式对象</strong>（出于性能优化考虑）。虽然它会随着父组件传递的属性变化而更新（始终反映最新状态），但无法通过 <code>watch</code> 或 <code>watchEffect</code> 直接监听其变化。</p>
+<p>例如，以下代码无法触发监听逻辑：</p>
+<pre><code>import { useAttrs, watch } from 'vue';
+const attrs = useAttrs();
+
+// 无效：无法监听 $attrs 的变化
+watch(attrs, (newVal) =&gt; {
+  console.log('attrs 变化了', newVal);
+});
+</code></pre>
+<p>若需要在 <code>$attrs</code> 变化时执行副作用，官方推荐两种方案：</p>
+<ol>
+<li>
+<p><strong>使用 props</strong>：将需要响应的属性通过 <code>defineProps</code> 声明（props 是响应式的）；</p>
+</li>
+<li>
+<p>使用 <code>onUpdated</code> 钩子：在组件更新时（<code>$attrs</code>已同步最新值）执行逻辑：</p>
+<pre><code>import { useAttrs, onUpdated } from 'vue';
+const attrs = useAttrs();
+
+onUpdated(() =&gt; {
+  // 每次更新时获取最新的 attrs
+  console.log('最新的 attrs', attrs);
+});
+</code></pre>
+</li>
+</ol>
+<h2>二、透传 Attributes 的基础特性</h2>
+<h3>1. 自动收集未声明属性</h3>
+<p>父组件传递的属性中，未被子组件通过 <code>defineProps</code> 声明的部分，会自动归入 <code>$attrs</code>：</p>
+<pre><code>&lt;!-- 父组件 Parent.vue --&gt;
+&lt;template&gt;
+  &lt;Child id="user-card" class="card" title="用户信息" /&gt;
+&lt;/template&gt;
+
+&lt;!-- 子组件 Child.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;{{ title }}&lt;/div&gt;
+&lt;/template&gt;
+&lt;script setup&gt;
+import { useAttrs, onMounted } from 'vue';
+
+// 仅声明 title 为 props
+const props = defineProps(['title']);
+// 获取透传的剩余属性
+const attrs = useAttrs();
+
+onMounted(() =&gt; {
+  console.log(attrs); // { id: 'user-card', class: 'card' }
+});
+&lt;/script&gt;
+</code></pre>
+<h3>2. 自动绑定到根元素</h3>
+<p>默认情况下，子组件的 <strong>根元素会自动绑定 <code>$attrs</code></strong>。上述示例中，Child 组件的根元素 <code>&lt;div&gt;</code> 会被渲染为：</p>
+<pre><code>&lt;div id="user-card" class="card"&gt;用户信息&lt;/div&gt;
+</code></pre>
+<p>这一特性在封装基础组件时尤为实用，无需手动转发属性。</p>
+<h3>3. class 与 style 的特殊处理</h3>
+<p><code>class</code>和<code>style</code>是特殊的透传Attributes：当子组件根元素已有自身的<code>class</code>和<code>style</code>时，会与透传的<code>class</code>和<code>style</code>自动合并，而非覆盖：</p>
+<pre><code>&lt;!-- 子组件 Child.vue --&gt;
+&lt;template&gt;
+  &lt;!-- 根元素自身有 class --&gt;
+  &lt;div class="base"&gt;用户信息&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;!-- 父组件传递 class="card" 后，渲染结果： --&gt;
+&lt;div class="base card"&gt;用户信息&lt;/div&gt;
+</code></pre>
+<h2>三、控制透传行为：inheritAttrs 选项</h2>
+<p>默认情况下，<code>$attrs</code> 会自动绑定到根元素。若需自定义绑定目标（如非根元素），可通过 <code>defineOptions</code> 设置 <code>inheritAttrs: false</code> 禁用自动绑定，再手动绑定 <code>$attrs</code>。</p>
+<h3>1. 绑定到非根元素</h3>
+<pre><code>&lt;!-- 子组件 Child.vue --&gt;
+&lt;template&gt;
+  &lt;div class="wrapper"&gt;
+    &lt;!-- 手动将 $attrs 绑定到内部元素 --&gt;
+    &lt;div class="content" v-bind="$attrs"&gt;
+      {{ title }}
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script setup&gt;
+import { useAttrs, defineOptions } from 'vue';
+
+// 禁用根元素自动绑定
+defineOptions({ inheritAttrs: false });
+
+const props = defineProps(['title']);
+const attrs = useAttrs(); // 仍可访问 $attrs，仅禁用自动绑定
+&lt;/script&gt;
+</code></pre>
+<p>渲染结果：<code>id</code> 和 <code>class</code> 仅绑定到 <code>.content</code>，而非根元素 <code>.wrapper</code>。</p>
+<h3>2. 多根节点组件的强制手动绑定</h3>
+<p>Vue3 支持多根节点组件，但此时 <strong><code>$attrs</code> 不会自动绑定到任何节点</strong>，必须手动指定绑定位置，否则会触发警告：</p>
+<pre><code>&lt;!-- 多根节点组件（正确示例） --&gt;
+&lt;template&gt;
+  &lt;div&gt;节点1&lt;/div&gt;
+  &lt;!-- 手动绑定 $attrs 到需要的节点 --&gt;
+  &lt;div v-bind="$attrs"&gt;节点2（接收透传属性）&lt;/div&gt;
+&lt;/template&gt;
+&lt;script setup&gt;
+// 若未手动绑定，会触发警告：
+// [Vue warn]: Extraneous non-props attributes were passed but could not be inherited
+&lt;/script&gt;
+</code></pre>
+<h2>四、嵌套组件的透传</h2>
+<p>当组件层级超过两层（如 Parent → Middle → Child）时，<code>$attrs</code> <strong>不会自动传递给深层子组件</strong>，需中间组件手动转发。</p>
+<h3>1. 未转发导致的属性丢失</h3>
+<pre><code>&lt;!-- 三层结构：Parent → Middle → Child --&gt;
+&lt;!-- Parent.vue 传递属性：id、class、title --&gt;
+&lt;!-- Middle.vue（未转发 $attrs） --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h3&gt;中间组件&lt;/h3&gt;
+    &lt;Child /&gt; &lt;!-- 未绑定 $attrs，Child 无法接收属性 --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p>此时 Child 组件的 <code>$attrs</code> 为空，无法获取 Parent 传递的属性。</p>
+<h3>2. 手动转发的两种方式</h3>
+<h4>（1）全量转发（推荐）</h4>
+<p>通过 <code>v-bind="$attrs"</code> 将中间组件的 <code>$attrs</code> 全部转发给子组件：</p>
+<pre><code>&lt;!-- Middle.vue（全量转发） --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h3&gt;中间组件&lt;/h3&gt;
+    &lt;Child v-bind="$attrs" /&gt; &lt;!-- 关键：转发所有透传属性 --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4>（2）选择性转发</h4>
+<p>如需过滤或加工属性，可从 <code>$attrs</code> 中提取指定属性转发：</p>
+<pre><code>&lt;!-- Middle.vue（选择性转发） --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h3&gt;中间组件&lt;/h3&gt;
+    &lt;Child 
+      :title="attrs.title?.toUpperCase()" &lt;!-- 加工后转发 --&gt;
+      :desc="attrs.desc" 
+    /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script setup&gt;
+import { useAttrs } from 'vue';
+const attrs = useAttrs();
+&lt;/script&gt;
+</code></pre>
+<h3>3. 中间组件声明 props 后的透传规则</h3>
+<p>若中间组件通过 <code>defineProps</code> 声明了部分属性，这些属性会从 <code>$attrs</code> 中移除，转发时仅包含未声明的剩余属性：</p>
+<pre><code>&lt;!-- Middle.vue（声明了 title 为 props） --&gt;
+&lt;script setup&gt;
+const props = defineProps(['title']); // title 被声明为 props
+const attrs = useAttrs(); // attrs 仅包含未声明的 id、class、desc
+&lt;/script&gt;
+</code></pre>
+<p>此时 <code>v-bind="$attrs"</code> 仅转发 <code>id</code>、<code>class</code>、<code>desc</code>，若 Child 需要 <code>title</code>，需中间组件手动传递：<code>&lt;Child :title="title" v-bind="$attrs" /&gt;</code>。</p>
+<h2>五、v-on 监听器继承</h2>
+<p>Vue3 中，<code>$attrs</code> 不仅包含属性，还包含父组件传递的 <strong>v-on 事件监听器</strong>（事件以 <code>onXxx</code> 形式存在，如 <code>@click</code> 对应 <code>attrs.onClick</code>）。转发 <code>$attrs</code> 时，事件会自动同步传递。</p>
+<pre><code>&lt;!-- 父组件传递事件 --&gt;
+&lt;template&gt;
+  &lt;Child @click="handleClick" @input="handleInput" /&gt;
+&lt;/template&gt;
+
+&lt;!-- 子组件接收并转发事件 --&gt;
+&lt;template&gt;
+  &lt;button v-bind="$attrs"&gt;点击我&lt;/button&gt; &lt;!-- 点击会触发父组件的 handleClick --&gt;
+&lt;/template&gt;
+&lt;script setup&gt;
+import { useAttrs } from 'vue';
+const attrs = useAttrs();
+console.log(attrs); // { onClick: ƒ, onInput: ƒ }
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>与 Vue2 区别：Vue2 中事件需通过 <code>$listeners</code> 单独转发，Vue3 中事件统一归入 <code>$attrs</code>，简化了转发逻辑。</p>
+</blockquote>
+<h2>六、适用场景与不适用场景</h2>
+<h3>适用场景</h3>
+<ol>
+<li>
+<p><strong>封装第三方组件</strong>
+无需声明第三方组件的所有属性，通过 <code>v-bind="$attrs"</code> 自动转发，减少代码冗余：</p>
+<pre><code>&lt;!-- 封装 Element Plus 的 ElInput --&gt;
+&lt;template&gt;
+  &lt;el-input v-bind="$attrs" v-model="modelValue" /&gt;
+&lt;/template&gt;
+&lt;script setup&gt;
+const props = defineProps(['modelValue']);
+&lt;/script&gt;
+</code></pre>
+</li>
+<li>
+<p><strong>多层级属性透传</strong>
+超过 2 层的组件结构（如 Page→Card→Form→Input），用 <code>v-bind="$attrs"</code> 转发比每层声明 props 更高效。</p>
+</li>
+<li>
+<p><strong>动态属性传递</strong>
+接收不确定的动态属性（如后端配置的表单属性），<code>$attrs</code> 可作为灵活的容器。</p>
+</li>
+</ol>
+<h3>不适用场景</h3>
+<ol>
+<li>
+<p><strong>需要类型校验</strong>
+<code>$attrs</code> 无类型校验，需严格校验时用 props：</p>
+<pre><code>// 推荐：用 props 做类型校验
+const props = defineProps({
+  age: { type: Number, required: true }
+});
+</code></pre>
+</li>
+<li>
+<p><strong>需要默认值</strong>
+<code>$attrs</code> 无法设置默认值，需默认值时用 props 的 <code>default</code> 选项。</p>
+</li>
+<li>
+<p><strong>属性需加工处理</strong>
+需修改属性值（如格式化）时，建议通过 props 接收后加工再传递。</p>
+</li>
+</ol>
+<h2>七、常见问题与解决方案</h2>
+<h3>1. 样式冲突（class/style 自动合并）</h3>
+<p><strong>问题</strong>：透传的 <code>class</code>/<code>style</code> 与子组件根元素样式冲突。
+<strong>解决方案</strong>：禁用自动绑定，手动控制绑定位置：</p>
+<pre><code>&lt;template&gt;
+  &lt;div class="parent"&gt;
+    &lt;!-- 仅将非样式属性转发给子组件 --&gt;
+    &lt;Child v-bind="filterAttrs" /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script setup&gt;
+import { useAttrs, computed, defineOptions } from 'vue';
+defineOptions({ inheritAttrs: false }); // 禁用根元素自动绑定
+
+const attrs = useAttrs();
+// 过滤 class 和 style
+const filterAttrs = computed(() =&gt; {
+  const { class: _, style: __, ...rest } = attrs;
+  return rest;
+});
+&lt;/script&gt;
+</code></pre>
+<h3>2. 中间组件声明的 props 无法传递到子组件</h3>
+<p><strong>问题</strong>：中间组件声明的 props 不在 <code>$attrs</code> 中，导致子组件无法获取。
+<strong>解决方案</strong>：中间组件手动传递已声明的 props：</p>
+<pre><code>&lt;!-- Middle.vue --&gt;
+&lt;template&gt;
+  &lt;Child v-bind="$attrs" :title="title" /&gt; &lt;!-- 手动传递 title --&gt;
+&lt;/template&gt;
+&lt;script setup&gt;
+const props = defineProps(['title']); // title 被声明为 props
+&lt;/script&gt;
+</code></pre>
+<h2>总结</h2>
+<p>透传 Attributes（<code>$attrs</code>）是 Vue3 组件通信的重要补充，核心价值在于<strong>简化未声明属性 / 事件的传递</strong>。关键知识点：</p>
+<ul>
+<li><code>$attrs</code> 包含未被 props 声明的属性和事件，需通过 <code>useAttrs()</code> 或 <code>this.$attrs</code> 访问；</li>
+<li>单根组件默认自动绑定 <code>$attrs</code> 到根元素，<code>inheritAttrs: false</code> 可禁用此行为；</li>
+<li>多根组件必须手动绑定 <code>$attrs</code>，否则会触发警告；</li>
+<li>嵌套组件需通过 <code>v-bind="$attrs"</code> 手动转发 <code>$attrs</code>；</li>
+<li>适合封装第三方组件、多层透传和动态属性场景，不适合需要类型校验或默认值的场景。</li>
+</ul>
+<p>通过合理使用 <code>$attrs</code>，可大幅提升组件的灵活性和开发效率。</p>
+<blockquote>
+<p>官方文档完整参考：<a href="https://cn.vuejs.org/guide/components/attrs.html">透传 Attributes | Vue.js</a></p>
+</blockquote>
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+    <category term="Vue"></category>
+  </entry>
+  <entry>
+    <title>Vue3 笔记：深入响应式系统</title>
+    <link href="https://github.com/posts/vue/vue3-%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/vue/vue3-%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F/</id>
+    <published>2025-08-18T00:00:00.000Z</published>
+    <updated>2025-08-18T00:00:00.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<h2>什么是响应性</h2>
+<p>响应性是一种声明式处理变化的编程范式：当依赖数据变化时，依赖其计算的结果会自动更新。例如 Excel 中单元格通过公式关联，修改源单元格时目标单元格自动更新；而 JavaScript 默认不具备此特性，需通过特定机制实现。</p>
+<p>官方文档：<a href="https://cn.vuejs.org/guide/extras/reactivity-in-depth.html#runtime-vs-compile-time-reactivity">深入响应式系统 | Vue.js (vuejs.org)</a></p>
+<h2>Vue 中响应性的实现原理</h2>
+<p>Vue 通过拦截对象属性的读写操作，追踪依赖并在数据变化时触发更新，核心依赖<strong>Proxy</strong>（用于<code>reactive</code>）和<strong>getter/setter</strong>（用于<code>ref</code>）实现。</p>
+<h3>1. 响应式对象的创建</h3>
+<ul>
+<li>
+<p><strong><code>reactive()</code>实现</strong>：通过 Proxy 创建对象代理，拦截属性的<code>get</code>（读取）和<code>set</code>（修改）操作：</p>
+<pre><code>function reactive(obj) {
+  return new Proxy(obj, {
+    get(target, key) {
+      track(target, key); // 追踪依赖
+      return target[key];
+    },
+    set(target, key, value) {
+      target[key] = value;
+      trigger(target, key); // 触发更新
+    }
+  });
+}
+</code></pre>
+</li>
+<li>
+<p><strong><code>ref()</code>实现</strong>：通过对象的<code>getter/setter</code>拦截<code>value</code>属性的读写（用于原始值或非对象值）：</p>
+<pre><code>function ref(value) {
+  const refObject = {
+    get value() {
+      track(refObject, 'value'); // 追踪依赖
+      return value;
+    },
+    set value(newValue) {
+      value = newValue;
+      trigger(refObject, 'value'); // 触发更新
+    }
+  };
+  return refObject;
+}
+</code></pre>
+</li>
+</ul>
+<h3>2. 依赖追踪（<code>track(target, key)</code>）与更新触发（<code>trigger(target, key)</code>）的详细机制</h3>
+<p>在 Vue 的响应式系统中，<code>track()</code> 和 <code>trigger()</code> 是实现 “数据变化自动触发更新” 的核心函数。前者负责记录 “谁依赖了数据”，后者负责在数据变化时 “通知依赖者更新”，二者配合完成从数据追踪到副作用执行的闭环。</p>
+<h4>（1）依赖追踪：<code>track(target, key)</code> 的作用与实现细节</h4>
+<p><code>track()</code> 的核心任务是：<strong>当响应式数据的属性被读取时，记录当前正在运行的 “副作用”（effect），并将其与该属性关联起来</strong>，以便后续数据变化时能精准触发这个副作用。</p>
+<ul>
+<li>
+<p><strong>触发时机</strong>：<code>track()</code> 会在响应式对象的属性被访问（即触发 <code>get</code> 拦截器）时调用。例如：</p>
+<ul>
+<li>访问 <code>reactive</code> 对象的属性（如 <code>obj.foo</code>）时，Proxy 的 <code>get</code> 方法会调用 <code>track(obj, 'foo')</code>。</li>
+<li>访问 <code>ref</code> 的 <code>value</code> 属性（如 <code>count.value</code>）时，<code>get value()</code> 会调用 <code>track(refObject, 'value')</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>核心逻辑</strong>：</p>
+<pre><code>// 全局变量：当前正在运行的副作用（仅在副作用执行期间有效）
+let activeEffect;
+
+function track(target, key) {
+  // 只有当存在活跃的副作用时才进行追踪
+  if (activeEffect) {
+    // 1. 查找目标对象 target 中 key 对应的副作用集合
+    const effects = getSubscribersForProperty(target, key);
+    // 2. 将当前活跃的副作用添加到该集合中
+    effects.add(activeEffect);
+  }
+}
+</code></pre>
+</li>
+<li>
+<p><strong>依赖存储结构</strong>：<code>WeakMap&lt;target, Map&lt;key, Set&lt;effect&gt;&gt;&gt;</code>
+<code>track()</code> 需要一个全局的数据结构来保存 “目标对象→属性→副作用集合” 的映射关系，具体结构为：</p>
+<ul>
+<li><strong>外层：<code>WeakMap&lt;target, Map&gt;</code></strong>：键是响应式对象（<code>target</code>），值是一个 Map（存储该对象所有属性的副作用）。</li>
+<li><strong>中层：<code>Map&lt;key, Set&lt;effect&gt;&gt;</code></strong>：键是对象的属性名（<code>key</code>），值是一个 Set（存储依赖该属性的所有副作用）。</li>
+<li><strong>内层：<code>Set&lt;effect&gt;</code></strong>：存储依赖该属性的所有副作用函数（确保副作用不重复）。</li>
+</ul>
+<p><code>getSubscribersForProperty(target, key)</code> 函数的作用就是根据这个结构查找或创建副作用集合：</p>
+<pre><code>// 伪代码：获取属性对应的副作用集合
+function getSubscribersForProperty(target, key) {
+  // 1. 为目标对象创建一个 Map（若不存在）
+  const targetMap = globalWeakMap.get(target) || new Map();
+  if (!globalWeakMap.has(target)) {
+    globalWeakMap.set(target, targetMap);
+  }
+  // 2. 为属性创建一个 Set（若不存在）
+  const effectSet = targetMap.get(key) || new Set();
+  if (!targetMap.has(key)) {
+    targetMap.set(key, effectSet);
+  }
+  return effectSet;
+}
+</code></pre>
+</li>
+<li>
+<p><strong>关键：<code>activeEffect</code> 的作用</strong>：<code>activeEffect</code> 是一个全局变量，仅在副作用函数执行期间被赋值为当前副作用。这使得 <code>track()</code> 能精准识别 “谁正在依赖这个属性”，并将其加入依赖集合。</p>
+</li>
+</ul>
+<h4>（2）更新触发：<code>trigger(target, key)</code> 的作用与实现细节</h4>
+<p><code>trigger()</code> 的核心任务是：<strong>当响应式数据的属性被修改时，找到该属性的所有依赖副作用，并执行这些副作用</strong>，从而实现 “数据变化→自动更新”。</p>
+<ul>
+<li>
+<p><strong>触发时机</strong>：<code>trigger()</code> 会在响应式对象的属性被修改（即触发 <code>set</code> 拦截器）时调用。例如：</p>
+<ul>
+<li>修改 <code>reactive</code> 对象的属性（如 <code>obj.foo = 2</code>）时，Proxy 的 <code>set</code> 方法会调用 <code>trigger(obj, 'foo')</code>。</li>
+<li>修改 <code>ref</code> 的 <code>value</code> 属性（如 <code>count.value = 2</code>）时，<code>set value(newValue)</code> 会调用 <code>trigger(refObject, 'value')</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>核心逻辑</strong>：</p>
+<pre><code>function trigger(target, key) {
+  // 1. 查找目标对象 target 中 key 对应的副作用集合
+  const effects = getSubscribersForProperty(target, key);
+  // 2. 执行所有副作用（重新运行依赖该属性的代码）
+  effects.forEach((effect) =&gt; effect());
+}
+</code></pre>
+</li>
+<li>
+<p><strong>执行副作用的意义</strong>：副作用函数通常包含依赖数据的计算或操作（如更新 DOM、计算属性值等）。当数据变化时，重新执行副作用能确保这些操作基于最新数据执行，从而保持视图或计算结果与数据的同步。例如，在组件渲染场景中，副作用函数是组件的渲染函数：当数据变化时，<code>trigger()</code> 会触发渲染函数重新执行，生成新的虚拟 DOM 并更新页面。</p>
+</li>
+</ul>
+<h4>（3）<code>track()</code> 与 <code>trigger()</code> 的协同流程示例</h4>
+<p>以一个简单的响应式场景为例，完整流程如下：</p>
+<ol>
+<li>
+<p><strong>初始化响应式数据</strong>：</p>
+<pre><code>const count = ref(0); // 创建 ref，内部通过 getter/setter 拦截 value 访问
+</code></pre>
+</li>
+<li>
+<p><strong>创建响应式副作用</strong>：</p>
+<pre><code>watchEffect(() =&gt; {
+  // 副作用函数：依赖 count.value，用于更新 DOM
+  document.body.innerHTML = `Count: ${count.value}`;
+});
+</code></pre>
+<ul>
+<li><code>watchEffect</code> 会包装副作用函数，执行前将其设为 <code>activeEffect</code>（<code>activeEffect = 当前副作用</code>）。</li>
+<li>执行副作用时，访问 <code>count.value</code> 触发 <code>get</code> 拦截器，调用 <code>track(count, 'value')</code>。</li>
+<li><code>track()</code> 发现 <code>activeEffect</code> 存在，将该副作用加入 <code>count</code> 的 <code>value</code> 属性对应的副作用集合中。</li>
+</ul>
+</li>
+<li>
+<p><strong>修改数据触发更新</strong>：</p>
+<pre><code>count.value = 1; // 修改 value，触发 set 拦截器
+</code></pre>
+<ul>
+<li><code>set</code> 拦截器调用 <code>trigger(count, 'value')</code>。</li>
+<li><code>trigger()</code> 找到 <code>count.value</code> 对应的副作用集合，执行该副作用函数。</li>
+<li>副作用函数重新执行，基于最新的 <code>count.value</code> 更新 DOM，页面显示 <code>Count: 1</code>。</li>
+</ul>
+</li>
+</ol>
+<h4>（4）关键特性与边界情况</h4>
+<ul>
+<li><strong>精准触发</strong>：<code>track()</code> 只追踪当前活跃的副作用，<code>trigger()</code> 只执行被追踪的副作用，确保更新仅影响真正依赖数据的部分，避免不必要的性能消耗。</li>
+<li><strong>去重处理</strong>：使用 <code>Set</code> 存储副作用，避免同一副作用被重复添加，确保每次数据变化时副作用只执行一次。</li>
+<li><strong>嵌套副作用</strong>：若副作用函数内部又创建了新的副作用（如组件嵌套场景），<code>activeEffect</code> 会动态更新为当前执行的副作用，确保依赖关系正确嵌套。</li>
+</ul>
+<h3>3. 响应式副作用</h3>
+<ul>
+<li>
+<p>副作用：依赖响应式数据、并在数据变化时需重新执行的函数（如更新 DOM、计算结果等）。</p>
+</li>
+<li>
+<p>Vue 通过<code>watchEffect()</code>创建响应式副作用，其原理是包装副作用函数，执行前将自身设为 “活跃副作用”，使<code>track()</code>能识别并关联依赖：</p>
+<pre><code>function whenDepsChange(update) {
+  const effect = () =&gt; {
+    activeEffect = effect; // 标记当前活跃副作用
+    update(); // 执行副作用（触发依赖追踪）
+    activeEffect = null;
+  };
+  effect(); // 首次执行，建立依赖关系
+}
+</code></pre>
+<p>示例：使用<code>watchEffect</code>自动更新计算结果：</p>
+<pre><code>const A0 = ref(0);
+const A1 = ref(1);
+watchEffect(() =&gt; {
+  const A2 = A0.value + A1.value; // 追踪A0、A1
+});
+A0.value = 2; // 触发副作用，重新计算A2
+</code></pre>
+</li>
+</ul>
+<h3>4. 计算属性（<code>computed</code>）</h3>
+<p>内部基于响应式副作用实现：当依赖变化时，自动重新计算结果，且会缓存计算值（依赖未变时直接返回缓存）。</p>
+<pre><code>const A2 = computed(() =&gt; A0.value + A1.value); // 依赖A0、A1，自动更新
+</code></pre>
+<h2>核心逻辑总结</h2>
+<p>Vue 响应式系统通过 Proxy/getter 拦截属性读写，用<code>track()</code>记录依赖（副作用），用<code>trigger()</code>在数据变化时触发副作用重新执行，实现 “数据变化→自动更新” 的声明式效果。<code>reactive</code>用于对象，<code>ref</code>用于原始值，<code>watchEffect</code>和<code>computed</code>则是基于此机制的高层 API。通过<code>track()</code>和<code>trigger()</code>的配合，Vue 实现了 “数据驱动” 的核心特性：开发者只需关注数据变化，响应式系统会自动完成依赖追踪和更新触发，大幅简化了状态管理逻辑。</p>
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+    <category term="Vue"></category>
+  </entry>
+  <entry>
+    <title>Vue3 笔记：响应式基础</title>
+    <link href="https://github.com/posts/vue/vue3-%E5%93%8D%E5%BA%94%E5%BC%8F%E5%9F%BA%E7%A1%80/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/vue/vue3-%E5%93%8D%E5%BA%94%E5%BC%8F%E5%9F%BA%E7%A1%80/</id>
+    <published>2025-08-16T00:00:00.000Z</published>
+    <updated>2025-08-16T00:00:00.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>最近翻 Vue3 文档，重新过了一遍响应式的基础内容。之前用的时候总有些细节记不清，比如 ref 和 reactive 到底该怎么选、为什么有时候改了数据页面不更，这次特意整理了笔记（过程中也借助了大模型辅助梳理逻辑、补充细节😉），主要是给自己后续查着方便，内容以复习要点为主，可能有理解不到位的地方，先记下来慢慢修正。</p>
+<p>官方文档：<a href="https://cn.vuejs.org/guide/essentials/reactivity-fundamentals.html">响应式基础 | Vue.js (vuejs.org)</a></p>
+<h2>一. 声明响应式状态</h2>
+<h3>1. 组合式 API：ref()</h3>
+<p>定义：ref() 接收参数，并将其包裹在一个带有 .value 属性的 ref 对象中返回：</p>
+<pre><code>import { ref } from 'vue'
+const count = ref(0)
+count.value++ // 修改值
+</code></pre>
+<ul>
+<li>模板使用：无需 .value，自动解包；可直接在事件监听器中修改（如@click="count++"）。</li>
+<li>优势：支持所有数据类型（原始值、对象等），可传递给函数并保持响应性。</li>
+<li>简化语法：在<code>&lt;script setup&gt;</code>中，顶层声明的ref和方法可直接在模板使用，无需手动暴露。</li>
+</ul>
+<blockquote>
+<p>注意：在 JavaScript 中需要 .value 来访问和修改 ref 的值。</p>
+</blockquote>
+<h3>2. 组合式 API：reactive()</h3>
+<p>定义：reactive()接收对象 / 数组等，返回其响应式代理（Proxy），直接通过属性访问 / 修改。</p>
+<pre><code>import { reactive } from 'vue'
+const state = reactive({ count: 0 })
+state.count++ // 修改值
+</code></pre>
+<p>特性：代理与原始对象不等价（reactive(raw) !== raw），同一原始对象多次调用reactive()返回同一代理。</p>
+<h2>二. 核心特性</h2>
+<h3>1. 深层响应式</h3>
+<p>默认行为：ref()和reactive()均默认实现深层响应性，嵌套对象 / 数组的修改会被追踪。</p>
+<pre><code>const obj = ref({ nested: { count: 0 } })
+obj.value.nested.count++ // 触发响应式更新
+</code></pre>
+<p>浅层响应性：可通过shallowRef（仅.value访问被追踪）或shallowReactive（仅顶层属性响应式）关闭深层响应性，优化性能。</p>
+<h3>2. DOM 更新时机</h3>
+<p>异步更新：Vue 会在“next tick”更新周期中缓冲所有状态的修改，以确保不管你进行了多少次状态修改，每个组件都只会被更新一次。
+等待更新：需在 DOM 更新后执行代码时，使用nextTick()：</p>
+<pre><code>async function increment() {
+  count.value++
+  await nextTick() // 此时DOM已更新
+}
+</code></pre>
+<h2>三. reactive() 的局限性</h2>
+<p>reactive() API 有一些局限性：</p>
+<ul>
+<li>
+<p>有限的值类型：它只能用于对象类型 (对象、数组和如 Map、Set 这样的集合类型)。它不能持有如 string、number 或 boolean 这样的原始类型。</p>
+</li>
+<li>
+<p>不能替换整个对象：由于 Vue 的响应式跟踪是通过属性访问实现的，因此我们必须始终保持对响应式对象的相同引用。这意味着我们不能轻易地“替换”响应式对象，因为这样的话与第一个引用的响应性连接将丢失。</p>
+</li>
+<li>
+<p>对解构操作不友好：解构属性为本地变量或传递给函数时，响应性连接断开。</p>
+</li>
+</ul>
+<blockquote>
+<p>Vue官方建议：优先使用ref()作为响应式状态声明的主要 API。</p>
+</blockquote>
+<h2>四. ref 解包细节</h2>
+<p>作为 reactive 对象的属性：自动解包，行为类似普通属性。</p>
+<pre><code>const count = ref(0)
+const state = reactive({ count })
+console.log(state.count) // 0（自动解包）
+state.count = 1
+console.log(count.value) // 1
+</code></pre>
+<p>数组 / 集合中：不会自动解包，需显式使用.value。</p>
+<pre><code>const books = reactive([ref('Vue Guide')])
+console.log(books[0].value) // 需显式.value
+</code></pre>
+<p>模板中：仅顶级属性自动解包，嵌套属性需解构为顶级属性才能解包。</p>
+<pre><code>const object = { id: ref(1) }
+const { id } = object // 解构为顶级属性
+</code></pre>
+<p>模板中<code>{{ id + 1 }}</code>生效（解包），而<code>{{ object.id + 1 }}</code>不生效（未解包）。</p>
+<p>如果 ref 是文本插值的最终计算值 (即 <code>{{ }}</code> 标签)，会自动解包。该特性仅仅是文本插值的一个便利特性，等价于 <code>{{ object.id.value }}</code>。</p>
+<h2>五、关键问题</h2>
+<h3>为什么 ref 需要 .value 访问？</h3>
+<p>因为在标准的 JavaScript 中，检测普通变量的访问和修改是行不通的。但可以通过 getter 和 setter 方法来拦截对象属性的 get 和 set 操作。</p>
+<p>而 ref 的设计思路是：用一个对象包裹原始值，这个对象只暴露一个 <code>.value</code> 属性。通过为 <code>.value</code> 定义 getter 和 setter，Vue 就能在你访问 <code>xxx.value</code> 时追踪依赖（收集谁在用这个值），在你修改 <code>xxx.value = ...</code> 时触发更新（通知用到这个值的地方重新渲染）。</p>
+<p>简单说，<code>.value</code> 是 Vue 为了让原始类型也能具备响应式，而 “绕的一小步”—— 通过对象属性的拦截能力，间接实现对原始值的追踪。</p>
+<h3>ref()和reactive()的核心区别是什么？</h3>
+<p>① 支持类型：ref()支持所有数据类型（原始值、对象等），reactive()仅支持对象、数组等非原始类型；
+② 访问方式：ref()需通过.value访问 / 修改值，reactive()直接通过属性访问；
+③ 局限性：reactive()存在无法替换对象、解构丢失响应性等问题，ref()无这些限制；
+④ 解包规则：ref()在模板中自动解包，作为响应式对象属性时也自动解包，而reactive()无类似解包逻辑。</p>
+<h3>为什么修改响应式状态后 DOM 没有立即更新？如何确保在 DOM 更新后执行代码？</h3>
+<p>Vue 会将所有状态修改缓冲到 “next tick” 更新周期中，确保每个组件只更新一次，提升性能。若需在 DOM 更新后执行代码，可使用nextTick()全局 API，它返回一个 Promise，在 DOM 更新完成后 resolve。示例：</p>
+<pre><code>import { nextTick } from 'vue'
+async function update() {
+  count.value++
+  await nextTick()
+  // DOM已更新
+}
+</code></pre>
+<h3>在模板中使用ref时，为什么有时需要显式.value，有时不需要？</h3>
+<p>模板中ref的解包规则为：
+① 顶级属性自动解包（无需.value），如<code>const count = ref(0)</code>在模板中<code>{{ count }}</code>生效；
+② 嵌套属性（如<code>object.id</code>，其中id是ref）不会自动解包，需解构为顶级属性（<code>const { id } = object</code>）才能解包；
+③ 若ref是文本插值的最终值（如<code>{{ object.id }}</code>），会自动解包（等价于<code>{{ object.id.value }}</code>）。因此，非顶级嵌套ref在模板中参与计算时需先解构，否则需显式处理。</p>
+<h3>浅层响应性的核心适用场景是什么？</h3>
+<p><strong>核心适用场景：数据 “大而不变” 或 “仅需整体替换”</strong>
+当数据满足以下特征时，用浅层响应性可以显著提升性能：</p>
+<p><strong>处理 “大型不可变数据”（如后端返回的海量列表）</strong>
+<strong>场景</strong>：从后端获取的大型列表（如 1000 条以上数据），且业务中只需要展示、不需要修改其中的嵌套属性（仅可能整体替换列表）。
+<strong>问题</strong>：如果用普通ref或reactive，Vue 会递归地将所有嵌套属性转为响应式（创建大量 Proxy），导致初始化时性能开销大。
+<strong>解决方案</strong>：用shallowRef，只追踪.value的整体替换，不处理内部属性：</p>
+<pre><code>import { shallowRef } from 'vue'
+// 假设data是包含1000条数据的大型数组
+const bigList = shallowRef(data) 
+
+// ✅ 有效：整体替换时触发更新（符合业务需求）
+bigList.value = newData 
+
+// ❌ 无效：修改内部属性不会触发更新（但业务本就不需要修改）
+bigList.value[0].name = '新名字' 
+</code></pre>
+<p><strong>管理 “纯展示性的复杂对象”（如配置项、图表数据）</strong>
+<strong>场景</strong>：页面中的配置对象（如表单布局配置、图表的 option），结构复杂但运行中不会修改嵌套属性，只会整体替换。
+<strong>问题</strong>：深层响应性会对嵌套的每个对象 / 数组创建 Proxy，而这些 Proxy 完全用不上，属于浪费。
+<strong>解决方案</strong>：用shallowReactive（对象）或shallowRef（整体替换）：</p>
+<pre><code>import { shallowReactive } from 'vue'
+// 复杂配置对象，仅用于展示，不修改内部属性
+const chartOptions = shallowReactive({
+  xAxis: { type: 'category' },
+  series: [{ data: [1, 2, 3] }]
+})
+
+// ✅ 有效：修改顶层属性会触发更新（如果需要）
+chartOptions.xAxis = { type: 'value' }
+
+// ❌ 无效：修改嵌套属性不触发更新（业务不需要）
+chartOptions.series[0].data.push(4) 
+</code></pre>
+<p><strong>手动控制更新时机（避免频繁触发）</strong>
+<strong>场景</strong>：需要批量修改数据，且希望 “修改完所有内容后再统一更新 DOM”，而不是每改一个属性就更新一次。
+<strong>问题</strong>：普通响应式会在每次修改时触发更新，批量操作时可能导致多次无用渲染。
+<strong>解决方案</strong>：用shallowRef配合triggerRef（手动触发更新）：</p>
+<pre><code>import { shallowRef, triggerRef } from 'vue'
+const formData = shallowRef({ name: '', age: 0 })
+
+// 批量修改（不会触发更新）
+formData.value.name = '张三'
+formData.value.age = 20
+// ...更多修改
+
+// 手动触发一次更新（减少渲染次数）
+triggerRef(formData) 
+</code></pre>
+<p><strong>不适用场景：警惕 “过度优化”</strong>
+浅层响应性的 “性能优化” 是有代价的 —— 丢失了深层追踪能力，因此以下场景绝对不能用：</p>
+<ul>
+<li>数据需要修改嵌套属性（如用户信息对象{ user: { name: 'xxx' } }，需要修改name）；</li>
+<li>数据结构简单（如仅包含 1-2 层的小对象），此时深层响应性的性能开销可忽略，没必要用浅层；</li>
+<li>新手对响应式原理不熟悉，容易因 “修改不触发更新” 导致 bug。</li>
+</ul>
+<blockquote>
+<p>浅层响应性是 “按需关闭深层追踪” 的优化手段，核心适用场景是：
+<strong>数据结构复杂但仅需整体替换，或嵌套属性完全不需要修改。</strong>
+它的设计不是为了 “替代” 普通响应式，而是在特定场景下（如处理大型数据）减少不必要的性能消耗，属于 “进阶优化技巧”，需结合具体业务判断是否使用。</p>
+</blockquote>
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+    <category term="Vue"></category>
+  </entry>
+  <entry>
+    <title>Docker学习笔记(二)：容器数据卷</title>
+    <link href="https://github.com/posts/docker/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/docker/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/</id>
+    <published>2025-08-14T00:00:00.000Z</published>
+    <updated>2025-08-14T00:00:00.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<h2>一、数据卷核心概念</h2>
+<h3>1.1 定义</h3>
+<p><strong>数据卷是宿主机文件系统中的一个目录或文件</strong>，通过挂载机制与容器内指定路径关联，实现宿主机与容器的双向数据共享。</p>
+<h3>1.2 本质</h3>
+<ul>
+<li>类似Linux的<code>mount</code>命令，容器访问挂载路径时实际操作的是宿主机数据卷</li>
+<li>数据卷独立于容器生命周期，容器删除后数据仍保存在宿主机</li>
+</ul>
+<h2>二、数据卷的三大核心作用</h2>
+<p>数据卷的设计初衷，就是为了解决容器与数据分离的问题，其核心作用可以概括为三点：</p>
+<h3>2.1 容器数据持久化</h3>
+<ul>
+<li><strong>场景</strong>：数据库、日志文件等需要长期保存的数据</li>
+<li><strong>案例</strong>：MySQL容器挂载数据卷后，即使容器崩溃，数据库文件仍可通过数据卷恢复</li>
+</ul>
+<h3>2.2 宿主机与容器双向交互</h3>
+<ul>
+<li><strong>实时同步特性</strong>：
+<ul>
+<li>宿主机修改卷目录文件 → 容器内立即生效（如本地代码编辑后容器热更新）</li>
+<li>容器生成数据（日志、配置）→ 实时同步到宿主机（方便本地查看分析）</li>
+</ul>
+</li>
+</ul>
+<h3>2.3 多容器数据共享</h3>
+<ul>
+<li><strong>场景</strong>：前端容器与后端容器共享静态资源、多个服务共享配置文件</li>
+<li><strong>案例</strong>：Nginx（展示静态页）与Node.js（生成静态页）通过数据卷自动同步资源</li>
+</ul>
+<h2>三、数据卷的基础操作实践</h2>
+<h3>3.1 创建并挂载数据卷（基础命令）</h3>
+<p>使用docker run命令时，通过-v参数可以直接创建并挂载数据卷：</p>
+<pre><code># 语法：docker run -v 宿主机路径:容器内路径 [其他参数] 镜像名
+docker run -d \
+  -p 8080:80 \
+  -v /root/nginx/myapp:/usr/share/nginx/html \  # 挂载数据卷
+  --name mynginx \
+  nginx
+</code></pre>
+<p>上述命令的含义是：</p>
+<ul>
+<li>
+<p>启动一个名为mynginx的 Nginx 容器；</p>
+</li>
+<li>
+<p>将宿主机的/root/nginx/myapp目录（若不存在会自动创建）挂载到容器内的/usr/share/nginx/html（Nginx 默认静态文件目录）；</p>
+</li>
+<li>
+<p>此时在宿主机/root/nginx/myapp中放入index.html，访问<a href="http://localhost:8080/">http://localhost:8080</a>即可看到页面。</p>
+</li>
+</ul>
+<h3>3.2. 查看挂载详情</h3>
+<p>通过docker inspect命令可以查看容器的挂载详情：​</p>
+<pre><code>docker inspect mynginx​
+</code></pre>
+<p>在输出的 JSON 结果中，找到Mounts字段，会显示如下信息：</p>
+<pre><code>"Mounts": [​
+    {​
+        "Type": "bind",​
+        "Source": "/root/nginx/myapp",  // 宿主机目录​
+        "Destination": "/usr/share/nginx/html",  // 容器内目录​
+        "Mode": "",
+        "RW": true,  // 读写权限（默认可读写）​
+        "Propagation": "rprivate"​
+    }​
+]​
+</code></pre>
+<h2>四、数据卷容器：简化多容器共享场景</h2>
+<p>当多个容器需要共享数据时，逐一为每个容器配置-v参数会显得繁琐。<strong>数据卷容器</strong>（Volume Container）正是为简化这种场景而生。</p>
+<h3>4.1 什么是数据卷容器？</h3>
+<ul>
+<li>专门用于管理数据卷的 "中介容器"，其他容器通过<code>--volumes-from</code>继承其挂载配置</li>
+<li>优势：简化多容器挂载配置，统一管理数据卷路径</li>
+</ul>
+<h3>4.2 使用步骤</h3>
+<h4>步骤 1：创建数据卷容器</h4>
+<pre><code># 创建仅用于挂载数据卷的容器（无需运行服务）
+docker run -it \
+  -v /data:/shared-data \  # 定义数据卷
+  --name volume-container \  # 命名数据卷容器
+  ubuntu /bin/bash
+</code></pre>
+<h4>步骤 2：其他容器继承挂载配置</h4>
+<pre><code># 容器A继承数据卷
+docker run -it --volumes-from volume-container --name container-A ubuntu /bin/bash
+
+# 容器B继承数据卷（与A共享同一数据卷）
+docker run -it --volumes-from volume-container --name container-B ubuntu /bin/bash
+</code></pre>
+<ul>
+<li><strong>效果</strong>：容器 A、B 与宿主机<code>/data</code>目录实时同步数据</li>
+</ul>
+<h3>4.3 注意事项</h3>
+<ol>
+<li>数据卷容器停止 / 删除后，其他容器仍可正常使用数据卷</li>
+<li>彻底清理数据卷需手动删除宿主机对应目录（如<code>/data</code>）</li>
+<li>可多层继承（容器 A 继承自数据卷容器，容器 B 继承自容器 A）</li>
+</ol>
+<h2>五、复习要点总结</h2>
+<ol>
+<li><strong>核心目标</strong>：解决 "容器临时性" 与 "数据持久性" 的矛盾</li>
+<li><strong>基础命令</strong>：<code>-v</code>挂载、<code>docker inspect</code>查看、<code>--volumes-from</code>继承</li>
+<li><strong>关键区别</strong>：
+<ul>
+<li>普通挂载：直接指定宿主机路径（适合单容器）</li>
+<li>数据卷容器：通过中介容器管理（适合多容器共享）</li>
+</ul>
+</li>
+</ol>
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Docker学习笔记(三)：部署MySQL</title>
+    <link href="https://github.com/posts/docker/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%89/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/docker/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%89/</id>
+    <published>2025-08-14T00:00:00.000Z</published>
+    <updated>2025-08-14T00:00:00.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>在之前的服务器环境中，手动安装并配置MySQL的过程较为繁琐，因此我转而采用Docker容器化方案进行部署，通过标准化镜像和持久化存储机制，实现了更高效的数据库环境管理与版本控制。</p>
+<p>这篇笔记就记录下用 Docker 部署 MySQL 的全过程，给自己留个存档。</p>
+<h2>一、准备工作</h2>
+<h3>1. 搜索MySQL镜像（可选）</h3>
+<pre><code>docker search mysql
+</code></pre>
+<p>❌问题：搜索出现超时，配置了国内镜像源也没用</p>
+<h3>2. 拉取MySQL 5.7镜像</h3>
+<p>因为听说指定版本拉取更稳妥，避免后续出现版本兼容问题，所以我选择了 5.7 版本：</p>
+<pre><code>docker pull mysql:5.7
+</code></pre>
+<h3>3. 创建MySQL目录</h3>
+<pre><code>mkdir -p ~/mysql/{log,data,conf}
+
+# 进入创建好的mysql目录
+cd ~/mysql
+</code></pre>
+<ul>
+<li>
+<p>log目录打算用来存 MySQL 的运行日志</p>
+</li>
+<li>
+<p>data目录很重要，用来存数据库的数据，这样就算容器没了，数据也还在</p>
+</li>
+<li>
+<p>conf目录用来放一些自定义的配置文件</p>
+</li>
+</ul>
+<h2>二、部署MySQL容器</h2>
+<h3>1. 运行MySQL容器</h3>
+<pre><code>docker run -p 3307:3306 --name mysql \
+-v $PWD/log:/var/log/mysql \
+-v $PWD/data:/var/lib/mysql \
+-v $PWD/conf:/etc/mysql/conf.d \
+-e MYSQL_ROOT_PASSWORD=123456 \
+-d mysql:5.7
+</code></pre>
+<p>✅ <strong>参数说明</strong>：</p>
+<ul>
+<li>-p 3307:3306`：端口映射（宿主机 3307 端口 → 容器 3306 端口，避免与宿主机本地 MySQL 冲突）</li>
+<li><code>--name mysql</code>：容器命名（便于后续操作）</li>
+<li><code>-v</code>：目录挂载（实现宿主机与容器文件共享，保障数据持久化）</li>
+<li><code>-e MYSQL_ROOT_PASSWORD=123456</code>：设置 root 用户密码</li>
+<li><code>-d</code>：后台运行容器</li>
+<li><code>mysql:5.7</code>：指定使用的镜像</li>
+<li><strong><code>$PWD</code><strong>它会动态记录你在终端中当前所在的目录的</strong>绝对路径</strong>，因为我们已经进入了mysql目录，所以这里是/root/mysql</li>
+</ul>
+<h3>2. 连接MySQL容器</h3>
+<p>在容器内部，使用 root 用户登录 MySQL：</p>
+<pre><code># 进入运行中的容器
+docker exec -it mysql bash
+
+# 在容器内登录MySQL（注意：密码输入时无回显，输入完成直接回车）
+mysql -u root -p
+# 输入密码：123456（之前设置的root密码）
+</code></pre>
+<p>⚠️ <strong>注意</strong>：密码参数<code>-p</code>后无空格，直接接密码</p>
+<h2>三、创建远程访问用户并授权</h2>
+<p>执行以下 SQL 命令创建一个允许远程访问的用户（以用户名 admin为例）：</p>
+<pre><code>-- 创建用户（允许所有IP访问）
+CREATE USER 'admin'@'%' IDENTIFIED BY 'your_password';
+
+-- 授予所有权限（根据需要调整权限范围）
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+
+-- 刷新权限使设置生效
+FLUSH PRIVILEGES;
+</code></pre>
+<p><strong>权限说明</strong>：</p>
+<ul>
+<li>'%' 表示允许从任何 IP 地址访问</li>
+<li>如果你想限制特定 IP，可以将 % 替换为具体 IP，例如 '192.168.1.100'</li>
+<li><em>.</em> 表示所有数据库的所有表，可根据需要限制为特定数据库，例如 appdb.*</li>
+<li>ALL PRIVILEGES 可以替换为具体权限，如 SELECT,INSERT,UPDATE</li>
+</ul>
+<h2>补充：容器与镜像意外删后的恢复方法</h2>
+<p>在使用 Docker 的过程中，偶尔可能会误删容器或镜像，不必惊慌，只要我们做好了数据持久化，恢复工作会非常简单。以下是具体的恢复方法：</p>
+<h3>1. 容器被误删后的恢复</h3>
+<p>如果只是删除了容器（<code>docker rm</code>），但数据卷（volume）和镜像还在，恢复步骤如下：</p>
+<p><strong>步骤1：确认数据目录是否完好</strong></p>
+<pre><code># 检查之前挂载的数据目录
+ls -l ~/mysql/data
+</code></pre>
+<p>如果能看到数据库文件（如 ibdata1、ib_logfile0 等），说明数据没有丢失</p>
+<p><strong>步骤2：重新创建并启动容器</strong>
+使用与之前相同的运行命令即可，Docker 会自动使用现有数据目录：</p>
+<pre><code>docker run -p 3307:3306 --name mysql \
+-v ~/mysql/log:/var/log/mysql \
+-v ~/mysql/data:/var/lib/mysql \
+-v ~/mysql/conf:/etc/mysql/conf.d \
+-e MYSQL_ROOT_PASSWORD=123456 \
+-d mysql:5.7
+</code></pre>
+<p>新容器会直接读取已有的数据文件，恢复到删除前的状态</p>
+<h3>2. 镜像被误删后的恢复</h3>
+<p>Docker 中，<strong>镜像被删除的前提是关联容器已停止并删除</strong>（否则会提示 “容器正在使用镜像”，无法删除）。因此镜像误删时，容器必然已不存在，需重新拉取镜像并重建容器。</p>
+<pre><code>(base) [root@iZ7xvcxkgs6i5l3z060714Z ~]# docker rmi mysql:5.7
+Error response from daemon: conflict: unable to remove repository reference "mysql:5.7" (must force) - container 60d1ed6c60a6 is using its referenced image 5107333e08a8
+</code></pre>
+<p>恢复步骤：</p>
+<p><strong>步骤1：重新拉取相同版本的镜像</strong></p>
+<pre><code>docker pull mysql:5.7
+</code></pre>
+<p><strong>步骤2：基于原有数据目录重建容器</strong></p>
+<h3>3. 预防措施</h3>
+<p>恢复的前提是 “数据未丢失”，因此提前预防比事后恢复更重要。建议做好以下 3 点：</p>
+<p><strong>3.1 定期备份数据目录</strong></p>
+<pre><code># 压缩备份数据目录
+# 格式：tar -zcvf 备份文件名 目标目录
+tar -zcvf mysql_backup_$(date +%Y%m%d).tar.gz ~/mysql/data
+</code></pre>
+<p><strong>如何从备份恢复</strong>？</p>
+<p>如果数据目录丢失，可从备份文件恢复：</p>
+<pre><code># 解压备份到数据目录（确保目录存在）
+tar -zxvf ~/mysql_backup_20250815.tar.gz -C ~/mysql/
+# 解压后会自动覆盖~/mysql/data目录，再重建容器即可
+</code></pre>
+<p><strong>3.2 导出容器配置</strong></p>
+<pre><code># 创建启动脚本
+cat &gt; start_mysql.sh &lt;&lt; 'EOF'
+#!/bin/bash
+docker run -p 3307:3306 --name mysql \
+-v ~/mysql/log:/var/log/mysql \
+-v ~/mysql/data:/var/lib/mysql \
+-v ~/mysql/conf:/etc/mysql/conf.d \
+-e MYSQL_ROOT_PASSWORD=123456 \
+-d mysql:5.7
+EOF
+
+# 赋予执行权限
+chmod +x start_mysql.sh
+</code></pre>
+<p><strong>3.3 慎用删除命令</strong>
+执行删除操作前先确认：</p>
+<pre><code># 查看所有容器（包括停止的）
+docker ps -a
+# 查看所有镜像
+docker images
+</code></pre>
+<h2>四、小结</h2>
+<p>通过Docker容器化部署MySQL，我成功解决了手动安装配置MySQL的繁琐问题，实现了数据库环境的快速部署与管理。同时，容器化还带来了环境隔离、版本控制、迁移方便等优势，为后续的应用开发提供了更可靠的基础。</p>
+<p>其他软件如Nginx、Redis、Tomcat等也可以采用类似的方式进行容器化部署，极大地简化了应用的运维管理。</p>
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Docker学习笔记(一)：Docker常用命令</title>
+    <link href="https://github.com/posts/docker/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%80/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/docker/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%80/</id>
+    <published>2025-08-13T00:00:00.000Z</published>
+    <updated>2025-08-13T00:00:00.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>整理了 Docker 核心命令的用法，从服务管理到容器操作，方便后续复习查阅。</p>
+<h2>一、Docker服务基础操作（守护进程管理）</h2>
+<h3>1.1 服务启停控制</h3>
+<ul>
+<li>启动：<code>systemctl start docker</code><br />
+✅ 核心功能：启动Docker守护进程（dockerd），初始化镜像/容器管理环境<br />
+⚠️ 注意：启动失败用<code>journalctl -u docker</code>查日志</li>
+<li>停止：<code>systemctl stop docker</code><br />
+✅ 核心功能：终止守护进程及所有运行中容器<br />
+⚠️ 注意：先手动停止重要容器，避免数据未持久化</li>
+<li>重启：<code>systemctl restart docker</code><br />
+✅ 核心场景：修改配置文件（如<code>/etc/docker/daemon.json</code>）后生效</li>
+</ul>
+<h3>1.2 服务状态查询</h3>
+<ul>
+<li>命令：<code>systemctl status docker</code><br />
+✅ 核心功能：查看服务运行状态及最近日志<br />
+🔍 状态解读：
+<ul>
+<li>绿色<code>active (running)</code>：正常运行</li>
+<li>红色<code>inactive (dead)</code>：已停止</li>
+</ul>
+</li>
+</ul>
+<h2>二、镜像操作命令（Image）</h2>
+<h3>2.1 镜像获取与搜索</h3>
+<ul>
+<li>
+<p>拉取镜像：<code>docker pull &lt;镜像名:标签&gt;</code><br />
+✅ 核心功能：从远程仓库下载镜像（默认Docker Hub）<br />
+🔍 格式示例：<code>docker pull mysql:8.0</code>（指定版本，推荐生产环境使用）<br />
+⚠️ 注意：<code>latest</code>标签可能随时间变化，避免生产环境直接使用</p>
+</li>
+<li>
+<p>搜索镜像：<code>docker search &lt;关键词&gt;</code><br />
+✅ 核心功能：在Docker Hub检索镜像<br />
+🔍 结果解读：<code>OFFICIAL=OK</code>为官方镜像（安全性更高）<br />
+❌ 常见问题：网络超时（<code>i/o timeout</code>）→ 需配置国内镜像源</p>
+</li>
+</ul>
+<h3>2.2 镜像管理与查询</h3>
+<ul>
+<li>
+<p>查看本地镜像：<code>docker images</code><br />
+✅ 核心功能：列出本地所有镜像信息<br />
+🔍 输出解读：<code>REPOSITORY</code>（仓库名）、<code>TAG</code>（版本）、<code>IMAGE ID</code>（唯一标识）<br />
+⚡ 快捷用法：<code>docker images -q</code>（仅输出镜像ID，用于批量操作）</p>
+</li>
+<li>
+<p>查看镜像详情：<code>docker inspect &lt;镜像ID/名称&gt;</code><br />
+✅ 核心功能：获取镜像完整元数据（构建历史、环境变量等）</p>
+</li>
+</ul>
+<h3>2.3 镜像删除</h3>
+<ul>
+<li>命令：<code>docker rmi &lt;镜像ID/名称&gt;</code><br />
+✅ 核心功能：删除本地镜像<br />
+⚠️ 注意：若镜像被容器引用（即使容器已停止），需先删除容器<br />
+⚡ 强制删除：<code>docker rmi -f &lt;镜像ID&gt;</code>（不推荐，可能残留数据）</li>
+</ul>
+<h2>三、容器操作命令（Container）</h2>
+<h3>3.1 容器创建与启动</h3>
+<ul>
+<li>
+<p>新建并启动：<code>docker run [参数] &lt;镜像名&gt;</code><br />
+✅ 核心功能：基于镜像创建并启动容器（= 新建+启动）<br />
+⚡ 必学参数：</p>
+<ul>
+<li><code>-d</code>：后台运行（不占用终端）</li>
+<li><code>-p 主机端口:容器端口</code>：端口映射（如<code>-p 8080:80</code>）</li>
+<li><code>--name &lt;名称&gt;</code>：指定容器名（避免随机名称）</li>
+<li><code>-it</code>：交互式终端（如<code>docker run -it ubuntu /bin/bash</code>）</li>
+</ul>
+</li>
+<li>
+<p>启动已停止容器：<code>docker start &lt;容器ID/名称&gt;</code><br />
+✅ 核心区别：<code>start</code>用于“启动已存在容器”，<code>run</code>用于“新建+启动”</p>
+</li>
+</ul>
+<h3>3.2 容器查看与进入</h3>
+<ul>
+<li>
+<p>查看容器列表：</p>
+<ul>
+<li><code>docker ps</code>：查看运行中容器</li>
+<li><code>docker ps -a</code>：查看所有容器（含已停止）</li>
+<li><code>docker ps -q</code>：仅输出容器ID（批量操作如<code>docker stop $(docker ps -q)</code>）</li>
+</ul>
+</li>
+<li>
+<p>进入运行中容器：<code>docker exec -it &lt;容器ID/名称&gt; &lt;终端命令&gt;</code><br />
+✅ 示例：<code>docker exec -it my-nginx /bin/bash</code>（进入bash终端）<br />
+⚠️ 注意：需容器处于运行状态，<code>-it</code>参数缺一不可（保持交互）</p>
+</li>
+</ul>
+<h3>3.3 容器停止与销毁</h3>
+<ul>
+<li>
+<p>停止容器：<code>docker stop &lt;容器ID/名称&gt;</code><br />
+✅ 核心功能：优雅停止（发送SIGTERM信号，允许保存数据）<br />
+⚡ 强制停止：<code>docker kill &lt;容器ID&gt;</code>（发送SIGKILL，紧急情况使用）</p>
+</li>
+<li>
+<p>删除容器：<code>docker rm &lt;容器ID/名称&gt;</code><br />
+✅ 核心功能：删除已停止容器<br />
+⚠️ 注意：运行中容器需先停止，或用<code>docker rm -f &lt;容器ID&gt;</code>强制删除（谨慎使用）</p>
+</li>
+</ul>
+<h3>3.4 容器详情查询</h3>
+<ul>
+<li>命令：<code>docker inspect &lt;容器ID/名称&gt;</code><br />
+✅ 核心用途：查看IP地址、挂载路径等关键信息（如<code>NetworkSettings.IPAddress</code>）</li>
+</ul>
+<h2>四、常见问题与易错点</h2>
+<h3>4.1 网络问题</h3>
+<ul>
+<li>现象：拉取/搜索镜像超时（<code>i/o timeout</code>）</li>
+<li>解决：配置国内镜像源（如阿里云、网易），修改<code>/etc/docker/daemon.json</code>后重启服务</li>
+</ul>
+<h3>4.2 命令混淆</h3>
+<table>
+<thead>
+<tr>
+<th>易混淆命令</th>
+<th>核心区别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker run</code> vs <code>docker start</code></td>
+<td><code>run</code>=新建+启动；<code>start</code>=启动已存在容器</td>
+</tr>
+<tr>
+<td><code>docker stop</code> vs <code>docker kill</code></td>
+<td><code>stop</code>优雅停止；<code>kill</code>强制终止</td>
+</tr>
+<tr>
+<td><code>docker rmi</code> vs <code>docker rm</code></td>
+<td><code>rmi</code>删镜像；<code>rm</code>删容器</td>
+</tr>
+</tbody>
+</table>
+<h2>五、学习小结</h2>
+<h3>核心逻辑链</h3>
+<p>服务（daemon）→ 镜像（模板）→ 容器（运行实例），操作需按“启动服务→管理镜像→操作容器”递进</p>
+<h3>后续重点</h3>
+<ol>
+<li>配置国内镜像源，解决网络问题</li>
+<li>学习数据卷（<code>volume</code>），解决容器数据持久化</li>
+<li>实战部署（Nginx/MySQL），练习命令组合使用</li>
+</ol>
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+  </entry>
+  <entry>
+    <title>解决SpringBoot中Lombok注解失效的那些坑</title>
+    <link href="https://github.com/posts/bug/%E8%A7%A3%E5%86%B3springboot%E4%B8%ADlombok%E6%B3%A8%E8%A7%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/bug/%E8%A7%A3%E5%86%B3springboot%E4%B8%ADlombok%E6%B3%A8%E8%A7%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/</id>
+    <published>2025-08-13T00:00:00.000Z</published>
+    <updated>2025-08-13T00:00:00.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>在 SpringBoot 项目开发中，Lombok 注解突然失效是一个很常见的问题，表现为明明添加了 @Data 等注解，却在编译时出现 “找不到符号”（如缺失 getter/setter 方法）的错误。本文记录了我在项目中遇到该问题的排查过程，分析了 Lombok 注解失效与 Maven 编译插件（maven-compiler-plugin）配置、版本管理之间的关系，并总结了可行的解决方案和最佳实践。
+&lt;!-- more --&gt;</p>
+<p>在开发SpringBoot项目时，相信很多同学都遇到过Lombok注解突然失效的问题：代码里明明加了<code>@Data</code>注解，编译时却报"找不到符号"（比如缺失getter/setter方法）。最近我在项目中就遇到了类似问题，通过排查终于找到原因，在这里记录一下整个过程和解决方案。</p>
+<h2>问题现象</h2>
+<p>项目中使用了Lombok的<code>@Data</code>、<code>@Getter</code>等注解，但编译时出现一系列"找不到符号"错误：</p>
+<pre><code>java: 找不到符号
+  符号:   变量 log
+  位置: 类 org.hnu.tablerecognition.common.interceptor.JwtTokenInterceptor
+
+java: 找不到符号
+  符号:   方法 getRoleId()
+  位置: 类型为xxx.UpdateRoleMenuDto的变量 updateRoleMenuDto
+</code></pre>
+<p>检查代码发现实体类确实添加了<code>@Data</code>注解，依赖也已引入，这就让人很困惑了。</p>
+<h2>项目环境与配置</h2>
+<p>先看看我的项目依赖配置（pom.xml关键部分）：</p>
+<pre><code>&lt;parent&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+  &lt;version&gt;3.4.4&lt;/version&gt;
+&lt;/parent&gt;
+
+&lt;dependencies&gt;
+  &lt;!-- Lombok依赖 --&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+    &lt;optional&gt;true&lt;/optional&gt;
+  &lt;/dependency&gt;
+  &lt;!-- 其他依赖... --&gt;
+&lt;/dependencies&gt;
+
+&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;!-- 显式配置的编译插件 --&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+      &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+      &lt;configuration&gt;
+        &lt;annotationProcessorPaths&gt;
+          &lt;path&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+            &lt;!-- 注意这里没有指定version --&gt;
+          &lt;/path&gt;
+        &lt;/annotationProcessorPaths&gt;
+      &lt;/configuration&gt;
+    &lt;/plugin&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+      &lt;!-- 配置... --&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+<h2>问题分析</h2>
+<p>经过排查，发现问题主要出在三个方面：</p>
+<h3>1. Lombok版本管理问题</h3>
+<p>SpringBoot的<code>spring-boot-starter-parent</code>会统一管理大部分官方 starters 的版本，但<strong>Lombok并非SpringBoot官方组件</strong>，所以其版本不会被parent默认管理。</p>
+<p>当在pom.xml中不指定Lombok版本时，Maven会尝试从依赖链中查找版本，但如果没有其他依赖间接引入Lombok，会导致：</p>
+<ul>
+<li>依赖版本缺失</li>
+<li>引入低版本或不兼容版本</li>
+</ul>
+<p>这会直接导致编译时无法解析Lombok注解，出现"找不到符号"错误。</p>
+<h3>2. maven-compiler-plugin的配置冲突</h3>
+<p><code>maven-compiler-plugin</code>是Maven的编译插件，负责将Java源代码编译为字节码。我的问题就出在显式配置了这个插件，但存在两个问题：</p>
+<ul>
+<li>在<code>&lt;annotationProcessorPaths&gt;</code>中指定了Lombok却没有显式声明版本</li>
+<li>手动配置覆盖了SpringBoot父工程的默认配置</li>
+</ul>
+<h3>3. Lombok的工作原理</h3>
+<p>Lombok通过<strong>Java注解处理器（Annotation Processor）</strong> 在编译时动态生成代码（如getter/setter）。要使其生效，编译器必须能找到Lombok的注解处理器（包含在lombok.jar中）。</p>
+<p>Maven中有两种方式指定注解处理器：</p>
+<ul>
+<li>显式配置：通过<code>maven-compiler-plugin</code>的<code>&lt;annotationProcessorPaths&gt;</code>指定</li>
+<li>默认机制：自动从项目依赖中寻找包含注解处理器的JAR包</li>
+</ul>
+<h2>解决方案</h2>
+<p><strong>方法一：显式指定Lombok版本（推荐）</strong></p>
+<p>在依赖和编译插件中<strong>明确声明Lombok版本</strong>，确保版本一致性：</p>
+<pre><code>&lt;parent&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+  &lt;version&gt;3.4.4&lt;/version&gt;
+&lt;/parent&gt;
+
+&lt;dependencies&gt;
+  &lt;!-- Lombok依赖 --&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+    &lt;optional&gt;true&lt;/optional&gt;
+    &lt;version&gt;1.18.24&lt;/version&gt;
+  &lt;/dependency&gt;
+  &lt;!-- 其他依赖... --&gt;
+&lt;/dependencies&gt;
+
+&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;!-- 显式配置的编译插件 --&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+      &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+      &lt;configuration&gt;
+        &lt;annotationProcessorPaths&gt;
+          &lt;path&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+            &lt;version&gt;1.18.24&lt;/version&gt;
+          &lt;/path&gt;
+        &lt;/annotationProcessorPaths&gt;
+      &lt;/configuration&gt;
+    &lt;/plugin&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+      &lt;!-- 配置... --&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+<p><strong>核心要点</strong>：若手动配置了<code>maven-compiler-plugin</code>，必须在<code>&lt;annotationProcessorPaths&gt;</code>中<strong>同时指定版本</strong>，否则Maven无法解析。</p>
+<p><strong>方法二：注释掉手动配置的<code>maven-compiler-plugin</code></strong></p>
+<pre><code>&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;!-- 注释掉手动配置的编译插件 --&gt;
+    &lt;!-- &lt;plugin&gt;
+      &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+      &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+      &lt;configuration&gt;
+        &lt;annotationProcessorPaths&gt;
+          &lt;path&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+          &lt;/path&gt;
+        &lt;/annotationProcessorPaths&gt;
+      &lt;/configuration&gt;
+    &lt;/plugin&gt; --&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+      &lt;!-- 配置... --&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+<p>为什么这样就行？因为：</p>
+<ol>
+<li>
+<p><strong>SpringBoot父工程已包含默认配置</strong>：<code>spring-boot-starter-parent</code>已经内置了<code>maven-compiler-plugin</code>的默认配置，包括对注解处理器的支持</p>
+</li>
+<li>
+<p><strong>默认机制会自动发现Lombok</strong>：Lombok的JAR包中包含<code>META-INF/services/javax.annotation.processing.Processor</code>文件，声明了它是注解处理器，父工程的默认配置会自动扫描并使用</p>
+</li>
+<li>
+<p><strong>避免了版本冲突</strong>：注释掉手动配置后，Maven会使用依赖中声明的Lombok版本，不会出现版本不匹配问题</p>
+</li>
+</ol>
+<h2>最佳实践</h2>
+<p>为了避免类似问题，总结几个最佳实践：</p>
+<ol>
+<li>
+<p><strong>明确指定Lombok版本</strong>：即使依赖管理正常，显式指定版本也能提高项目稳定性</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+  &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+  &lt;version&gt;1.18.24&lt;/version&gt; &lt;!-- 明确版本 --&gt;
+  &lt;optional&gt;true&lt;/optional&gt;
+&lt;/dependency&gt;
+</code></pre>
+</li>
+<li>
+<p><strong>正确配置IDE</strong>：确保IDEA安装了Lombok插件并启用注解处理器</p>
+<ul>
+<li>安装插件：<code>File -&gt; Settings -&gt; Plugins</code>搜索Lombok</li>
+<li>启用注解处理：<code>File -&gt; Settings -&gt; Build, Execution, Deployment -&gt; Compiler -&gt; Annotation Processors</code>勾选<code>Enable annotation processing</code></li>
+</ul>
+</li>
+<li>
+<p><strong>合理使用父工程配置</strong>：对于SpringBoot项目，优先使用<code>spring-boot-starter-parent</code>提供的默认配置，除非有特殊需求，否则不要重复声明<code>maven-compiler-plugin</code></p>
+</li>
+<li>
+<p><strong>需要自定义编译配置时</strong>：如果必须手动配置<code>maven-compiler-plugin</code>，确保注解处理器路径配置完整</p>
+</li>
+</ol>
+<pre><code>&lt;plugin&gt;
+  &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+  &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+  &lt;configuration&gt;
+    &lt;annotationProcessorPaths&gt;
+      &lt;path&gt;
+        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+        &lt;version&gt;1.18.24&lt;/version&gt; &lt;!-- 与依赖版本一致 --&gt;
+      &lt;/path&gt;
+    &lt;/annotationProcessorPaths&gt;
+  &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre>
+<h2>总结</h2>
+<p>Lombok注解失效的本质是<strong>编译期注解处理器未被正确加载</strong>。理解Maven依赖机制、SpringBoot父工程配置以及Lombok的工作原理后，问题便迎刃而解。</p>
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+    <category term="技术踩坑"></category>
+  </entry>
+  <entry>
+    <title>Markdown Tutorial</title>
+    <link href="https://github.com/posts/markdown-tutorial/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/markdown-tutorial/</id>
+    <published>2025-01-20T00:00:00.000Z</published>
+    <updated>2025-01-20T00:00:00.000Z</updated>
+    <summary>A simple example of a Markdown blog post.</summary>
+    <content type="html"><![CDATA[<h1>Markdown Tutorial</h1>
+<p>A markdown example shows how to write a markdown file. This document integrates core syntax and extensions (GMF).</p>
+<ul>
+<li><a href="#block-elements">Block Elements</a>
+<ul>
+<li><a href="#paragraphs-and-line-breaks">Paragraphs and Line Breaks</a></li>
+<li><a href="#headers">Headers</a></li>
+<li><a href="#blockquotes">Blockquotes</a></li>
+<li><a href="#lists">Lists</a></li>
+<li><a href="#code-blocks">Code Blocks</a></li>
+<li><a href="#horizontal-rules">Horizontal Rules</a></li>
+<li><a href="#table">Table</a></li>
+</ul>
+</li>
+<li><a href="#span-elements">Span Elements</a>
+<ul>
+<li><a href="#links">Links</a></li>
+<li><a href="#emphasis">Emphasis</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#images">Images</a></li>
+<li><a href="#strikethrough">Strikethrough</a></li>
+</ul>
+</li>
+<li><a href="#miscellaneous">Miscellaneous</a>
+<ul>
+<li><a href="#automatic-links">Automatic Links</a></li>
+<li><a href="#backslash-escapes">Backslash Escapes</a></li>
+</ul>
+</li>
+<li><a href="#inline-html">Inline HTML</a></li>
+</ul>
+<h2>Block Elements</h2>
+<h3>Paragraphs and Line Breaks</h3>
+<h4>Paragraphs</h4>
+<p>HTML Tag: <code>&lt;p&gt;</code></p>
+<p>One or more blank lines. (A blank line is a line containing nothing but <strong>spaces</strong> or <strong>tabs</strong> is considered blank.)</p>
+<p>Code:</p>
+<pre><code>This will be
+inline.
+
+This is second paragraph.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>This will be
+inline.</p>
+<p>This is second paragraph.</p>
+<hr />
+<h4>Line Breaks</h4>
+<p>HTML Tag: <code>&lt;br /&gt;</code></p>
+<p>End a line with <strong>two or more spaces</strong>.</p>
+<p>Code:</p>
+<pre><code>This will be not
+inline.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>This will be not<br />
+inline.</p>
+<hr />
+<h3>Headers</h3>
+<p>Markdown supports two styles of headers, Setext and atx.</p>
+<h4>Setext</h4>
+<p>HTML Tags: <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code></p>
+<p>"Underlined" using <strong>equal signs (=)</strong> as <code>&lt;h1&gt;</code> and <strong>dashes (-)</strong> as <code>&lt;h2&gt;</code> in any number.</p>
+<p>Code:</p>
+<pre><code>This is an H1
+=============
+This is an H2
+-------------
+</code></pre>
+<p>Preview:</p>
+<hr />
+<h1>This is an H1</h1>
+<h2>This is an H2</h2>
+<hr />
+<h4>atx</h4>
+<p>HTML Tags: <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, <code>&lt;h6&gt;</code></p>
+<p>Uses 1-6 <strong>hash characters (#)</strong> at the start of the line, corresponding to <code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code>.</p>
+<p>Code:</p>
+<pre><code># This is an H1
+## This is an H2
+###### This is an H6
+</code></pre>
+<p>Preview:</p>
+<hr />
+<h1>This is an H1</h1>
+<h2>This is an H2</h2>
+<h6>This is an H6</h6>
+<hr />
+<p>Optionally, you may "close" atx-style headers. The closing hashes <strong>don't need to match</strong> the number of hashes used to open the header.</p>
+<p>Code:</p>
+<pre><code># This is an H1 #
+## This is an H2 ##
+### This is an H3 ######
+</code></pre>
+<p>Preview:</p>
+<hr />
+<h1>This is an H1</h1>
+<h2>This is an H2</h2>
+<h3>This is an H3</h3>
+<hr />
+<h3>Blockquotes</h3>
+<p>HTML Tag: <code>&lt;blockquote&gt;</code></p>
+<p>Markdown uses email-style <strong>&gt;</strong> characters for blockquoting. It looks best if you hard wrap the text and put a &gt; before every line.</p>
+<p>Code:</p>
+<pre><code>&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+&gt; consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+&gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+&gt;
+&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+&gt; id sem consectetuer libero luctus adipiscing.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<blockquote>
+<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.</p>
+</blockquote>
+<hr />
+<p>Markdown allows you to be lazy and only put the &gt; before the first line of a hard-wrapped paragraph.</p>
+<p>Code:</p>
+<pre><code>&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+
+&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<blockquote>
+<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+</blockquote>
+<blockquote>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.</p>
+</blockquote>
+<hr />
+<p>Blockquotes can be nested (i.e. a blockquote-in-a-blockquote) by adding additional levels of &gt;.</p>
+<p>Code:</p>
+<pre><code>&gt; This is the first level of quoting.
+&gt;
+&gt; &gt; This is nested blockquote.
+&gt;
+&gt; Back to the first level.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<blockquote>
+<p>This is the first level of quoting.</p>
+<blockquote>
+<p>This is nested blockquote.</p>
+</blockquote>
+<p>Back to the first level.</p>
+</blockquote>
+<hr />
+<p>Blockquotes can contain other Markdown elements, including headers, lists, and code blocks.</p>
+<p>Code:</p>
+<pre><code>&gt; ## This is a header.
+&gt;
+&gt; 1.   This is the first list item.
+&gt; 2.   This is the second list item.
+&gt;
+&gt; Here's some example code:
+&gt;
+&gt;     return shell_exec("echo $input | $markdown_script");
+</code></pre>
+<p>Preview:</p>
+<hr />
+<blockquote>
+<h2>This is a header.</h2>
+<ol>
+<li>This is the first list item.</li>
+<li>This is the second list item.</li>
+</ol>
+<p>Here's some example code:</p>
+<pre><code>return shell_exec("echo $input | $markdown_script");
+</code></pre>
+</blockquote>
+<hr />
+<h3>Lists</h3>
+<p>Markdown supports ordered (numbered) and unordered (bulleted) lists.</p>
+<h4>Unordered</h4>
+<p>HTML Tag: <code>&lt;ul&gt;</code></p>
+<p>Unordered lists use <strong>asterisks (*)</strong>, <strong>pluses (+)</strong>, and <strong>hyphens (-)</strong>.</p>
+<p>Code:</p>
+<pre><code>*   Red
+*   Green
+*   Blue
+</code></pre>
+<p>Preview:</p>
+<hr />
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<hr />
+<p>is equivalent to:</p>
+<p>Code:</p>
+<pre><code>+   Red
++   Green
++   Blue
+</code></pre>
+<p>and:</p>
+<p>Code:</p>
+<pre><code>-   Red
+-   Green
+-   Blue
+</code></pre>
+<h4>Ordered</h4>
+<p>HTML Tag: <code>&lt;ol&gt;</code></p>
+<p>Ordered lists use numbers followed by periods:</p>
+<p>Code:</p>
+<pre><code>1.  Bird
+2.  McHale
+3.  Parish
+</code></pre>
+<p>Preview:</p>
+<hr />
+<ol>
+<li>Bird</li>
+<li>McHale</li>
+<li>Parish</li>
+</ol>
+<hr />
+<p>It's possible to trigger an ordered list by accident, by writing something like this:</p>
+<p>Code:</p>
+<pre><code>1986. What a great season.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<ol>
+<li>What a great season.</li>
+</ol>
+<hr />
+<p>You can <strong>backslash-escape (\)</strong> the period:</p>
+<p>Code:</p>
+<pre><code>1986\. What a great season.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>1986. What a great season.</p>
+<hr />
+<h4>Indented</h4>
+<h5>Blockquote</h5>
+<p>To put a blockquote within a list item, the blockquote's &gt; delimiters need to be indented:</p>
+<p>Code:</p>
+<pre><code>*   A list item with a blockquote:
+
+    &gt; This is a blockquote
+    &gt; inside a list item.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<ul>
+<li>
+<p>A list item with a blockquote:</p>
+<blockquote>
+<p>This is a blockquote
+inside a list item.</p>
+</blockquote>
+</li>
+</ul>
+<hr />
+<h5>Code Block</h5>
+<p>To put a code block within a list item, the code block needs to be indented twice — <strong>8 spaces</strong> or <strong>two tabs</strong>:</p>
+<p>Code:</p>
+<pre><code>*   A list item with a code block:
+
+        &lt;code goes here&gt;
+</code></pre>
+<p>Preview:</p>
+<hr />
+<ul>
+<li>
+<p>A list item with a code block:</p>
+<pre><code>&lt;code goes here&gt;
+</code></pre>
+</li>
+</ul>
+<hr />
+<h5>Nested List</h5>
+<p>Code:</p>
+<pre><code>* A
+  * A1
+  * A2
+* B
+* C
+</code></pre>
+<p>Preview:</p>
+<hr />
+<ul>
+<li>A
+<ul>
+<li>A1</li>
+<li>A2</li>
+</ul>
+</li>
+<li>B</li>
+<li>C</li>
+</ul>
+<hr />
+<h3>Code Blocks</h3>
+<p>HTML Tag: <code>&lt;pre&gt;</code></p>
+<p>Indent every line of the block by at least <strong>4 spaces</strong> or <strong>1 tab</strong>.</p>
+<p>Code:</p>
+<pre><code>This is a normal paragraph:
+
+    This is a code block.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>This is a normal paragraph:</p>
+<pre><code>This is a code block.
+</code></pre>
+<hr />
+<p>A code block continues until it reaches a line that is not indented (or the end of the article).</p>
+<p>Within a code block, <strong><em>ampersands (&amp;)</em></strong> and angle <strong>brackets (&lt; and &gt;)</strong> are automatically converted into HTML entities.</p>
+<p>Code:</p>
+<pre><code>    &lt;div class="footer"&gt;
+        &amp;copy; 2004 Foo Corporation
+    &lt;/div&gt;
+</code></pre>
+<p>Preview:</p>
+<hr />
+<pre><code>&lt;div class="footer"&gt;
+    &amp;copy; 2004 Foo Corporation
+&lt;/div&gt;
+</code></pre>
+<hr />
+<p>Following sections Fenced Code Blocks and Syntax Highlighting are extensions, you can use the other way to write the code block.</p>
+<h4>Fenced Code Blocks</h4>
+<p>Just wrap your code in <code>```</code> (as shown below) and you won't need to indent it by four spaces.</p>
+<p>Code:</p>
+<pre><code>Here's an example:
+
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>Here's an example:</p>
+<pre><code>function test() {
+  console.log("notice the blank line before this function?");
+}
+</code></pre>
+<hr />
+<h4>Syntax Highlighting</h4>
+<p>In your fenced block, add an optional language identifier and we'll run it through syntax highlighting (<a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml">Support Languages</a>).</p>
+<p>Code:</p>
+<pre><code>```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+</code></pre>
+<p>Preview:</p>
+<hr />
+<pre><code>require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+</code></pre>
+<hr />
+<h3>Horizontal Rules</h3>
+<p>HTML Tag: <code>&lt;hr /&gt;</code>
+Places <strong>three or more hyphens (-), asterisks (*), or underscores (_)</strong> on a line by themselves. You may use spaces between the hyphens or asterisks.</p>
+<p>Code:</p>
+<pre><code>* * *
+***
+*****
+- - -
+---------------------------------------
+___
+</code></pre>
+<p>Preview:</p>
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<h3>Table</h3>
+<p>HTML Tag: <code>&lt;table&gt;</code></p>
+<p>It's an extension.</p>
+<p>Separates column by <strong>pipe (|)</strong> and header by <strong>dashes (-)</strong>, and uses <strong>colon (:)</strong> for alignment.</p>
+<p>The outer <strong>pipes (|)</strong> and alignment are optional. There are <strong>3 delimiters</strong> each cell at least for separating header.</p>
+<p>Code:</p>
+<pre><code>| Left | Center | Right |
+|:-----|:------:|------:|
+|aaa   |bbb     |ccc    |
+|ddd   |eee     |fff    |
+
+ A | B
+---|---
+123|456
+
+
+A |B
+--|--
+12|45
+</code></pre>
+<p>Preview:</p>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Left</th>
+<th>Center</th>
+<th>Right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aaa</td>
+<td>bbb</td>
+<td>ccc</td>
+</tr>
+<tr>
+<td>ddd</td>
+<td>eee</td>
+<td>fff</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>123</td>
+<td>456</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12</td>
+<td>45</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Span Elements</h2>
+<h3>Links</h3>
+<p>HTML Tag: <code>&lt;a&gt;</code></p>
+<p>Markdown supports two style of links: inline and reference.</p>
+<h4>Inline</h4>
+<p>Inline link format like this: <code>[Link Text](URL "Title")</code></p>
+<p>Title is optional.</p>
+<p>Code:</p>
+<pre><code>This is [an example](http://example.com/ "Title") inline link.
+
+[This link](http://example.net/) has no title attribute.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>This is <a href="http://example.com/">an example</a> inline link.</p>
+<p><a href="http://example.net/">This link</a> has no title attribute.</p>
+<hr />
+<p>If you're referring to a local resource on the same server, you can use relative paths:</p>
+<p>Code:</p>
+<pre><code>See my [About](/about/) page for details.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>See my <a href="/about/">About</a> page for details.</p>
+<hr />
+<h4>Reference</h4>
+<p>You could predefine link references. Format like this: <code>[id]: URL "Title"</code></p>
+<p>Title is also optional. And the you refer the link, format like this: <code>[Link Text][id]</code></p>
+<p>Code:</p>
+<pre><code>[id]: http://example.com/  "Optional Title Here"
+This is [an example][id] reference-style link.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>This is <a href="http://example.com/">an example</a> reference-style link.</p>
+<hr />
+<p>That is:</p>
+<ul>
+<li>Square brackets containing the link identifier (<strong>not case sensitive</strong>, optionally indented from the left margin using up to three spaces);</li>
+<li>followed by a colon;</li>
+<li>followed by one or more spaces (or tabs);</li>
+<li>followed by the URL for the link;</li>
+<li>The link URL may, optionally, be surrounded by angle brackets.</li>
+<li>optionally followed by a title attribute for the link, enclosed in double or single quotes, or enclosed in parentheses.</li>
+</ul>
+<p>The following three link definitions are equivalent:</p>
+<p>Code:</p>
+<pre><code>[foo]: http://example.com/  "Optional Title Here"
+[foo]: http://example.com/  'Optional Title Here'
+[foo]: http://example.com/  (Optional Title Here)
+[foo]: &lt;http://example.com/&gt;  "Optional Title Here"
+</code></pre>
+<p>Uses an empty set of square brackets, the link text itself is used as the name.</p>
+<p>Code:</p>
+<pre><code>[Google]: http://google.com/
+[Google][]
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p><a href="http://google.com/">Google</a></p>
+<hr />
+<h3>Emphasis</h3>
+<p>HTML Tags: <code>&lt;em&gt;</code>, <code>&lt;strong&gt;</code></p>
+<p>Markdown treats <strong>asterisks (*)</strong> and <strong>underscores (_)</strong> as indicators of emphasis. <strong>One delimiter</strong> will be <code>&lt;em&gt;</code>; *<em>double delimiters</em> will be <code>&lt;strong&gt;</code>.</p>
+<p>Code:</p>
+<pre><code>*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p><em>single asterisks</em></p>
+<p><em>single underscores</em></p>
+<p><strong>double asterisks</strong></p>
+<p><strong>double underscores</strong></p>
+<hr />
+<p>But if you surround an * or _ with spaces, it'll be treated as a literal asterisk or underscore.</p>
+<p>You can backslash escape it:</p>
+<p>Code:</p>
+<pre><code>\*this text is surrounded by literal asterisks\*
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>*this text is surrounded by literal asterisks*</p>
+<hr />
+<h3>Code</h3>
+<p>HTML Tag: <code>&lt;code&gt;</code></p>
+<p>Wraps it with <strong>backtick quotes (`)</strong>.</p>
+<p>Code:</p>
+<pre><code>Use the `printf()` function.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>Use the <code>printf()</code> function.</p>
+<hr />
+<p>To include a literal backtick character within a code span, you can use <strong>multiple backticks</strong> as the opening and closing delimiters:</p>
+<p>Code:</p>
+<pre><code>``There is a literal backtick (`) here.``
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p><code>There is a literal backtick (`) here.</code></p>
+<hr />
+<p>The backtick delimiters surrounding a code span may include spaces — one after the opening, one before the closing. This allows you to place literal backtick characters at the beginning or end of a code span:</p>
+<p>Code:</p>
+<pre><code>A single backtick in a code span: `` ` ``
+
+A backtick-delimited string in a code span: `` `foo` ``
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>A single backtick in a code span: <code>`</code></p>
+<p>A backtick-delimited string in a code span: <code>`foo`</code></p>
+<hr />
+<h3>Images</h3>
+<p>HTML Tag: <code>&lt;img /&gt;</code></p>
+<p>Markdown uses an image syntax that is intended to resemble the syntax for links, allowing for two styles: inline and reference.</p>
+<h4>Inline</h4>
+<p>Inline image syntax looks like this: <code>![Alt text](URL "Title")</code></p>
+<p>Title is optional.</p>
+<p>Code:</p>
+<pre><code>![Alt text](/path/to/img.jpg)
+
+![Alt text](/path/to/img.jpg "Optional title")
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p><img src="https://s2.loli.net/2024/08/20/5fszgXeOxmL3Wdv.webp" alt="Alt text" /></p>
+<p><img src="https://s2.loli.net/2024/08/20/5fszgXeOxmL3Wdv.webp" alt="Alt text" title="Optional title" /></p>
+<hr />
+<p>That is:</p>
+<ul>
+<li>An exclamation mark: !;</li>
+<li>followed by a set of square brackets, containing the alt attribute text for the image;</li>
+<li>followed by a set of parentheses, containing the URL or path to the image, and an optional title attribute enclosed in double or single quotes.</li>
+</ul>
+<h4>Reference</h4>
+<p>Reference-style image syntax looks like this: <code>![Alt text][id]</code></p>
+<p>Code:</p>
+<pre><code>[img id]: https://s2.loli.net/2024/08/20/5fszgXeOxmL3Wdv.webp  "Optional title attribute"
+![Alt text][img id]
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p><img src="https://s2.loli.net/2024/08/20/5fszgXeOxmL3Wdv.webp" alt="Alt text" title="Optional title attribute" /></p>
+<hr />
+<h3>Strikethrough</h3>
+<p>HTML Tag: <code>&lt;del&gt;</code></p>
+<p>It's an extension.</p>
+<p>GFM adds syntax to strikethrough text.</p>
+<p>Code:</p>
+<pre><code>~~Mistaken text.~~
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p><s>Mistaken text.</s></p>
+<hr />
+<h2>Miscellaneous</h2>
+<h3>Automatic Links</h3>
+<p>Markdown supports a shortcut style for creating "automatic" links for URLs and email addresses: simply surround the URL or email address with angle brackets.</p>
+<p>Code:</p>
+<pre><code>&lt;http://example.com/&gt;
+
+&lt;address@example.com&gt;
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p><a href="http://example.com/">http://example.com/</a></p>
+<p><a href="mailto:address@example.com">address@example.com</a></p>
+<hr />
+<p>GFM will autolink standard URLs.</p>
+<p>Code:</p>
+<pre><code>https://github.com/emn178/markdown
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>https://github.com/emn178/markdown</p>
+<hr />
+<h3>Backslash Escapes</h3>
+<p>Markdown allows you to use backslash escapes to generate literal characters which would otherwise have special meaning in Markdown's formatting syntax.</p>
+<p>Code:</p>
+<pre><code>\*literal asterisks\*
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>*literal asterisks*</p>
+<hr />
+<p>Markdown provides backslash escapes for the following characters:</p>
+<p>Code:</p>
+<pre><code>\   backslash
+`   backtick
+*   asterisk
+_   underscore
+{}  curly braces
+[]  square brackets
+()  parentheses
+#   hash mark
++   plus sign
+-   minus sign (hyphen)
+.   dot
+!   exclamation mark
+</code></pre>
+<h2>Inline HTML</h2>
+<p>For any markup that is not covered by Markdown's syntax, you simply use HTML itself. There's no need to preface it or delimit it to indicate that you're switching from Markdown to HTML; you just use the tags.</p>
+<p>Code:</p>
+<pre><code>This is a regular paragraph.
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Foo&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+This is another regular paragraph.
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>This is a regular paragraph.</p>
+<p>&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;Foo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</p>
+<p>This is another regular paragraph.</p>
+<hr />
+<p>Note that Markdown formatting syntax is <strong>not processed within block-level HTML tags</strong>.</p>
+<p>Unlike block-level HTML tags, Markdown syntax is <strong>processed within span-level tags</strong>.</p>
+<p>Code:</p>
+<pre><code>&lt;span&gt;**Work**&lt;/span&gt;
+
+&lt;div&gt;
+    **No Work**
+&lt;/div&gt;
+</code></pre>
+<p>Preview:</p>
+<hr />
+<p>&lt;span&gt;<strong>Work</strong>&lt;/span&gt;</p>
+<p>&lt;div&gt;
+<strong>No Work</strong>
+&lt;/div&gt;</p>
+<hr />
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+    <category term="Examples"></category>
+  </entry>
+  <entry>
+    <title>Markdown Extended Features</title>
+    <link href="https://github.com/posts/markdown-extended/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/markdown-extended/</id>
+    <published>2024-05-01T00:00:00.000Z</published>
+    <updated>2024-11-29T00:00:00.000Z</updated>
+    <summary>Read more about Markdown features in Mizuki</summary>
+    <content type="html"><![CDATA[<h2>GitHub Repository Cards</h2>
+<p>You can add dynamic cards that link to GitHub repositories, on page load, the repository information is pulled from the GitHub API.</p>
+<p>::github{repo="matsuzaka-yuki/Mizuki"}</p>
+<p>Create a GitHub repository card with the code <code>::github{repo="matsuzaka-yuki/Mizuki"}</code>.</p>
+<pre><code>::github{repo="matsuzaka-yuki/Mizuki"}
+</code></pre>
+<h2>Admonitions</h2>
+<p>Following types of admonitions are supported: <code>note</code> <code>tip</code> <code>important</code> <code>warning</code> <code>caution</code></p>
+<p>:::note
+Highlights information that users should take into account, even when skimming.
+:::</p>
+<p>:::tip
+Optional information to help a user be more successful.
+:::</p>
+<p>:::important
+Crucial information necessary for users to succeed.
+:::</p>
+<p>:::warning
+Critical content demanding immediate user attention due to potential risks.
+:::</p>
+<p>:::caution
+Negative potential consequences of an action.
+:::</p>
+<h3>Basic Syntax</h3>
+<pre><code>:::note
+Highlights information that users should take into account, even when skimming.
+:::
+
+:::tip
+Optional information to help a user be more successful.
+:::
+</code></pre>
+<h3>Custom Titles</h3>
+<p>The title of the admonition can be customized.</p>
+<p>:::note[MY CUSTOM TITLE]
+This is a note with a custom title.
+:::</p>
+<pre><code>:::note[MY CUSTOM TITLE]
+This is a note with a custom title.
+:::
+</code></pre>
+<h3>GitHub Syntax</h3>
+<blockquote>
+<p>[!TIP]
+<a href="https://github.com/orgs/community/discussions/16925">The GitHub syntax</a> is also supported.</p>
+</blockquote>
+<pre><code>&gt; [!NOTE]
+&gt; The GitHub syntax is also supported.
+
+&gt; [!TIP]
+&gt; The GitHub syntax is also supported.
+</code></pre>
+<h3>Spoiler</h3>
+<p>You can add spoilers to your text. The text also supports <strong>Markdown</strong> syntax.</p>
+<p>The content :spoiler[is hidden <strong>ayyy</strong>]!</p>
+<pre><code>The content :spoiler[is hidden **ayyy**]!</code></pre>
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+    <category term="Examples"></category>
+  </entry>
+  <entry>
+    <title>Simple Guides for Mizuki</title>
+    <link href="https://github.com/posts/guide/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/guide/</id>
+    <published>2024-04-01T00:00:00.000Z</published>
+    <updated>2024-04-01T00:00:00.000Z</updated>
+    <summary>How to use this blog template.</summary>
+    <content type="html"><![CDATA[<p>This blog template is built with <a href="https://astro.build/">Astro</a>. For the things that are not mentioned in this guide, you may find the answers in the <a href="https://docs.astro.build/">Astro Docs</a>.</p>
+<h2>Front-matter of Posts</h2>
+<pre><code>---
+title: My First Blog Post
+published: 2023-09-09
+description: This is the first post of my new Astro blog.
+image: ./cover.jpg
+tags: [Foo, Bar]
+category: Front-end
+draft: false
+---
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>The title of the post.</td>
+</tr>
+<tr>
+<td><code>published</code></td>
+<td>The date the post was published.</td>
+</tr>
+<tr>
+<td><code>pinned</code></td>
+<td>Whether this post is pinned to the top of the post list.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>A short description of the post. Displayed on index page.</td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td>The cover image path of the post.&lt;br/&gt;1. Start with <code>http://</code> or <code>https://</code>: Use web image&lt;br/&gt;2. Start with <code>/</code>: For image in <code>public</code> dir&lt;br/&gt;3. With none of the prefixes: Relative to the markdown file</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>The tags of the post.</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td>The category of the post.</td>
+</tr>
+<tr>
+<td><code>licenseName</code></td>
+<td>The license name for the post content.</td>
+</tr>
+<tr>
+<td><code>author</code></td>
+<td>The author of the post.</td>
+</tr>
+<tr>
+<td><code>sourceLink</code></td>
+<td>The source link or reference for the post content.</td>
+</tr>
+<tr>
+<td><code>draft</code></td>
+<td>If this post is still a draft, which won't be displayed.</td>
+</tr>
+</tbody>
+</table>
+<h2>Where to Place the Post Files</h2>
+<p>Your post files should be placed in <code>src/content/posts/</code> directory. You can also create sub-directories to better organize your posts and assets.</p>
+<pre><code>src/content/posts/
+├── post-1.md
+└── post-2/
+    ├── cover.png
+    └── index.md
+</code></pre>
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+    <category term="Guides"></category>
+  </entry>
+  <entry>
+    <title>Markdown Mermaid</title>
+    <link href="https://github.com/posts/markdown-mermaid/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/markdown-mermaid/</id>
+    <published>2023-10-01T00:00:00.000Z</published>
+    <updated>2023-10-01T00:00:00.000Z</updated>
+    <summary>A simple example of a Markdown blog post with Mermaid.</summary>
+    <content type="html"><![CDATA[<h1>Complete Guide to Markdown with Mermaid Diagrams</h1>
+<p>This article demonstrates how to create various complex diagrams using Mermaid in Markdown documents, including flowcharts, sequence diagrams, Gantt charts, class diagrams, and state diagrams.</p>
+<h2>Flowchart Example</h2>
+<p>Flowcharts are excellent for representing processes or algorithm steps.</p>
+<pre><code>graph TD
+    A[Start] --&gt; B{Condition Check}
+    B --&gt;|Yes| C[Process Step 1]
+    B --&gt;|No| D[Process Step 2]
+    C --&gt; E[Subprocess]
+    D --&gt; E
+    subgraph E [Subprocess Details]
+        E1[Substep 1] --&gt; E2[Substep 2]
+        E2 --&gt; E3[Substep 3]
+    end
+    E --&gt; F{Another Decision}
+    F --&gt;|Option 1| G[Result 1]
+    F --&gt;|Option 2| H[Result 2]
+    F --&gt;|Option 3| I[Result 3]
+    G --&gt; J[End]
+    H --&gt; J
+    I --&gt; J
+</code></pre>
+<h2>Sequence Diagram Example</h2>
+<p>Sequence diagrams show interactions between objects over time.</p>
+<pre><code>sequenceDiagram
+    participant User
+    participant WebApp
+    participant Server
+    participant Database
+
+    User-&gt;&gt;WebApp: Submit Login Request
+    WebApp-&gt;&gt;Server: Send Auth Request
+    Server-&gt;&gt;Database: Query User Credentials
+    Database--&gt;&gt;Server: Return User Data
+    Server--&gt;&gt;WebApp: Return Auth Result
+    
+    alt Auth Successful
+        WebApp-&gt;&gt;User: Show Welcome Page
+        WebApp-&gt;&gt;Server: Request User Data
+        Server-&gt;&gt;Database: Get User Preferences
+        Database--&gt;&gt;Server: Return Preferences
+        Server--&gt;&gt;WebApp: Return User Data
+        WebApp-&gt;&gt;User: Load Personalized Interface
+    else Auth Failed
+        WebApp-&gt;&gt;User: Show Error Message
+        WebApp-&gt;&gt;User: Prompt Re-entry
+    end
+</code></pre>
+<h2>Gantt Chart Example</h2>
+<p>Gantt charts are perfect for displaying project schedules and timelines.</p>
+<pre><code>gantt
+    title Website Development Project Timeline
+    dateFormat  YYYY-MM-DD
+    axisFormat  %m/%d
+    
+    section Design Phase
+    Requirements Analysis      :a1, 2023-10-01, 7d
+    UI Design                 :a2, after a1, 10d
+    Prototype Creation        :a3, after a2, 5d
+    
+    section Development Phase
+    Frontend Development      :b1, 2023-10-20, 15d
+    Backend Development       :b2, after a2, 18d
+    Database Design           :b3, after a1, 12d
+    
+    section Testing Phase
+    Unit Testing              :c1, after b1, 8d
+    Integration Testing       :c2, after b2, 10d
+    User Acceptance Testing   :c3, after c2, 7d
+    
+    section Deployment
+    Production Deployment     :d1, after c3, 3d
+    Launch                    :milestone, after d1, 0d
+</code></pre>
+<h2>Class Diagram Example</h2>
+<p>Class diagrams show the static structure of a system, including classes, attributes, methods, and their relationships.</p>
+<pre><code>classDiagram
+    class User {
+        +String username
+        +String password
+        +String email
+        +Boolean active
+        +login()
+        +logout()
+        +updateProfile()
+    }
+    
+    class Article {
+        +String title
+        +String content
+        +Date publishDate
+        +Boolean published
+        +publish()
+        +edit()
+        +delete()
+    }
+    
+    class Comment {
+        +String content
+        +Date commentDate
+        +addComment()
+        +deleteComment()
+    }
+    
+    class Category {
+        +String name
+        +String description
+        +addArticle()
+        +removeArticle()
+    }
+    
+    User "1" -- "*" Article : writes
+    User "1" -- "*" Comment : posts
+    Article "1" -- "*" Comment : has
+    Article "1" -- "*" Category : belongs to
+</code></pre>
+<h2>State Diagram Example</h2>
+<p>State diagrams show the sequence of states an object goes through during its life cycle.</p>
+<pre><code>stateDiagram-v2
+    [*] --&gt; Draft
+    
+    Draft --&gt; UnderReview : submit
+    UnderReview --&gt; Draft : reject
+    UnderReview --&gt; Approved : approve
+    Approved --&gt; Published : publish
+    Published --&gt; Archived : archive
+    Published --&gt; Draft : retract
+    
+    state Published {
+        [*] --&gt; Active
+        Active --&gt; Hidden : temporarily hide
+        Hidden --&gt; Active : restore
+        Active --&gt; [*]
+        Hidden --&gt; [*]
+    }
+    
+    Archived --&gt; [*]
+</code></pre>
+<h2>Pie Chart Example</h2>
+<p>Pie charts are ideal for displaying proportions and percentage data.</p>
+<pre><code>pie title Website Traffic Sources Analysis
+    "Search Engines" : 45.6
+    "Direct Access" : 30.1
+    "Social Media" : 15.3
+    "Referral Links" : 6.4
+    "Other Sources" : 2.6
+</code></pre>
+<h2>Conclusion</h2>
+<p>Mermaid is a powerful tool for creating various types of diagrams in Markdown documents. This article demonstrated how to use flowcharts, sequence diagrams, Gantt charts, class diagrams, state diagrams, and pie charts. These diagrams can help you express complex concepts, processes, and data structures more clearly.</p>
+<p>To use Mermaid, simply specify the mermaid language in a code block and describe the diagram using concise text syntax. Mermaid will automatically convert these descriptions into beautiful visual diagrams.</p>
+<p>Try using Mermaid diagrams in your next technical blog post or project documentation - they will make your content more professional and easier to understand!</p>
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+    <category term="Examples"></category>
+  </entry>
+  <entry>
+    <title>Include Video in the Posts</title>
+    <link href="https://github.com/posts/video/" rel="alternate" type="text/html"/>
+    <id>https://github.com/posts/video/</id>
+    <published>2022-08-01T00:00:00.000Z</published>
+    <updated>2022-08-01T00:00:00.000Z</updated>
+    <summary>This post demonstrates how to include embedded video in a blog post.</summary>
+    <content type="html"><![CDATA[<p>Just copy the embed code from YouTube or other platforms, and paste it in the markdown file.</p>
+<pre><code>---
+title: Include Video in the Post
+published: 2023-10-19
+// ...
+---
+
+&lt;iframe width="100%" height="468" src="https://www.youtube.com/embed/5gIf0_xpFPI?si=N1WTorLKL0uwLsU_" title="YouTube video player" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+</code></pre>
+<h2>YouTube</h2>
+<p>&lt;iframe width="100%" height="468" src="https://www.youtube.com/embed/5gIf0_xpFPI?si=N1WTorLKL0uwLsU_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen&gt;&lt;/iframe&gt;</p>
+<h2>Bilibili</h2>
+<p>&lt;iframe width="100%" height="468" src="//player.bilibili.com/player.html?bvid=BV1fK4y1s7Qf&amp;p=1&amp;autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" &amp;autoplay=0&gt; &lt;/iframe&gt;</p>
+]]></content>
+    <author>
+      <name>hnugreycrow</name>
+    </author>
+    <category term="Examples"></category>
+  </entry>
+</feed>

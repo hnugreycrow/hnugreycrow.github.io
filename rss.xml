@@ -1,0 +1,2397 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>hnugreycrow</title><description>欢迎来到我的博客</description><link>https://github.com/hnugreycrow/hnugreycrow.github.io/</link><language>zh_CN</language><item><title>一个剪贴板管理工具</title><link>https://github.com/posts/eideticlip/eideticlip/</link><guid isPermaLink="true">https://github.com/posts/eideticlip/eideticlip/</guid><pubDate>Fri, 07 Nov 2025 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;eidetic&lt;/strong&gt; /aɪˈdetɪk/ ：形容词，意为&quot;异常清晰的，过目不忘的&quot;&lt;/p&gt;
+&lt;p&gt;正如其名，希望这个工具能帮你记住每一个复制的瞬间。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Eideticlip 是一款基于 Electron 和 Vue 3 开发的智能剪贴板管理工具。它能够自动记录您复制的所有文本内容，构建完整的剪贴板历史，让您随时回溯、查找并重用之前的复制记录。&lt;/p&gt;
+&lt;p&gt;作为学习 Electron 开发的一个小项目，它在功能上可能不如 Windows 系统自带的剪贴板历史完善，但提供了更加个性化和可控的管理体验。&lt;/p&gt;
+&lt;h2&gt;核心功能亮点&lt;/h2&gt;
+&lt;h3&gt;📋 智能历史记录&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;自动保存&lt;/strong&gt;：后台静默记录所有复制的文本内容&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;快速检索&lt;/strong&gt;：轻松查找之前的复制记录，支持关键词搜索&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一键重用&lt;/strong&gt;：点击即可重新使用历史剪贴板内容&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;⌨️ 高效操作体验&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;全局快捷键&lt;/strong&gt;：自定义唤醒快捷键，随时调出剪贴板历史&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;系统托盘集成&lt;/strong&gt;：最小化至系统托盘，不干扰正常工作流程&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;即时呼出&lt;/strong&gt;：通过快捷键快速唤出界面，提升工作效率&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;🎨 个性化定制&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;主题切换&lt;/strong&gt;：支持亮色与暗色主题，适应不同使用环境&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据保存周期&lt;/strong&gt;：可自定义历史记录的保存时长&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;快捷键自定义&lt;/strong&gt;：根据使用习惯设置专属快捷键&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;界面展示&lt;/h2&gt;
+&lt;h3&gt;主界面&lt;/h3&gt;
+&lt;p&gt;清晰展示剪贴板历史记录，支持快速查看和重复使用
+&lt;img src=&quot;./image-20251107213300571.png&quot; alt=&quot;image-20251107213300571&quot; /&gt;&lt;/p&gt;
+&lt;h3&gt;设置界面&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;./image-20251107211934334.png&quot; alt=&quot;image-20251107211934334&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;集成化设置面板，一站式管理所有个性化选项：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主题切换（亮色/暗色）&lt;/li&gt;
+&lt;li&gt;数据保存时间配置&lt;/li&gt;
+&lt;li&gt;全局快捷键设置&lt;/li&gt;
+&lt;li&gt;版本信息与更新检查&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;更新机制&lt;/h2&gt;
+&lt;p&gt;Eideticlip 提供了便捷的更新体验：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;自动更新检查&lt;/strong&gt;：应用启动时自动检测新版本&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;手动更新触发&lt;/strong&gt;：在设置界面随时点击“检查更新”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;下载安装一体化&lt;/strong&gt;：检测到新版本后，自动下载并提示安装&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：自动更新功能需要能够访问 GitHub 网站。如遇网络限制，您也可以前往项目发布页面手动下载最新版本。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Github仓库链接：&lt;a href=&quot;https://github.com/hnugreycrow/Eideticlip&quot;&gt;https://github.com/hnugreycrow/Eideticlip&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>Electron中导入better-sqlite3：为什么import不行，require却可以？</title><link>https://github.com/posts/bug/electron%E4%B8%AD%E5%AF%BC%E5%85%A5better-sqlite3/</link><guid isPermaLink="true">https://github.com/posts/bug/electron%E4%B8%AD%E5%AF%BC%E5%85%A5better-sqlite3/</guid><pubDate>Mon, 01 Sep 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在Electron开发过程中，我遇到一个有趣的问题：使用&lt;code&gt;import Database from &quot;better-sqlite3&quot;&lt;/code&gt;导入模块时，不仅出现类型声明文件缺失的警告，还会报&lt;code&gt;__filename is not defined&lt;/code&gt;的运行时错误。而换成&lt;code&gt;const Database = require(&quot;better-sqlite3&quot;)&lt;/code&gt;后，一切正常。这个现象背后，其实是JavaScript两种主流模块系统——ESM与CommonJS的差异在作祟。&lt;/p&gt;
+&lt;h2&gt;问题现象与直接原因&lt;/h2&gt;
+&lt;p&gt;当使用ES模块语法导入better-sqlite3时，会遇到两个问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;类型检查错误：&lt;code&gt;无法找到模块“better-sqlite3”的声明文件&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;运行时错误：&lt;code&gt;ReferenceError: __filename is not defined&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而切换到CommonJS的require语法后，这两个问题都消失了。要理解其中的原因，我们需要先深入了解ESM与CommonJS这两种模块系统的核心差异。&lt;/p&gt;
+&lt;h2&gt;模块化的两种 &quot;流派&quot;：ESM 和 CommonJS&lt;/h2&gt;
+&lt;p&gt;JavaScript 一开始是没有 &quot;模块&quot; 概念的，后来为了让代码更好管理，才出现了两种主流的模块系统：&lt;/p&gt;
+&lt;h3&gt;1. CommonJS：Node.js 的 &quot;老规矩&quot;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;诞生背景&lt;/strong&gt;：2009 年前后，Node.js 刚出来，需要一套规则管理服务器端的代码（比如读取文件、操作数据库），于是 CommonJS 就成了 Node.js 的 &quot;默认规范&quot;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心特点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;用&lt;code&gt;require&lt;/code&gt;导入模块，用&lt;code&gt;module.exports&lt;/code&gt;导出模块&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;比如：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 导出（math.js）
+function add(a, b) { return a + b; }
+module.exports = { add };
+
+// 导入（app.js）
+const math = require(&apos;./math&apos;); // 可以省略.js后缀
+math.add(1, 2); // 结果是3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;运行时才加载模块，支持 &quot;动态导入&quot;（比如在&lt;code&gt;if&lt;/code&gt;条件里加载不同模块）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;每个模块里自带几个 &quot;全局变量&quot;：&lt;code&gt;__filename&lt;/code&gt;（当前文件路径）、&lt;code&gt;__dirname&lt;/code&gt;（当前文件夹路径），方便处理文件路径&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. ESM：浏览器和 Node.js 通用的 &quot;新规范&quot;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;诞生背景&lt;/strong&gt;：后来前端项目越来越大，也需要模块化。2015 年 ES6 推出了 ESM（ES Modules），想统一浏览器和服务器的模块化标准。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心特点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;用&lt;code&gt;import&lt;/code&gt;导入模块，用&lt;code&gt;export&lt;/code&gt;导出模块&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;比如：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 导出（math.js）
+export function add(a, b) { return a + b; }
+
+// 导入（app.js）
+import { add } from &apos;./math.js&apos;; // 必须写全.js后缀
+add(1, 2); // 结果是3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;加载前先分析依赖（编译时静态分析），不支持在&lt;code&gt;if&lt;/code&gt;里动态导入&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;没有&lt;code&gt;__filename&lt;/code&gt;、&lt;code&gt;__dirname&lt;/code&gt;这些变量（设计上更 &quot;纯粹&quot;，不绑定 Node.js 的文件系统）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;关键差异：为什么这些区别会导致报错？&lt;/h2&gt;
+&lt;p&gt;回到开头的问题：&lt;code&gt;better-sqlite3&lt;/code&gt;为啥认&lt;code&gt;require&lt;/code&gt;不认&lt;code&gt;import&lt;/code&gt;？&lt;/p&gt;
+&lt;p&gt;关键就在 &lt;strong&gt;CommonJS 的 &quot;全局变量&quot;&lt;/strong&gt; 上。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;better-sqlite3&lt;/code&gt;是一个 &quot;Node.js 原生扩展&quot;（底层用 C++ 写的，需要操作本地文件），它的代码里可能直接用了&lt;code&gt;__filename&lt;/code&gt;来处理路径（比如找数据库文件的位置）。&lt;/p&gt;
+&lt;p&gt;当你用&lt;code&gt;import&lt;/code&gt;时：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;代码会按 ESM 规范运行，环境里没有&lt;code&gt;__filename&lt;/code&gt;这个变量&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;better-sqlite3&lt;/code&gt;找不到这个变量，就会报&lt;code&gt;ReferenceError&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;当你用&lt;code&gt;require&lt;/code&gt;时：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;代码会按 CommonJS 规范运行，&lt;code&gt;__filename&lt;/code&gt;这些变量自动存在&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;better-sqlite3&lt;/code&gt;能正常找到需要的变量，自然就不报错了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在我的 Electron + Vue + Vite 项目中，整个项目采用 ES 模块（ESM）规范开发，并通过&lt;code&gt;package.json&lt;/code&gt;中配置&lt;code&gt;&quot;type&quot;: &quot;module&quot;&lt;/code&gt;实现了统一的模块化管理。&lt;/p&gt;
+&lt;p&gt;针对&lt;code&gt;better-sqlite3&lt;/code&gt;这类依赖 CommonJS 环境的模块，我们通过以下方式解决了 ESM 下的导入兼容问题：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 在ES模块中模拟CommonJS的require功能（因为Electron有时需要使用CommonJS模块）
+const require = createRequire(import.meta.url);
+const Database = require(&quot;better-sqlite3&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;通过&lt;code&gt;createRequire&lt;/code&gt;从当前模块的&lt;code&gt;import.meta.url&lt;/code&gt;创建一个兼容 CommonJS 的&lt;code&gt;require&lt;/code&gt;函数，既保留了项目整体的 ESM 规范，又能顺利导入&lt;code&gt;better-sqlite3&lt;/code&gt;这类依赖传统 CommonJS 特性的模块，确保了项目的正常运行。&lt;/p&gt;
+&lt;h2&gt;类型声明问题：另一个小插曲&lt;/h2&gt;
+&lt;p&gt;开头还提到 &quot;找不到声明文件&quot; 的警告，这是 TypeScript 的 &quot;小脾气&quot;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;better-sqlite3&lt;/code&gt;本身是用 JavaScript/C++ 写的，没有自带 TypeScript 的类型说明&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解决办法很简单：安装社区提供的类型声明文件&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install @types/better-sqlite3 --save-dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;（但这只能解决类型提示问题，解决不了&lt;code&gt;__filename&lt;/code&gt;的报错，因为那是运行时问题）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;总结：该用 import 还是 require？&lt;/h2&gt;
+&lt;p&gt;简单说，看模块 &quot;脾气&quot;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;像&lt;code&gt;better-sqlite3&lt;/code&gt;这种依赖 Node.js 原生特性（比如&lt;code&gt;__filename&lt;/code&gt;）的模块，优先用&lt;code&gt;require&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;纯 JavaScript 写的现代模块（尤其是前端库），可以用&lt;code&gt;import&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;如果项目里两种模块都有，可以混合使用（Electron 支持这种混合模式）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ESM 是未来的趋势（浏览器和 Node.js 都在推广），但很多 Node.js 原生模块还依赖 CommonJS 的特性。了解这两种规范的区别，能帮你少踩很多 &quot;导入报错&quot; 的坑～&lt;/p&gt;
+</content:encoded></item><item><title>Vue3 笔记：透传 Attributes</title><link>https://github.com/posts/vue/vue3-%E9%80%8F%E4%BC%A0attributes/</link><guid isPermaLink="true">https://github.com/posts/vue/vue3-%E9%80%8F%E4%BC%A0attributes/</guid><pubDate>Fri, 22 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在 Vue 组件开发中，属性传递是核心场景之一。props 适用于明确声明的属性，但当需要灵活传递未声明的属性或事件、封装第三方组件时，&lt;strong&gt;透传 Attributes&lt;/strong&gt; 成为更高效的解决方案。&lt;/p&gt;
+&lt;h2&gt;一、什么是透传 Attributes？&lt;/h2&gt;
+&lt;p&gt;官方定义：&lt;strong&gt;透传 Attributes 指传递给组件但未被声明为 props 或 emits 的 attribute 或 v-on 事件监听器&lt;/strong&gt;，最常见的包括 &lt;code&gt;class&lt;/code&gt;、&lt;code&gt;style&lt;/code&gt;、&lt;code&gt;id&lt;/code&gt; 以及自定义事件等。&lt;/p&gt;
+&lt;p&gt;在 Vue3 中，透传 Attributes 会被收集到组件实例的 &lt;code&gt;$attrs&lt;/code&gt; 中，可通过 &lt;code&gt;useAttrs()&lt;/code&gt;（script setup）或 &lt;code&gt;this.$attrs&lt;/code&gt;（选项式 API）访问。&lt;/p&gt;
+&lt;h3&gt;访问 $attrs 的两种方式&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;script setup 中：useAttrs ()&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { useAttrs } from &apos;vue&apos;;
+const attrs = useAttrs();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选项式 API 中：this.$attrs&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export default {
+  mounted() {
+    console.log(this.$attrs); // 直接通过实例访问
+  }
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;官方明确指出，&lt;code&gt;$attrs&lt;/code&gt; &lt;strong&gt;不是响应式对象&lt;/strong&gt;（出于性能优化考虑）。虽然它会随着父组件传递的属性变化而更新（始终反映最新状态），但无法通过 &lt;code&gt;watch&lt;/code&gt; 或 &lt;code&gt;watchEffect&lt;/code&gt; 直接监听其变化。&lt;/p&gt;
+&lt;p&gt;例如，以下代码无法触发监听逻辑：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { useAttrs, watch } from &apos;vue&apos;;
+const attrs = useAttrs();
+
+// 无效：无法监听 $attrs 的变化
+watch(attrs, (newVal) =&amp;gt; {
+  console.log(&apos;attrs 变化了&apos;, newVal);
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;若需要在 &lt;code&gt;$attrs&lt;/code&gt; 变化时执行副作用，官方推荐两种方案：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;使用 props&lt;/strong&gt;：将需要响应的属性通过 &lt;code&gt;defineProps&lt;/code&gt; 声明（props 是响应式的）；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用 &lt;code&gt;onUpdated&lt;/code&gt; 钩子：在组件更新时（&lt;code&gt;$attrs&lt;/code&gt;已同步最新值）执行逻辑：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { useAttrs, onUpdated } from &apos;vue&apos;;
+const attrs = useAttrs();
+
+onUpdated(() =&amp;gt; {
+  // 每次更新时获取最新的 attrs
+  console.log(&apos;最新的 attrs&apos;, attrs);
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;二、透传 Attributes 的基础特性&lt;/h2&gt;
+&lt;h3&gt;1. 自动收集未声明属性&lt;/h3&gt;
+&lt;p&gt;父组件传递的属性中，未被子组件通过 &lt;code&gt;defineProps&lt;/code&gt; 声明的部分，会自动归入 &lt;code&gt;$attrs&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- 父组件 Parent.vue --&amp;gt;
+&amp;lt;template&amp;gt;
+  &amp;lt;Child id=&quot;user-card&quot; class=&quot;card&quot; title=&quot;用户信息&quot; /&amp;gt;
+&amp;lt;/template&amp;gt;
+
+&amp;lt;!-- 子组件 Child.vue --&amp;gt;
+&amp;lt;template&amp;gt;
+  &amp;lt;div&amp;gt;{{ title }}&amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+&amp;lt;script setup&amp;gt;
+import { useAttrs, onMounted } from &apos;vue&apos;;
+
+// 仅声明 title 为 props
+const props = defineProps([&apos;title&apos;]);
+// 获取透传的剩余属性
+const attrs = useAttrs();
+
+onMounted(() =&amp;gt; {
+  console.log(attrs); // { id: &apos;user-card&apos;, class: &apos;card&apos; }
+});
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;2. 自动绑定到根元素&lt;/h3&gt;
+&lt;p&gt;默认情况下，子组件的 &lt;strong&gt;根元素会自动绑定 &lt;code&gt;$attrs&lt;/code&gt;&lt;/strong&gt;。上述示例中，Child 组件的根元素 &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; 会被渲染为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&quot;user-card&quot; class=&quot;card&quot;&amp;gt;用户信息&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这一特性在封装基础组件时尤为实用，无需手动转发属性。&lt;/p&gt;
+&lt;h3&gt;3. class 与 style 的特殊处理&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;class&lt;/code&gt;和&lt;code&gt;style&lt;/code&gt;是特殊的透传Attributes：当子组件根元素已有自身的&lt;code&gt;class&lt;/code&gt;和&lt;code&gt;style&lt;/code&gt;时，会与透传的&lt;code&gt;class&lt;/code&gt;和&lt;code&gt;style&lt;/code&gt;自动合并，而非覆盖：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- 子组件 Child.vue --&amp;gt;
+&amp;lt;template&amp;gt;
+  &amp;lt;!-- 根元素自身有 class --&amp;gt;
+  &amp;lt;div class=&quot;base&quot;&amp;gt;用户信息&amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+
+&amp;lt;!-- 父组件传递 class=&quot;card&quot; 后，渲染结果： --&amp;gt;
+&amp;lt;div class=&quot;base card&quot;&amp;gt;用户信息&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;三、控制透传行为：inheritAttrs 选项&lt;/h2&gt;
+&lt;p&gt;默认情况下，&lt;code&gt;$attrs&lt;/code&gt; 会自动绑定到根元素。若需自定义绑定目标（如非根元素），可通过 &lt;code&gt;defineOptions&lt;/code&gt; 设置 &lt;code&gt;inheritAttrs: false&lt;/code&gt; 禁用自动绑定，再手动绑定 &lt;code&gt;$attrs&lt;/code&gt;。&lt;/p&gt;
+&lt;h3&gt;1. 绑定到非根元素&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- 子组件 Child.vue --&amp;gt;
+&amp;lt;template&amp;gt;
+  &amp;lt;div class=&quot;wrapper&quot;&amp;gt;
+    &amp;lt;!-- 手动将 $attrs 绑定到内部元素 --&amp;gt;
+    &amp;lt;div class=&quot;content&quot; v-bind=&quot;$attrs&quot;&amp;gt;
+      {{ title }}
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+&amp;lt;script setup&amp;gt;
+import { useAttrs, defineOptions } from &apos;vue&apos;;
+
+// 禁用根元素自动绑定
+defineOptions({ inheritAttrs: false });
+
+const props = defineProps([&apos;title&apos;]);
+const attrs = useAttrs(); // 仍可访问 $attrs，仅禁用自动绑定
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;渲染结果：&lt;code&gt;id&lt;/code&gt; 和 &lt;code&gt;class&lt;/code&gt; 仅绑定到 &lt;code&gt;.content&lt;/code&gt;，而非根元素 &lt;code&gt;.wrapper&lt;/code&gt;。&lt;/p&gt;
+&lt;h3&gt;2. 多根节点组件的强制手动绑定&lt;/h3&gt;
+&lt;p&gt;Vue3 支持多根节点组件，但此时 &lt;strong&gt;&lt;code&gt;$attrs&lt;/code&gt; 不会自动绑定到任何节点&lt;/strong&gt;，必须手动指定绑定位置，否则会触发警告：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- 多根节点组件（正确示例） --&amp;gt;
+&amp;lt;template&amp;gt;
+  &amp;lt;div&amp;gt;节点1&amp;lt;/div&amp;gt;
+  &amp;lt;!-- 手动绑定 $attrs 到需要的节点 --&amp;gt;
+  &amp;lt;div v-bind=&quot;$attrs&quot;&amp;gt;节点2（接收透传属性）&amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+&amp;lt;script setup&amp;gt;
+// 若未手动绑定，会触发警告：
+// [Vue warn]: Extraneous non-props attributes were passed but could not be inherited
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;四、嵌套组件的透传&lt;/h2&gt;
+&lt;p&gt;当组件层级超过两层（如 Parent → Middle → Child）时，&lt;code&gt;$attrs&lt;/code&gt; &lt;strong&gt;不会自动传递给深层子组件&lt;/strong&gt;，需中间组件手动转发。&lt;/p&gt;
+&lt;h3&gt;1. 未转发导致的属性丢失&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- 三层结构：Parent → Middle → Child --&amp;gt;
+&amp;lt;!-- Parent.vue 传递属性：id、class、title --&amp;gt;
+&amp;lt;!-- Middle.vue（未转发 $attrs） --&amp;gt;
+&amp;lt;template&amp;gt;
+  &amp;lt;div&amp;gt;
+    &amp;lt;h3&amp;gt;中间组件&amp;lt;/h3&amp;gt;
+    &amp;lt;Child /&amp;gt; &amp;lt;!-- 未绑定 $attrs，Child 无法接收属性 --&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;此时 Child 组件的 &lt;code&gt;$attrs&lt;/code&gt; 为空，无法获取 Parent 传递的属性。&lt;/p&gt;
+&lt;h3&gt;2. 手动转发的两种方式&lt;/h3&gt;
+&lt;h4&gt;（1）全量转发（推荐）&lt;/h4&gt;
+&lt;p&gt;通过 &lt;code&gt;v-bind=&quot;$attrs&quot;&lt;/code&gt; 将中间组件的 &lt;code&gt;$attrs&lt;/code&gt; 全部转发给子组件：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- Middle.vue（全量转发） --&amp;gt;
+&amp;lt;template&amp;gt;
+  &amp;lt;div&amp;gt;
+    &amp;lt;h3&amp;gt;中间组件&amp;lt;/h3&amp;gt;
+    &amp;lt;Child v-bind=&quot;$attrs&quot; /&amp;gt; &amp;lt;!-- 关键：转发所有透传属性 --&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;（2）选择性转发&lt;/h4&gt;
+&lt;p&gt;如需过滤或加工属性，可从 &lt;code&gt;$attrs&lt;/code&gt; 中提取指定属性转发：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- Middle.vue（选择性转发） --&amp;gt;
+&amp;lt;template&amp;gt;
+  &amp;lt;div&amp;gt;
+    &amp;lt;h3&amp;gt;中间组件&amp;lt;/h3&amp;gt;
+    &amp;lt;Child 
+      :title=&quot;attrs.title?.toUpperCase()&quot; &amp;lt;!-- 加工后转发 --&amp;gt;
+      :desc=&quot;attrs.desc&quot; 
+    /&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+&amp;lt;script setup&amp;gt;
+import { useAttrs } from &apos;vue&apos;;
+const attrs = useAttrs();
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;3. 中间组件声明 props 后的透传规则&lt;/h3&gt;
+&lt;p&gt;若中间组件通过 &lt;code&gt;defineProps&lt;/code&gt; 声明了部分属性，这些属性会从 &lt;code&gt;$attrs&lt;/code&gt; 中移除，转发时仅包含未声明的剩余属性：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- Middle.vue（声明了 title 为 props） --&amp;gt;
+&amp;lt;script setup&amp;gt;
+const props = defineProps([&apos;title&apos;]); // title 被声明为 props
+const attrs = useAttrs(); // attrs 仅包含未声明的 id、class、desc
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;此时 &lt;code&gt;v-bind=&quot;$attrs&quot;&lt;/code&gt; 仅转发 &lt;code&gt;id&lt;/code&gt;、&lt;code&gt;class&lt;/code&gt;、&lt;code&gt;desc&lt;/code&gt;，若 Child 需要 &lt;code&gt;title&lt;/code&gt;，需中间组件手动传递：&lt;code&gt;&amp;lt;Child :title=&quot;title&quot; v-bind=&quot;$attrs&quot; /&amp;gt;&lt;/code&gt;。&lt;/p&gt;
+&lt;h2&gt;五、v-on 监听器继承&lt;/h2&gt;
+&lt;p&gt;Vue3 中，&lt;code&gt;$attrs&lt;/code&gt; 不仅包含属性，还包含父组件传递的 &lt;strong&gt;v-on 事件监听器&lt;/strong&gt;（事件以 &lt;code&gt;onXxx&lt;/code&gt; 形式存在，如 &lt;code&gt;@click&lt;/code&gt; 对应 &lt;code&gt;attrs.onClick&lt;/code&gt;）。转发 &lt;code&gt;$attrs&lt;/code&gt; 时，事件会自动同步传递。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- 父组件传递事件 --&amp;gt;
+&amp;lt;template&amp;gt;
+  &amp;lt;Child @click=&quot;handleClick&quot; @input=&quot;handleInput&quot; /&amp;gt;
+&amp;lt;/template&amp;gt;
+
+&amp;lt;!-- 子组件接收并转发事件 --&amp;gt;
+&amp;lt;template&amp;gt;
+  &amp;lt;button v-bind=&quot;$attrs&quot;&amp;gt;点击我&amp;lt;/button&amp;gt; &amp;lt;!-- 点击会触发父组件的 handleClick --&amp;gt;
+&amp;lt;/template&amp;gt;
+&amp;lt;script setup&amp;gt;
+import { useAttrs } from &apos;vue&apos;;
+const attrs = useAttrs();
+console.log(attrs); // { onClick: ƒ, onInput: ƒ }
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;与 Vue2 区别：Vue2 中事件需通过 &lt;code&gt;$listeners&lt;/code&gt; 单独转发，Vue3 中事件统一归入 &lt;code&gt;$attrs&lt;/code&gt;，简化了转发逻辑。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;六、适用场景与不适用场景&lt;/h2&gt;
+&lt;h3&gt;适用场景&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;封装第三方组件&lt;/strong&gt;
+无需声明第三方组件的所有属性，通过 &lt;code&gt;v-bind=&quot;$attrs&quot;&lt;/code&gt; 自动转发，减少代码冗余：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- 封装 Element Plus 的 ElInput --&amp;gt;
+&amp;lt;template&amp;gt;
+  &amp;lt;el-input v-bind=&quot;$attrs&quot; v-model=&quot;modelValue&quot; /&amp;gt;
+&amp;lt;/template&amp;gt;
+&amp;lt;script setup&amp;gt;
+const props = defineProps([&apos;modelValue&apos;]);
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;多层级属性透传&lt;/strong&gt;
+超过 2 层的组件结构（如 Page→Card→Form→Input），用 &lt;code&gt;v-bind=&quot;$attrs&quot;&lt;/code&gt; 转发比每层声明 props 更高效。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;动态属性传递&lt;/strong&gt;
+接收不确定的动态属性（如后端配置的表单属性），&lt;code&gt;$attrs&lt;/code&gt; 可作为灵活的容器。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;不适用场景&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;需要类型校验&lt;/strong&gt;
+&lt;code&gt;$attrs&lt;/code&gt; 无类型校验，需严格校验时用 props：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 推荐：用 props 做类型校验
+const props = defineProps({
+  age: { type: Number, required: true }
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;需要默认值&lt;/strong&gt;
+&lt;code&gt;$attrs&lt;/code&gt; 无法设置默认值，需默认值时用 props 的 &lt;code&gt;default&lt;/code&gt; 选项。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;属性需加工处理&lt;/strong&gt;
+需修改属性值（如格式化）时，建议通过 props 接收后加工再传递。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;七、常见问题与解决方案&lt;/h2&gt;
+&lt;h3&gt;1. 样式冲突（class/style 自动合并）&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;：透传的 &lt;code&gt;class&lt;/code&gt;/&lt;code&gt;style&lt;/code&gt; 与子组件根元素样式冲突。
+&lt;strong&gt;解决方案&lt;/strong&gt;：禁用自动绑定，手动控制绑定位置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;template&amp;gt;
+  &amp;lt;div class=&quot;parent&quot;&amp;gt;
+    &amp;lt;!-- 仅将非样式属性转发给子组件 --&amp;gt;
+    &amp;lt;Child v-bind=&quot;filterAttrs&quot; /&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+&amp;lt;script setup&amp;gt;
+import { useAttrs, computed, defineOptions } from &apos;vue&apos;;
+defineOptions({ inheritAttrs: false }); // 禁用根元素自动绑定
+
+const attrs = useAttrs();
+// 过滤 class 和 style
+const filterAttrs = computed(() =&amp;gt; {
+  const { class: _, style: __, ...rest } = attrs;
+  return rest;
+});
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;2. 中间组件声明的 props 无法传递到子组件&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;：中间组件声明的 props 不在 &lt;code&gt;$attrs&lt;/code&gt; 中，导致子组件无法获取。
+&lt;strong&gt;解决方案&lt;/strong&gt;：中间组件手动传递已声明的 props：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- Middle.vue --&amp;gt;
+&amp;lt;template&amp;gt;
+  &amp;lt;Child v-bind=&quot;$attrs&quot; :title=&quot;title&quot; /&amp;gt; &amp;lt;!-- 手动传递 title --&amp;gt;
+&amp;lt;/template&amp;gt;
+&amp;lt;script setup&amp;gt;
+const props = defineProps([&apos;title&apos;]); // title 被声明为 props
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;总结&lt;/h2&gt;
+&lt;p&gt;透传 Attributes（&lt;code&gt;$attrs&lt;/code&gt;）是 Vue3 组件通信的重要补充，核心价值在于&lt;strong&gt;简化未声明属性 / 事件的传递&lt;/strong&gt;。关键知识点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$attrs&lt;/code&gt; 包含未被 props 声明的属性和事件，需通过 &lt;code&gt;useAttrs()&lt;/code&gt; 或 &lt;code&gt;this.$attrs&lt;/code&gt; 访问；&lt;/li&gt;
+&lt;li&gt;单根组件默认自动绑定 &lt;code&gt;$attrs&lt;/code&gt; 到根元素，&lt;code&gt;inheritAttrs: false&lt;/code&gt; 可禁用此行为；&lt;/li&gt;
+&lt;li&gt;多根组件必须手动绑定 &lt;code&gt;$attrs&lt;/code&gt;，否则会触发警告；&lt;/li&gt;
+&lt;li&gt;嵌套组件需通过 &lt;code&gt;v-bind=&quot;$attrs&quot;&lt;/code&gt; 手动转发 &lt;code&gt;$attrs&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;适合封装第三方组件、多层透传和动态属性场景，不适合需要类型校验或默认值的场景。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;通过合理使用 &lt;code&gt;$attrs&lt;/code&gt;，可大幅提升组件的灵活性和开发效率。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;官方文档完整参考：&lt;a href=&quot;https://cn.vuejs.org/guide/components/attrs.html&quot;&gt;透传 Attributes | Vue.js&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content:encoded></item><item><title>Vue3 笔记：深入响应式系统</title><link>https://github.com/posts/vue/vue3-%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F/</link><guid isPermaLink="true">https://github.com/posts/vue/vue3-%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F/</guid><pubDate>Mon, 18 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;什么是响应性&lt;/h2&gt;
+&lt;p&gt;响应性是一种声明式处理变化的编程范式：当依赖数据变化时，依赖其计算的结果会自动更新。例如 Excel 中单元格通过公式关联，修改源单元格时目标单元格自动更新；而 JavaScript 默认不具备此特性，需通过特定机制实现。&lt;/p&gt;
+&lt;p&gt;官方文档：&lt;a href=&quot;https://cn.vuejs.org/guide/extras/reactivity-in-depth.html#runtime-vs-compile-time-reactivity&quot;&gt;深入响应式系统 | Vue.js (vuejs.org)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Vue 中响应性的实现原理&lt;/h2&gt;
+&lt;p&gt;Vue 通过拦截对象属性的读写操作，追踪依赖并在数据变化时触发更新，核心依赖&lt;strong&gt;Proxy&lt;/strong&gt;（用于&lt;code&gt;reactive&lt;/code&gt;）和&lt;strong&gt;getter/setter&lt;/strong&gt;（用于&lt;code&gt;ref&lt;/code&gt;）实现。&lt;/p&gt;
+&lt;h3&gt;1. 响应式对象的创建&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;reactive()&lt;/code&gt;实现&lt;/strong&gt;：通过 Proxy 创建对象代理，拦截属性的&lt;code&gt;get&lt;/code&gt;（读取）和&lt;code&gt;set&lt;/code&gt;（修改）操作：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function reactive(obj) {
+  return new Proxy(obj, {
+    get(target, key) {
+      track(target, key); // 追踪依赖
+      return target[key];
+    },
+    set(target, key, value) {
+      target[key] = value;
+      trigger(target, key); // 触发更新
+    }
+  });
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;ref()&lt;/code&gt;实现&lt;/strong&gt;：通过对象的&lt;code&gt;getter/setter&lt;/code&gt;拦截&lt;code&gt;value&lt;/code&gt;属性的读写（用于原始值或非对象值）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function ref(value) {
+  const refObject = {
+    get value() {
+      track(refObject, &apos;value&apos;); // 追踪依赖
+      return value;
+    },
+    set value(newValue) {
+      value = newValue;
+      trigger(refObject, &apos;value&apos;); // 触发更新
+    }
+  };
+  return refObject;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. 依赖追踪（&lt;code&gt;track(target, key)&lt;/code&gt;）与更新触发（&lt;code&gt;trigger(target, key)&lt;/code&gt;）的详细机制&lt;/h3&gt;
+&lt;p&gt;在 Vue 的响应式系统中，&lt;code&gt;track()&lt;/code&gt; 和 &lt;code&gt;trigger()&lt;/code&gt; 是实现 “数据变化自动触发更新” 的核心函数。前者负责记录 “谁依赖了数据”，后者负责在数据变化时 “通知依赖者更新”，二者配合完成从数据追踪到副作用执行的闭环。&lt;/p&gt;
+&lt;h4&gt;（1）依赖追踪：&lt;code&gt;track(target, key)&lt;/code&gt; 的作用与实现细节&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;track()&lt;/code&gt; 的核心任务是：&lt;strong&gt;当响应式数据的属性被读取时，记录当前正在运行的 “副作用”（effect），并将其与该属性关联起来&lt;/strong&gt;，以便后续数据变化时能精准触发这个副作用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;触发时机&lt;/strong&gt;：&lt;code&gt;track()&lt;/code&gt; 会在响应式对象的属性被访问（即触发 &lt;code&gt;get&lt;/code&gt; 拦截器）时调用。例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;访问 &lt;code&gt;reactive&lt;/code&gt; 对象的属性（如 &lt;code&gt;obj.foo&lt;/code&gt;）时，Proxy 的 &lt;code&gt;get&lt;/code&gt; 方法会调用 &lt;code&gt;track(obj, &apos;foo&apos;)&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;访问 &lt;code&gt;ref&lt;/code&gt; 的 &lt;code&gt;value&lt;/code&gt; 属性（如 &lt;code&gt;count.value&lt;/code&gt;）时，&lt;code&gt;get value()&lt;/code&gt; 会调用 &lt;code&gt;track(refObject, &apos;value&apos;)&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 全局变量：当前正在运行的副作用（仅在副作用执行期间有效）
+let activeEffect;
+
+function track(target, key) {
+  // 只有当存在活跃的副作用时才进行追踪
+  if (activeEffect) {
+    // 1. 查找目标对象 target 中 key 对应的副作用集合
+    const effects = getSubscribersForProperty(target, key);
+    // 2. 将当前活跃的副作用添加到该集合中
+    effects.add(activeEffect);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;依赖存储结构&lt;/strong&gt;：&lt;code&gt;WeakMap&amp;lt;target, Map&amp;lt;key, Set&amp;lt;effect&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt;
+&lt;code&gt;track()&lt;/code&gt; 需要一个全局的数据结构来保存 “目标对象→属性→副作用集合” 的映射关系，具体结构为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;外层：&lt;code&gt;WeakMap&amp;lt;target, Map&amp;gt;&lt;/code&gt;&lt;/strong&gt;：键是响应式对象（&lt;code&gt;target&lt;/code&gt;），值是一个 Map（存储该对象所有属性的副作用）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;中层：&lt;code&gt;Map&amp;lt;key, Set&amp;lt;effect&amp;gt;&amp;gt;&lt;/code&gt;&lt;/strong&gt;：键是对象的属性名（&lt;code&gt;key&lt;/code&gt;），值是一个 Set（存储依赖该属性的所有副作用）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内层：&lt;code&gt;Set&amp;lt;effect&amp;gt;&lt;/code&gt;&lt;/strong&gt;：存储依赖该属性的所有副作用函数（确保副作用不重复）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;getSubscribersForProperty(target, key)&lt;/code&gt; 函数的作用就是根据这个结构查找或创建副作用集合：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 伪代码：获取属性对应的副作用集合
+function getSubscribersForProperty(target, key) {
+  // 1. 为目标对象创建一个 Map（若不存在）
+  const targetMap = globalWeakMap.get(target) || new Map();
+  if (!globalWeakMap.has(target)) {
+    globalWeakMap.set(target, targetMap);
+  }
+  // 2. 为属性创建一个 Set（若不存在）
+  const effectSet = targetMap.get(key) || new Set();
+  if (!targetMap.has(key)) {
+    targetMap.set(key, effectSet);
+  }
+  return effectSet;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;关键：&lt;code&gt;activeEffect&lt;/code&gt; 的作用&lt;/strong&gt;：&lt;code&gt;activeEffect&lt;/code&gt; 是一个全局变量，仅在副作用函数执行期间被赋值为当前副作用。这使得 &lt;code&gt;track()&lt;/code&gt; 能精准识别 “谁正在依赖这个属性”，并将其加入依赖集合。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;（2）更新触发：&lt;code&gt;trigger(target, key)&lt;/code&gt; 的作用与实现细节&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;trigger()&lt;/code&gt; 的核心任务是：&lt;strong&gt;当响应式数据的属性被修改时，找到该属性的所有依赖副作用，并执行这些副作用&lt;/strong&gt;，从而实现 “数据变化→自动更新”。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;触发时机&lt;/strong&gt;：&lt;code&gt;trigger()&lt;/code&gt; 会在响应式对象的属性被修改（即触发 &lt;code&gt;set&lt;/code&gt; 拦截器）时调用。例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;修改 &lt;code&gt;reactive&lt;/code&gt; 对象的属性（如 &lt;code&gt;obj.foo = 2&lt;/code&gt;）时，Proxy 的 &lt;code&gt;set&lt;/code&gt; 方法会调用 &lt;code&gt;trigger(obj, &apos;foo&apos;)&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;修改 &lt;code&gt;ref&lt;/code&gt; 的 &lt;code&gt;value&lt;/code&gt; 属性（如 &lt;code&gt;count.value = 2&lt;/code&gt;）时，&lt;code&gt;set value(newValue)&lt;/code&gt; 会调用 &lt;code&gt;trigger(refObject, &apos;value&apos;)&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function trigger(target, key) {
+  // 1. 查找目标对象 target 中 key 对应的副作用集合
+  const effects = getSubscribersForProperty(target, key);
+  // 2. 执行所有副作用（重新运行依赖该属性的代码）
+  effects.forEach((effect) =&amp;gt; effect());
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;执行副作用的意义&lt;/strong&gt;：副作用函数通常包含依赖数据的计算或操作（如更新 DOM、计算属性值等）。当数据变化时，重新执行副作用能确保这些操作基于最新数据执行，从而保持视图或计算结果与数据的同步。例如，在组件渲染场景中，副作用函数是组件的渲染函数：当数据变化时，&lt;code&gt;trigger()&lt;/code&gt; 会触发渲染函数重新执行，生成新的虚拟 DOM 并更新页面。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;（3）&lt;code&gt;track()&lt;/code&gt; 与 &lt;code&gt;trigger()&lt;/code&gt; 的协同流程示例&lt;/h4&gt;
+&lt;p&gt;以一个简单的响应式场景为例，完整流程如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;初始化响应式数据&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const count = ref(0); // 创建 ref，内部通过 getter/setter 拦截 value 访问
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;创建响应式副作用&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;watchEffect(() =&amp;gt; {
+  // 副作用函数：依赖 count.value，用于更新 DOM
+  document.body.innerHTML = `Count: ${count.value}`;
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;watchEffect&lt;/code&gt; 会包装副作用函数，执行前将其设为 &lt;code&gt;activeEffect&lt;/code&gt;（&lt;code&gt;activeEffect = 当前副作用&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;执行副作用时，访问 &lt;code&gt;count.value&lt;/code&gt; 触发 &lt;code&gt;get&lt;/code&gt; 拦截器，调用 &lt;code&gt;track(count, &apos;value&apos;)&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;track()&lt;/code&gt; 发现 &lt;code&gt;activeEffect&lt;/code&gt; 存在，将该副作用加入 &lt;code&gt;count&lt;/code&gt; 的 &lt;code&gt;value&lt;/code&gt; 属性对应的副作用集合中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;修改数据触发更新&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;count.value = 1; // 修改 value，触发 set 拦截器
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;set&lt;/code&gt; 拦截器调用 &lt;code&gt;trigger(count, &apos;value&apos;)&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;trigger()&lt;/code&gt; 找到 &lt;code&gt;count.value&lt;/code&gt; 对应的副作用集合，执行该副作用函数。&lt;/li&gt;
+&lt;li&gt;副作用函数重新执行，基于最新的 &lt;code&gt;count.value&lt;/code&gt; 更新 DOM，页面显示 &lt;code&gt;Count: 1&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;（4）关键特性与边界情况&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;精准触发&lt;/strong&gt;：&lt;code&gt;track()&lt;/code&gt; 只追踪当前活跃的副作用，&lt;code&gt;trigger()&lt;/code&gt; 只执行被追踪的副作用，确保更新仅影响真正依赖数据的部分，避免不必要的性能消耗。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;去重处理&lt;/strong&gt;：使用 &lt;code&gt;Set&lt;/code&gt; 存储副作用，避免同一副作用被重复添加，确保每次数据变化时副作用只执行一次。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;嵌套副作用&lt;/strong&gt;：若副作用函数内部又创建了新的副作用（如组件嵌套场景），&lt;code&gt;activeEffect&lt;/code&gt; 会动态更新为当前执行的副作用，确保依赖关系正确嵌套。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. 响应式副作用&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;副作用：依赖响应式数据、并在数据变化时需重新执行的函数（如更新 DOM、计算结果等）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Vue 通过&lt;code&gt;watchEffect()&lt;/code&gt;创建响应式副作用，其原理是包装副作用函数，执行前将自身设为 “活跃副作用”，使&lt;code&gt;track()&lt;/code&gt;能识别并关联依赖：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function whenDepsChange(update) {
+  const effect = () =&amp;gt; {
+    activeEffect = effect; // 标记当前活跃副作用
+    update(); // 执行副作用（触发依赖追踪）
+    activeEffect = null;
+  };
+  effect(); // 首次执行，建立依赖关系
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;示例：使用&lt;code&gt;watchEffect&lt;/code&gt;自动更新计算结果：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const A0 = ref(0);
+const A1 = ref(1);
+watchEffect(() =&amp;gt; {
+  const A2 = A0.value + A1.value; // 追踪A0、A1
+});
+A0.value = 2; // 触发副作用，重新计算A2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4. 计算属性（&lt;code&gt;computed&lt;/code&gt;）&lt;/h3&gt;
+&lt;p&gt;内部基于响应式副作用实现：当依赖变化时，自动重新计算结果，且会缓存计算值（依赖未变时直接返回缓存）。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const A2 = computed(() =&amp;gt; A0.value + A1.value); // 依赖A0、A1，自动更新
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;核心逻辑总结&lt;/h2&gt;
+&lt;p&gt;Vue 响应式系统通过 Proxy/getter 拦截属性读写，用&lt;code&gt;track()&lt;/code&gt;记录依赖（副作用），用&lt;code&gt;trigger()&lt;/code&gt;在数据变化时触发副作用重新执行，实现 “数据变化→自动更新” 的声明式效果。&lt;code&gt;reactive&lt;/code&gt;用于对象，&lt;code&gt;ref&lt;/code&gt;用于原始值，&lt;code&gt;watchEffect&lt;/code&gt;和&lt;code&gt;computed&lt;/code&gt;则是基于此机制的高层 API。通过&lt;code&gt;track()&lt;/code&gt;和&lt;code&gt;trigger()&lt;/code&gt;的配合，Vue 实现了 “数据驱动” 的核心特性：开发者只需关注数据变化，响应式系统会自动完成依赖追踪和更新触发，大幅简化了状态管理逻辑。&lt;/p&gt;
+</content:encoded></item><item><title>Vue3 笔记：响应式基础</title><link>https://github.com/posts/vue/vue3-%E5%93%8D%E5%BA%94%E5%BC%8F%E5%9F%BA%E7%A1%80/</link><guid isPermaLink="true">https://github.com/posts/vue/vue3-%E5%93%8D%E5%BA%94%E5%BC%8F%E5%9F%BA%E7%A1%80/</guid><pubDate>Sat, 16 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;最近翻 Vue3 文档，重新过了一遍响应式的基础内容。之前用的时候总有些细节记不清，比如 ref 和 reactive 到底该怎么选、为什么有时候改了数据页面不更，这次特意整理了笔记（过程中也借助了大模型辅助梳理逻辑、补充细节😉），主要是给自己后续查着方便，内容以复习要点为主，可能有理解不到位的地方，先记下来慢慢修正。&lt;/p&gt;
+&lt;p&gt;官方文档：&lt;a href=&quot;https://cn.vuejs.org/guide/essentials/reactivity-fundamentals.html&quot;&gt;响应式基础 | Vue.js (vuejs.org)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;一. 声明响应式状态&lt;/h2&gt;
+&lt;h3&gt;1. 组合式 API：ref()&lt;/h3&gt;
+&lt;p&gt;定义：ref() 接收参数，并将其包裹在一个带有 .value 属性的 ref 对象中返回：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { ref } from &apos;vue&apos;
+const count = ref(0)
+count.value++ // 修改值
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;模板使用：无需 .value，自动解包；可直接在事件监听器中修改（如@click=&quot;count++&quot;）。&lt;/li&gt;
+&lt;li&gt;优势：支持所有数据类型（原始值、对象等），可传递给函数并保持响应性。&lt;/li&gt;
+&lt;li&gt;简化语法：在&lt;code&gt;&amp;lt;script setup&amp;gt;&lt;/code&gt;中，顶层声明的ref和方法可直接在模板使用，无需手动暴露。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：在 JavaScript 中需要 .value 来访问和修改 ref 的值。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;2. 组合式 API：reactive()&lt;/h3&gt;
+&lt;p&gt;定义：reactive()接收对象 / 数组等，返回其响应式代理（Proxy），直接通过属性访问 / 修改。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { reactive } from &apos;vue&apos;
+const state = reactive({ count: 0 })
+state.count++ // 修改值
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;特性：代理与原始对象不等价（reactive(raw) !== raw），同一原始对象多次调用reactive()返回同一代理。&lt;/p&gt;
+&lt;h2&gt;二. 核心特性&lt;/h2&gt;
+&lt;h3&gt;1. 深层响应式&lt;/h3&gt;
+&lt;p&gt;默认行为：ref()和reactive()均默认实现深层响应性，嵌套对象 / 数组的修改会被追踪。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const obj = ref({ nested: { count: 0 } })
+obj.value.nested.count++ // 触发响应式更新
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;浅层响应性：可通过shallowRef（仅.value访问被追踪）或shallowReactive（仅顶层属性响应式）关闭深层响应性，优化性能。&lt;/p&gt;
+&lt;h3&gt;2. DOM 更新时机&lt;/h3&gt;
+&lt;p&gt;异步更新：Vue 会在“next tick”更新周期中缓冲所有状态的修改，以确保不管你进行了多少次状态修改，每个组件都只会被更新一次。
+等待更新：需在 DOM 更新后执行代码时，使用nextTick()：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;async function increment() {
+  count.value++
+  await nextTick() // 此时DOM已更新
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;三. reactive() 的局限性&lt;/h2&gt;
+&lt;p&gt;reactive() API 有一些局限性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;有限的值类型：它只能用于对象类型 (对象、数组和如 Map、Set 这样的集合类型)。它不能持有如 string、number 或 boolean 这样的原始类型。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不能替换整个对象：由于 Vue 的响应式跟踪是通过属性访问实现的，因此我们必须始终保持对响应式对象的相同引用。这意味着我们不能轻易地“替换”响应式对象，因为这样的话与第一个引用的响应性连接将丢失。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对解构操作不友好：解构属性为本地变量或传递给函数时，响应性连接断开。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Vue官方建议：优先使用ref()作为响应式状态声明的主要 API。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;四. ref 解包细节&lt;/h2&gt;
+&lt;p&gt;作为 reactive 对象的属性：自动解包，行为类似普通属性。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const count = ref(0)
+const state = reactive({ count })
+console.log(state.count) // 0（自动解包）
+state.count = 1
+console.log(count.value) // 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;数组 / 集合中：不会自动解包，需显式使用.value。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const books = reactive([ref(&apos;Vue Guide&apos;)])
+console.log(books[0].value) // 需显式.value
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;模板中：仅顶级属性自动解包，嵌套属性需解构为顶级属性才能解包。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const object = { id: ref(1) }
+const { id } = object // 解构为顶级属性
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;模板中&lt;code&gt;{{ id + 1 }}&lt;/code&gt;生效（解包），而&lt;code&gt;{{ object.id + 1 }}&lt;/code&gt;不生效（未解包）。&lt;/p&gt;
+&lt;p&gt;如果 ref 是文本插值的最终计算值 (即 &lt;code&gt;{{ }}&lt;/code&gt; 标签)，会自动解包。该特性仅仅是文本插值的一个便利特性，等价于 &lt;code&gt;{{ object.id.value }}&lt;/code&gt;。&lt;/p&gt;
+&lt;h2&gt;五、关键问题&lt;/h2&gt;
+&lt;h3&gt;为什么 ref 需要 .value 访问？&lt;/h3&gt;
+&lt;p&gt;因为在标准的 JavaScript 中，检测普通变量的访问和修改是行不通的。但可以通过 getter 和 setter 方法来拦截对象属性的 get 和 set 操作。&lt;/p&gt;
+&lt;p&gt;而 ref 的设计思路是：用一个对象包裹原始值，这个对象只暴露一个 &lt;code&gt;.value&lt;/code&gt; 属性。通过为 &lt;code&gt;.value&lt;/code&gt; 定义 getter 和 setter，Vue 就能在你访问 &lt;code&gt;xxx.value&lt;/code&gt; 时追踪依赖（收集谁在用这个值），在你修改 &lt;code&gt;xxx.value = ...&lt;/code&gt; 时触发更新（通知用到这个值的地方重新渲染）。&lt;/p&gt;
+&lt;p&gt;简单说，&lt;code&gt;.value&lt;/code&gt; 是 Vue 为了让原始类型也能具备响应式，而 “绕的一小步”—— 通过对象属性的拦截能力，间接实现对原始值的追踪。&lt;/p&gt;
+&lt;h3&gt;ref()和reactive()的核心区别是什么？&lt;/h3&gt;
+&lt;p&gt;① 支持类型：ref()支持所有数据类型（原始值、对象等），reactive()仅支持对象、数组等非原始类型；
+② 访问方式：ref()需通过.value访问 / 修改值，reactive()直接通过属性访问；
+③ 局限性：reactive()存在无法替换对象、解构丢失响应性等问题，ref()无这些限制；
+④ 解包规则：ref()在模板中自动解包，作为响应式对象属性时也自动解包，而reactive()无类似解包逻辑。&lt;/p&gt;
+&lt;h3&gt;为什么修改响应式状态后 DOM 没有立即更新？如何确保在 DOM 更新后执行代码？&lt;/h3&gt;
+&lt;p&gt;Vue 会将所有状态修改缓冲到 “next tick” 更新周期中，确保每个组件只更新一次，提升性能。若需在 DOM 更新后执行代码，可使用nextTick()全局 API，它返回一个 Promise，在 DOM 更新完成后 resolve。示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { nextTick } from &apos;vue&apos;
+async function update() {
+  count.value++
+  await nextTick()
+  // DOM已更新
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;在模板中使用ref时，为什么有时需要显式.value，有时不需要？&lt;/h3&gt;
+&lt;p&gt;模板中ref的解包规则为：
+① 顶级属性自动解包（无需.value），如&lt;code&gt;const count = ref(0)&lt;/code&gt;在模板中&lt;code&gt;{{ count }}&lt;/code&gt;生效；
+② 嵌套属性（如&lt;code&gt;object.id&lt;/code&gt;，其中id是ref）不会自动解包，需解构为顶级属性（&lt;code&gt;const { id } = object&lt;/code&gt;）才能解包；
+③ 若ref是文本插值的最终值（如&lt;code&gt;{{ object.id }}&lt;/code&gt;），会自动解包（等价于&lt;code&gt;{{ object.id.value }}&lt;/code&gt;）。因此，非顶级嵌套ref在模板中参与计算时需先解构，否则需显式处理。&lt;/p&gt;
+&lt;h3&gt;浅层响应性的核心适用场景是什么？&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;核心适用场景：数据 “大而不变” 或 “仅需整体替换”&lt;/strong&gt;
+当数据满足以下特征时，用浅层响应性可以显著提升性能：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;处理 “大型不可变数据”（如后端返回的海量列表）&lt;/strong&gt;
+&lt;strong&gt;场景&lt;/strong&gt;：从后端获取的大型列表（如 1000 条以上数据），且业务中只需要展示、不需要修改其中的嵌套属性（仅可能整体替换列表）。
+&lt;strong&gt;问题&lt;/strong&gt;：如果用普通ref或reactive，Vue 会递归地将所有嵌套属性转为响应式（创建大量 Proxy），导致初始化时性能开销大。
+&lt;strong&gt;解决方案&lt;/strong&gt;：用shallowRef，只追踪.value的整体替换，不处理内部属性：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { shallowRef } from &apos;vue&apos;
+// 假设data是包含1000条数据的大型数组
+const bigList = shallowRef(data) 
+
+// ✅ 有效：整体替换时触发更新（符合业务需求）
+bigList.value = newData 
+
+// ❌ 无效：修改内部属性不会触发更新（但业务本就不需要修改）
+bigList.value[0].name = &apos;新名字&apos; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;管理 “纯展示性的复杂对象”（如配置项、图表数据）&lt;/strong&gt;
+&lt;strong&gt;场景&lt;/strong&gt;：页面中的配置对象（如表单布局配置、图表的 option），结构复杂但运行中不会修改嵌套属性，只会整体替换。
+&lt;strong&gt;问题&lt;/strong&gt;：深层响应性会对嵌套的每个对象 / 数组创建 Proxy，而这些 Proxy 完全用不上，属于浪费。
+&lt;strong&gt;解决方案&lt;/strong&gt;：用shallowReactive（对象）或shallowRef（整体替换）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { shallowReactive } from &apos;vue&apos;
+// 复杂配置对象，仅用于展示，不修改内部属性
+const chartOptions = shallowReactive({
+  xAxis: { type: &apos;category&apos; },
+  series: [{ data: [1, 2, 3] }]
+})
+
+// ✅ 有效：修改顶层属性会触发更新（如果需要）
+chartOptions.xAxis = { type: &apos;value&apos; }
+
+// ❌ 无效：修改嵌套属性不触发更新（业务不需要）
+chartOptions.series[0].data.push(4) 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;手动控制更新时机（避免频繁触发）&lt;/strong&gt;
+&lt;strong&gt;场景&lt;/strong&gt;：需要批量修改数据，且希望 “修改完所有内容后再统一更新 DOM”，而不是每改一个属性就更新一次。
+&lt;strong&gt;问题&lt;/strong&gt;：普通响应式会在每次修改时触发更新，批量操作时可能导致多次无用渲染。
+&lt;strong&gt;解决方案&lt;/strong&gt;：用shallowRef配合triggerRef（手动触发更新）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { shallowRef, triggerRef } from &apos;vue&apos;
+const formData = shallowRef({ name: &apos;&apos;, age: 0 })
+
+// 批量修改（不会触发更新）
+formData.value.name = &apos;张三&apos;
+formData.value.age = 20
+// ...更多修改
+
+// 手动触发一次更新（减少渲染次数）
+triggerRef(formData) 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;不适用场景：警惕 “过度优化”&lt;/strong&gt;
+浅层响应性的 “性能优化” 是有代价的 —— 丢失了深层追踪能力，因此以下场景绝对不能用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据需要修改嵌套属性（如用户信息对象{ user: { name: &apos;xxx&apos; } }，需要修改name）；&lt;/li&gt;
+&lt;li&gt;数据结构简单（如仅包含 1-2 层的小对象），此时深层响应性的性能开销可忽略，没必要用浅层；&lt;/li&gt;
+&lt;li&gt;新手对响应式原理不熟悉，容易因 “修改不触发更新” 导致 bug。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;浅层响应性是 “按需关闭深层追踪” 的优化手段，核心适用场景是：
+&lt;strong&gt;数据结构复杂但仅需整体替换，或嵌套属性完全不需要修改。&lt;/strong&gt;
+它的设计不是为了 “替代” 普通响应式，而是在特定场景下（如处理大型数据）减少不必要的性能消耗，属于 “进阶优化技巧”，需结合具体业务判断是否使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+</content:encoded></item><item><title>Docker学习笔记(二)：容器数据卷</title><link>https://github.com/posts/docker/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/</link><guid isPermaLink="true">https://github.com/posts/docker/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/</guid><pubDate>Thu, 14 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;一、数据卷核心概念&lt;/h2&gt;
+&lt;h3&gt;1.1 定义&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;数据卷是宿主机文件系统中的一个目录或文件&lt;/strong&gt;，通过挂载机制与容器内指定路径关联，实现宿主机与容器的双向数据共享。&lt;/p&gt;
+&lt;h3&gt;1.2 本质&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;类似Linux的&lt;code&gt;mount&lt;/code&gt;命令，容器访问挂载路径时实际操作的是宿主机数据卷&lt;/li&gt;
+&lt;li&gt;数据卷独立于容器生命周期，容器删除后数据仍保存在宿主机&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;二、数据卷的三大核心作用&lt;/h2&gt;
+&lt;p&gt;数据卷的设计初衷，就是为了解决容器与数据分离的问题，其核心作用可以概括为三点：&lt;/p&gt;
+&lt;h3&gt;2.1 容器数据持久化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;场景&lt;/strong&gt;：数据库、日志文件等需要长期保存的数据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：MySQL容器挂载数据卷后，即使容器崩溃，数据库文件仍可通过数据卷恢复&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2.2 宿主机与容器双向交互&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;实时同步特性&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;宿主机修改卷目录文件 → 容器内立即生效（如本地代码编辑后容器热更新）&lt;/li&gt;
+&lt;li&gt;容器生成数据（日志、配置）→ 实时同步到宿主机（方便本地查看分析）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2.3 多容器数据共享&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;场景&lt;/strong&gt;：前端容器与后端容器共享静态资源、多个服务共享配置文件&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：Nginx（展示静态页）与Node.js（生成静态页）通过数据卷自动同步资源&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;三、数据卷的基础操作实践&lt;/h2&gt;
+&lt;h3&gt;3.1 创建并挂载数据卷（基础命令）&lt;/h3&gt;
+&lt;p&gt;使用docker run命令时，通过-v参数可以直接创建并挂载数据卷：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 语法：docker run -v 宿主机路径:容器内路径 [其他参数] 镜像名
+docker run -d \
+  -p 8080:80 \
+  -v /root/nginx/myapp:/usr/share/nginx/html \  # 挂载数据卷
+  --name mynginx \
+  nginx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上述命令的含义是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;启动一个名为mynginx的 Nginx 容器；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将宿主机的/root/nginx/myapp目录（若不存在会自动创建）挂载到容器内的/usr/share/nginx/html（Nginx 默认静态文件目录）；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;此时在宿主机/root/nginx/myapp中放入index.html，访问&lt;a href=&quot;http://localhost:8080/&quot;&gt;http://localhost:8080&lt;/a&gt;即可看到页面。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.2. 查看挂载详情&lt;/h3&gt;
+&lt;p&gt;通过docker inspect命令可以查看容器的挂载详情：​&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker inspect mynginx​
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在输出的 JSON 结果中，找到Mounts字段，会显示如下信息：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&quot;Mounts&quot;: [​
+    {​
+        &quot;Type&quot;: &quot;bind&quot;,​
+        &quot;Source&quot;: &quot;/root/nginx/myapp&quot;,  // 宿主机目录​
+        &quot;Destination&quot;: &quot;/usr/share/nginx/html&quot;,  // 容器内目录​
+        &quot;Mode&quot;: &quot;&quot;,
+        &quot;RW&quot;: true,  // 读写权限（默认可读写）​
+        &quot;Propagation&quot;: &quot;rprivate&quot;​
+    }​
+]​
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;四、数据卷容器：简化多容器共享场景&lt;/h2&gt;
+&lt;p&gt;当多个容器需要共享数据时，逐一为每个容器配置-v参数会显得繁琐。&lt;strong&gt;数据卷容器&lt;/strong&gt;（Volume Container）正是为简化这种场景而生。&lt;/p&gt;
+&lt;h3&gt;4.1 什么是数据卷容器？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;专门用于管理数据卷的 &quot;中介容器&quot;，其他容器通过&lt;code&gt;--volumes-from&lt;/code&gt;继承其挂载配置&lt;/li&gt;
+&lt;li&gt;优势：简化多容器挂载配置，统一管理数据卷路径&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4.2 使用步骤&lt;/h3&gt;
+&lt;h4&gt;步骤 1：创建数据卷容器&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;# 创建仅用于挂载数据卷的容器（无需运行服务）
+docker run -it \
+  -v /data:/shared-data \  # 定义数据卷
+  --name volume-container \  # 命名数据卷容器
+  ubuntu /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;步骤 2：其他容器继承挂载配置&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;# 容器A继承数据卷
+docker run -it --volumes-from volume-container --name container-A ubuntu /bin/bash
+
+# 容器B继承数据卷（与A共享同一数据卷）
+docker run -it --volumes-from volume-container --name container-B ubuntu /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;效果&lt;/strong&gt;：容器 A、B 与宿主机&lt;code&gt;/data&lt;/code&gt;目录实时同步数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4.3 注意事项&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;数据卷容器停止 / 删除后，其他容器仍可正常使用数据卷&lt;/li&gt;
+&lt;li&gt;彻底清理数据卷需手动删除宿主机对应目录（如&lt;code&gt;/data&lt;/code&gt;）&lt;/li&gt;
+&lt;li&gt;可多层继承（容器 A 继承自数据卷容器，容器 B 继承自容器 A）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;五、复习要点总结&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;核心目标&lt;/strong&gt;：解决 &quot;容器临时性&quot; 与 &quot;数据持久性&quot; 的矛盾&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;基础命令&lt;/strong&gt;：&lt;code&gt;-v&lt;/code&gt;挂载、&lt;code&gt;docker inspect&lt;/code&gt;查看、&lt;code&gt;--volumes-from&lt;/code&gt;继承&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键区别&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;普通挂载：直接指定宿主机路径（适合单容器）&lt;/li&gt;
+&lt;li&gt;数据卷容器：通过中介容器管理（适合多容器共享）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content:encoded></item><item><title>Docker学习笔记(三)：部署MySQL</title><link>https://github.com/posts/docker/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%89/</link><guid isPermaLink="true">https://github.com/posts/docker/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%89/</guid><pubDate>Thu, 14 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在之前的服务器环境中，手动安装并配置MySQL的过程较为繁琐，因此我转而采用Docker容器化方案进行部署，通过标准化镜像和持久化存储机制，实现了更高效的数据库环境管理与版本控制。&lt;/p&gt;
+&lt;p&gt;这篇笔记就记录下用 Docker 部署 MySQL 的全过程，给自己留个存档。&lt;/p&gt;
+&lt;h2&gt;一、准备工作&lt;/h2&gt;
+&lt;h3&gt;1. 搜索MySQL镜像（可选）&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;docker search mysql
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;❌问题：搜索出现超时，配置了国内镜像源也没用&lt;/p&gt;
+&lt;h3&gt;2. 拉取MySQL 5.7镜像&lt;/h3&gt;
+&lt;p&gt;因为听说指定版本拉取更稳妥，避免后续出现版本兼容问题，所以我选择了 5.7 版本：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker pull mysql:5.7
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;3. 创建MySQL目录&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p ~/mysql/{log,data,conf}
+
+# 进入创建好的mysql目录
+cd ~/mysql
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;log目录打算用来存 MySQL 的运行日志&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;data目录很重要，用来存数据库的数据，这样就算容器没了，数据也还在&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;conf目录用来放一些自定义的配置文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;二、部署MySQL容器&lt;/h2&gt;
+&lt;h3&gt;1. 运行MySQL容器&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;docker run -p 3307:3306 --name mysql \
+-v $PWD/log:/var/log/mysql \
+-v $PWD/data:/var/lib/mysql \
+-v $PWD/conf:/etc/mysql/conf.d \
+-e MYSQL_ROOT_PASSWORD=123456 \
+-d mysql:5.7
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;✅ &lt;strong&gt;参数说明&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-p 3307:3306`：端口映射（宿主机 3307 端口 → 容器 3306 端口，避免与宿主机本地 MySQL 冲突）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--name mysql&lt;/code&gt;：容器命名（便于后续操作）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-v&lt;/code&gt;：目录挂载（实现宿主机与容器文件共享，保障数据持久化）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-e MYSQL_ROOT_PASSWORD=123456&lt;/code&gt;：设置 root 用户密码&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-d&lt;/code&gt;：后台运行容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mysql:5.7&lt;/code&gt;：指定使用的镜像&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;$PWD&lt;/code&gt;&lt;strong&gt;它会动态记录你在终端中当前所在的目录的&lt;/strong&gt;绝对路径&lt;/strong&gt;，因为我们已经进入了mysql目录，所以这里是/root/mysql&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. 连接MySQL容器&lt;/h3&gt;
+&lt;p&gt;在容器内部，使用 root 用户登录 MySQL：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 进入运行中的容器
+docker exec -it mysql bash
+
+# 在容器内登录MySQL（注意：密码输入时无回显，输入完成直接回车）
+mysql -u root -p
+# 输入密码：123456（之前设置的root密码）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;注意&lt;/strong&gt;：密码参数&lt;code&gt;-p&lt;/code&gt;后无空格，直接接密码&lt;/p&gt;
+&lt;h2&gt;三、创建远程访问用户并授权&lt;/h2&gt;
+&lt;p&gt;执行以下 SQL 命令创建一个允许远程访问的用户（以用户名 admin为例）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-- 创建用户（允许所有IP访问）
+CREATE USER &apos;admin&apos;@&apos;%&apos; IDENTIFIED BY &apos;your_password&apos;;
+
+-- 授予所有权限（根据需要调整权限范围）
+GRANT ALL PRIVILEGES ON *.* TO &apos;admin&apos;@&apos;%&apos; WITH GRANT OPTION;
+
+-- 刷新权限使设置生效
+FLUSH PRIVILEGES;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;权限说明&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&apos;%&apos; 表示允许从任何 IP 地址访问&lt;/li&gt;
+&lt;li&gt;如果你想限制特定 IP，可以将 % 替换为具体 IP，例如 &apos;192.168.1.100&apos;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;.&lt;/em&gt; 表示所有数据库的所有表，可根据需要限制为特定数据库，例如 appdb.*&lt;/li&gt;
+&lt;li&gt;ALL PRIVILEGES 可以替换为具体权限，如 SELECT,INSERT,UPDATE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;补充：容器与镜像意外删后的恢复方法&lt;/h2&gt;
+&lt;p&gt;在使用 Docker 的过程中，偶尔可能会误删容器或镜像，不必惊慌，只要我们做好了数据持久化，恢复工作会非常简单。以下是具体的恢复方法：&lt;/p&gt;
+&lt;h3&gt;1. 容器被误删后的恢复&lt;/h3&gt;
+&lt;p&gt;如果只是删除了容器（&lt;code&gt;docker rm&lt;/code&gt;），但数据卷（volume）和镜像还在，恢复步骤如下：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;步骤1：确认数据目录是否完好&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 检查之前挂载的数据目录
+ls -l ~/mysql/data
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果能看到数据库文件（如 ibdata1、ib_logfile0 等），说明数据没有丢失&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;步骤2：重新创建并启动容器&lt;/strong&gt;
+使用与之前相同的运行命令即可，Docker 会自动使用现有数据目录：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker run -p 3307:3306 --name mysql \
+-v ~/mysql/log:/var/log/mysql \
+-v ~/mysql/data:/var/lib/mysql \
+-v ~/mysql/conf:/etc/mysql/conf.d \
+-e MYSQL_ROOT_PASSWORD=123456 \
+-d mysql:5.7
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;新容器会直接读取已有的数据文件，恢复到删除前的状态&lt;/p&gt;
+&lt;h3&gt;2. 镜像被误删后的恢复&lt;/h3&gt;
+&lt;p&gt;Docker 中，&lt;strong&gt;镜像被删除的前提是关联容器已停止并删除&lt;/strong&gt;（否则会提示 “容器正在使用镜像”，无法删除）。因此镜像误删时，容器必然已不存在，需重新拉取镜像并重建容器。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(base) [root@iZ7xvcxkgs6i5l3z060714Z ~]# docker rmi mysql:5.7
+Error response from daemon: conflict: unable to remove repository reference &quot;mysql:5.7&quot; (must force) - container 60d1ed6c60a6 is using its referenced image 5107333e08a8
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;恢复步骤：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;步骤1：重新拉取相同版本的镜像&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker pull mysql:5.7
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;步骤2：基于原有数据目录重建容器&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;3. 预防措施&lt;/h3&gt;
+&lt;p&gt;恢复的前提是 “数据未丢失”，因此提前预防比事后恢复更重要。建议做好以下 3 点：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.1 定期备份数据目录&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 压缩备份数据目录
+# 格式：tar -zcvf 备份文件名 目标目录
+tar -zcvf mysql_backup_$(date +%Y%m%d).tar.gz ~/mysql/data
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;如何从备份恢复&lt;/strong&gt;？&lt;/p&gt;
+&lt;p&gt;如果数据目录丢失，可从备份文件恢复：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 解压备份到数据目录（确保目录存在）
+tar -zxvf ~/mysql_backup_20250815.tar.gz -C ~/mysql/
+# 解压后会自动覆盖~/mysql/data目录，再重建容器即可
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;3.2 导出容器配置&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 创建启动脚本
+cat &amp;gt; start_mysql.sh &amp;lt;&amp;lt; &apos;EOF&apos;
+#!/bin/bash
+docker run -p 3307:3306 --name mysql \
+-v ~/mysql/log:/var/log/mysql \
+-v ~/mysql/data:/var/lib/mysql \
+-v ~/mysql/conf:/etc/mysql/conf.d \
+-e MYSQL_ROOT_PASSWORD=123456 \
+-d mysql:5.7
+EOF
+
+# 赋予执行权限
+chmod +x start_mysql.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;3.3 慎用删除命令&lt;/strong&gt;
+执行删除操作前先确认：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 查看所有容器（包括停止的）
+docker ps -a
+# 查看所有镜像
+docker images
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;四、小结&lt;/h2&gt;
+&lt;p&gt;通过Docker容器化部署MySQL，我成功解决了手动安装配置MySQL的繁琐问题，实现了数据库环境的快速部署与管理。同时，容器化还带来了环境隔离、版本控制、迁移方便等优势，为后续的应用开发提供了更可靠的基础。&lt;/p&gt;
+&lt;p&gt;其他软件如Nginx、Redis、Tomcat等也可以采用类似的方式进行容器化部署，极大地简化了应用的运维管理。&lt;/p&gt;
+</content:encoded></item><item><title>Docker学习笔记(一)：Docker常用命令</title><link>https://github.com/posts/docker/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%80/</link><guid isPermaLink="true">https://github.com/posts/docker/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%80/</guid><pubDate>Wed, 13 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;整理了 Docker 核心命令的用法，从服务管理到容器操作，方便后续复习查阅。&lt;/p&gt;
+&lt;h2&gt;一、Docker服务基础操作（守护进程管理）&lt;/h2&gt;
+&lt;h3&gt;1.1 服务启停控制&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;启动：&lt;code&gt;systemctl start docker&lt;/code&gt;&lt;br /&gt;
+✅ 核心功能：启动Docker守护进程（dockerd），初始化镜像/容器管理环境&lt;br /&gt;
+⚠️ 注意：启动失败用&lt;code&gt;journalctl -u docker&lt;/code&gt;查日志&lt;/li&gt;
+&lt;li&gt;停止：&lt;code&gt;systemctl stop docker&lt;/code&gt;&lt;br /&gt;
+✅ 核心功能：终止守护进程及所有运行中容器&lt;br /&gt;
+⚠️ 注意：先手动停止重要容器，避免数据未持久化&lt;/li&gt;
+&lt;li&gt;重启：&lt;code&gt;systemctl restart docker&lt;/code&gt;&lt;br /&gt;
+✅ 核心场景：修改配置文件（如&lt;code&gt;/etc/docker/daemon.json&lt;/code&gt;）后生效&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;1.2 服务状态查询&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;命令：&lt;code&gt;systemctl status docker&lt;/code&gt;&lt;br /&gt;
+✅ 核心功能：查看服务运行状态及最近日志&lt;br /&gt;
+🔍 状态解读：
+&lt;ul&gt;
+&lt;li&gt;绿色&lt;code&gt;active (running)&lt;/code&gt;：正常运行&lt;/li&gt;
+&lt;li&gt;红色&lt;code&gt;inactive (dead)&lt;/code&gt;：已停止&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;二、镜像操作命令（Image）&lt;/h2&gt;
+&lt;h3&gt;2.1 镜像获取与搜索&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;拉取镜像：&lt;code&gt;docker pull &amp;lt;镜像名:标签&amp;gt;&lt;/code&gt;&lt;br /&gt;
+✅ 核心功能：从远程仓库下载镜像（默认Docker Hub）&lt;br /&gt;
+🔍 格式示例：&lt;code&gt;docker pull mysql:8.0&lt;/code&gt;（指定版本，推荐生产环境使用）&lt;br /&gt;
+⚠️ 注意：&lt;code&gt;latest&lt;/code&gt;标签可能随时间变化，避免生产环境直接使用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;搜索镜像：&lt;code&gt;docker search &amp;lt;关键词&amp;gt;&lt;/code&gt;&lt;br /&gt;
+✅ 核心功能：在Docker Hub检索镜像&lt;br /&gt;
+🔍 结果解读：&lt;code&gt;OFFICIAL=OK&lt;/code&gt;为官方镜像（安全性更高）&lt;br /&gt;
+❌ 常见问题：网络超时（&lt;code&gt;i/o timeout&lt;/code&gt;）→ 需配置国内镜像源&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2.2 镜像管理与查询&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看本地镜像：&lt;code&gt;docker images&lt;/code&gt;&lt;br /&gt;
+✅ 核心功能：列出本地所有镜像信息&lt;br /&gt;
+🔍 输出解读：&lt;code&gt;REPOSITORY&lt;/code&gt;（仓库名）、&lt;code&gt;TAG&lt;/code&gt;（版本）、&lt;code&gt;IMAGE ID&lt;/code&gt;（唯一标识）&lt;br /&gt;
+⚡ 快捷用法：&lt;code&gt;docker images -q&lt;/code&gt;（仅输出镜像ID，用于批量操作）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看镜像详情：&lt;code&gt;docker inspect &amp;lt;镜像ID/名称&amp;gt;&lt;/code&gt;&lt;br /&gt;
+✅ 核心功能：获取镜像完整元数据（构建历史、环境变量等）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2.3 镜像删除&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;命令：&lt;code&gt;docker rmi &amp;lt;镜像ID/名称&amp;gt;&lt;/code&gt;&lt;br /&gt;
+✅ 核心功能：删除本地镜像&lt;br /&gt;
+⚠️ 注意：若镜像被容器引用（即使容器已停止），需先删除容器&lt;br /&gt;
+⚡ 强制删除：&lt;code&gt;docker rmi -f &amp;lt;镜像ID&amp;gt;&lt;/code&gt;（不推荐，可能残留数据）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;三、容器操作命令（Container）&lt;/h2&gt;
+&lt;h3&gt;3.1 容器创建与启动&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;新建并启动：&lt;code&gt;docker run [参数] &amp;lt;镜像名&amp;gt;&lt;/code&gt;&lt;br /&gt;
+✅ 核心功能：基于镜像创建并启动容器（= 新建+启动）&lt;br /&gt;
+⚡ 必学参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-d&lt;/code&gt;：后台运行（不占用终端）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-p 主机端口:容器端口&lt;/code&gt;：端口映射（如&lt;code&gt;-p 8080:80&lt;/code&gt;）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--name &amp;lt;名称&amp;gt;&lt;/code&gt;：指定容器名（避免随机名称）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-it&lt;/code&gt;：交互式终端（如&lt;code&gt;docker run -it ubuntu /bin/bash&lt;/code&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动已停止容器：&lt;code&gt;docker start &amp;lt;容器ID/名称&amp;gt;&lt;/code&gt;&lt;br /&gt;
+✅ 核心区别：&lt;code&gt;start&lt;/code&gt;用于“启动已存在容器”，&lt;code&gt;run&lt;/code&gt;用于“新建+启动”&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.2 容器查看与进入&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看容器列表：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker ps&lt;/code&gt;：查看运行中容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker ps -a&lt;/code&gt;：查看所有容器（含已停止）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker ps -q&lt;/code&gt;：仅输出容器ID（批量操作如&lt;code&gt;docker stop $(docker ps -q)&lt;/code&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;进入运行中容器：&lt;code&gt;docker exec -it &amp;lt;容器ID/名称&amp;gt; &amp;lt;终端命令&amp;gt;&lt;/code&gt;&lt;br /&gt;
+✅ 示例：&lt;code&gt;docker exec -it my-nginx /bin/bash&lt;/code&gt;（进入bash终端）&lt;br /&gt;
+⚠️ 注意：需容器处于运行状态，&lt;code&gt;-it&lt;/code&gt;参数缺一不可（保持交互）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.3 容器停止与销毁&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;停止容器：&lt;code&gt;docker stop &amp;lt;容器ID/名称&amp;gt;&lt;/code&gt;&lt;br /&gt;
+✅ 核心功能：优雅停止（发送SIGTERM信号，允许保存数据）&lt;br /&gt;
+⚡ 强制停止：&lt;code&gt;docker kill &amp;lt;容器ID&amp;gt;&lt;/code&gt;（发送SIGKILL，紧急情况使用）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除容器：&lt;code&gt;docker rm &amp;lt;容器ID/名称&amp;gt;&lt;/code&gt;&lt;br /&gt;
+✅ 核心功能：删除已停止容器&lt;br /&gt;
+⚠️ 注意：运行中容器需先停止，或用&lt;code&gt;docker rm -f &amp;lt;容器ID&amp;gt;&lt;/code&gt;强制删除（谨慎使用）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.4 容器详情查询&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;命令：&lt;code&gt;docker inspect &amp;lt;容器ID/名称&amp;gt;&lt;/code&gt;&lt;br /&gt;
+✅ 核心用途：查看IP地址、挂载路径等关键信息（如&lt;code&gt;NetworkSettings.IPAddress&lt;/code&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;四、常见问题与易错点&lt;/h2&gt;
+&lt;h3&gt;4.1 网络问题&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;现象：拉取/搜索镜像超时（&lt;code&gt;i/o timeout&lt;/code&gt;）&lt;/li&gt;
+&lt;li&gt;解决：配置国内镜像源（如阿里云、网易），修改&lt;code&gt;/etc/docker/daemon.json&lt;/code&gt;后重启服务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4.2 命令混淆&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;易混淆命令&lt;/th&gt;
+&lt;th&gt;核心区别&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;docker run&lt;/code&gt; vs &lt;code&gt;docker start&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;run&lt;/code&gt;=新建+启动；&lt;code&gt;start&lt;/code&gt;=启动已存在容器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;docker stop&lt;/code&gt; vs &lt;code&gt;docker kill&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;stop&lt;/code&gt;优雅停止；&lt;code&gt;kill&lt;/code&gt;强制终止&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;docker rmi&lt;/code&gt; vs &lt;code&gt;docker rm&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;rmi&lt;/code&gt;删镜像；&lt;code&gt;rm&lt;/code&gt;删容器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;五、学习小结&lt;/h2&gt;
+&lt;h3&gt;核心逻辑链&lt;/h3&gt;
+&lt;p&gt;服务（daemon）→ 镜像（模板）→ 容器（运行实例），操作需按“启动服务→管理镜像→操作容器”递进&lt;/p&gt;
+&lt;h3&gt;后续重点&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;配置国内镜像源，解决网络问题&lt;/li&gt;
+&lt;li&gt;学习数据卷（&lt;code&gt;volume&lt;/code&gt;），解决容器数据持久化&lt;/li&gt;
+&lt;li&gt;实战部署（Nginx/MySQL），练习命令组合使用&lt;/li&gt;
+&lt;/ol&gt;
+</content:encoded></item><item><title>解决SpringBoot中Lombok注解失效的那些坑</title><link>https://github.com/posts/bug/%E8%A7%A3%E5%86%B3springboot%E4%B8%ADlombok%E6%B3%A8%E8%A7%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/</link><guid isPermaLink="true">https://github.com/posts/bug/%E8%A7%A3%E5%86%B3springboot%E4%B8%ADlombok%E6%B3%A8%E8%A7%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/</guid><pubDate>Wed, 13 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在 SpringBoot 项目开发中，Lombok 注解突然失效是一个很常见的问题，表现为明明添加了 @Data 等注解，却在编译时出现 “找不到符号”（如缺失 getter/setter 方法）的错误。本文记录了我在项目中遇到该问题的排查过程，分析了 Lombok 注解失效与 Maven 编译插件（maven-compiler-plugin）配置、版本管理之间的关系，并总结了可行的解决方案和最佳实践。
+&amp;lt;!-- more --&amp;gt;&lt;/p&gt;
+&lt;p&gt;在开发SpringBoot项目时，相信很多同学都遇到过Lombok注解突然失效的问题：代码里明明加了&lt;code&gt;@Data&lt;/code&gt;注解，编译时却报&quot;找不到符号&quot;（比如缺失getter/setter方法）。最近我在项目中就遇到了类似问题，通过排查终于找到原因，在这里记录一下整个过程和解决方案。&lt;/p&gt;
+&lt;h2&gt;问题现象&lt;/h2&gt;
+&lt;p&gt;项目中使用了Lombok的&lt;code&gt;@Data&lt;/code&gt;、&lt;code&gt;@Getter&lt;/code&gt;等注解，但编译时出现一系列&quot;找不到符号&quot;错误：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;java: 找不到符号
+  符号:   变量 log
+  位置: 类 org.hnu.tablerecognition.common.interceptor.JwtTokenInterceptor
+
+java: 找不到符号
+  符号:   方法 getRoleId()
+  位置: 类型为xxx.UpdateRoleMenuDto的变量 updateRoleMenuDto
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;检查代码发现实体类确实添加了&lt;code&gt;@Data&lt;/code&gt;注解，依赖也已引入，这就让人很困惑了。&lt;/p&gt;
+&lt;h2&gt;项目环境与配置&lt;/h2&gt;
+&lt;p&gt;先看看我的项目依赖配置（pom.xml关键部分）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;parent&amp;gt;
+  &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;3.4.4&amp;lt;/version&amp;gt;
+&amp;lt;/parent&amp;gt;
+
+&amp;lt;dependencies&amp;gt;
+  &amp;lt;!-- Lombok依赖 --&amp;gt;
+  &amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;
+    &amp;lt;optional&amp;gt;true&amp;lt;/optional&amp;gt;
+  &amp;lt;/dependency&amp;gt;
+  &amp;lt;!-- 其他依赖... --&amp;gt;
+&amp;lt;/dependencies&amp;gt;
+
+&amp;lt;build&amp;gt;
+  &amp;lt;plugins&amp;gt;
+    &amp;lt;!-- 显式配置的编译插件 --&amp;gt;
+    &amp;lt;plugin&amp;gt;
+      &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;
+      &amp;lt;configuration&amp;gt;
+        &amp;lt;annotationProcessorPaths&amp;gt;
+          &amp;lt;path&amp;gt;
+            &amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;
+            &amp;lt;!-- 注意这里没有指定version --&amp;gt;
+          &amp;lt;/path&amp;gt;
+        &amp;lt;/annotationProcessorPaths&amp;gt;
+      &amp;lt;/configuration&amp;gt;
+    &amp;lt;/plugin&amp;gt;
+    &amp;lt;plugin&amp;gt;
+      &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt;
+      &amp;lt;!-- 配置... --&amp;gt;
+    &amp;lt;/plugin&amp;gt;
+  &amp;lt;/plugins&amp;gt;
+&amp;lt;/build&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;问题分析&lt;/h2&gt;
+&lt;p&gt;经过排查，发现问题主要出在三个方面：&lt;/p&gt;
+&lt;h3&gt;1. Lombok版本管理问题&lt;/h3&gt;
+&lt;p&gt;SpringBoot的&lt;code&gt;spring-boot-starter-parent&lt;/code&gt;会统一管理大部分官方 starters 的版本，但&lt;strong&gt;Lombok并非SpringBoot官方组件&lt;/strong&gt;，所以其版本不会被parent默认管理。&lt;/p&gt;
+&lt;p&gt;当在pom.xml中不指定Lombok版本时，Maven会尝试从依赖链中查找版本，但如果没有其他依赖间接引入Lombok，会导致：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;依赖版本缺失&lt;/li&gt;
+&lt;li&gt;引入低版本或不兼容版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这会直接导致编译时无法解析Lombok注解，出现&quot;找不到符号&quot;错误。&lt;/p&gt;
+&lt;h3&gt;2. maven-compiler-plugin的配置冲突&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;maven-compiler-plugin&lt;/code&gt;是Maven的编译插件，负责将Java源代码编译为字节码。我的问题就出在显式配置了这个插件，但存在两个问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在&lt;code&gt;&amp;lt;annotationProcessorPaths&amp;gt;&lt;/code&gt;中指定了Lombok却没有显式声明版本&lt;/li&gt;
+&lt;li&gt;手动配置覆盖了SpringBoot父工程的默认配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. Lombok的工作原理&lt;/h3&gt;
+&lt;p&gt;Lombok通过&lt;strong&gt;Java注解处理器（Annotation Processor）&lt;/strong&gt; 在编译时动态生成代码（如getter/setter）。要使其生效，编译器必须能找到Lombok的注解处理器（包含在lombok.jar中）。&lt;/p&gt;
+&lt;p&gt;Maven中有两种方式指定注解处理器：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;显式配置：通过&lt;code&gt;maven-compiler-plugin&lt;/code&gt;的&lt;code&gt;&amp;lt;annotationProcessorPaths&amp;gt;&lt;/code&gt;指定&lt;/li&gt;
+&lt;li&gt;默认机制：自动从项目依赖中寻找包含注解处理器的JAR包&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;解决方案&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;方法一：显式指定Lombok版本（推荐）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在依赖和编译插件中&lt;strong&gt;明确声明Lombok版本&lt;/strong&gt;，确保版本一致性：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;parent&amp;gt;
+  &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;3.4.4&amp;lt;/version&amp;gt;
+&amp;lt;/parent&amp;gt;
+
+&amp;lt;dependencies&amp;gt;
+  &amp;lt;!-- Lombok依赖 --&amp;gt;
+  &amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;
+    &amp;lt;optional&amp;gt;true&amp;lt;/optional&amp;gt;
+    &amp;lt;version&amp;gt;1.18.24&amp;lt;/version&amp;gt;
+  &amp;lt;/dependency&amp;gt;
+  &amp;lt;!-- 其他依赖... --&amp;gt;
+&amp;lt;/dependencies&amp;gt;
+
+&amp;lt;build&amp;gt;
+  &amp;lt;plugins&amp;gt;
+    &amp;lt;!-- 显式配置的编译插件 --&amp;gt;
+    &amp;lt;plugin&amp;gt;
+      &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;
+      &amp;lt;configuration&amp;gt;
+        &amp;lt;annotationProcessorPaths&amp;gt;
+          &amp;lt;path&amp;gt;
+            &amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;1.18.24&amp;lt;/version&amp;gt;
+          &amp;lt;/path&amp;gt;
+        &amp;lt;/annotationProcessorPaths&amp;gt;
+      &amp;lt;/configuration&amp;gt;
+    &amp;lt;/plugin&amp;gt;
+    &amp;lt;plugin&amp;gt;
+      &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt;
+      &amp;lt;!-- 配置... --&amp;gt;
+    &amp;lt;/plugin&amp;gt;
+  &amp;lt;/plugins&amp;gt;
+&amp;lt;/build&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;核心要点&lt;/strong&gt;：若手动配置了&lt;code&gt;maven-compiler-plugin&lt;/code&gt;，必须在&lt;code&gt;&amp;lt;annotationProcessorPaths&amp;gt;&lt;/code&gt;中&lt;strong&gt;同时指定版本&lt;/strong&gt;，否则Maven无法解析。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;方法二：注释掉手动配置的&lt;code&gt;maven-compiler-plugin&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;build&amp;gt;
+  &amp;lt;plugins&amp;gt;
+    &amp;lt;!-- 注释掉手动配置的编译插件 --&amp;gt;
+    &amp;lt;!-- &amp;lt;plugin&amp;gt;
+      &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;
+      &amp;lt;configuration&amp;gt;
+        &amp;lt;annotationProcessorPaths&amp;gt;
+          &amp;lt;path&amp;gt;
+            &amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;
+          &amp;lt;/path&amp;gt;
+        &amp;lt;/annotationProcessorPaths&amp;gt;
+      &amp;lt;/configuration&amp;gt;
+    &amp;lt;/plugin&amp;gt; --&amp;gt;
+    &amp;lt;plugin&amp;gt;
+      &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt;
+      &amp;lt;!-- 配置... --&amp;gt;
+    &amp;lt;/plugin&amp;gt;
+  &amp;lt;/plugins&amp;gt;
+&amp;lt;/build&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;为什么这样就行？因为：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;SpringBoot父工程已包含默认配置&lt;/strong&gt;：&lt;code&gt;spring-boot-starter-parent&lt;/code&gt;已经内置了&lt;code&gt;maven-compiler-plugin&lt;/code&gt;的默认配置，包括对注解处理器的支持&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;默认机制会自动发现Lombok&lt;/strong&gt;：Lombok的JAR包中包含&lt;code&gt;META-INF/services/javax.annotation.processing.Processor&lt;/code&gt;文件，声明了它是注解处理器，父工程的默认配置会自动扫描并使用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;避免了版本冲突&lt;/strong&gt;：注释掉手动配置后，Maven会使用依赖中声明的Lombok版本，不会出现版本不匹配问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;最佳实践&lt;/h2&gt;
+&lt;p&gt;为了避免类似问题，总结几个最佳实践：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;明确指定Lombok版本&lt;/strong&gt;：即使依赖管理正常，显式指定版本也能提高项目稳定性&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+  &amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;1.18.24&amp;lt;/version&amp;gt; &amp;lt;!-- 明确版本 --&amp;gt;
+  &amp;lt;optional&amp;gt;true&amp;lt;/optional&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;正确配置IDE&lt;/strong&gt;：确保IDEA安装了Lombok插件并启用注解处理器&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装插件：&lt;code&gt;File -&amp;gt; Settings -&amp;gt; Plugins&lt;/code&gt;搜索Lombok&lt;/li&gt;
+&lt;li&gt;启用注解处理：&lt;code&gt;File -&amp;gt; Settings -&amp;gt; Build, Execution, Deployment -&amp;gt; Compiler -&amp;gt; Annotation Processors&lt;/code&gt;勾选&lt;code&gt;Enable annotation processing&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;合理使用父工程配置&lt;/strong&gt;：对于SpringBoot项目，优先使用&lt;code&gt;spring-boot-starter-parent&lt;/code&gt;提供的默认配置，除非有特殊需求，否则不要重复声明&lt;code&gt;maven-compiler-plugin&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;需要自定义编译配置时&lt;/strong&gt;：如果必须手动配置&lt;code&gt;maven-compiler-plugin&lt;/code&gt;，确保注解处理器路径配置完整&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;plugin&amp;gt;
+  &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;
+  &amp;lt;configuration&amp;gt;
+    &amp;lt;annotationProcessorPaths&amp;gt;
+      &amp;lt;path&amp;gt;
+        &amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;1.18.24&amp;lt;/version&amp;gt; &amp;lt;!-- 与依赖版本一致 --&amp;gt;
+      &amp;lt;/path&amp;gt;
+    &amp;lt;/annotationProcessorPaths&amp;gt;
+  &amp;lt;/configuration&amp;gt;
+&amp;lt;/plugin&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;总结&lt;/h2&gt;
+&lt;p&gt;Lombok注解失效的本质是&lt;strong&gt;编译期注解处理器未被正确加载&lt;/strong&gt;。理解Maven依赖机制、SpringBoot父工程配置以及Lombok的工作原理后，问题便迎刃而解。&lt;/p&gt;
+</content:encoded></item><item><title>Markdown Tutorial</title><link>https://github.com/posts/markdown-tutorial/</link><guid isPermaLink="true">https://github.com/posts/markdown-tutorial/</guid><description>A simple example of a Markdown blog post.</description><pubDate>Mon, 20 Jan 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Markdown Tutorial&lt;/h1&gt;
+&lt;p&gt;A markdown example shows how to write a markdown file. This document integrates core syntax and extensions (GMF).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#block-elements&quot;&gt;Block Elements&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#paragraphs-and-line-breaks&quot;&gt;Paragraphs and Line Breaks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#headers&quot;&gt;Headers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#blockquotes&quot;&gt;Blockquotes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#lists&quot;&gt;Lists&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#code-blocks&quot;&gt;Code Blocks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#horizontal-rules&quot;&gt;Horizontal Rules&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#table&quot;&gt;Table&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#span-elements&quot;&gt;Span Elements&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#links&quot;&gt;Links&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#emphasis&quot;&gt;Emphasis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#code&quot;&gt;Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#images&quot;&gt;Images&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#strikethrough&quot;&gt;Strikethrough&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#miscellaneous&quot;&gt;Miscellaneous&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#automatic-links&quot;&gt;Automatic Links&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#backslash-escapes&quot;&gt;Backslash Escapes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#inline-html&quot;&gt;Inline HTML&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Block Elements&lt;/h2&gt;
+&lt;h3&gt;Paragraphs and Line Breaks&lt;/h3&gt;
+&lt;h4&gt;Paragraphs&lt;/h4&gt;
+&lt;p&gt;HTML Tag: &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;One or more blank lines. (A blank line is a line containing nothing but &lt;strong&gt;spaces&lt;/strong&gt; or &lt;strong&gt;tabs&lt;/strong&gt; is considered blank.)&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;This will be
+inline.
+
+This is second paragraph.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;This will be
+inline.&lt;/p&gt;
+&lt;p&gt;This is second paragraph.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4&gt;Line Breaks&lt;/h4&gt;
+&lt;p&gt;HTML Tag: &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;End a line with &lt;strong&gt;two or more spaces&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;This will be not
+inline.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;This will be not&lt;br /&gt;
+inline.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Headers&lt;/h3&gt;
+&lt;p&gt;Markdown supports two styles of headers, Setext and atx.&lt;/p&gt;
+&lt;h4&gt;Setext&lt;/h4&gt;
+&lt;p&gt;HTML Tags: &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;h2&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&quot;Underlined&quot; using &lt;strong&gt;equal signs (=)&lt;/strong&gt; as &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; and &lt;strong&gt;dashes (-)&lt;/strong&gt; as &lt;code&gt;&amp;lt;h2&amp;gt;&lt;/code&gt; in any number.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;This is an H1
+=============
+This is an H2
+-------------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;This is an H1&lt;/h1&gt;
+&lt;h2&gt;This is an H2&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;h4&gt;atx&lt;/h4&gt;
+&lt;p&gt;HTML Tags: &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;h2&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;h3&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;h4&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;h5&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Uses 1-6 &lt;strong&gt;hash characters (#)&lt;/strong&gt; at the start of the line, corresponding to &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; - &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# This is an H1
+## This is an H2
+###### This is an H6
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;This is an H1&lt;/h1&gt;
+&lt;h2&gt;This is an H2&lt;/h2&gt;
+&lt;h6&gt;This is an H6&lt;/h6&gt;
+&lt;hr /&gt;
+&lt;p&gt;Optionally, you may &quot;close&quot; atx-style headers. The closing hashes &lt;strong&gt;don&apos;t need to match&lt;/strong&gt; the number of hashes used to open the header.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# This is an H1 #
+## This is an H2 ##
+### This is an H3 ######
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;This is an H1&lt;/h1&gt;
+&lt;h2&gt;This is an H2&lt;/h2&gt;
+&lt;h3&gt;This is an H3&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Blockquotes&lt;/h3&gt;
+&lt;p&gt;HTML Tag: &lt;code&gt;&amp;lt;blockquote&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Markdown uses email-style &lt;strong&gt;&amp;gt;&lt;/strong&gt; characters for blockquoting. It looks best if you hard wrap the text and put a &amp;gt; before every line.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+&amp;gt; consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+&amp;gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+&amp;gt;
+&amp;gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+&amp;gt; id sem consectetuer libero luctus adipiscing.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.&lt;/p&gt;
+&lt;p&gt;Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;p&gt;Markdown allows you to be lazy and only put the &amp;gt; before the first line of a hard-wrapped paragraph.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+
+&amp;gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;p&gt;Blockquotes can be nested (i.e. a blockquote-in-a-blockquote) by adding additional levels of &amp;gt;.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; This is the first level of quoting.
+&amp;gt;
+&amp;gt; &amp;gt; This is nested blockquote.
+&amp;gt;
+&amp;gt; Back to the first level.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is the first level of quoting.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is nested blockquote.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Back to the first level.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;p&gt;Blockquotes can contain other Markdown elements, including headers, lists, and code blocks.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; ## This is a header.
+&amp;gt;
+&amp;gt; 1.   This is the first list item.
+&amp;gt; 2.   This is the second list item.
+&amp;gt;
+&amp;gt; Here&apos;s some example code:
+&amp;gt;
+&amp;gt;     return shell_exec(&quot;echo $input | $markdown_script&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;This is a header.&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;This is the first list item.&lt;/li&gt;
+&lt;li&gt;This is the second list item.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here&apos;s some example code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;return shell_exec(&quot;echo $input | $markdown_script&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Lists&lt;/h3&gt;
+&lt;p&gt;Markdown supports ordered (numbered) and unordered (bulleted) lists.&lt;/p&gt;
+&lt;h4&gt;Unordered&lt;/h4&gt;
+&lt;p&gt;HTML Tag: &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Unordered lists use &lt;strong&gt;asterisks (*)&lt;/strong&gt;, &lt;strong&gt;pluses (+)&lt;/strong&gt;, and &lt;strong&gt;hyphens (-)&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;*   Red
+*   Green
+*   Blue
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;Red&lt;/li&gt;
+&lt;li&gt;Green&lt;/li&gt;
+&lt;li&gt;Blue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;is equivalent to:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;+   Red
++   Green
++   Blue
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-   Red
+-   Green
+-   Blue
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4&gt;Ordered&lt;/h4&gt;
+&lt;p&gt;HTML Tag: &lt;code&gt;&amp;lt;ol&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Ordered lists use numbers followed by periods:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1.  Bird
+2.  McHale
+3.  Parish
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li&gt;Bird&lt;/li&gt;
+&lt;li&gt;McHale&lt;/li&gt;
+&lt;li&gt;Parish&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;p&gt;It&apos;s possible to trigger an ordered list by accident, by writing something like this:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1986. What a great season.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li&gt;What a great season.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;p&gt;You can &lt;strong&gt;backslash-escape (\)&lt;/strong&gt; the period:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1986\. What a great season.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;1986. What a great season.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4&gt;Indented&lt;/h4&gt;
+&lt;h5&gt;Blockquote&lt;/h5&gt;
+&lt;p&gt;To put a blockquote within a list item, the blockquote&apos;s &amp;gt; delimiters need to be indented:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;*   A list item with a blockquote:
+
+    &amp;gt; This is a blockquote
+    &amp;gt; inside a list item.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A list item with a blockquote:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is a blockquote
+inside a list item.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h5&gt;Code Block&lt;/h5&gt;
+&lt;p&gt;To put a code block within a list item, the code block needs to be indented twice — &lt;strong&gt;8 spaces&lt;/strong&gt; or &lt;strong&gt;two tabs&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;*   A list item with a code block:
+
+        &amp;lt;code goes here&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A list item with a code block:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;code goes here&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h5&gt;Nested List&lt;/h5&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;* A
+  * A1
+  * A2
+* B
+* C
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;A
+&lt;ul&gt;
+&lt;li&gt;A1&lt;/li&gt;
+&lt;li&gt;A2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;B&lt;/li&gt;
+&lt;li&gt;C&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Code Blocks&lt;/h3&gt;
+&lt;p&gt;HTML Tag: &lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Indent every line of the block by at least &lt;strong&gt;4 spaces&lt;/strong&gt; or &lt;strong&gt;1 tab&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;This is a normal paragraph:
+
+    This is a code block.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;This is a normal paragraph:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;This is a code block.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;p&gt;A code block continues until it reaches a line that is not indented (or the end of the article).&lt;/p&gt;
+&lt;p&gt;Within a code block, &lt;strong&gt;&lt;em&gt;ampersands (&amp;amp;)&lt;/em&gt;&lt;/strong&gt; and angle &lt;strong&gt;brackets (&amp;lt; and &amp;gt;)&lt;/strong&gt; are automatically converted into HTML entities.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    &amp;lt;div class=&quot;footer&quot;&amp;gt;
+        &amp;amp;copy; 2004 Foo Corporation
+    &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&quot;footer&quot;&amp;gt;
+    &amp;amp;copy; 2004 Foo Corporation
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;p&gt;Following sections Fenced Code Blocks and Syntax Highlighting are extensions, you can use the other way to write the code block.&lt;/p&gt;
+&lt;h4&gt;Fenced Code Blocks&lt;/h4&gt;
+&lt;p&gt;Just wrap your code in &lt;code&gt;```&lt;/code&gt; (as shown below) and you won&apos;t need to indent it by four spaces.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Here&apos;s an example:
+
+```
+function test() {
+  console.log(&quot;notice the blank line before this function?&quot;);
+}
+```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Here&apos;s an example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function test() {
+  console.log(&quot;notice the blank line before this function?&quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4&gt;Syntax Highlighting&lt;/h4&gt;
+&lt;p&gt;In your fenced block, add an optional language identifier and we&apos;ll run it through syntax highlighting (&lt;a href=&quot;https://github.com/github/linguist/blob/master/lib/linguist/languages.yml&quot;&gt;Support Languages&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;```ruby
+require &apos;redcarpet&apos;
+markdown = Redcarpet.new(&quot;Hello World!&quot;)
+puts markdown.to_html
+```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;require &apos;redcarpet&apos;
+markdown = Redcarpet.new(&quot;Hello World!&quot;)
+puts markdown.to_html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Horizontal Rules&lt;/h3&gt;
+&lt;p&gt;HTML Tag: &lt;code&gt;&amp;lt;hr /&amp;gt;&lt;/code&gt;
+Places &lt;strong&gt;three or more hyphens (-), asterisks (*), or underscores (_)&lt;/strong&gt; on a line by themselves. You may use spaces between the hyphens or asterisks.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;* * *
+***
+*****
+- - -
+---------------------------------------
+___
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Table&lt;/h3&gt;
+&lt;p&gt;HTML Tag: &lt;code&gt;&amp;lt;table&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;It&apos;s an extension.&lt;/p&gt;
+&lt;p&gt;Separates column by &lt;strong&gt;pipe (|)&lt;/strong&gt; and header by &lt;strong&gt;dashes (-)&lt;/strong&gt;, and uses &lt;strong&gt;colon (:)&lt;/strong&gt; for alignment.&lt;/p&gt;
+&lt;p&gt;The outer &lt;strong&gt;pipes (|)&lt;/strong&gt; and alignment are optional. There are &lt;strong&gt;3 delimiters&lt;/strong&gt; each cell at least for separating header.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;| Left | Center | Right |
+|:-----|:------:|------:|
+|aaa   |bbb     |ccc    |
+|ddd   |eee     |fff    |
+
+ A | B
+---|---
+123|456
+
+
+A |B
+--|--
+12|45
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Left&lt;/th&gt;
+&lt;th&gt;Center&lt;/th&gt;
+&lt;th&gt;Right&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;aaa&lt;/td&gt;
+&lt;td&gt;bbb&lt;/td&gt;
+&lt;td&gt;ccc&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ddd&lt;/td&gt;
+&lt;td&gt;eee&lt;/td&gt;
+&lt;td&gt;fff&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;A&lt;/th&gt;
+&lt;th&gt;B&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;123&lt;/td&gt;
+&lt;td&gt;456&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;A&lt;/th&gt;
+&lt;th&gt;B&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;45&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Span Elements&lt;/h2&gt;
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;p&gt;HTML Tag: &lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Markdown supports two style of links: inline and reference.&lt;/p&gt;
+&lt;h4&gt;Inline&lt;/h4&gt;
+&lt;p&gt;Inline link format like this: &lt;code&gt;[Link Text](URL &quot;Title&quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Title is optional.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;This is [an example](http://example.com/ &quot;Title&quot;) inline link.
+
+[This link](http://example.net/) has no title attribute.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;This is &lt;a href=&quot;http://example.com/&quot;&gt;an example&lt;/a&gt; inline link.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://example.net/&quot;&gt;This link&lt;/a&gt; has no title attribute.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;If you&apos;re referring to a local resource on the same server, you can use relative paths:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;See my [About](/about/) page for details.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;See my &lt;a href=&quot;/about/&quot;&gt;About&lt;/a&gt; page for details.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4&gt;Reference&lt;/h4&gt;
+&lt;p&gt;You could predefine link references. Format like this: &lt;code&gt;[id]: URL &quot;Title&quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Title is also optional. And the you refer the link, format like this: &lt;code&gt;[Link Text][id]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[id]: http://example.com/  &quot;Optional Title Here&quot;
+This is [an example][id] reference-style link.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;This is &lt;a href=&quot;http://example.com/&quot;&gt;an example&lt;/a&gt; reference-style link.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;That is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Square brackets containing the link identifier (&lt;strong&gt;not case sensitive&lt;/strong&gt;, optionally indented from the left margin using up to three spaces);&lt;/li&gt;
+&lt;li&gt;followed by a colon;&lt;/li&gt;
+&lt;li&gt;followed by one or more spaces (or tabs);&lt;/li&gt;
+&lt;li&gt;followed by the URL for the link;&lt;/li&gt;
+&lt;li&gt;The link URL may, optionally, be surrounded by angle brackets.&lt;/li&gt;
+&lt;li&gt;optionally followed by a title attribute for the link, enclosed in double or single quotes, or enclosed in parentheses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The following three link definitions are equivalent:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[foo]: http://example.com/  &quot;Optional Title Here&quot;
+[foo]: http://example.com/  &apos;Optional Title Here&apos;
+[foo]: http://example.com/  (Optional Title Here)
+[foo]: &amp;lt;http://example.com/&amp;gt;  &quot;Optional Title Here&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Uses an empty set of square brackets, the link text itself is used as the name.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[Google]: http://google.com/
+[Google][]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;a href=&quot;http://google.com/&quot;&gt;Google&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Emphasis&lt;/h3&gt;
+&lt;p&gt;HTML Tags: &lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Markdown treats &lt;strong&gt;asterisks (*)&lt;/strong&gt; and &lt;strong&gt;underscores (_)&lt;/strong&gt; as indicators of emphasis. &lt;strong&gt;One delimiter&lt;/strong&gt; will be &lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;; *&lt;em&gt;double delimiters&lt;/em&gt; will be &lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;em&gt;single asterisks&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;single underscores&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;double asterisks&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;double underscores&lt;/strong&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;But if you surround an * or _ with spaces, it&apos;ll be treated as a literal asterisk or underscore.&lt;/p&gt;
+&lt;p&gt;You can backslash escape it:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;\*this text is surrounded by literal asterisks\*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;*this text is surrounded by literal asterisks*&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Code&lt;/h3&gt;
+&lt;p&gt;HTML Tag: &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Wraps it with &lt;strong&gt;backtick quotes (`)&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Use the `printf()` function.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Use the &lt;code&gt;printf()&lt;/code&gt; function.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;To include a literal backtick character within a code span, you can use &lt;strong&gt;multiple backticks&lt;/strong&gt; as the opening and closing delimiters:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;``There is a literal backtick (`) here.``
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;code&gt;There is a literal backtick (`) here.&lt;/code&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;The backtick delimiters surrounding a code span may include spaces — one after the opening, one before the closing. This allows you to place literal backtick characters at the beginning or end of a code span:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;A single backtick in a code span: `` ` ``
+
+A backtick-delimited string in a code span: `` `foo` ``
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;A single backtick in a code span: &lt;code&gt;`&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;A backtick-delimited string in a code span: &lt;code&gt;`foo`&lt;/code&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Images&lt;/h3&gt;
+&lt;p&gt;HTML Tag: &lt;code&gt;&amp;lt;img /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Markdown uses an image syntax that is intended to resemble the syntax for links, allowing for two styles: inline and reference.&lt;/p&gt;
+&lt;h4&gt;Inline&lt;/h4&gt;
+&lt;p&gt;Inline image syntax looks like this: &lt;code&gt;![Alt text](URL &quot;Title&quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Title is optional.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;![Alt text](/path/to/img.jpg)
+
+![Alt text](/path/to/img.jpg &quot;Optional title&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2024/08/20/5fszgXeOxmL3Wdv.webp&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2024/08/20/5fszgXeOxmL3Wdv.webp&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot; /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;That is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An exclamation mark: !;&lt;/li&gt;
+&lt;li&gt;followed by a set of square brackets, containing the alt attribute text for the image;&lt;/li&gt;
+&lt;li&gt;followed by a set of parentheses, containing the URL or path to the image, and an optional title attribute enclosed in double or single quotes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Reference&lt;/h4&gt;
+&lt;p&gt;Reference-style image syntax looks like this: &lt;code&gt;![Alt text][id]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[img id]: https://s2.loli.net/2024/08/20/5fszgXeOxmL3Wdv.webp  &quot;Optional title attribute&quot;
+![Alt text][img id]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2024/08/20/5fszgXeOxmL3Wdv.webp&quot; alt=&quot;Alt text&quot; title=&quot;Optional title attribute&quot; /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Strikethrough&lt;/h3&gt;
+&lt;p&gt;HTML Tag: &lt;code&gt;&amp;lt;del&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;It&apos;s an extension.&lt;/p&gt;
+&lt;p&gt;GFM adds syntax to strikethrough text.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~~Mistaken text.~~
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;s&gt;Mistaken text.&lt;/s&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Miscellaneous&lt;/h2&gt;
+&lt;h3&gt;Automatic Links&lt;/h3&gt;
+&lt;p&gt;Markdown supports a shortcut style for creating &quot;automatic&quot; links for URLs and email addresses: simply surround the URL or email address with angle brackets.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;http://example.com/&amp;gt;
+
+&amp;lt;address@example.com&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;a href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;mailto:address@example.com&quot;&gt;address@example.com&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;GFM will autolink standard URLs.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/emn178/markdown
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;https://github.com/emn178/markdown&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;Backslash Escapes&lt;/h3&gt;
+&lt;p&gt;Markdown allows you to use backslash escapes to generate literal characters which would otherwise have special meaning in Markdown&apos;s formatting syntax.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;\*literal asterisks\*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;*literal asterisks*&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Markdown provides backslash escapes for the following characters:&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;\   backslash
+`   backtick
+*   asterisk
+_   underscore
+{}  curly braces
+[]  square brackets
+()  parentheses
+#   hash mark
++   plus sign
+-   minus sign (hyphen)
+.   dot
+!   exclamation mark
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Inline HTML&lt;/h2&gt;
+&lt;p&gt;For any markup that is not covered by Markdown&apos;s syntax, you simply use HTML itself. There&apos;s no need to preface it or delimit it to indicate that you&apos;re switching from Markdown to HTML; you just use the tags.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;This is a regular paragraph.
+
+&amp;lt;table&amp;gt;
+    &amp;lt;tr&amp;gt;
+        &amp;lt;td&amp;gt;Foo&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;
+
+This is another regular paragraph.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;This is a regular paragraph.&lt;/p&gt;
+&lt;p&gt;&amp;lt;table&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td&amp;gt;Foo&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;&lt;/p&gt;
+&lt;p&gt;This is another regular paragraph.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Note that Markdown formatting syntax is &lt;strong&gt;not processed within block-level HTML tags&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Unlike block-level HTML tags, Markdown syntax is &lt;strong&gt;processed within span-level tags&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;span&amp;gt;**Work**&amp;lt;/span&amp;gt;
+
+&amp;lt;div&amp;gt;
+    **No Work**
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preview:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&amp;lt;span&amp;gt;&lt;strong&gt;Work&lt;/strong&gt;&amp;lt;/span&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;div&amp;gt;
+&lt;strong&gt;No Work&lt;/strong&gt;
+&amp;lt;/div&amp;gt;&lt;/p&gt;
+&lt;hr /&gt;
+</content:encoded></item><item><title>Markdown Extended Features</title><link>https://github.com/posts/markdown-extended/</link><guid isPermaLink="true">https://github.com/posts/markdown-extended/</guid><description>Read more about Markdown features in Mizuki</description><pubDate>Wed, 01 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;GitHub Repository Cards&lt;/h2&gt;
+&lt;p&gt;You can add dynamic cards that link to GitHub repositories, on page load, the repository information is pulled from the GitHub API.&lt;/p&gt;
+&lt;p&gt;::github{repo=&quot;matsuzaka-yuki/Mizuki&quot;}&lt;/p&gt;
+&lt;p&gt;Create a GitHub repository card with the code &lt;code&gt;::github{repo=&quot;matsuzaka-yuki/Mizuki&quot;}&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;::github{repo=&quot;matsuzaka-yuki/Mizuki&quot;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Admonitions&lt;/h2&gt;
+&lt;p&gt;Following types of admonitions are supported: &lt;code&gt;note&lt;/code&gt; &lt;code&gt;tip&lt;/code&gt; &lt;code&gt;important&lt;/code&gt; &lt;code&gt;warning&lt;/code&gt; &lt;code&gt;caution&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;:::note
+Highlights information that users should take into account, even when skimming.
+:::&lt;/p&gt;
+&lt;p&gt;:::tip
+Optional information to help a user be more successful.
+:::&lt;/p&gt;
+&lt;p&gt;:::important
+Crucial information necessary for users to succeed.
+:::&lt;/p&gt;
+&lt;p&gt;:::warning
+Critical content demanding immediate user attention due to potential risks.
+:::&lt;/p&gt;
+&lt;p&gt;:::caution
+Negative potential consequences of an action.
+:::&lt;/p&gt;
+&lt;h3&gt;Basic Syntax&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;:::note
+Highlights information that users should take into account, even when skimming.
+:::
+
+:::tip
+Optional information to help a user be more successful.
+:::
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Custom Titles&lt;/h3&gt;
+&lt;p&gt;The title of the admonition can be customized.&lt;/p&gt;
+&lt;p&gt;:::note[MY CUSTOM TITLE]
+This is a note with a custom title.
+:::&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;:::note[MY CUSTOM TITLE]
+This is a note with a custom title.
+:::
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;GitHub Syntax&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!TIP]
+&lt;a href=&quot;https://github.com/orgs/community/discussions/16925&quot;&gt;The GitHub syntax&lt;/a&gt; is also supported.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; [!NOTE]
+&amp;gt; The GitHub syntax is also supported.
+
+&amp;gt; [!TIP]
+&amp;gt; The GitHub syntax is also supported.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Spoiler&lt;/h3&gt;
+&lt;p&gt;You can add spoilers to your text. The text also supports &lt;strong&gt;Markdown&lt;/strong&gt; syntax.&lt;/p&gt;
+&lt;p&gt;The content :spoiler[is hidden &lt;strong&gt;ayyy&lt;/strong&gt;]!&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;The content :spoiler[is hidden **ayyy**]!&lt;/code&gt;&lt;/pre&gt;
+</content:encoded></item><item><title>Simple Guides for Mizuki</title><link>https://github.com/posts/guide/</link><guid isPermaLink="true">https://github.com/posts/guide/</guid><description>How to use this blog template.</description><pubDate>Mon, 01 Apr 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This blog template is built with &lt;a href=&quot;https://astro.build/&quot;&gt;Astro&lt;/a&gt;. For the things that are not mentioned in this guide, you may find the answers in the &lt;a href=&quot;https://docs.astro.build/&quot;&gt;Astro Docs&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Front-matter of Posts&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;---
+title: My First Blog Post
+published: 2023-09-09
+description: This is the first post of my new Astro blog.
+image: ./cover.jpg
+tags: [Foo, Bar]
+category: Front-end
+draft: false
+---
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Attribute&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;title&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The title of the post.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;published&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The date the post was published.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;pinned&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Whether this post is pinned to the top of the post list.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;description&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A short description of the post. Displayed on index page.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;image&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The cover image path of the post.&amp;lt;br/&amp;gt;1. Start with &lt;code&gt;http://&lt;/code&gt; or &lt;code&gt;https://&lt;/code&gt;: Use web image&amp;lt;br/&amp;gt;2. Start with &lt;code&gt;/&lt;/code&gt;: For image in &lt;code&gt;public&lt;/code&gt; dir&amp;lt;br/&amp;gt;3. With none of the prefixes: Relative to the markdown file&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tags&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The tags of the post.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;category&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The category of the post.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;licenseName&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The license name for the post content.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;author&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The author of the post.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sourceLink&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The source link or reference for the post content.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;draft&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;If this post is still a draft, which won&apos;t be displayed.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;Where to Place the Post Files&lt;/h2&gt;
+&lt;p&gt;Your post files should be placed in &lt;code&gt;src/content/posts/&lt;/code&gt; directory. You can also create sub-directories to better organize your posts and assets.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;src/content/posts/
+├── post-1.md
+└── post-2/
+    ├── cover.png
+    └── index.md
+&lt;/code&gt;&lt;/pre&gt;
+</content:encoded></item><item><title>Markdown Mermaid</title><link>https://github.com/posts/markdown-mermaid/</link><guid isPermaLink="true">https://github.com/posts/markdown-mermaid/</guid><description>A simple example of a Markdown blog post with Mermaid.</description><pubDate>Sun, 01 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Complete Guide to Markdown with Mermaid Diagrams&lt;/h1&gt;
+&lt;p&gt;This article demonstrates how to create various complex diagrams using Mermaid in Markdown documents, including flowcharts, sequence diagrams, Gantt charts, class diagrams, and state diagrams.&lt;/p&gt;
+&lt;h2&gt;Flowchart Example&lt;/h2&gt;
+&lt;p&gt;Flowcharts are excellent for representing processes or algorithm steps.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;graph TD
+    A[Start] --&amp;gt; B{Condition Check}
+    B --&amp;gt;|Yes| C[Process Step 1]
+    B --&amp;gt;|No| D[Process Step 2]
+    C --&amp;gt; E[Subprocess]
+    D --&amp;gt; E
+    subgraph E [Subprocess Details]
+        E1[Substep 1] --&amp;gt; E2[Substep 2]
+        E2 --&amp;gt; E3[Substep 3]
+    end
+    E --&amp;gt; F{Another Decision}
+    F --&amp;gt;|Option 1| G[Result 1]
+    F --&amp;gt;|Option 2| H[Result 2]
+    F --&amp;gt;|Option 3| I[Result 3]
+    G --&amp;gt; J[End]
+    H --&amp;gt; J
+    I --&amp;gt; J
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Sequence Diagram Example&lt;/h2&gt;
+&lt;p&gt;Sequence diagrams show interactions between objects over time.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sequenceDiagram
+    participant User
+    participant WebApp
+    participant Server
+    participant Database
+
+    User-&amp;gt;&amp;gt;WebApp: Submit Login Request
+    WebApp-&amp;gt;&amp;gt;Server: Send Auth Request
+    Server-&amp;gt;&amp;gt;Database: Query User Credentials
+    Database--&amp;gt;&amp;gt;Server: Return User Data
+    Server--&amp;gt;&amp;gt;WebApp: Return Auth Result
+    
+    alt Auth Successful
+        WebApp-&amp;gt;&amp;gt;User: Show Welcome Page
+        WebApp-&amp;gt;&amp;gt;Server: Request User Data
+        Server-&amp;gt;&amp;gt;Database: Get User Preferences
+        Database--&amp;gt;&amp;gt;Server: Return Preferences
+        Server--&amp;gt;&amp;gt;WebApp: Return User Data
+        WebApp-&amp;gt;&amp;gt;User: Load Personalized Interface
+    else Auth Failed
+        WebApp-&amp;gt;&amp;gt;User: Show Error Message
+        WebApp-&amp;gt;&amp;gt;User: Prompt Re-entry
+    end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Gantt Chart Example&lt;/h2&gt;
+&lt;p&gt;Gantt charts are perfect for displaying project schedules and timelines.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gantt
+    title Website Development Project Timeline
+    dateFormat  YYYY-MM-DD
+    axisFormat  %m/%d
+    
+    section Design Phase
+    Requirements Analysis      :a1, 2023-10-01, 7d
+    UI Design                 :a2, after a1, 10d
+    Prototype Creation        :a3, after a2, 5d
+    
+    section Development Phase
+    Frontend Development      :b1, 2023-10-20, 15d
+    Backend Development       :b2, after a2, 18d
+    Database Design           :b3, after a1, 12d
+    
+    section Testing Phase
+    Unit Testing              :c1, after b1, 8d
+    Integration Testing       :c2, after b2, 10d
+    User Acceptance Testing   :c3, after c2, 7d
+    
+    section Deployment
+    Production Deployment     :d1, after c3, 3d
+    Launch                    :milestone, after d1, 0d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Class Diagram Example&lt;/h2&gt;
+&lt;p&gt;Class diagrams show the static structure of a system, including classes, attributes, methods, and their relationships.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;classDiagram
+    class User {
+        +String username
+        +String password
+        +String email
+        +Boolean active
+        +login()
+        +logout()
+        +updateProfile()
+    }
+    
+    class Article {
+        +String title
+        +String content
+        +Date publishDate
+        +Boolean published
+        +publish()
+        +edit()
+        +delete()
+    }
+    
+    class Comment {
+        +String content
+        +Date commentDate
+        +addComment()
+        +deleteComment()
+    }
+    
+    class Category {
+        +String name
+        +String description
+        +addArticle()
+        +removeArticle()
+    }
+    
+    User &quot;1&quot; -- &quot;*&quot; Article : writes
+    User &quot;1&quot; -- &quot;*&quot; Comment : posts
+    Article &quot;1&quot; -- &quot;*&quot; Comment : has
+    Article &quot;1&quot; -- &quot;*&quot; Category : belongs to
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;State Diagram Example&lt;/h2&gt;
+&lt;p&gt;State diagrams show the sequence of states an object goes through during its life cycle.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;stateDiagram-v2
+    [*] --&amp;gt; Draft
+    
+    Draft --&amp;gt; UnderReview : submit
+    UnderReview --&amp;gt; Draft : reject
+    UnderReview --&amp;gt; Approved : approve
+    Approved --&amp;gt; Published : publish
+    Published --&amp;gt; Archived : archive
+    Published --&amp;gt; Draft : retract
+    
+    state Published {
+        [*] --&amp;gt; Active
+        Active --&amp;gt; Hidden : temporarily hide
+        Hidden --&amp;gt; Active : restore
+        Active --&amp;gt; [*]
+        Hidden --&amp;gt; [*]
+    }
+    
+    Archived --&amp;gt; [*]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Pie Chart Example&lt;/h2&gt;
+&lt;p&gt;Pie charts are ideal for displaying proportions and percentage data.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pie title Website Traffic Sources Analysis
+    &quot;Search Engines&quot; : 45.6
+    &quot;Direct Access&quot; : 30.1
+    &quot;Social Media&quot; : 15.3
+    &quot;Referral Links&quot; : 6.4
+    &quot;Other Sources&quot; : 2.6
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Mermaid is a powerful tool for creating various types of diagrams in Markdown documents. This article demonstrated how to use flowcharts, sequence diagrams, Gantt charts, class diagrams, state diagrams, and pie charts. These diagrams can help you express complex concepts, processes, and data structures more clearly.&lt;/p&gt;
+&lt;p&gt;To use Mermaid, simply specify the mermaid language in a code block and describe the diagram using concise text syntax. Mermaid will automatically convert these descriptions into beautiful visual diagrams.&lt;/p&gt;
+&lt;p&gt;Try using Mermaid diagrams in your next technical blog post or project documentation - they will make your content more professional and easier to understand!&lt;/p&gt;
+</content:encoded></item><item><title>Include Video in the Posts</title><link>https://github.com/posts/video/</link><guid isPermaLink="true">https://github.com/posts/video/</guid><description>This post demonstrates how to include embedded video in a blog post.</description><pubDate>Mon, 01 Aug 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Just copy the embed code from YouTube or other platforms, and paste it in the markdown file.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+title: Include Video in the Post
+published: 2023-10-19
+// ...
+---
+
+&amp;lt;iframe width=&quot;100%&quot; height=&quot;468&quot; src=&quot;https://www.youtube.com/embed/5gIf0_xpFPI?si=N1WTorLKL0uwLsU_&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allowfullscreen&amp;gt;&amp;lt;/iframe&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;YouTube&lt;/h2&gt;
+&lt;p&gt;&amp;lt;iframe width=&quot;100%&quot; height=&quot;468&quot; src=&quot;https://www.youtube.com/embed/5gIf0_xpFPI?si=N1WTorLKL0uwLsU_&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/p&gt;
+&lt;h2&gt;Bilibili&lt;/h2&gt;
+&lt;p&gt;&amp;lt;iframe width=&quot;100%&quot; height=&quot;468&quot; src=&quot;//player.bilibili.com/player.html?bvid=BV1fK4y1s7Qf&amp;amp;p=1&amp;amp;autoplay=0&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot; &amp;amp;autoplay=0&amp;gt; &amp;lt;/iframe&amp;gt;&lt;/p&gt;
+</content:encoded></item></channel></rss>
