@@ -2,7 +2,7 @@
 title: Electron中导入better-sqlite3：为什么import不行，require却可以？
 published: 2025-09-01
 category: 技术踩坑
-tags: [Electron, ESM, CommonJS]
+tags: [Electron]
 ---
 
 在Electron开发过程中，我遇到一个有趣的问题：使用`import Database from "better-sqlite3"`导入模块时，不仅出现类型声明文件缺失的警告，还会报`__filename is not defined`的运行时错误。而换成`const Database = require("better-sqlite3")`后，一切正常。这个现象背后，其实是JavaScript两种主流模块系统——ESM与CommonJS的差异在作祟。

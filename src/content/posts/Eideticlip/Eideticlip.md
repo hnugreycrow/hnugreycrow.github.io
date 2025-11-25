@@ -1,7 +1,7 @@
 ---
 title: 一个剪贴板管理工具
 published: 2025-11-07
-tags: [Electron, vue]
+tags: [Electron, Vue]
 ---
 
 > **eidetic** /aɪˈdetɪk/ ：形容词，意为"异常清晰的，过目不忘的"
