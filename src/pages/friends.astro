@@ -7,6 +7,7 @@ import { getFriendsList, getShuffledFriendsList } from "../data/friends";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
+import Comment from "@components/comment/index.astro";
 
 // 检查友链页面是否启用
 if (!siteConfig.featurePages.friends) {
@@ -209,6 +210,8 @@ const allTags = Array.from(new Set(friendsList.flatMap((item) => item.tags)));
 			<Markdown class="mt-8 prose dark:prose-invert max-w-none">
 				<Content />
 			</Markdown>
+
+			<Comment post={friendsPost} customPath="/friends"/>
 			
 			<!-- 隐藏元素用于传递 i18n 文本到全局脚本 -->
 			<div id="friends-copy-success-text" style="display: none;">{i18n(I18nKey.friendsCopySuccess)}</div>
