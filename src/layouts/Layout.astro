@@ -284,7 +284,51 @@ if (siteConfig.font) {
 		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
 
 		<!-- Umami Analytics -->
-		{umamiEnabled && umamiScripts && <Fragment set:html={umamiScripts} />}
+		{umamiEnabled && umamiScripts && (
+  <>
+    <Fragment set:html={umamiScripts} />
+    
+    <script is:inline>
+      // Umami 防重复初始化核心逻辑
+      (function() {
+        if (window.__UMAMI_GUARD) return;
+        window.__UMAMI_GUARD = true;
+        
+        const init = () => {
+          if (!window.umami || !window.swup?.hooks) {
+            setTimeout(init, 100);
+            return;
+          }
+          
+          // 清理可能存在的重复钩子
+          const hooks = window.swup.hooks.hooks?.pageView?._listeners;
+          if (hooks?.length) {
+            console.log(`[Umami] 清理 ${hooks.length} 个重复钩子`);
+            hooks.length = 0;
+          }
+          
+          // 注册单次 page:view 钩子
+          window.swup.hooks.on('page:view', () => {
+            const url = window.location.pathname + window.location.search;
+            if (window.__UMAMI_LAST_URL === url) return;
+            
+            window.__UMAMI_LAST_URL = url;
+            window.umami.track({
+              url,
+              title: document.title,
+              website: "dd906ef4-201c-41a7-b509-4d308eef10af"
+            });
+            
+            console.log(`[Umami] 发送: ${url}`);
+          });
+        };
+        
+        // 立即或等待 Swup 加载后初始化
+        window.swup ? init() : document.addEventListener('swup:enable', init, { once: true });
+      })();
+    </script>
+  </>
+  )}
 
 </head>
 	<body class=" min-h-screen " class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
