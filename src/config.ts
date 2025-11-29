@@ -615,7 +615,7 @@ export const widgetConfigs = {
 } as const;
 
 export const umamiConfig = {
-	enabled: true, // 是否显示Umami统计
+	enabled: false, // 是否显示Umami统计
 	apiKey: import.meta.env.UMAMI_API_KEY || "api_FR1nCDnY9VU1tNxEOU7gMtqTQe23XtG2", // API密钥优先从环境变量读取，否则使用配置文件中的值
 	baseUrl: "https://api.umami.is", // Umami Cloud API地址
 	scripts: `
