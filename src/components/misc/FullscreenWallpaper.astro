@@ -211,6 +211,15 @@ const carouselInterval = config.carousel?.interval || 5;
 		} else {
 			setRandomWallpaper();
 		}
+
+		items.forEach((img, index) => {
+		if (index !== randomIndex) {
+			const preload = new Image();
+			preload.src = img.src;
+
+			preload.decode().catch(() => {});
+		}
+		});
 		
 		/**
 		 * 屏幕尺寸变化时，可能需要从桌面 / 移动端切换壁纸
