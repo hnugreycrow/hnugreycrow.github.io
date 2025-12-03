@@ -30,7 +30,7 @@ export const siteConfig: SiteConfig = {
 	lang: SITE_LANG,
 
 	themeColor: {
-		hue: 250, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
+		hue: 270, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
 		fixed: false, // 对访问者隐藏主题色选择器
 	},
 
@@ -80,7 +80,7 @@ export const siteConfig: SiteConfig = {
 	// 壁纸模式配置
 	wallpaperMode: {
 		// 默认壁纸模式：banner=顶部横幅，fullscreen=全屏壁纸，none=无壁纸
-		defaultMode: "banner",
+		defaultMode: "fullscreen",
 		// 整体布局方案切换按钮显示设置（默认："desktop"）
 		// "off" = 不显示
 		// "mobile" = 仅在移动端显示
@@ -98,18 +98,21 @@ export const siteConfig: SiteConfig = {
 				"/images/wallpapers/e73f7fc72d35418bbc23a51fa71f439a20250615.jpg",
 			], // 桌面横幅图片
 			mobile: [
-				"/images/wallpapers/0d980ee24f43443cabab6c099ee3842120240606.jpg",
-				"/images/wallpapers/拂晓长誓.png",
-				"/images/wallpapers/e73f7fc72d35418bbc23a51fa71f439a20250615.jpg",
+				"/assets/mobile-banner/1.webp",
+				"/assets/mobile-banner/2.webp",
+				"/assets/mobile-banner/3.webp",
+				"/assets/mobile-banner/4.webp",
+				"/assets/mobile-banner/5.webp",
+				"/assets/mobile-banner/6.webp",
 			], // 移动横幅图片
 		}, // 使用本地横幅图片
 
 		position: "center", // 等同于 object-position，仅支持 'top', 'center', 'bottom'。默认为 'center'
 
 		carousel: {
-			enable: true, // 为 true 时：为多张图片启用轮播。为 false 时：从数组中随机显示一张图片
+			enable: false, // 为 true 时：为多张图片启用轮播。为 false 时：从数组中随机显示一张图片
 
-			interval: 3, // 轮播间隔时间（秒）
+			interval: 5, // 轮播间隔时间（秒）
 		},
 
 		waves: {
@@ -184,7 +187,7 @@ export const siteConfig: SiteConfig = {
 		cjkFont: {
 			// 中日韩字体 - 作为回退字体
 			fontFamily: "",
-			fontWeight: "500",
+			fontWeight: "400",
 			localFonts: ["萝莉体 第二版.ttf"],
 			enableCompress: true, // 启用字体子集优化，减少字体文件大小
 		},
@@ -212,7 +215,7 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	}, // 使用本地横幅图片
 	position: "center", // 壁纸位置，等同于 object-position
 	carousel: {
-		enable: true, // 启用轮播
+		enable: false, // 启用轮播
 		interval: 5, // 轮播间隔时间（秒）
 	},
 	zIndex: -1, // 层级，确保壁纸在背景层
