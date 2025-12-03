@@ -203,6 +203,15 @@ const carouselInterval = config.carousel?.interval || 5;
 			items.forEach((img, index) => {
 				img.style.opacity = index === randomIndex ? '1' : '0';
 			});
+
+			items.forEach((img, index) => {
+			if (index !== randomIndex) {
+				const preload = new Image();
+				preload.src = img.src;
+
+				preload.decode().catch(() => {});
+			}
+			});
 		}
 		
 		// 页面完成加载后执行
@@ -211,15 +220,6 @@ const carouselInterval = config.carousel?.interval || 5;
 		} else {
 			setRandomWallpaper();
 		}
-
-		items.forEach((img, index) => {
-		if (index !== randomIndex) {
-			const preload = new Image();
-			preload.src = img.src;
-
-			preload.decode().catch(() => {});
-		}
-		});
 		
 		/**
 		 * 屏幕尺寸变化时，可能需要从桌面 / 移动端切换壁纸
