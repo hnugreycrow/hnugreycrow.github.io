@@ -9,275 +9,196 @@ interface Props {
 
 const { config, className } = Astro.props;
 
-/**
- * 获取桌面端与移动端壁纸资源
- * 逻辑优先级：
- * 1. 如果启用了 imageApi 则尝试从 API 获取图片列表
- * 2. 若 src 是 { desktop, mobile } 则分别解析
- * 3. 否则视为通用数组，桌面/移动共用
- */
+/* ----------------------------------------
+ * 处理图片资源（API + local + desktop/mobile 分流）
+ * ---------------------------------------- */
 const getImageSources = async () => {
-	let srcConfig = config.src;
+	const toArray = (src: string | string[] | undefined): string[] =>
+		Array.isArray(src) ? src : src ? [src] : [];
 
-	// ① 从 API 拉取远程图片
-	if (siteConfig.banner.imageApi?.enable && siteConfig.banner.imageApi?.url) {
+	// ① API 图片
+	if (siteConfig.banner.imageApi?.enable && siteConfig.banner.imageApi.url) {
 		try {
-			const response = await fetch(siteConfig.banner.imageApi.url);
-			const text = await response.text();
-			const apiImages = text.split("\n").filter((line) => line.trim());
+			const res = await fetch(siteConfig.banner.imageApi.url);
+			const lines = (await res.text()).split("\n").filter(Boolean);
 
-			// 若 API 成功返回图片列表，则直接使用
-			if (apiImages.length > 0) {
-				return {
-					desktop: apiImages,
-					mobile: apiImages,
-				};
+			if (lines.length > 0) {
+				return { desktop: lines, mobile: lines };
 			}
-		} catch (error) {
-			console.warn("Failed to fetch images from API:", error);
+		} catch (e) {
+			console.warn("imageApi failed", e);
 		}
 	}
 
-	// 工具函数：统一转换成数组
-	const toArray = (src: string | string[] | undefined): string[] => {
-		if (Array.isArray(src)) return src;
-		if (typeof src === "string") return [src];
-		return [];
-	};
-
-	// ② src = { desktop, mobile } 的情况
+	// ② { desktop, mobile }
 	if (
-		typeof srcConfig === "object" &&
-		srcConfig !== null &&
-		!Array.isArray(srcConfig) &&
-		("desktop" in srcConfig || "mobile" in srcConfig)
+		typeof config.src === "object" &&
+		config.src !== null &&
+		!Array.isArray(config.src)
 	) {
-		const srcObj = srcConfig as {
-			desktop?: string | string[];
-			mobile?: string | string[];
-		};
-		const desktop = toArray(srcObj.desktop);
-		const mobile = toArray(srcObj.mobile);
+		const desktop = toArray(config.src.desktop);
+		const mobile = toArray(config.src.mobile);
 
-		// 若某一端缺失，则用另一端补齐
 		return {
-			desktop: desktop.length > 0 ? desktop : mobile,
-			mobile: mobile.length > 0 ? mobile : desktop,
+			desktop: desktop.length ? desktop : mobile,
+			mobile: mobile.length ? mobile : desktop,
 		};
 	}
 
-	// ③ 否则为简单数组，两端通用
-	const allImages = toArray(srcConfig as string | string[]);
-	return {
-		desktop: allImages,
-		mobile: allImages,
-	};
+	// ③ 通用数组
+	const arr = toArray(config.src as any);
+	return { desktop: arr, mobile: arr };
 };
 
-const imageSources = await getImageSources();
-const hasDesktopImages = imageSources.desktop.length > 0;
-const hasMobileImages = imageSources.mobile.length > 0;
+const images = await getImageSources();
+const hasDesktop = images.desktop.length > 0;
+const hasMobile = images.mobile.length > 0;
 
-// 若两端都没有壁纸，则不渲染组件
-if (!hasDesktopImages && !hasMobileImages) return null;
-
-// 是否启用轮播（至少有两张图）
-const isCarouselEnabled =
+// 随机或轮播
+const isCarousel =
 	config.carousel?.enable &&
-	(imageSources.desktop.length > 1 || imageSources.mobile.length > 1);
+	(images.desktop.length > 1 || images.mobile.length > 1);
 
-// 基础配置
+const interval = config.carousel?.interval || 5;
+const zIndex = config.zIndex ?? -1;
+const opacity = config.opacity ?? 1;
+const blur = config.blur ?? 0;
 const position = config.position || "center";
-const zIndex = config.zIndex || -1;
-const opacity = config.opacity || 0.8;
-const blur = config.blur || 0;
 
-// 根据 position 返回 Tailwind 类
-const getPositionClass = (pos: string) => {
-	switch (pos) {
-		case "top":
-			return "object-top";
-		case "bottom":
-			return "object-bottom";
-		default:
-			return "object-center";
-	}
-};
-
-const positionClass = getPositionClass(position);
-const carouselInterval = config.carousel?.interval || 5;
+const getPos = (p: string) =>
+	p === "top"
+		? "object-top"
+		: p === "bottom"
+			? "object-bottom"
+			: "object-center";
 ---
 
-<!-- 全屏壁纸容器 -->
+<!-- ----------------------------------------
+     预加载所有图片：浏览器自动缓存，最高效
+----------------------------------------- -->
+<head>
+  {images.desktop.map((src) => (
+    <link rel="preload" as="image" href={src} />
+  ))}
+  {images.mobile.map((src) => (
+    <link rel="preload" as="image" href={src} />
+  ))}
+</head>
+
+<!-- ----------------------------------------
+     全屏壁纸容器
+----------------------------------------- -->
 <div
   class:list={[
-    "fixed inset-0 w-full h-full overflow-hidden pointer-events-none",
-    className
+    "fixed inset-0 w-full h-full pointer-events-none overflow-hidden",
+    className,
   ]}
-  style={`z-index:${zIndex};opacity:${opacity};`}
+  style={`z-index:${zIndex}; opacity:${opacity};`}
   data-fullscreen-wallpaper
 >
 
-<!-- 根据本地设置判断是否显示全屏壁纸 -->
-<script is:inline>
-(function() {
-  const mode = localStorage.getItem('wallpaperMode') || 'banner';
-  const root = document.currentScript.parentElement;
-  if (mode !== 'fullscreen') root.style.display = 'none';
-})();
-</script>
+  <!-- localStorage 控制是否显示壁纸 -->
+  <script is:inline>
+    (() => {
+      const mode = localStorage.getItem("wallpaperMode") || "banner";
+      if (mode !== "fullscreen") {
+        document.currentScript.parentElement.style.display = "none";
+      }
+    })();
+  </script>
 
-<!-- 桌面端壁纸（lg 及以上设备展示） -->
-{hasDesktopImages && (
-  <div class="hidden lg:block w-full h-full relative">
-    {imageSources.desktop.map((src, index) => {
-      const cls = `absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${positionClass}`;
-      return (
+  <!-- 桌面 -->
+  {hasDesktop && (
+    <div class="hidden lg:block w-full h-full relative">
+      {images.desktop.map((src, i) => (
         <img
           src={src}
-          alt={`Desktop wallpaper ${index + 1}`}
-          class={cls}
-          data-carousel-item={isCarouselEnabled ? index : undefined}
-          data-random-item="desktop"
-          style={blur > 0 ? `filter:blur(${blur}px);opacity:0;` : "opacity:0;"}
+          alt="desktop wallpaper"
+          class={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${getPos(
+            position
+          )}`}
+          data-wallpaper-item
+          data-index={i}
+          data-type="desktop"
+          style={blur ? `filter:blur(${blur}px);opacity:0;` : "opacity:0;"}
         />
-      );
-    })}
-  </div>
-)}
+      ))}
+    </div>
+  )}
 
-<!-- 移动端壁纸（lg 以下设备展示） -->
-{hasMobileImages && (
-  <div class="block lg:hidden w-full h-full relative">
-    {imageSources.mobile.map((src, index) => {
-      const cls = `absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${positionClass}`;
-      return (
+  <!-- 移动 -->
+  {hasMobile && (
+    <div class="block lg:hidden w-full h-full relative">
+      {images.mobile.map((src, i) => (
         <img
           src={src}
-          alt={`Mobile wallpaper ${index + 1}`}
-          class={cls}
-          data-carousel-item={isCarouselEnabled ? index : undefined}
-          data-random-item="mobile"
-          style={blur > 0 ? `filter:blur(${blur}px);opacity:0;` : "opacity:0;"}
+          alt="mobile wallpaper"
+          class={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${getPos(
+            position
+          )}`}
+          data-wallpaper-item
+          data-index={i}
+          data-type="mobile"
+          style={blur ? `filter:blur(${blur}px);opacity:0;` : "opacity:0;"}
         />
-      );
-    })}
-  </div>
-)}
+      ))}
+    </div>
+  )}
 </div>
 
-<!-- ===========================
-     非轮播模式下的随机图片逻辑
-     =========================== -->
-{!isCarouselEnabled && (
-	<script is:inline>
-	// 非轮播模式：仅随机显示一张壁纸
-	(function() {
+<!-- ----------------------------------------
+     JS 控制（随机 OR 轮播）
+----------------------------------------- -->
+<script define:vars={{ isCarousel, interval }}>
+(() => {
+  const container = document.querySelector("[data-fullscreen-wallpaper]");
+  if (!container) return;
 
-		/**
-		 * 从当前（桌面或移动端）可见容器中选一张随机壁纸显示
-		 */
-		function setRandomWallpaper() {
-			// 对应 Tailwind：桌面端 hidden lg:block、移动端 block lg:hidden
-			const desktopContainer = document.querySelector('.hidden.lg\\:block');
-			const mobileContainer = document.querySelector('.block.lg\\:hidden');
-			
-			// 根据屏幕宽度决定使用哪一组壁纸
-			let activeContainer = null;
-			if (window.innerWidth >= 1280) {
-				activeContainer = desktopContainer;
-			} else {
-				activeContainer = mobileContainer;
-			}
-			
-			if (!activeContainer) return;
-			
-			// 该端所有壁纸
-			const items = activeContainer.querySelectorAll('[data-random-item]');
-			if (items.length === 0) return;
-			
-			// 随机取 index
-			const randomIndex = Math.floor(Math.random() * items.length);
-			
-			// 设置 opacity，显示选中壁纸
-			items.forEach((img, index) => {
-				img.style.opacity = index === randomIndex ? '1' : '0';
-			});
+  const getActiveItems = () => {
+    const isDesktop = window.innerWidth >= 1280;
+    const type = isDesktop ? "desktop" : "mobile";
+    return [...container.querySelectorAll(`[data-wallpaper-item][data-type="${type}"]`)];
+  };
 
-			items.forEach((img, index) => {
-			if (index !== randomIndex) {
-				const preload = new Image();
-				preload.src = img.src;
+  /* ========== 随机模式 ========== */
+  function randomMode() {
+    const items = getActiveItems();
+    if (items.length === 0) return;
 
-				preload.decode().catch(() => {});
-			}
-			});
-		}
-		
-		// 页面完成加载后执行
-		if (document.readyState === 'loading') {
-			document.addEventListener('DOMContentLoaded', setRandomWallpaper);
-		} else {
-			setRandomWallpaper();
-		}
-		
-		/**
-		 * 屏幕尺寸变化时，可能需要从桌面 / 移动端切换壁纸
-		 * 使用防抖避免高频 resize 调用
-		 */
-		let resizeTimer;
-		window.addEventListener('resize', () => {
-			clearTimeout(resizeTimer);
-			resizeTimer = setTimeout(setRandomWallpaper, 150);
-		});
-	})();
-	</script>
-)}
+    const index = Math.floor(Math.random() * items.length);
+    items.forEach((el, i) => (el.style.opacity = i === index ? "1" : "0"));
+  }
 
-<!-- ===========================
-     轮播模式逻辑
-     =========================== -->
-{isCarouselEnabled && (
-  <script define:vars={{ carouselInterval }}>
-    /**
-     * 初始化全屏壁纸轮播
-     * 桌面端与移动端分别处理
-     */
-    function initFullscreenWallpaperCarousel() {
-      const container = document.querySelector('[data-fullscreen-wallpaper]');
-      if (!container) return;
+  /* ========== 轮播模式 ========== */
+  function carouselMode() {
+    const items = getActiveItems();
+    if (items.length <= 1) return;
 
-      // 分别获取桌面与移动端的轮播图
-      const desktop = container.querySelectorAll('.hidden.lg\\:block [data-carousel-item]');
-      const mobile = container.querySelectorAll('.block.lg\\:hidden [data-carousel-item]');
+    let index = 0;
+    items.forEach((el, i) => (el.style.opacity = i === 0 ? "1" : "0"));
 
-      /**
-       * 对一组图片启动轮播
-       */
-      function start(items) {
-        if (items.length <= 1) return;
+    setInterval(() => {
+      items[index].style.opacity = "0";
+      index = (index + 1) % items.length;
+      items[index].style.opacity = "1";
+    }, interval * 1000);
+  }
 
-        let index = 0;
-        // 初始化：第一张显示
-        items.forEach((el, i) => el.style.opacity = i === 0 ? '1' : '0');
-
-        // 定时切换
-        setInterval(() => {
-          items[index].style.opacity = '0';
-          index = (index + 1) % items.length;
-          items[index].style.opacity = '1';
-        }, carouselInterval * 1000);
+  /* ========== 响应式切换（桌面 <-> 移动） ========== */
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (isCarousel) {
+        carouselMode();
+      } else {
+        randomMode();
       }
+    }, 200);
+  });
 
-      start(desktop);
-      start(mobile);
-    }
-
-    // 等待 DOM 完成后启动
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initFullscreenWallpaperCarousel);
-    } else {
-      initFullscreenWallpaperCarousel();
-    }
-  </script>
-)}
+  /* ========== 初始化 ========== */
+  if (isCarousel) carouselMode();
+  else randomMode();
+})();
+</script>
