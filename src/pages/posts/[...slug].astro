@@ -92,6 +92,8 @@ const lastModified = dayjs(entry.data.updated || entry.data.published)
 	.utc()
 	.format("YYYY-MM-DDTHH:mm:ss");
 
+const showOutdatedWarning = Math.floor(Date.now() - new Date(lastModified).getTime()) > 1000 * 60 * 60 * 24 * 15;
+
 const jsonLd = {
 	"@context": "https://schema.org",
 	"@type": "BlogPosting",
@@ -312,15 +314,22 @@ const jsonLd = {
                         } else {
                             runtimeString += `${minutes} ${minuteKey} `;
                         }
-                        if (secs < 10) {
-                            runtimeString += `0${secs} ${secondKey}`;
-                        } else {
-                            runtimeString += `${secs} ${secondKey}`;
-                        }
+                        // if (secs < 10) {
+                        //     runtimeString += `0${secs} ${secondKey}`;
+                        // } else {
+                        //     runtimeString += `${secs} ${secondKey}`;
+                        // }
 
                         document.getElementById("modifiedtime").innerHTML = runtimeString;
                     }
-                    setInterval(runtime, 1000);
+                    // 确保在 DOM 准备好后执行
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', runtime);
+                        setInterval(runtime, 60 * 1000);
+                    } else {
+                        runtime();
+                        setInterval(runtime, 60 * 1000);
+                    }
                 </script>
                 <div class="flex items-center gap-3">
                     <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-[var(--enter-btn-bg)]">
@@ -333,7 +342,7 @@ const jsonLd = {
                     <div class="flex flex-col gap-1">
                         <div id="modifiedtime" class="text-[1.0rem] leading-tight text-black/75 dark:text-white/75"></div>
                         <p class="text-[0.8rem] leading-tight text-black/75 dark:text-white/75">
-                            {i18n(I18nKey.lastModifiedOutdated)}
+                            {showOutdatedWarning && i18n(I18nKey.lastModifiedOutdated)}
                         </p>
                     </div>
                 </div>
