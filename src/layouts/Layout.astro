@@ -12,8 +12,7 @@ import {
 	profileConfig,
 	siteConfig,
 } from "@/config";
-import { widgetConfigs } from "../config";
-import { umamiConfig } from "../config.ts";
+import { umamiConfig, busuanziConfig } from "../config";
 import {
 	BANNER_HEIGHT,
 	BANNER_HEIGHT_EXTEND,
@@ -286,6 +285,10 @@ if (siteConfig.font) {
 		<!-- Umami Analytics -->
 		{umamiEnabled && umamiScripts && <Fragment set:html={umamiScripts} />}
 
+		{ busuanziConfig.enabled && (
+			<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		)}
+		
 </head>
 	<body class=" min-h-screen " class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
 		  style={bodyFontFamily ? `font-family: ${bodyFontFamily};` : ''}

@@ -625,3 +625,7 @@ export const umamiConfig = {
 <script defer src="https://cloud.umami.is/script.js" data-website-id="dd906ef4-201c-41a7-b509-4d308eef10af"></script>
   `.trim(), // 上面填你要插入的Script,不用再去Layout中插入
 } as const;
+
+export const busuanziConfig = {
+	enabled: true, // 是否显示不蒜子统计
+} as const;
