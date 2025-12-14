@@ -30,7 +30,7 @@ export const siteConfig: SiteConfig = {
   lang: SITE_LANG,
 
   themeColor: {
-    hue: 270, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
+    hue: 250, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
     fixed: false, // 对访问者隐藏主题色选择器
   },
 
@@ -200,7 +200,6 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
       "/assets/desktop-banner/3.webp",
       "/assets/desktop-banner/4.webp",
       "/assets/desktop-banner/5.webp",
-      "/assets/desktop-banner/6.webp",
     ], // 桌面横幅图片
     mobile: [
       "/assets/mobile-banner/1.webp",
@@ -619,10 +618,10 @@ export const widgetConfigs = {
 export const umamiConfig = {
   enabled: false, // 是否显示Umami统计
   apiKey:
-    import.meta.env.UMAMI_API_KEY || "api_FR1nCDnY9VU1tNxEOU7gMtqTQe23XtG2", // API密钥优先从环境变量读取，否则使用配置文件中的值
+    import.meta.env.UMAMI_API_KEY || "", // API密钥优先从环境变量读取，否则使用配置文件中的值
   baseUrl: "https://api.umami.is", // Umami Cloud API地址
   scripts: `
-<script defer src="https://cloud.umami.is/script.js" data-website-id="dd906ef4-201c-41a7-b509-4d308eef10af"></script>
+<script defer src="XXXX.XXX" data-website-id="ABCD1234"></script>
   `.trim(), // 上面填你要插入的Script,不用再去Layout中插入
 } as const;
 

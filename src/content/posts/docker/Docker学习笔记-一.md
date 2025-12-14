@@ -1,7 +1,8 @@
 ---
 title: Docker学习笔记(一)：Docker常用命令
 published: 2025-08-13
-tags: [Docker, 学习笔记]
+category: 学习笔记
+tags: [Docker]
 ---
 
 整理了 Docker 核心命令的用法，从服务管理到容器操作，方便后续复习查阅。

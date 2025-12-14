@@ -2,7 +2,7 @@
 title: 解决SpringBoot中Lombok注解失效的那些坑
 published: 2025-08-13
 category: 技术踩坑
-tags: [SpringBoot, Lombok, Bug]
+tags: [Spring Boot, Lombok, Bug]
 ---
 
 在 SpringBoot 项目开发中，Lombok 注解突然失效是一个很常见的问题，表现为明明添加了 @Data 等注解，却在编译时出现 “找不到符号”（如缺失 getter/setter 方法）的错误。本文记录了我在项目中遇到该问题的排查过程，分析了 Lombok 注解失效与 Maven 编译插件（maven-compiler-plugin）配置、版本管理之间的关系，并总结了可行的解决方案和最佳实践。

@@ -1,7 +1,8 @@
 ---
 title: Docker学习笔记(二)：容器数据卷
 published: 2025-08-14
-tags: [Docker, 学习笔记]
+category: 学习笔记
+tags: [Docker]
 ---
 
 ## 一、数据卷核心概念

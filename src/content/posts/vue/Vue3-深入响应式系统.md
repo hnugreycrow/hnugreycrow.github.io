@@ -2,8 +2,8 @@
 title: Vue3 笔记：深入响应式系统
 published: 2025-08-18
 image: "./vue.png"
-category: Vue
-tags: [Vue, 学习笔记]
+category: 学习笔记
+tags: [Vue]
 ---
 
 ## 什么是响应性

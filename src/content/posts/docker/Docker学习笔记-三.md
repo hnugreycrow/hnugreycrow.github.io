@@ -1,7 +1,8 @@
 ---
 title: Docker学习笔记(三)：部署MySQL
 published: 2025-08-14
-tags: [Docker, 学习笔记]
+category: 学习笔记
+tags: [Docker]
 ---
 
 在之前的服务器环境中，手动安装并配置MySQL的过程较为繁琐，因此我转而采用Docker容器化方案进行部署，通过标准化镜像和持久化存储机制，实现了更高效的数据库环境管理与版本控制。

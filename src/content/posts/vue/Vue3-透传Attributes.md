@@ -2,8 +2,8 @@
 title: Vue3 笔记：透传 Attributes
 published: 2025-08-22
 image: "./vue.png"
-category: Vue
-tags: [Vue, 学习笔记]
+category: 学习笔记
+tags: [Vue]
 ---
 
 在 Vue 组件开发中，属性传递是核心场景之一。props 适用于明确声明的属性，但当需要灵活传递未声明的属性或事件、封装第三方组件时，**透传 Attributes** 成为更高效的解决方案。
