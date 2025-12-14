@@ -15,7 +15,7 @@
 ### 多语言文档
 
 - **[../README.md](../README.md)** - English
-- **[../README.ja.md](../README.ja.md)** - 日本語  
+- **[../README.ja.md](../README.ja.md)** - 日本語
 - **[../README.tw.md](../README.tw.md)** - 繁體中文
 
 ### 内容分离相关
@@ -52,27 +52,35 @@
 ## 🚀 快速查找
 
 ### 我是新手，想快速开始
+
 → 阅读 [主 README](../README.zh.md)
 
 ### 我想部署博客
+
 → 阅读 [部署指南](./DEPLOYMENT.md)
 
 ### 我想使用内容分离功能
+
 → 阅读 [内容分离完整指南](./CONTENT_SEPARATION.md)
 
 ### 我想从单仓库迁移到分离模式
+
 → 阅读 [内容迁移指南](./MIGRATION_GUIDE.md)
 
 ### 我想配置私有内容仓库
+
 → 阅读 [内容分离指南 - 私有仓库配置](./CONTENT_SEPARATION.md#-私有仓库配置)
 
 ### 我的部署遇到问题
+
 → 阅读 [部署指南 - 故障排查](./DEPLOYMENT.md#-故障排查)
 
 ### 我遇到了内容同步错误
+
 → 阅读 [内容分离指南 - 故障排查](./CONTENT_SEPARATION.md#-故障排查)
 
 ### 内容仓库更新后站点没有自动重新部署 🆕
+
 → 阅读 [自动构建触发快速参考](./AUTO_BUILD_TRIGGER.md)
 
 ## 📖 文档架构

@@ -32,11 +32,13 @@ JavaScript 一开始是没有 "模块" 概念的，后来为了让代码更好�
 
   ```javascript
   // 导出（math.js）
-  function add(a, b) { return a + b; }
+  function add(a, b) {
+    return a + b;
+  }
   module.exports = { add };
-  
+
   // 导入（app.js）
-  const math = require('./math'); // 可以省略.js后缀
+  const math = require("./math"); // 可以省略.js后缀
   math.add(1, 2); // 结果是3
   ```
 
@@ -56,10 +58,12 @@ JavaScript 一开始是没有 "模块" 概念的，后来为了让代码更好�
 
   ```javascript
   // 导出（math.js）
-  export function add(a, b) { return a + b; }
-  
+  export function add(a, b) {
+    return a + b;
+  }
+
   // 导入（app.js）
-  import { add } from './math.js'; // 必须写全.js后缀
+  import { add } from "./math.js"; // 必须写全.js后缀
   add(1, 2); // 结果是3
   ```
 

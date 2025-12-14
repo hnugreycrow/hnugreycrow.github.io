@@ -1,6 +1,7 @@
-# 🌸 Mizuki  
-![Node.js >= 20](https://img.shields.io/badge/node.js-%3E%3D20-brightgreen) 
-![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue) 
+# 🌸 Mizuki
+
+![Node.js >= 20](https://img.shields.io/badge/node.js-%3E%3D20-brightgreen)
+![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue)
 ![Astro](https://img.shields.io/badge/Astro-5.12.8-orange)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -31,23 +32,25 @@
 [**日本語**](./README.ja.md) /
 [**中文繁体**](./README.tw.md) /
 
-
-
 ![設定](../configuration.svg)
 
 ### 🔧 コンポーネント設定システムの再構築
+
 - **統一された設定アーキテクチャ：** 動的コンポーネント管理と順序設定をサポートする全く新しいモジュラーコンポーネント設定システム
 - **設定駆動のコンポーネントローディング：** SideBarコンポーネントを再構築し、完全に設定ベースのコンポーネントローディングメカニズムを実装
 - **統一制御スイッチ：** 音楽プレーヤーとお知らせコンポーネントの独立したenableスイッチを削除し、sidebarLayoutConfigによる統一制御に
 - **レスポンシブレイアウト適応：** コンポーネントがレスポンシブレイアウトをサポートし、デバイスタイプに基づいて表示を自動調整
 
 ### 📐 レイアウトシステムの最適化
+
 ### 🎛️ 設定ファイル形式の標準化
- - **Umami API キー（任意）：** Umami アナリティクスを使用する場合は、デプロイ先プラットフォームに環境変数 `UMAMI_API_KEY` を設定するか、プロジェクトの設定ファイルに直接キーを記載することを推奨します。
+
+- **Umami API キー（任意）：** Umami アナリティクスを使用する場合は、デプロイ先プラットフォームに環境変数 `UMAMI_API_KEY` を設定するか、プロジェクトの設定ファイルに直接キーを記載することを推奨します。
 - **型安全性：** 設定の型安全性を確保する包括的なTypeScript型定義
 - **拡張性：** カスタムコンポーネントタイプと設定オプションのサポート
 
 ### 🧹 コード最適化
+
 - **テストファイルのクリーンアップ：** 未使用のテスト設定と依存関係を削除し、プロジェクトサイズを削減
 - **コード構造の最適化：** コンポーネントアーキテクチャを改善し、コードの保守性を向上
 - **パフォーマンス向上：** コンポーネントローディングロジックを最適化し、ページレンダリングパフォーマンスを向上
@@ -57,6 +60,7 @@
 ## ✨ 機能
 
 ### 🎨 デザインとインターフェース
+
 - [x] [Astro](https://astro.build)と[Tailwind CSS](https://tailwindcss.com)で構築
 - [x] [Swup](https://swup.js.org/)を使用したスムーズなアニメーションとページ遷移
 - [x] システム設定検出機能付きのライト/ダークテーマ切り替え
@@ -66,6 +70,7 @@
 - [x] JetBrains Monoフォントによる美しいタイポグラフィ
 
 ### 🔍 コンテンツと検索
+
 - [x] [Pagefind](https://pagefind.app/)ベースの高度な検索機能
 - [x] 構文強調表示付きの[拡張Markdown機能](#-markdown拡張機能)
 - [x] 自動スクロール機能付きのインタラクティブな目次
@@ -73,9 +78,8 @@
 - [x] 読書時間の推定
 - [x] 記事のカテゴリ化とタグシステム
 
-
-
 ### 📱 特別ページ
+
 - [x] **アニメトラッキングページ** - アニメの視聴進捗と評価を追跡
 - [x] **友達ページ** - 友達のウェブサイトを美しいカードで紹介
 - [x] **日記ページ** - ソーシャルメディアのような生活の瞬間を共有
@@ -83,6 +87,7 @@
 - [x] **アバウトページ** - カスタマイズ可能な自己紹介
 
 ### 🛠 技術的特徴
+
 - [x] [Expressive Code](https://expressive-code.com/)ベースの**拡張コードブロック**
 - [x] KaTeXレンダリングによる**数式サポート**
 - [x] PhotoSwipeギャラリー統合による**画像最適化**
@@ -95,16 +100,18 @@
 ### 📦 インストール
 
 1. **リポジトリをクローン：**
+
    ```bash
    git clone https://github.com/matsuzaka-yuki/mizuki.git
    cd mizuki
    ```
 
 2. **依存関係をインストール：**
+
    ```bash
    # pnpmがインストールされていない場合はインストール
    npm install -g pnpm
-   
+
    # プロジェクトの依存関係をインストール
    pnpm install
    ```
@@ -150,7 +157,7 @@ tags: [タグ1, タグ2]
 category: フロントエンド
 draft: false
 pinned: false
-lang: ja      # 記事の言語がconfig.tsのサイト言語と異なる場合のみ設定
+lang: ja # 記事の言語がconfig.tsのサイト言語と異なる場合のみ設定
 ---
 ```
 
@@ -171,12 +178,14 @@ lang: ja      # 記事の言語がconfig.tsのサイト言語と異なる場合�
 `pinned`フィールドを使用すると、重要な記事をブログリストの上部に固定できます。ピン留めされた記事は、公開日に関係なく、常に通常の記事の前に表示されます。
 
 **使用方法：**
+
 ```yaml
 pinned: true  # この記事を上部に固定
 pinned: false # 通常の記事（デフォルト）
 ```
 
 **ソートルール：**
+
 1. ピン留め記事が最初に表示され、公開日でソート（最新が先）
 2. 通常の記事がその後に表示され、公開日でソート（最新が先）
 
@@ -185,17 +194,20 @@ pinned: false # 通常の記事（デフォルト）
 Mizukiは標準のGitHub Flavored Markdownを超える拡張機能をサポートしています：
 
 ### 📝 拡張ライティング
+
 - **コールアウト：** `> [!NOTE]`、`> [!TIP]`、`> [!WARNING]`などを使用して美しい注釈ボックスを作成
 - **数式：** `$インライン$`と`$$ブロック$$`構文を使用してLaTeX数式を記述
 - **コード強調表示：** 行番号とコピーボタン付きの高度な構文強調表示
 - **GitHubカード：** `::github{repo="ユーザー/リポジトリ"}`を使用してリポジトリカードを埋め込み
 
 ### 🎨 ビジュアル要素
+
 - **画像ギャラリー：** 画像表示のための自動PhotoSwipe統合
 - **折りたたみセクション：** 展開可能なコンテンツブロックを作成
 - **カスタムコンポーネント：** 特別なディレクティブでコンテンツを強化
 
 ### 📊 コンテンツ整理
+
 - **目次：** 見出しから自動生成され、スムーズスクロールをサポート
 - **読書時間：** 自動計算して表示
 - **記事メタデータ：** カテゴリとタグを含む豊富なフロントマターサポート
@@ -204,17 +216,17 @@ Mizukiは標準のGitHub Flavored Markdownを超える拡張機能をサポー�
 
 すべてのコマンドはプロジェクトルートから実行します：
 
-| コマンド                    | アクション                                |
-|:---------------------------|:----------------------------------------|
-| `pnpm install`             | 依存関係をインストール                     |
-| `pnpm dev`                 | `localhost:4321`でローカル開発サーバーを起動 |
-| `pnpm build`               | 本番サイトを`./dist/`にビルド              |
-| `pnpm preview`             | デプロイ前にビルドをローカルでプレビュー     |
-| `pnpm check`               | Astroエラーチェックを実行                  |
-| `pnpm format`              | Biomeでコードをフォーマット                |
-| `pnpm lint`                | コードの問題をチェックして修正              |
-| `pnpm new-post <ファイル名>` | 新しいブログ投稿を作成                     |
-| `pnpm astro ...`           | Astro CLIコマンドを実行                   |
+| コマンド                     | アクション                                   |
+| :--------------------------- | :------------------------------------------- |
+| `pnpm install`               | 依存関係をインストール                       |
+| `pnpm dev`                   | `localhost:4321`でローカル開発サーバーを起動 |
+| `pnpm build`                 | 本番サイトを`./dist/`にビルド                |
+| `pnpm preview`               | デプロイ前にビルドをローカルでプレビュー     |
+| `pnpm check`                 | Astroエラーチェックを実行                    |
+| `pnpm format`                | Biomeでコードをフォーマット                  |
+| `pnpm lint`                  | コードの問題をチェックして修正               |
+| `pnpm new-post <ファイル名>` | 新しいブログ投稿を作成                       |
+| `pnpm astro ...`             | Astro CLIコマンドを実行                      |
 
 ## 🎯 設定ガイド
 
@@ -292,7 +304,6 @@ export const siteConfig: SiteConfig = {
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=matsuzaka-yuki/Mizuki&type=Date)](https://star-history.com/#matsuzaka-yuki/Mizuki&Date)
----
+## [![Star History Chart](https://api.star-history.com/svg?repos=matsuzaka-yuki/Mizuki&type=Date)](https://star-history.com/#matsuzaka-yuki/Mizuki&Date)
 
 ⭐ このプロジェクトが役立つと思ったら、スターを付けることを検討してください！

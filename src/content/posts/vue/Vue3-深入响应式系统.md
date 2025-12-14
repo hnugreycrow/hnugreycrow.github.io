@@ -30,7 +30,7 @@ Vue 通过拦截对象属性的读写操作，追踪依赖并在数据变化时�
       set(target, key, value) {
         target[key] = value;
         trigger(target, key); // 触发更新
-      }
+      },
     });
   }
   ```
@@ -41,13 +41,13 @@ Vue 通过拦截对象属性的读写操作，追踪依赖并在数据变化时�
   function ref(value) {
     const refObject = {
       get value() {
-        track(refObject, 'value'); // 追踪依赖
+        track(refObject, "value"); // 追踪依赖
         return value;
       },
       set value(newValue) {
         value = newValue;
-        trigger(refObject, 'value'); // 触发更新
-      }
+        trigger(refObject, "value"); // 触发更新
+      },
     };
     return refObject;
   }
@@ -62,7 +62,6 @@ Vue 通过拦截对象属性的读写操作，追踪依赖并在数据变化时�
 `track()` 的核心任务是：**当响应式数据的属性被读取时，记录当前正在运行的 “副作用”（effect），并将其与该属性关联起来**，以便后续数据变化时能精准触发这个副作用。
 
 - **触发时机**：`track()` 会在响应式对象的属性被访问（即触发 `get` 拦截器）时调用。例如：
-
   - 访问 `reactive` 对象的属性（如 `obj.foo`）时，Proxy 的 `get` 方法会调用 `track(obj, 'foo')`。
   - 访问 `ref` 的 `value` 属性（如 `count.value`）时，`get value()` 会调用 `track(refObject, 'value')`。
 
@@ -71,7 +70,7 @@ Vue 通过拦截对象属性的读写操作，追踪依赖并在数据变化时�
   ```js
   // 全局变量：当前正在运行的副作用（仅在副作用执行期间有效）
   let activeEffect;
-  
+
   function track(target, key) {
     // 只有当存在活跃的副作用时才进行追踪
     if (activeEffect) {
@@ -85,7 +84,6 @@ Vue 通过拦截对象属性的读写操作，追踪依赖并在数据变化时�
 
 - **依赖存储结构**：`WeakMap<target, Map<key, Set<effect>>>`
   `track()` 需要一个全局的数据结构来保存 “目标对象→属性→副作用集合” 的映射关系，具体结构为：
-
   - **外层：`WeakMap<target, Map>`**：键是响应式对象（`target`），值是一个 Map（存储该对象所有属性的副作用）。
   - **中层：`Map<key, Set<effect>>`**：键是对象的属性名（`key`），值是一个 Set（存储依赖该属性的所有副作用）。
   - **内层：`Set<effect>`**：存储依赖该属性的所有副作用函数（确保副作用不重复）。
@@ -116,7 +114,6 @@ Vue 通过拦截对象属性的读写操作，追踪依赖并在数据变化时�
 `trigger()` 的核心任务是：**当响应式数据的属性被修改时，找到该属性的所有依赖副作用，并执行这些副作用**，从而实现 “数据变化→自动更新”。
 
 - **触发时机**：`trigger()` 会在响应式对象的属性被修改（即触发 `set` 拦截器）时调用。例如：
-
   - 修改 `reactive` 对象的属性（如 `obj.foo = 2`）时，Proxy 的 `set` 方法会调用 `trigger(obj, 'foo')`。
   - 修改 `ref` 的 `value` 属性（如 `count.value = 2`）时，`set value(newValue)` 会调用 `trigger(refObject, 'value')`。
 
@@ -188,9 +185,9 @@ Vue 通过拦截对象属性的读写操作，追踪依赖并在数据变化时�
     effect(); // 首次执行，建立依赖关系
   }
   ```
-  
+
   示例：使用`watchEffect`自动更新计算结果：
-  
+
   ```js
   const A0 = ref(0);
   const A1 = ref(1);

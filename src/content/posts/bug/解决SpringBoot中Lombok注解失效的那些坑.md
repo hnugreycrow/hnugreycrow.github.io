@@ -6,6 +6,7 @@ tags: [SpringBoot, Lombok, Bug]
 ---
 
 在 SpringBoot 项目开发中，Lombok 注解突然失效是一个很常见的问题，表现为明明添加了 @Data 等注解，却在编译时出现 “找不到符号”（如缺失 getter/setter 方法）的错误。本文记录了我在项目中遇到该问题的排查过程，分析了 Lombok 注解失效与 Maven 编译插件（maven-compiler-plugin）配置、版本管理之间的关系，并总结了可行的解决方案和最佳实践。
+
 <!-- more -->
 
 在开发SpringBoot项目时，相信很多同学都遇到过Lombok注解突然失效的问题：代码里明明加了`@Data`注解，编译时却报"找不到符号"（比如缺失getter/setter方法）。最近我在项目中就遇到了类似问题，通过排查终于找到原因，在这里记录一下整个过程和解决方案。
@@ -14,7 +15,7 @@ tags: [SpringBoot, Lombok, Bug]
 
 项目中使用了Lombok的`@Data`、`@Getter`等注解，但编译时出现一系列"找不到符号"错误：
 
-``` cmd
+```cmd
 java: 找不到符号
   符号:   变量 log
   位置: 类 org.hnu.tablerecognition.common.interceptor.JwtTokenInterceptor
@@ -195,14 +196,14 @@ Maven中有两种方式指定注解处理器：
 
 1. **明确指定Lombok版本**：即使依赖管理正常，显式指定版本也能提高项目稳定性
 
-    ```xml
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.24</version> <!-- 明确版本 -->
-      <optional>true</optional>
-    </dependency>
-    ```
+   ```xml
+   <dependency>
+     <groupId>org.projectlombok</groupId>
+     <artifactId>lombok</artifactId>
+     <version>1.18.24</version> <!-- 明确版本 -->
+     <optional>true</optional>
+   </dependency>
+   ```
 
 2. **正确配置IDE**：确保IDEA安装了Lombok插件并启用注解处理器
    - 安装插件：`File -> Settings -> Plugins`搜索Lombok

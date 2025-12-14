@@ -1,5 +1,5 @@
 ---
-title: 'Vue3 笔记：响应式基础'
+title: "Vue3 笔记：响应式基础"
 published: 2025-08-16
 image: "./vue.png"
 category: Vue
@@ -17,9 +17,9 @@ tags: [Vue, 学习笔记]
 定义：ref() 接收参数，并将其包裹在一个带有 .value 属性的 ref 对象中返回：
 
 ```js
-import { ref } from 'vue'
-const count = ref(0)
-count.value++ // 修改值
+import { ref } from "vue";
+const count = ref(0);
+count.value++; // 修改值
 ```
 
 - 模板使用：无需 .value，自动解包；可直接在事件监听器中修改（如@click="count++"）。
@@ -33,9 +33,9 @@ count.value++ // 修改值
 定义：reactive()接收对象 / 数组等，返回其响应式代理（Proxy），直接通过属性访问 / 修改。
 
 ```js
-import { reactive } from 'vue'
-const state = reactive({ count: 0 })
-state.count++ // 修改值
+import { reactive } from "vue";
+const state = reactive({ count: 0 });
+state.count++; // 修改值
 ```
 
 特性：代理与原始对象不等价（reactive(raw) !== raw），同一原始对象多次调用reactive()返回同一代理。
@@ -47,8 +47,8 @@ state.count++ // 修改值
 默认行为：ref()和reactive()均默认实现深层响应性，嵌套对象 / 数组的修改会被追踪。
 
 ```js
-const obj = ref({ nested: { count: 0 } })
-obj.value.nested.count++ // 触发响应式更新
+const obj = ref({ nested: { count: 0 } });
+obj.value.nested.count++; // 触发响应式更新
 ```
 
 浅层响应性：可通过shallowRef（仅.value访问被追踪）或shallowReactive（仅顶层属性响应式）关闭深层响应性，优化性能。
@@ -60,8 +60,8 @@ obj.value.nested.count++ // 触发响应式更新
 
 ```js
 async function increment() {
-  count.value++
-  await nextTick() // 此时DOM已更新
+  count.value++;
+  await nextTick(); // 此时DOM已更新
 }
 ```
 
@@ -82,25 +82,25 @@ reactive() API 有一些局限性：
 作为 reactive 对象的属性：自动解包，行为类似普通属性。
 
 ```js
-const count = ref(0)
-const state = reactive({ count })
-console.log(state.count) // 0（自动解包）
-state.count = 1
-console.log(count.value) // 1
+const count = ref(0);
+const state = reactive({ count });
+console.log(state.count); // 0（自动解包）
+state.count = 1;
+console.log(count.value); // 1
 ```
 
 数组 / 集合中：不会自动解包，需显式使用.value。
 
 ```js
-const books = reactive([ref('Vue Guide')])
-console.log(books[0].value) // 需显式.value
+const books = reactive([ref("Vue Guide")]);
+console.log(books[0].value); // 需显式.value
 ```
 
 模板中：仅顶级属性自动解包，嵌套属性需解构为顶级属性才能解包。
 
 ```js
-const object = { id: ref(1) }
-const { id } = object // 解构为顶级属性
+const object = { id: ref(1) };
+const { id } = object; // 解构为顶级属性
 ```
 
 模板中`{{ id + 1 }}`生效（解包），而`{{ object.id + 1 }}`不生效（未解包）。
@@ -129,10 +129,10 @@ const { id } = object // 解构为顶级属性
 Vue 会将所有状态修改缓冲到 “next tick” 更新周期中，确保每个组件只更新一次，提升性能。若需在 DOM 更新后执行代码，可使用nextTick()全局 API，它返回一个 Promise，在 DOM 更新完成后 resolve。示例：
 
 ```js
-import { nextTick } from 'vue'
+import { nextTick } from "vue";
 async function update() {
-  count.value++
-  await nextTick()
+  count.value++;
+  await nextTick();
   // DOM已更新
 }
 ```
@@ -155,15 +155,15 @@ async function update() {
 **解决方案**：用shallowRef，只追踪.value的整体替换，不处理内部属性：
 
 ```js
-import { shallowRef } from 'vue'
+import { shallowRef } from "vue";
 // 假设data是包含1000条数据的大型数组
-const bigList = shallowRef(data) 
+const bigList = shallowRef(data);
 
 // ✅ 有效：整体替换时触发更新（符合业务需求）
-bigList.value = newData 
+bigList.value = newData;
 
 // ❌ 无效：修改内部属性不会触发更新（但业务本就不需要修改）
-bigList.value[0].name = '新名字' 
+bigList.value[0].name = "新名字";
 ```
 
 **管理 “纯展示性的复杂对象”（如配置项、图表数据）**
@@ -172,18 +172,18 @@ bigList.value[0].name = '新名字'
 **解决方案**：用shallowReactive（对象）或shallowRef（整体替换）：
 
 ```js
-import { shallowReactive } from 'vue'
+import { shallowReactive } from "vue";
 // 复杂配置对象，仅用于展示，不修改内部属性
 const chartOptions = shallowReactive({
-  xAxis: { type: 'category' },
-  series: [{ data: [1, 2, 3] }]
-})
+  xAxis: { type: "category" },
+  series: [{ data: [1, 2, 3] }],
+});
 
 // ✅ 有效：修改顶层属性会触发更新（如果需要）
-chartOptions.xAxis = { type: 'value' }
+chartOptions.xAxis = { type: "value" };
 
 // ❌ 无效：修改嵌套属性不触发更新（业务不需要）
-chartOptions.series[0].data.push(4) 
+chartOptions.series[0].data.push(4);
 ```
 
 **手动控制更新时机（避免频繁触发）**
@@ -192,16 +192,16 @@ chartOptions.series[0].data.push(4)
 **解决方案**：用shallowRef配合triggerRef（手动触发更新）：
 
 ```js
-import { shallowRef, triggerRef } from 'vue'
-const formData = shallowRef({ name: '', age: 0 })
+import { shallowRef, triggerRef } from "vue";
+const formData = shallowRef({ name: "", age: 0 });
 
 // 批量修改（不会触发更新）
-formData.value.name = '张三'
-formData.value.age = 20
+formData.value.name = "张三";
+formData.value.age = 20;
 // ...更多修改
 
 // 手动触发一次更新（减少渲染次数）
-triggerRef(formData) 
+triggerRef(formData);
 ```
 
 **不适用场景：警惕 “过度优化”**

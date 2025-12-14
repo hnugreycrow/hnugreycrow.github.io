@@ -27,7 +27,7 @@
     padding: 1rem;
     background: white;
     border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   .test-buttons {
@@ -63,10 +63,10 @@
   function testSlideIn() {
     const content = document.getElementById('test-content');
     if (!content) return;
-    
+
     content.className = 'test-content transition-slide-in';
     content.offsetHeight; // 强制重排
-    
+
     setTimeout(() => {
       content.classList.add('is-active');
     }, 50);
@@ -75,9 +75,9 @@
   function testSlideOut() {
     const content = document.getElementById('test-content');
     if (!content) return;
-    
+
     content.className = 'test-content transition-slide-out is-active';
-    
+
     setTimeout(() => {
       content.classList.add('is-leaving');
     }, 50);
@@ -86,7 +86,7 @@
   function resetAnimation() {
     const content = document.getElementById('test-content');
     if (!content) return;
-    
+
     content.className = 'test-content transition-slide-in is-active';
   }
 

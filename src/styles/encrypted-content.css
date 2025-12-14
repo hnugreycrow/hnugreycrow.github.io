@@ -42,13 +42,17 @@
   @apply px-4 py-2 text-xs font-medium;
   background: var(--primary);
   color: white;
-  font-family: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family:
+    "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /* pre元素样式 */
 #decrypted-content .frame pre {
   @apply p-4 overflow-x-auto m-0;
-  font-family: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-family:
+    "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.875rem;
   line-height: 1.5rem;
   background: var(--codeblock-bg);
@@ -83,13 +87,17 @@
 /* 浅色模式适配 */
 @media (prefers-color-scheme: light) {
   #decrypted-content .copy-btn {
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 }
 
 /* 支持 Astro 的主题切换（非 dark 类时） */
 :root:not(.dark) #decrypted-content .copy-btn {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
 #decrypted-content .frame:hover .copy-btn {
@@ -121,7 +129,9 @@
 
 /* 代码元素样式 */
 #decrypted-content code {
-  font-family: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-family:
+    "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /* 内联代码样式 - 与markdown.css保持一致 */
@@ -211,7 +221,12 @@
 
 /* 深色主题 - 函数调用 - 绿色 */
 :global(.dark) #decrypted-content .astro-code code .hljs-function,
-:global(.dark) #decrypted-content .astro-code code .hljs-function > .hljs-title {
+:global(.dark)
+  #decrypted-content
+  .astro-code
+  code
+  .hljs-function
+  > .hljs-title {
   color: #a6e22e !important;
 }
 
@@ -295,7 +310,12 @@
 
 /* 亮色主题 - 函数调用 - 紫色 */
 :root:not(.dark) #decrypted-content .astro-code code .hljs-function,
-:root:not(.dark) #decrypted-content .astro-code code .hljs-function > .hljs-title {
+:root:not(.dark)
+  #decrypted-content
+  .astro-code
+  code
+  .hljs-function
+  > .hljs-title {
   color: #6f42c1 !important;
 }
 
@@ -342,7 +362,10 @@
 
 /* 隐藏最后的空行 */
 #decrypted-content .astro-code code span.line:last-child:empty,
-#decrypted-content .astro-code code span.line:last-child:has(> span:empty:only-child) {
+#decrypted-content
+  .astro-code
+  code
+  span.line:last-child:has(> span:empty:only-child) {
   display: none;
 }
 
@@ -366,7 +389,9 @@
   top: 0.5rem;
   padding: 0.1rem 0.5rem;
   content: attr(data-language);
-  font-family: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family:
+    "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -408,13 +433,13 @@
     top: 0.5rem;
     right: 0.5rem;
   }
-  
+
   /* 调整图标大小 */
   #decrypted-content .copy-btn-icon {
     width: 0.875rem;
     height: 0.875rem;
   }
-  
+
   /* 在移动端隐藏语言标识（与全局行为一致） */
   #decrypted-content .frame.has-language-badge [data-language]::before {
     display: none !important;
