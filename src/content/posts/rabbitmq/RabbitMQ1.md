@@ -1,8 +1,8 @@
 ---
-title: Spring Boot消息队列
+title: RabbitMQ 核心概念
 published: 2025-12-14 21:00:00
 category: 学习笔记
-tags: [Spring Boot]
+tags: [RabbitMQ, Spring Boot]
 ---
 
 在分布式系统开发中，消息队列是实现系统解耦、削峰填谷、异步通信的核心组件。RabbitMQ作为一款基于AMQP协议的开源消息中间件，凭借其轻量、可靠、灵活的特性，被广泛应用于各类企业级项目。而Spring Boot通过自动配置，极大简化了RabbitMQ的整合流程，让开发者能够快速上手。
@@ -80,11 +80,11 @@ RabbitMQ基于Erlang语言开发，因此安装前需先配置Erlang环境。
 ```yaml
 spring:
   rabbitmq:
-    host: localhost          # 服务端地址（生产环境替换为实际IP）
-    port: 5672               # 默认端口
-    username: admin          # 账号（Docker安装为admin，原生RabbitMQ默认guest）
-    password: admin          # 密码（与账号对应）
-    virtual-host: /          # 虚拟主机（资源隔离，默认/）
+    host: localhost # 服务端地址（生产环境替换为实际IP）
+    port: 5672 # 默认端口
+    username: admin # 账号（Docker安装为admin，原生RabbitMQ默认guest）
+    password: admin # 密码（与账号对应）
+    virtual-host: / # 虚拟主机（资源隔离，默认/）
     connection-timeout: 15000 # 连接超时时间（毫秒）
     # 生产者可靠性配置
     publisher-confirm-type: correlated # 异步确认模式，触发ConfirmCallback
