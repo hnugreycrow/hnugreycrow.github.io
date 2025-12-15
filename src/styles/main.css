@@ -12,7 +12,7 @@
 /* 导入 ZenMaruGothic-Medium 字体 */
 @font-face {
   font-family: "ZenMaruGothic-Medium";
-  src: url("/assets/font/ZenMaruGothic-Medium.woff2") format("woff2");
+  src: url("/assets/font/ZenMaruGothic-Medium.ttf") format("truetype");
   font-weight: 500;
   font-display: swap;
 }
@@ -20,7 +20,7 @@
 /* 导入 萝莉体 第二版 字体 */
 @font-face {
   font-family: "萝莉体 第二版";
-  src: url("/assets/font/萝莉体 第二版.woff2") format("woff2");
+  src: url("/assets/font/萝莉体 第二版.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -42,14 +42,7 @@ html {
   left: 0;
   right: 0;
   height: 180px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.3) 30%,
-    rgba(255, 255, 255, 0.15) 60%,
-    rgba(255, 255, 255, 0.05) 80%,
-    transparent 100%
-  );
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.3) 30%, rgba(255, 255, 255, 0.15) 60%, rgba(255, 255, 255, 0.05) 80%, transparent 100%);
   pointer-events: none;
   z-index: 20;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -57,14 +50,7 @@ html {
 
 /* 暗色主题下的渐变高光效果 */
 :root.dark .top-gradient-highlight {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.3) 30%,
-    rgba(0, 0, 0, 0.15) 60%,
-    rgba(0, 0, 0, 0.05) 80%,
-    transparent 100%
-  );
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 30%, rgba(0, 0, 0, 0.15) 60%, rgba(0, 0, 0, 0.05) 80%, transparent 100%);
 }
 
 @layer components {
@@ -122,8 +108,7 @@ html {
   .transition,
   [class*="border"],
   [class*="transition"] {
-    transition-property:
-      color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 0.15s;
   }
@@ -190,42 +175,15 @@ html {
 
   /* 导航栏主题切换保护 - 仅在非 View Transitions 模式下禁用过渡 */
   .is-theme-transitioning:not(.use-view-transition) #navbar > div,
-  .is-theme-transitioning:not(.use-view-transition)
-    #navbar[data-transparent-mode]
-    > div,
-  .is-theme-transitioning:not(.use-view-transition)
-    #navbar[data-transparent-mode].scrolled
-    > div,
-  .is-theme-transitioning:not(.use-view-transition)
-    body.wallpaper-transparent
-    #navbar
-    > div,
-  .is-theme-transitioning:not(.use-view-transition)
-    body.wallpaper-transparent
-    #navbar[data-transparent-mode]
-    > div,
-  .is-theme-transitioning:not(.use-view-transition)
-    body.wallpaper-transparent
-    #navbar[data-transparent-mode].scrolled
-    > div,
-  .is-theme-transitioning:not(.use-view-transition)
-    #banner-wrapper
-    ~ *
-    #navbar
-    > div,
-  .is-theme-transitioning:not(.use-view-transition)
-    #banner-wrapper
-    ~ *
-    #navbar[data-transparent-mode]
-    > div,
-  .is-theme-transitioning:not(.use-view-transition)
-    body:has(#banner-wrapper)
-    #navbar
-    > div,
-  .is-theme-transitioning:not(.use-view-transition)
-    body:has(#banner-wrapper)
-    #navbar[data-transparent-mode]
-    > div {
+  .is-theme-transitioning:not(.use-view-transition) #navbar[data-transparent-mode] > div,
+  .is-theme-transitioning:not(.use-view-transition) #navbar[data-transparent-mode].scrolled > div,
+  .is-theme-transitioning:not(.use-view-transition) body.wallpaper-transparent #navbar > div,
+  .is-theme-transitioning:not(.use-view-transition) body.wallpaper-transparent #navbar[data-transparent-mode] > div,
+  .is-theme-transitioning:not(.use-view-transition) body.wallpaper-transparent #navbar[data-transparent-mode].scrolled > div,
+  .is-theme-transitioning:not(.use-view-transition) #banner-wrapper ~ * #navbar > div,
+  .is-theme-transitioning:not(.use-view-transition) #banner-wrapper ~ * #navbar[data-transparent-mode] > div,
+  .is-theme-transitioning:not(.use-view-transition) body:has(#banner-wrapper) #navbar > div,
+  .is-theme-transitioning:not(.use-view-transition) body:has(#banner-wrapper) #navbar[data-transparent-mode] > div {
     transition: none !important;
     backdrop-filter: none !important;
   }
@@ -421,6 +379,41 @@ html {
   }
   .text-25 {
     @apply text-black/25 dark:text-white/25;
+  }
+
+  /* 悬浮TOC样式 */
+  .floating-toc-item {
+    @apply flex items-center gap-2 py-2 px-2 rounded-lg text-sm leading-relaxed;
+    @apply text-black/70 dark:text-white/70;
+    @apply hover:bg-[var(--btn-plain-bg-hover)] hover:text-[var(--primary)];
+    @apply transition-all duration-150;
+    text-decoration: none;
+  }
+
+  .floating-toc-item[data-level="0"] {
+    @apply font-semibold;
+  }
+
+  .floating-toc-badge {
+    @apply inline-flex items-center justify-center shrink-0;
+    @apply min-w-5 h-5 px-1 rounded-md;
+    @apply bg-[var(--toc-badge-bg)] text-[var(--btn-content)];
+    @apply text-xs font-semibold;
+  }
+
+  .floating-toc-dot {
+    @apply inline-block shrink-0 ml-1.5;
+    @apply w-2 h-2 rounded-sm bg-[var(--toc-badge-bg)];
+  }
+
+  .floating-toc-dot-small {
+    @apply inline-block shrink-0 ml-1.5;
+    @apply w-1.5 h-1.5 rounded-sm;
+    @apply bg-black/10 dark:bg-white/15;
+  }
+
+  .floating-toc-text {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap flex-1 min-w-0;
   }
 
   /* 下拉菜单样式 */

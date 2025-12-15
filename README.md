@@ -1,7 +1,6 @@
-# 🌸 Mizuki
-
-![Node.js >= 20](https://img.shields.io/badge/node.js-%3E%3D20-brightgreen)
-![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue)
+# 🌸 Mizuki  
+![Node.js >= 20](https://img.shields.io/badge/node.js-%3E%3D20-brightgreen) 
+![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue) 
 ![Astro](https://img.shields.io/badge/Astro-5.15.3-orange)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -21,6 +20,7 @@
   <tr>
 </table>
 
+
 A modern, feature-rich static blog template built with [Astro](https://astro.build), featuring advanced functionality and beautiful design.
 
 [**🖥️ Live Demo**](https://mizuki.mysqil.com/)
@@ -35,26 +35,22 @@ A modern, feature-rich static blog template built with [Astro](https://astro.bui
 ![Configuration](configuration.svg)
 
 ### 🔧 Component Configuration System Restructuring
-
 - **Unified Configuration Architecture:** Brand new modular component configuration system, supporting dynamic component management and order configuration
 - **Configuration-Driven Component Loading:** Restructured SideBar component, implementing fully configuration-based component loading mechanism
 - **Unified Control Switches:** Removed independent enable switches for music player and announcement components, unified control through sidebarLayoutConfig
 - **Responsive Layout Adaptation:** Components support responsive layouts, automatically adjusting display based on device type
 
 ### 📐 Layout System Optimization
-
 - **Dynamic Sidebar Position Adjustment:** Support for left/right sidebar switching, with automatic layout adaptation
 - **Intelligent Article Directory Positioning:** When sidebar is on the right, article navigation automatically moves to the left, providing a better reading experience
 - **Grid Layout Improvements:** Optimized CSS Grid layout, resolving container width anomaly issues
 
 ### 🎛️ Configuration File Format Standardization
-
 - **Standardized Configuration Format:** Created unified component configuration file format specifications
 - **Type Safety:** Comprehensive TypeScript type definitions ensuring configuration type safety
 - **Extensibility:** Support for custom component types and configuration options
 
 ### 🧹 Code Optimization
-
 - **Test File Cleanup:** Removed unused test configurations and dependencies, reducing project size
 - **Code Structure Optimization:** Improved component architecture, enhancing code maintainability
 - **Performance Improvement:** Optimized component loading logic, improving page rendering performance
@@ -64,7 +60,6 @@ A modern, feature-rich static blog template built with [Astro](https://astro.bui
 ## ✨ Features
 
 ### 🎨 Design & Interface
-
 - [x] Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com)
 - [x] Smooth animations and page transitions using [Swup](https://swup.js.org/)
 - [x] Light/dark theme switching with system preference detection
@@ -74,7 +69,6 @@ A modern, feature-rich static blog template built with [Astro](https://astro.bui
 - [x] Beautiful typography with JetBrains Mono font
 
 ### 🔍 Content & Search
-
 - [x] Advanced search functionality based on [Pagefind](https://pagefind.app/)
 - [x] [Enhanced Markdown features](#-markdown-extensions) with syntax highlighting
 - [x] Interactive table of contents with auto-scrolling
@@ -82,8 +76,9 @@ A modern, feature-rich static blog template built with [Astro](https://astro.bui
 - [x] Reading time estimation
 - [x] Article categorization and tagging system
 
-### 📱 Special Pages
 
+
+### 📱 Special Pages
 - [x] **Anime Tracking Page** - Track anime watching progress and ratings
 - [x] **Friends Page** - Beautiful cards showcasing friend websites
 - [x] **Diary Page** - Share life moments, similar to social media
@@ -91,7 +86,6 @@ A modern, feature-rich static blog template built with [Astro](https://astro.bui
 - [x] **About Page** - Customizable personal introduction
 
 ### 🛠 Technical Features
-
 - [x] **Enhanced code blocks** based on [Expressive Code](https://expressive-code.com/)
 - [x] **Math formula support** with KaTeX rendering
 - [x] **Image optimization** with PhotoSwipe gallery integration
@@ -104,18 +98,16 @@ A modern, feature-rich static blog template built with [Astro](https://astro.bui
 ### 📦 Installation
 
 1. **Clone the repository:**
-
    ```bash
    git clone https://github.com/matsuzaka-yuki/mizuki.git
    cd mizuki
    ```
 
 2. **Install dependencies:**
-
    ```bash
    # Install pnpm if not already installed
    npm install -g pnpm
-
+   
    # Install project dependencies
    pnpm install
    ```
@@ -172,7 +164,7 @@ tags: [tag1, tag2]
 category: Frontend
 draft: false
 pinned: false
-lang: en # Only set when article language differs from site language in config.ts
+lang: en      # Only set when article language differs from site language in config.ts
 ---
 ```
 
@@ -193,14 +185,12 @@ lang: en # Only set when article language differs from site language in config.t
 The `pinned` field allows you to pin important articles to the top of your blog list. Pinned articles will always appear before regular articles regardless of their publication date.
 
 **Usage:**
-
 ```yaml
 pinned: true  # Pin this article to the top
 pinned: false # Regular article (default)
 ```
 
 **Sorting Rules:**
-
 1. Pinned articles appear first, sorted by publication date (newest first)
 2. Regular articles follow, sorted by publication date (newest first)
 
@@ -209,20 +199,17 @@ pinned: false # Regular article (default)
 Mizuki supports enhanced features beyond standard GitHub Flavored Markdown:
 
 ### 📝 Enhanced Writing
-
 - **Callouts:** Create beautiful annotation boxes using `> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`, etc.
 - **Math Formulas:** Write LaTeX math formulas using `$inline$` and `$$block$$` syntax
 - **Code Highlighting:** Advanced syntax highlighting with line numbers and copy buttons
 - **GitHub Cards:** Embed repository cards using `::github{repo="user/repo"}`
 
 ### 🎨 Visual Elements
-
 - **Image Gallery:** Automatic PhotoSwipe integration for image viewing
 - **Collapsible Sections:** Create expandable content blocks
 - **Custom Components:** Enhance content with special directives
 
 ### 📊 Content Organization
-
 - **Table of Contents:** Automatically generated from headings with smooth scrolling
 - **Reading Time:** Automatically calculated and displayed
 - **Article Metadata:** Rich frontmatter support with categories and tags
@@ -231,17 +218,17 @@ Mizuki supports enhanced features beyond standard GitHub Flavored Markdown:
 
 All commands are run from the project root:
 
-| Command                    | Action                                     |
-| :------------------------- | :----------------------------------------- |
-| `pnpm install`             | Install dependencies                       |
+| Command                    | Action                                   |
+|:---------------------------|:-----------------------------------------|
+| `pnpm install`             | Install dependencies                     |
 | `pnpm dev`                 | Start local dev server at `localhost:4321` |
-| `pnpm build`               | Build production site to `./dist/`         |
-| `pnpm preview`             | Preview build locally before deployment    |
-| `pnpm check`               | Run Astro error checking                   |
-| `pnpm format`              | Format code with Biome                     |
-| `pnpm lint`                | Check and fix code issues                  |
-| `pnpm new-post <filename>` | Create a new blog post                     |
-| `pnpm astro ...`           | Run Astro CLI commands                     |
+| `pnpm build`               | Build production site to `./dist/`       |
+| `pnpm preview`             | Preview build locally before deployment  |
+| `pnpm check`               | Run Astro error checking                 |
+| `pnpm format`              | Format code with Prettier                   |
+| `pnpm lint`                | Check and fix code issues                |
+| `pnpm new-post <filename>` | Create a new blog post                   |
+| `pnpm astro ...`           | Run Astro CLI commands                   |
 
 ## 🎯 Configuration Guide
 
@@ -319,6 +306,7 @@ Thanks to all contributors for their contributions to this project. If you have 
 
 ## ⭐ Star History
 
-## [![Star History Chart](https://api.star-history.com/svg?repos=matsuzaka-yuki/Mizuki&type=Date)](https://star-history.com/#matsuzaka-yuki/Mizuki&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=matsuzaka-yuki/Mizuki&type=Date)](https://star-history.com/#matsuzaka-yuki/Mizuki&Date)
+---
 
 ⭐ If you find this project helpful, please consider giving it a star!

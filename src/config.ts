@@ -1,16 +1,17 @@
 import type {
-  AnnouncementConfig,
-  CommentConfig,
-  ExpressiveCodeConfig,
-  FooterConfig,
-  FullscreenWallpaperConfig,
-  LicenseConfig,
-  MusicPlayerConfig,
-  NavBarConfig,
-  ProfileConfig,
-  SakuraConfig,
-  SidebarLayoutConfig,
-  SiteConfig,
+	AnnouncementConfig,
+	CommentConfig,
+	ExpressiveCodeConfig,
+	FooterConfig,
+	FullscreenWallpaperConfig,
+	LicenseConfig,
+	MusicPlayerConfig,
+	NavBarConfig,
+	PermalinkConfig,
+	ProfileConfig,
+	SakuraConfig,
+	SidebarLayoutConfig,
+	SiteConfig,
 } from "./types/config";
 import { LinkPreset } from "./types/config";
 
@@ -156,10 +157,12 @@ export const siteConfig: SiteConfig = {
     },
   },
   toc: {
-    enable: true, // 启用目录功能
-    depth: 2, // 目录深度，1-6，1 表示只显示 h1 标题，2 表示显示 h1 和 h2 标题，依此类推
-    useJapaneseBadge: false, // 使用日语假名标记（あいうえお...）代替数字，开启后会将 1、2、3... 改为 あ、い、う...
-  },
+		enable: true, // 启用目录功能
+		mode: "float", // 目录显示模式："float" 悬浮按钮模式，"sidebar" 侧边栏模式
+		depth: 2, // 目录深度，1-6，1 表示只显示 h1 标题，2 表示显示 h1 和 h2 标题，依此类推
+		useJapaneseBadge: false, // 使用日语假名标记（あいうえお...）代替数字，开启后会将 1、2、3... 改为 あ、い、う...
+	},
+  showCoverInContent: true, // 在文章内容页显示文章封面
   generateOgImages: false, // 启用生成OpenGraph图片功能,注意开启后要渲染很长时间，不建议本地调试的时候开启
   favicon: [
     // 留空以使用默认 favicon
@@ -184,7 +187,7 @@ export const siteConfig: SiteConfig = {
     },
     cjkFont: {
       // 中日韩字体 - 作为回退字体
-      fontFamily: "",
+      fontFamily: "萝莉体 第二版",
       fontWeight: "400",
       localFonts: ["萝莉体 第二版.ttf"],
       enableCompress: true, // 启用字体子集优化，减少字体文件大小
@@ -351,6 +354,32 @@ export const licenseConfig: LicenseConfig = {
   enable: true,
   name: "CC BY-NC-SA 4.0",
   url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+};
+
+// Permalink 固定链接配置
+export const permalinkConfig: PermalinkConfig = {
+	enable: false, // 是否启用全局 permalink 功能，关闭时使用默认的文件名作为链接
+	/**
+	 * permalink 格式模板
+	 * 支持的占位符：
+	 * - %year% : 4位年份 (2024)
+	 * - %monthnum% : 2位月份 (01-12)
+	 * - %day% : 2位日期 (01-31)
+	 * - %hour% : 2位小时 (00-23)
+	 * - %minute% : 2位分钟 (00-59)
+	 * - %second% : 2位秒数 (00-59)
+	 * - %post_id% : 文章序号（按发布时间升序排列，最早的文章为1）
+	 * - %postname% : 文章文件名（slug）
+	 * - %category% : 分类名（无分类时为 "uncategorized"）
+	 *
+	 * 示例：
+	 * - "%year%-%monthnum%-%postname%" => "/2024-12-my-post/"
+	 * - "%post_id%-%postname%" => "/42-my-post/"
+	 * - "%category%-%postname%" => "/tech-my-post/"
+	 *
+	 * 注意：不支持斜杠 "/"，所有生成的链接都在根目录下
+	 */
+	format: "%postname%", // 默认使用文件名
 };
 
 export const expressiveCodeConfig: ExpressiveCodeConfig = {

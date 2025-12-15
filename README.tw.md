@@ -1,7 +1,6 @@
-# 🌸 Mizuki
-
-![Node.js >= 20](https://img.shields.io/badge/node.js-%3E%3D20-brightgreen)
-![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue)
+# 🌸 Mizuki  
+![Node.js >= 20](https://img.shields.io/badge/node.js-%3E%3D20-brightgreen) 
+![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue) 
 ![Astro](https://img.shields.io/badge/Astro-5.12.8-orange)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -32,29 +31,27 @@
 [**日本語**](./README.ja.md) /
 [**中文繁体**](./README.tw.md) /
 
+
+
 ![Configuration](../configuration.svg)
 
 ### 🔧 元件配置系統重構
-
 - **統一配置架構：** 全新的模組化元件配置體系，支援動態元件管理和順序配置
 - **配置驅動的元件載入：** 重構 SideBar 元件，實現完全基於配置的元件載入機制
 - **統一控制開關：** 移除音樂播放器和公告元件的獨立 enable 開關，統一由 sidebarLayoutConfig 控制
 - **響應式佈局適配：** 元件支援響應式佈局，可根據裝置類型自動調整顯示
 
 ### 📐 佈局系統優化
-
 - **側邊欄位置動態調整：** 支援左右側邊欄切換，佈局自動適配
 - **文章目錄智能定位：** 當側邊欄在右側時，文章導航自動移至左側，提供更好的閱讀體驗
 - **網格佈局改進：** 優化 CSS Grid 佈局，解決容器寬度異常問題
 
 ### 🎛️ 配置文件格式規範
-
 - **標準化配置格式：** 創建統一的元件配置文件格式規範
 - **類型安全：** 完善的 TypeScript 類型定義，確保配置的類型安全
 - **可擴展性：** 支援自定義元件類型和配置選項
 
 ### 🧹 程式碼優化
-
 - **測試文件清理：** 移除未使用的測試配置和依賴，減少專案體積
 - **程式碼結構優化：** 改進元件架構，提升程式碼可維護性
 - **效能提升：** 優化元件載入邏輯，提升頁面渲染效能
@@ -64,7 +61,6 @@
 ## ✨ 功能特性
 
 ### 🎨 設計與界面
-
 - [x] 基於 [Astro](https://astro.build) 和 [Tailwind CSS](https://tailwindcss.com) 構建
 - [x] 使用 [Swup](https://swup.js.org/) 實現流暢的動畫和頁面過渡
 - [x] 明暗主題切換，支援系統偏好檢測
@@ -74,7 +70,6 @@
 - [x] 使用 JetBrains Mono 字體的優美排版
 
 ### 🔍 內容與搜尋
-
 - [x] 基於 [Pagefind](https://pagefind.app/) 的高級搜尋功能
 - [x] [增強的 Markdown 功能](#-markdown-擴展語法)，支援語法高亮
 - [x] 互動式目錄，支援自動滾動
@@ -82,8 +77,9 @@
 - [x] 閱讀時間估算
 - [x] 文章分類和標籤系統
 
-### 📱 特色頁面
 
+
+### 📱 特色頁面
 - [x] **追番頁面** - 追蹤動畫觀看進度和評分
 - [x] **友鏈頁面** - 精美卡片展示朋友網站
 - [x] **日記頁面** - 分享生活瞬間，類似社交媒體
@@ -91,7 +87,6 @@
 - [x] **關於頁面** - 可自定義的個人介紹
 
 ### 🛠 技術特性
-
 - [x] **增強程式碼區塊**，基於 [Expressive Code](https://expressive-code.com/)
 - [x] **數學公式支援**，KaTeX 渲染
 - [x] **圖片優化**，PhotoSwipe 畫廊整合
@@ -104,18 +99,16 @@
 ### 📦 安裝
 
 1. **克隆儲存庫：**
-
    ```bash
    git clone https://github.com/matsuzaka-yuki/mizuki.git
    cd mizuki
    ```
 
 2. **安裝依賴：**
-
    ```bash
    # 如果沒有安裝 pnpm，先安裝
    npm install -g pnpm
-
+   
    # 安裝專案依賴
    pnpm install
    ```
@@ -163,7 +156,7 @@ tags: [標籤1, 標籤2]
 category: 前端
 draft: false
 pinned: false
-lang: zh-TW # 僅當文章語言與 config.ts 中的網站語言不同時設置
+lang: zh-TW      # 僅當文章語言與 config.ts 中的網站語言不同時設置
 ---
 ```
 
@@ -184,14 +177,12 @@ lang: zh-TW # 僅當文章語言與 config.ts 中的網站語言不同時設置
 `pinned` 欄位允許您將重要文章置頂到部落格列表的頂部。置頂文章將始終顯示在普通文章之前，無論其發布日期如何。
 
 **使用方法：**
-
 ```yaml
 pinned: true  # 將此文章置頂
 pinned: false # 普通文章（預設）
 ```
 
 **排序規則：**
-
 1. 置頂文章優先顯示，按發布日期排序（最新在前）
 2. 普通文章隨後顯示，按發布日期排序（最新在前）
 
@@ -200,20 +191,17 @@ pinned: false # 普通文章（預設）
 Mizuki 支援超越標準 GitHub Flavored Markdown 的增強功能：
 
 ### 📝 增強寫作
-
 - **提示框：** 使用 `> [!NOTE]`、`> [!TIP]`、`> [!WARNING]` 等創建精美的標註框
 - **數學公式：** 使用 `$行內$` 和 `$$塊級$$` 語法編寫 LaTeX 數學公式
 - **程式碼高亮：** 高級語法高亮，支援行號和複製按鈕
 - **GitHub 卡片：** 使用 `::github{repo="使用者/儲存庫"}` 嵌入儲存庫卡片
 
 ### 🎨 視覺元素
-
 - **圖片畫廊：** 自動 PhotoSwipe 整合，支援圖片查看
 - **可折疊部分：** 創建可展開的內容區塊
 - **自定義元件：** 使用特殊指令增強內容
 
 ### 📊 內容組織
-
 - **目錄：** 從標題自動生成，支援平滑滾動
 - **閱讀時間：** 自動計算和顯示
 - **文章元數據：** 豐富的前言支援，包含分類和標籤
@@ -222,17 +210,17 @@ Mizuki 支援超越標準 GitHub Flavored Markdown 的增強功能：
 
 所有命令都在專案根目錄運行：
 
-| 命令                     | 操作                                   |
-| :----------------------- | :------------------------------------- |
-| `pnpm install`           | 安裝依賴                               |
-| `pnpm dev`               | 在 `localhost:4321` 啟動本地開發伺服器 |
-| `pnpm build`             | 構建生產網站到 `./dist/`               |
-| `pnpm preview`           | 在部署前本地預覽構建                   |
-| `pnpm check`             | 運行 Astro 錯誤檢查                    |
-| `pnpm format`            | 使用 Biome 格式化程式碼                |
-| `pnpm lint`              | 檢查並修復程式碼問題                   |
-| `pnpm new-post <檔案名>` | 創建新部落格文章                       |
-| `pnpm astro ...`         | 運行 Astro CLI 命令                    |
+| 命令                       | 操作                                    |
+|:---------------------------|:---------------------------------------|
+| `pnpm install`             | 安裝依賴                               |
+| `pnpm dev`                 | 在 `localhost:4321` 啟動本地開發伺服器 |
+| `pnpm build`               | 構建生產網站到 `./dist/`               |
+| `pnpm preview`             | 在部署前本地預覽構建                   |
+| `pnpm check`               | 運行 Astro 錯誤檢查                    |
+| `pnpm format`              | 使用 Prettier 格式化程式碼                |
+| `pnpm lint`                | 檢查並修復程式碼問題                   |
+| `pnpm new-post <檔案名>`   | 創建新部落格文章                       |
+| `pnpm astro ...`           | 運行 Astro CLI 命令                    |
 
 ## 🎯 配置指南
 

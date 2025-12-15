@@ -3,7 +3,6 @@ import { onMount } from "svelte";
 
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
-import { getPostUrlBySlug, getPostUrlByPermalink } from "../utils/url-utils";
 
 export let tags: string[];
 export let categories: string[];
@@ -16,23 +15,15 @@ const uncategorized = params.get("uncategorized");
 
 interface Post {
 	id: string;
+	url?: string; // 预计算的文章 URL
 	data: {
 		title: string;
 		tags: string[];
 		category?: string;
 		published: Date;
-		permalink?: string; // 添加 permalink 字段
+		alias?: string;
+		permalink?: string; // 自定义固定链接
 	};
-}
-
-// 辅助函数：根据文章数据生成正确的 URL
-function getPostUrl(post: Post): string {
-	// 如果文章有自定义固定链接，优先使用固定链接
-	if (post.data.permalink) {
-		return getPostUrlByPermalink(post.data.permalink);
-	}
-	// 否则使用默认的 slug 路径
-	return getPostUrlBySlug(post.id);
 }
 
 interface Group {
@@ -74,7 +65,9 @@ onMount(async () => {
 	}
 
 	// 按发布时间倒序排序，确保不受置顶影响
-	filteredPosts = filteredPosts.slice().sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+	filteredPosts = filteredPosts
+		.slice()
+		.sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 
 	const grouped = filteredPosts.reduce(
 		(acc, post) => {
@@ -119,7 +112,7 @@ onMount(async () => {
 
             {#each group.posts as post}
                 <a
-                        href={getPostUrl(post)}
+                        href={post.url || `/posts/${post.id}/`}
                         aria-label={post.data.title}
                         class="group btn-plain !block h-10 w-full rounded-lg hover:text-[initial]"
                 >

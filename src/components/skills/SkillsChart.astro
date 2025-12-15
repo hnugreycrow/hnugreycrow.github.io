@@ -3,7 +3,13 @@ import I18nKey from "../../i18n/i18nKey";
 import { i18n } from "../../i18n/translation";
 
 // 计算SVG圆环路径数据的函数（Donut Chart）
-const calculatePathData = (segment) => {
+interface ChartSegment {
+	startAngle: number;
+	endAngle: number;
+	angle: number;
+}
+
+const calculatePathData = (segment: ChartSegment) => {
 	if (segment.angle <= 0) return "";
 
 	// 外圆和内圆半径
@@ -15,7 +21,7 @@ const calculatePathData = (segment) => {
 	// 外圆起始点和结束点
 	const startAngleRad = ((segment.startAngle - 90) * Math.PI) / 180;
 	const endAngleRad = ((segment.endAngle - 90) * Math.PI) / 180;
-	
+
 	const outerStartX = centerX + outerRadius * Math.cos(startAngleRad);
 	const outerStartY = centerY + outerRadius * Math.sin(startAngleRad);
 	const outerEndX = centerX + outerRadius * Math.cos(endAngleRad);

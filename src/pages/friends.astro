@@ -1,13 +1,14 @@
 ---
 import { getEntry, render } from "astro:content";
 import Markdown from "@components/misc/Markdown.astro";
-import Icon from "../components/misc/Icon.astro";
+// import Icon from "../components/misc/Icon.astro";
 import { siteConfig } from "../config";
-import { getFriendsList, getShuffledFriendsList } from "../data/friends";
+import { getShuffledFriendsList } from "../data/friends";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 import Comment from "@components/comment/index.astro";
+
 
 // 检查友链页面是否启用
 if (!siteConfig.featurePages.friends) {
@@ -34,7 +35,7 @@ const allTags = Array.from(new Set(friendsList.flatMap((item) => item.tags)));
 		window.isFriendsPage = true;
 	</script>
   <script>
-    import('/src/scripts/right-sidebar-layout.js');
+    import('../scripts/right-sidebar-layout.js');
   </script>
 	<div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
 		<div class="card-base z-10 px-9 py-6 relative w-full">
@@ -211,7 +212,7 @@ const allTags = Array.from(new Set(friendsList.flatMap((item) => item.tags)));
 				<Content />
 			</Markdown>
 
-			<Comment post={friendsPost} customPath="/friends"/>
+			<Comment post={friendsPost} />
 			
 			<!-- 隐藏元素用于传递 i18n 文本到全局脚本 -->
 			<div id="friends-copy-success-text" style="display: none;">{i18n(I18nKey.friendsCopySuccess)}</div>

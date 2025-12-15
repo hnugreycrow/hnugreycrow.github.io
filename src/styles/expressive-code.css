@@ -6,9 +6,7 @@
   }
 
   .title {
-    font-family:
-      "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco,
-      Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 }
 
@@ -50,9 +48,7 @@
   z-index: 20;
   cursor: pointer;
   background: var(--btn-regular-bg);
-  color: var(
-    --btn-content
-  ); /* 设置文字颜色，SVG 的 currentColor 会继承这个值 */
+  color: var(--btn-content); /* 设置文字颜色，SVG 的 currentColor 会继承这个值 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,11 +92,7 @@
   left: 0;
   right: 0;
   height: 2.5rem;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    var(--codeblock-bg) 90%
-  );
+  background: linear-gradient(to bottom, transparent 0%, var(--codeblock-bg) 90%);
   pointer-events: none;
 }
 

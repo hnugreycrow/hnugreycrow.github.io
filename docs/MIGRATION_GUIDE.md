@@ -240,7 +240,6 @@ USE_SUBMODULE=true
 ### Q: 同步脚本失败怎么办?
 
 A: 检查:
-
 1. 网络连接是否正常
 2. Git 凭据是否配置正确
 3. `ENABLE_CONTENT_SYNC=true` 是否已设置

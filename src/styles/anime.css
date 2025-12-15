@@ -12,11 +12,7 @@
 .anime-page .stat-card {
   @apply bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-xl p-4 flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-lg;
   border: 1px solid var(--line-divider);
-  background: linear-gradient(
-    135deg,
-    var(--card-bg) 0%,
-    var(--card-bg-transparent) 100%
-  );
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-bg-transparent) 100%);
 }
 
 .anime-page .stat-card:hover {
@@ -26,11 +22,7 @@
 
 .anime-page .stat-icon {
   @apply w-12 h-12 rounded-lg flex items-center justify-center text-white text-xl font-bold shadow-md;
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    oklch(from var(--primary) calc(l + 0.1) c calc(h + 30))
-  );
+  background: linear-gradient(135deg, var(--primary), oklch(from var(--primary) calc(l + 0.1) c calc(h + 30)));
 }
 
 .anime-page .stat-content {
@@ -39,11 +31,7 @@
 
 .anime-page .stat-number {
   @apply text-2xl font-bold text-black/90 dark:text-white/90;
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    oklch(from var(--primary) calc(l + 0.1) c calc(h + 30))
-  );
+  background: linear-gradient(135deg, var(--primary), oklch(from var(--primary) calc(l + 0.1) c calc(h + 30)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -188,20 +176,12 @@
 
 .anime-page .progress-bar {
   @apply w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden;
-  background: linear-gradient(
-    90deg,
-    var(--btn-regular-bg),
-    var(--btn-regular-bg-hover)
-  );
+  background: linear-gradient(90deg, var(--btn-regular-bg), var(--btn-regular-bg-hover));
 }
 
 .anime-page .progress-fill {
   @apply h-full transition-all duration-1000 ease-out;
-  background: linear-gradient(
-    90deg,
-    var(--primary),
-    oklch(from var(--primary) calc(l + 0.1) c calc(h + 30))
-  );
+  background: linear-gradient(90deg, var(--primary), oklch(from var(--primary) calc(l + 0.1) c calc(h + 30)));
   box-shadow: 0 0 10px var(--primary) / 50;
 }
 
@@ -266,11 +246,7 @@
 /* 暗色主题优化 */
 :root.dark .anime-page .anime-card {
   @apply shadow-lg shadow-black/20;
-  background: linear-gradient(
-    135deg,
-    var(--card-bg),
-    var(--card-bg-transparent)
-  );
+  background: linear-gradient(135deg, var(--card-bg), var(--card-bg-transparent));
 }
 
 :root.dark .anime-page .anime-cover-overlay {
@@ -278,11 +254,7 @@
 }
 
 :root.dark .anime-page .stat-card {
-  background: linear-gradient(
-    135deg,
-    var(--card-bg) / 80,
-    var(--card-bg-transparent)
-  );
+  background: linear-gradient(135deg, var(--card-bg) / 80, var(--card-bg-transparent));
   border-color: var(--line-divider);
 }
 
@@ -390,12 +362,7 @@
   position: absolute;
   inset: 0;
   padding: 1px;
-  background: linear-gradient(
-    135deg,
-    var(--primary) / 20,
-    transparent,
-    var(--primary) / 20
-  );
+  background: linear-gradient(135deg, var(--primary) / 20, transparent, var(--primary) / 20);
   border-radius: inherit;
   mask:
     linear-gradient(#fff 0 0) content-box,

@@ -140,7 +140,6 @@ lang: zh-CN
 - **包含图片的文章**: 创建文件夹,将 `index.md` 和图片放在一起
 
 示例:
-
 ```
 posts/
 ├── simple-post.md                    # 简单文章
@@ -188,19 +187,15 @@ pnpm run sync-content
 ## 📦 数据文件说明
 
 ### anime.ts
-
 番剧数据配置,包含你观看的动画列表。
 
 ### projects.ts
-
 项目展示数据,展示你的作品集。
 
 ### skills.ts
-
 技能数据,展示你的技术栈。
 
 ### timeline.ts
-
 时间线数据,记录重要事件。
 
 ## 🎨 图片管理
@@ -208,7 +203,7 @@ pnpm run sync-content
 ### 目录说明
 
 - `images/albums/`: 相册页面的图片
-- `images/diary/`: 日记页面的图片
+- `images/diary/`: 日记页面的图片  
 - `images/posts/`: 文章中引用的公共图片
 
 ### 图片引用
@@ -217,11 +212,9 @@ pnpm run sync-content
 
 ```markdown
 <!-- 相对路径 (推荐) -->
-
 ![描述](./image.jpg)
 
 <!-- 公共图片目录 -->
-
 ![描述](/images/posts/image.jpg)
 ```
 
@@ -242,14 +235,12 @@ pnpm run sync-content
 ### 快速参考
 
 **本地开发**: 推荐使用 SSH 密钥
-
 ```bash
 CONTENT_REPO_URL=git@github.com:your-username/Mizuki-Content-Private.git
 USE_SUBMODULE=true
 ```
 
 **CI/CD 部署**: 根据平台选择
-
 - GitHub Actions: 使用 `GITHUB_TOKEN` (同账号) 或 SSH 密钥
 - Vercel/Netlify: 授权访问或使用 Token
 

@@ -1,36 +1,27 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { commentConfig } from '@/config';
-import { removeFileExtension } from '@/utils/url-utils';
-import Twikoo from './Twikoo.astro';
+import type { CollectionEntry } from "astro:content";
+import { commentConfig } from "@/config";
+import { removeFileExtension } from "@/utils/url-utils";
+import Twikoo from "./Twikoo.astro";
 
-// 修改 Props 类型，支持 posts 和 spec 两种集合类型
 interface Props {
-  post: CollectionEntry<'posts'> | CollectionEntry<'spec'>;
-  // 可选：允许手动指定路径
-  customPath?: string;
+	post: CollectionEntry<"posts">;
 }
 
-const { post, customPath } = Astro.props;
-const { id, data } = post;
+const { id, data: _data } = Astro.props.post;
 
-// 如果指定了自定义路径，则使用自定义路径；否则使用默认的 posts 路径规则
 const slug = removeFileExtension(id);
-const path = customPath || `/posts/${slug}`;
-const url = `${Astro.site?.href}${path}`;
+const path = `/posts/${slug}`;
+// const url = `${Astro.site?.href}${path}`;
 
-let commentService = '';
+let commentService = "";
 if (commentConfig?.enable && commentConfig?.twikoo) {
-  commentService = 'twikoo';
+	commentService = "twikoo";
 }
 ---
-
-{
-  commentConfig?.enable && (
-    <div class="card-base p-6 mb-4">
-      <h3 class="text-2xl font-bold text-black/90 dark:text-white/90 mb-4">评论区</h3>
-      {commentService === 'twikoo' && <Twikoo path={path} />}
-      {commentService === '' && null}
-    </div>
-  )
-}
+{commentConfig?.enable && (
+  <div class="card-base p-6 mb-4">
+    {commentService === 'twikoo' && <Twikoo path={path} />}
+    {commentService === '' && null}
+  </div>
+)}

@@ -37,7 +37,7 @@ Settings → Secrets and variables → Actions → New repository secret
 找到第 27 行,修改为你的代码仓库:
 
 ```yaml
-repository: your-username/Mizuki # 改为你的
+repository: your-username/Mizuki  # 改为你的
 ```
 
 例如: `matsuzaka-yuki/Mizuki`
@@ -53,7 +53,7 @@ on:
   push:
     branches:
       - main
-  repository_dispatch: # 👈 添加这个
+  repository_dispatch:  # 👈 添加这个
     types:
       - content-updated
   workflow_dispatch:
@@ -70,7 +70,6 @@ git push
 ```
 
 查看:
-
 1. 内容仓库 Actions - 确认触发器运行
 2. 代码仓库 Actions - 确认部署被触发
 
@@ -83,7 +82,6 @@ git push
 **错误**: `Bad credentials`
 
 **解决**:
-
 - 确认 Token 复制完整
 - 确认 Token 有 `repo` 权限
 - 重新生成 Token
@@ -93,7 +91,6 @@ git push
 **错误**: `Not Found`
 
 **解决**:
-
 - 确认格式: `owner/repo` (用斜杠分隔)
 - 确认拼写正确
 - 示例: `matsuzaka-yuki/Mizuki`
@@ -101,7 +98,6 @@ git push
 ### 代码仓库未触发
 
 **检查**:
-
 - [ ] `.github/workflows/deploy.yml` 包含 `repository_dispatch`
 - [ ] Event type 为 `content-updated`
 - [ ] 代码仓库 Actions 已启用
@@ -111,7 +107,6 @@ git push
 ## 📚 详细文档
 
 需要更多配置选项? 查看:
-
 - [部署指南 - 完整说明](./DEPLOYMENT.md#内容仓库更新触发构建) - 包含 Webhook、定时构建等其他方案
 - [内容仓库配置指南](../Mizuki-Content/.github/workflows/README.md) - 工作流详细说明
 
@@ -120,7 +115,6 @@ git push
 ## 💡 提示
 
 配置成功后:
-
 - ✅ 内容仓库每次推送都会自动触发部署
 - ✅ 可在 Actions 页面查看触发历史
 - ✅ 支持手动触发 (workflow_dispatch)

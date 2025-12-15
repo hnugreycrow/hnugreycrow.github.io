@@ -99,42 +99,27 @@
 }
 
 /* 搜索面板内部输入框背景不透明纯色 */
-body:has(#navbar[data-dynamic-transparent="none"])
-  #search-panel
-  #search-bar-inside {
+body:has(#navbar[data-dynamic-transparent="none"]) #search-panel #search-bar-inside {
   background: rgba(0, 0, 0, 0.08) !important;
 }
 
-:root.dark
-  body:has(#navbar[data-dynamic-transparent="none"])
-  #search-panel
-  #search-bar-inside {
+:root.dark body:has(#navbar[data-dynamic-transparent="none"]) #search-panel #search-bar-inside {
   background: rgba(255, 255, 255, 0.15) !important;
 }
 
-body:has(#navbar[data-dynamic-transparent="none"])
-  #search-panel
-  #search-bar-inside:hover {
+body:has(#navbar[data-dynamic-transparent="none"]) #search-panel #search-bar-inside:hover {
   background: rgba(0, 0, 0, 0.12) !important;
 }
 
-:root.dark
-  body:has(#navbar[data-dynamic-transparent="none"])
-  #search-panel
-  #search-bar-inside:hover {
+:root.dark body:has(#navbar[data-dynamic-transparent="none"]) #search-panel #search-bar-inside:hover {
   background: rgba(255, 255, 255, 0.2) !important;
 }
 
-body:has(#navbar[data-dynamic-transparent="none"])
-  #search-panel
-  #search-bar-inside:focus-within {
+body:has(#navbar[data-dynamic-transparent="none"]) #search-panel #search-bar-inside:focus-within {
   background: rgba(0, 0, 0, 0.12) !important;
 }
 
-:root.dark
-  body:has(#navbar[data-dynamic-transparent="none"])
-  #search-panel
-  #search-bar-inside:focus-within {
+:root.dark body:has(#navbar[data-dynamic-transparent="none"]) #search-panel #search-bar-inside:focus-within {
   background: rgba(255, 255, 255, 0.2) !important;
 }
 
@@ -158,38 +143,22 @@ body:has(#navbar[data-dynamic-transparent="none"]) #navbar .dropdown-content {
 }
 
 :root.dark body:has(#navbar[data-dynamic-transparent="none"]) .dropdown-content,
-:root.dark
-  body:has(#navbar[data-dynamic-transparent="none"])
-  #navbar
-  .dropdown-content {
+:root.dark body:has(#navbar[data-dynamic-transparent="none"]) #navbar .dropdown-content {
   background: var(--card-bg) !important;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
 }
 
 /* 音乐播放器在 none 模式下不透明 */
 body:has(#navbar[data-dynamic-transparent="none"]) .music-player .mini-player,
-body:has(#navbar[data-dynamic-transparent="none"])
-  .music-player
-  .expanded-player,
-body:has(#navbar[data-dynamic-transparent="none"])
-  .music-player
-  .playlist-panel {
+body:has(#navbar[data-dynamic-transparent="none"]) .music-player .expanded-player,
+body:has(#navbar[data-dynamic-transparent="none"]) .music-player .playlist-panel {
   backdrop-filter: none !important;
   background: var(--card-bg) !important;
 }
 
-:root.dark
-  body:has(#navbar[data-dynamic-transparent="none"])
-  .music-player
-  .mini-player,
-:root.dark
-  body:has(#navbar[data-dynamic-transparent="none"])
-  .music-player
-  .expanded-player,
-:root.dark
-  body:has(#navbar[data-dynamic-transparent="none"])
-  .music-player
-  .playlist-panel {
+:root.dark body:has(#navbar[data-dynamic-transparent="none"]) .music-player .mini-player,
+:root.dark body:has(#navbar[data-dynamic-transparent="none"]) .music-player .expanded-player,
+:root.dark body:has(#navbar[data-dynamic-transparent="none"]) .music-player .playlist-panel {
   background: var(--card-bg) !important;
 }
 
@@ -255,9 +224,7 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 
 /* 移动端半透明模式 - 仅在有壁纸且为首页时启用,使用CSS变量 */
 @media (max-width: 1279px) {
-  body.wallpaper-transparent
-    #navbar[data-transparent-mode="semi"][data-is-home="true"]
-    > div {
+  body.wallpaper-transparent #navbar[data-transparent-mode="semi"][data-is-home="true"] > div {
     backdrop-filter: blur(8px) !important;
     background: var(--card-bg-transparent) !important;
     border: none !important;
@@ -269,10 +236,7 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 
 /* 桌面端暗色主题下的半透明模式 - 在有壁纸时启用,使用CSS变量 */
 @media (min-width: 1280px) {
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-transparent-mode="semi"]
-    > div {
+  :root.dark body.wallpaper-transparent #navbar[data-transparent-mode="semi"] > div {
     background: var(--card-bg-transparent) !important;
     border: none !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
@@ -281,10 +245,7 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 
 /* 移动端暗色主题下的半透明模式 - 仅在有壁纸且为首页时启用,使用CSS变量 */
 @media (max-width: 1279px) {
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-transparent-mode="semi"][data-is-home="true"]
-    > div {
+  :root.dark body.wallpaper-transparent #navbar[data-transparent-mode="semi"][data-is-home="true"] > div {
     background: var(--card-bg-transparent) !important;
     border: none !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
@@ -316,9 +277,7 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
   }
 
   /* 滚动状态：下滑后变为半透明圆角 */
-  body.wallpaper-transparent
-    #navbar[data-transparent-mode="semifull"].scrolled
-    > div {
+  body.wallpaper-transparent #navbar[data-transparent-mode="semifull"].scrolled > div {
     backdrop-filter: blur(8px) !important;
     background: var(--card-bg-transparent) !important;
     border: none !important;
@@ -330,9 +289,7 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 
 /* 移动端完全透明模式 - 仅在有壁纸且为首页时启用 */
 @media (max-width: 1279px) {
-  body.wallpaper-transparent
-    #navbar[data-transparent-mode="full"][data-is-home="true"]
-    > div {
+  body.wallpaper-transparent #navbar[data-transparent-mode="full"][data-is-home="true"] > div {
     backdrop-filter: none !important;
     background: transparent !important;
     border: none !important;
@@ -345,9 +302,7 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 /* 移动端半完全透明模式 - 仅在有壁纸且为首页时启用,使用CSS变量 */
 @media (max-width: 1279px) {
   /* 默认状态：页面顶部时半透明圆角 */
-  body.wallpaper-transparent
-    #navbar[data-transparent-mode="semifull"][data-is-home="true"]
-    > div {
+  body.wallpaper-transparent #navbar[data-transparent-mode="semifull"][data-is-home="true"] > div {
     backdrop-filter: blur(8px) !important;
     background: var(--card-bg-transparent) !important;
     border: none !important;
@@ -357,9 +312,7 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
   }
 
   /* 滚动状态：下滑后变为半透明圆角 */
-  body.wallpaper-transparent
-    #navbar[data-transparent-mode="semifull"][data-is-home="true"].scrolled
-    > div {
+  body.wallpaper-transparent #navbar[data-transparent-mode="semifull"][data-is-home="true"].scrolled > div {
     backdrop-filter: blur(8px) !important;
     background: var(--card-bg-transparent) !important;
     border: none !important;
@@ -371,10 +324,7 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 
 /* 桌面端暗色主题下的完全透明模式 - 在有壁纸时启用 */
 @media (min-width: 1280px) {
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-transparent-mode="full"]
-    > div {
+  :root.dark body.wallpaper-transparent #navbar[data-transparent-mode="full"] > div {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -384,20 +334,14 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 /* 桌面端暗色主题下的半完全透明模式 - 在有壁纸时启用,使用CSS变量 */
 @media (min-width: 1280px) {
   /* 默认状态：页面顶部时半透明圆角 */
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-transparent-mode="semifull"]
-    > div {
+  :root.dark body.wallpaper-transparent #navbar[data-transparent-mode="semifull"] > div {
     background: var(--card-bg-transparent) !important;
     border: none !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
   }
 
   /* 滚动状态：下滑后变为半透明圆角 */
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-transparent-mode="semifull"].scrolled
-    > div {
+  :root.dark body.wallpaper-transparent #navbar[data-transparent-mode="semifull"].scrolled > div {
     background: var(--card-bg-transparent) !important;
     border: none !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
@@ -406,14 +350,8 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 
 /* 移动端暗色主题下的完全透明模式 - 仅在有壁纸且为首页时启用 */
 @media (max-width: 1279px) {
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-transparent-mode="full"][data-is-home="true"]
-    > div,
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-transparent-mode="semifull"][data-is-home="true"]
-    > div {
+  :root.dark body.wallpaper-transparent #navbar[data-transparent-mode="full"][data-is-home="true"] > div,
+  :root.dark body.wallpaper-transparent #navbar[data-transparent-mode="semifull"][data-is-home="true"] > div {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -423,20 +361,14 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 /* 移动端暗色主题下的半完全透明模式 - 仅在有壁纸且为首页时启用,使用CSS变量 */
 @media (max-width: 1279px) {
   /* 默认状态：页面顶部时完全透明 */
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-transparent-mode="semifull"][data-is-home="true"]
-    > div {
+  :root.dark body.wallpaper-transparent #navbar[data-transparent-mode="semifull"][data-is-home="true"] > div {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
   }
 
   /* 滚动状态：下滑后变为半透明圆角 */
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-transparent-mode="semifull"][data-is-home="true"].scrolled
-    > div {
+  :root.dark body.wallpaper-transparent #navbar[data-transparent-mode="semifull"][data-is-home="true"].scrolled > div {
     background: var(--card-bg-transparent) !important;
     border: none !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
@@ -611,61 +543,42 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 /* 移动端暗色主题 - 仅在有壁纸且为首页时启用 */
 @media (max-width: 1279px) {
   /* 二级菜单暗色主题半透明效果 */
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-is-home="true"]
-    .dropdown-content {
+  :root.dark body.wallpaper-transparent #navbar[data-is-home="true"] .dropdown-content {
     background: rgba(24, 25, 38, 0.85) !important;
     border: none !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
   }
 
   /* 主题色设置面板暗色主题半透明效果 */
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-is-home="true"]
-    ~ *
-    #display-setting {
+  :root.dark body.wallpaper-transparent #navbar[data-is-home="true"] ~ * #display-setting {
     background: rgba(24, 25, 38, 0.85) !important;
     border: none !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
   }
 
   /* 手机端导航菜单暗色主题半透明效果 */
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-is-home="true"]
-    #nav-menu-panel {
+  :root.dark body.wallpaper-transparent #navbar[data-is-home="true"] #nav-menu-panel {
     background: rgba(24, 25, 38, 0.85) !important;
     border: none !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
   }
 
   /* 手机端MD导航菜单面板暗色主题半透明效果 */
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-is-home="true"]
-    #mobile-toc-panel {
+  :root.dark body.wallpaper-transparent #navbar[data-is-home="true"] #mobile-toc-panel {
     background: rgba(24, 25, 38, 0.85) !important;
     border: none !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
   }
 
   /* 搜索面板暗色主题半透明效果 */
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-is-home="true"]
-    #search-panel {
+  :root.dark body.wallpaper-transparent #navbar[data-is-home="true"] #search-panel {
     background: rgba(24, 25, 38, 0.85) !important;
     border: none !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
   }
 
   /* 主题色设置面板暗色主题半透明效果 */
-  :root.dark
-    body.wallpaper-transparent
-    #navbar[data-is-home="true"]
-    #display-setting {
+  :root.dark body.wallpaper-transparent #navbar[data-is-home="true"] #display-setting {
     background: rgba(24, 25, 38, 0.85) !important;
     border: none !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
@@ -680,10 +593,7 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 /* 移动端 none 模式：所有浮动面板完全不透明 */
 @media (max-width: 1279px) {
   /* 所有浮动面板 - 超高优先级 */
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    .float-panel,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * .float-panel,
   body:has(#navbar[data-dynamic-transparent="none"]) .float-panel,
   #navbar[data-dynamic-transparent="none"] ~ * .float-panel {
     backdrop-filter: none !important;
@@ -691,11 +601,7 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
     border: none !important;
   }
 
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    .float-panel,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * .float-panel,
   :root.dark body:has(#navbar[data-dynamic-transparent="none"]) .float-panel,
   :root.dark #navbar[data-dynamic-transparent="none"] ~ * .float-panel {
     background: var(--card-bg) !important;
@@ -703,20 +609,10 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 
   /* 搜索面板 - 超高优先级覆盖 mobile-navbar.css，添加更多直接选择器 */
   body.no-banner-mode #search-panel,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    ~ *
-    #search-panel,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    #search-panel,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    #search-panel,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #search-panel,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] ~ * #search-panel,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * #search-panel,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] #search-panel,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #search-panel,
   body:has(#navbar[data-dynamic-transparent="none"]) #search-panel,
   #navbar[data-dynamic-transparent="none"] ~ * #search-panel,
   #navbar[data-dynamic-transparent="none"] #search-panel {
@@ -727,24 +623,10 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
   }
 
   :root.dark body.no-banner-mode #search-panel,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    ~ *
-    #search-panel,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    #search-panel,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    #search-panel,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #search-panel,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] ~ * #search-panel,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * #search-panel,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] #search-panel,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #search-panel,
   :root.dark body:has(#navbar[data-dynamic-transparent="none"]) #search-panel,
   :root.dark #navbar[data-dynamic-transparent="none"] ~ * #search-panel,
   :root.dark #navbar[data-dynamic-transparent="none"] #search-panel {
@@ -754,136 +636,56 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 
   /* 搜索面板内部输入框 - 超高优先级，添加更多直接选择器 */
   body.no-banner-mode #search-panel #search-bar-inside,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    #search-panel
-    #search-bar-inside,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #search-panel
-    #search-bar-inside,
-  body:has(#navbar[data-dynamic-transparent="none"])
-    #search-panel
-    #search-bar-inside,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * #search-panel #search-bar-inside,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #search-panel #search-bar-inside,
+  body:has(#navbar[data-dynamic-transparent="none"]) #search-panel #search-bar-inside,
   #navbar[data-dynamic-transparent="none"] #search-panel #search-bar-inside {
     background: rgba(0, 0, 0, 0.08) !important;
   }
 
   :root.dark body.no-banner-mode #search-panel #search-bar-inside,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    #search-panel
-    #search-bar-inside,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #search-panel
-    #search-bar-inside,
-  :root.dark
-    body:has(#navbar[data-dynamic-transparent="none"])
-    #search-panel
-    #search-bar-inside,
-  :root.dark
-    #navbar[data-dynamic-transparent="none"]
-    #search-panel
-    #search-bar-inside {
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * #search-panel #search-bar-inside,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #search-panel #search-bar-inside,
+  :root.dark body:has(#navbar[data-dynamic-transparent="none"]) #search-panel #search-bar-inside,
+  :root.dark #navbar[data-dynamic-transparent="none"] #search-panel #search-bar-inside {
     background: rgba(255, 255, 255, 0.15) !important;
   }
 
   body.no-banner-mode #search-panel #search-bar-inside:hover,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    #search-panel
-    #search-bar-inside:hover,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #search-panel
-    #search-bar-inside:hover,
-  body:has(#navbar[data-dynamic-transparent="none"])
-    #search-panel
-    #search-bar-inside:hover,
-  #navbar[data-dynamic-transparent="none"]
-    #search-panel
-    #search-bar-inside:hover {
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * #search-panel #search-bar-inside:hover,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #search-panel #search-bar-inside:hover,
+  body:has(#navbar[data-dynamic-transparent="none"]) #search-panel #search-bar-inside:hover,
+  #navbar[data-dynamic-transparent="none"] #search-panel #search-bar-inside:hover {
     background: rgba(0, 0, 0, 0.12) !important;
   }
 
   :root.dark body.no-banner-mode #search-panel #search-bar-inside:hover,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    #search-panel
-    #search-bar-inside:hover,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #search-panel
-    #search-bar-inside:hover,
-  :root.dark
-    body:has(#navbar[data-dynamic-transparent="none"])
-    #search-panel
-    #search-bar-inside:hover,
-  :root.dark
-    #navbar[data-dynamic-transparent="none"]
-    #search-panel
-    #search-bar-inside:hover {
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * #search-panel #search-bar-inside:hover,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #search-panel #search-bar-inside:hover,
+  :root.dark body:has(#navbar[data-dynamic-transparent="none"]) #search-panel #search-bar-inside:hover,
+  :root.dark #navbar[data-dynamic-transparent="none"] #search-panel #search-bar-inside:hover {
     background: rgba(255, 255, 255, 0.2) !important;
   }
 
   body.no-banner-mode #search-panel #search-bar-inside:focus-within,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    #search-panel
-    #search-bar-inside:focus-within,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #search-panel
-    #search-bar-inside:focus-within,
-  body:has(#navbar[data-dynamic-transparent="none"])
-    #search-panel
-    #search-bar-inside:focus-within,
-  #navbar[data-dynamic-transparent="none"]
-    #search-panel
-    #search-bar-inside:focus-within {
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * #search-panel #search-bar-inside:focus-within,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #search-panel #search-bar-inside:focus-within,
+  body:has(#navbar[data-dynamic-transparent="none"]) #search-panel #search-bar-inside:focus-within,
+  #navbar[data-dynamic-transparent="none"] #search-panel #search-bar-inside:focus-within {
     background: rgba(0, 0, 0, 0.12) !important;
   }
 
   :root.dark body.no-banner-mode #search-panel #search-bar-inside:focus-within,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    #search-panel
-    #search-bar-inside:focus-within,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #search-panel
-    #search-bar-inside:focus-within,
-  :root.dark
-    body:has(#navbar[data-dynamic-transparent="none"])
-    #search-panel
-    #search-bar-inside:focus-within,
-  :root.dark
-    #navbar[data-dynamic-transparent="none"]
-    #search-panel
-    #search-bar-inside:focus-within {
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * #search-panel #search-bar-inside:focus-within,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #search-panel #search-bar-inside:focus-within,
+  :root.dark body:has(#navbar[data-dynamic-transparent="none"]) #search-panel #search-bar-inside:focus-within,
+  :root.dark #navbar[data-dynamic-transparent="none"] #search-panel #search-bar-inside:focus-within {
     background: rgba(255, 255, 255, 0.2) !important;
   }
 
   /* 手机端导航菜单面板 - 超高优先级覆盖 mobile-navbar.css */
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    #nav-menu-panel,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #nav-menu-panel,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] #nav-menu-panel,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #nav-menu-panel,
   body:has(#navbar[data-dynamic-transparent="none"]) #nav-menu-panel,
   #navbar[data-dynamic-transparent="none"] #nav-menu-panel {
     backdrop-filter: none !important;
@@ -892,14 +694,8 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
   }
 
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    #nav-menu-panel,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #nav-menu-panel,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] #nav-menu-panel,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #nav-menu-panel,
   :root.dark body:has(#navbar[data-dynamic-transparent="none"]) #nav-menu-panel,
   :root.dark #navbar[data-dynamic-transparent="none"] #nav-menu-panel {
     background: var(--card-bg) !important;
@@ -907,12 +703,8 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
   }
 
   /* 手机端目录面板 - 超高优先级覆盖 mobile-navbar.css */
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    #mobile-toc-panel,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #mobile-toc-panel,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] #mobile-toc-panel,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #mobile-toc-panel,
   body:has(#navbar[data-dynamic-transparent="none"]) #mobile-toc-panel,
   #navbar[data-dynamic-transparent="none"] #mobile-toc-panel {
     backdrop-filter: none !important;
@@ -921,17 +713,9 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
   }
 
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    #mobile-toc-panel,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #mobile-toc-panel,
-  :root.dark
-    body:has(#navbar[data-dynamic-transparent="none"])
-    #mobile-toc-panel,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] #mobile-toc-panel,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #mobile-toc-panel,
+  :root.dark body:has(#navbar[data-dynamic-transparent="none"]) #mobile-toc-panel,
   :root.dark #navbar[data-dynamic-transparent="none"] #mobile-toc-panel {
     background: var(--card-bg) !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
@@ -939,20 +723,10 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
 
   /* 显示设置面板（调色盘） - 超高优先级覆盖 mobile-navbar.css，添加更多直接选择器 */
   body.no-banner-mode #display-setting,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    ~ *
-    #display-setting,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    #display-setting,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    #display-setting,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #display-setting,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] ~ * #display-setting,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * #display-setting,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] #display-setting,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #display-setting,
   body:has(#navbar[data-dynamic-transparent="none"]) #display-setting,
   #navbar[data-dynamic-transparent="none"] ~ * #display-setting,
   #navbar[data-dynamic-transparent="none"] #display-setting {
@@ -963,27 +737,11 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
   }
 
   :root.dark body.no-banner-mode #display-setting,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    ~ *
-    #display-setting,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    #display-setting,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    #display-setting,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    #display-setting,
-  :root.dark
-    body:has(#navbar[data-dynamic-transparent="none"])
-    #display-setting,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] ~ * #display-setting,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * #display-setting,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] #display-setting,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] #display-setting,
+  :root.dark body:has(#navbar[data-dynamic-transparent="none"]) #display-setting,
   :root.dark #navbar[data-dynamic-transparent="none"] ~ * #display-setting,
   :root.dark #navbar[data-dynamic-transparent="none"] #display-setting {
     background: var(--card-bg) !important;
@@ -991,12 +749,8 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
   }
 
   /* 下拉菜单内容 - 超高优先级覆盖 mobile-navbar.css */
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    .dropdown-content,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    .dropdown-content,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] .dropdown-content,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] .dropdown-content,
   body:has(#navbar[data-dynamic-transparent="none"]) .dropdown-content,
   body:has(#navbar[data-dynamic-transparent="none"]) #navbar .dropdown-content {
     backdrop-filter: none !important;
@@ -1005,82 +759,31 @@ body:has(#navbar[data-dynamic-transparent="none"]) #search-panel {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
   }
 
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"][data-is-home="true"]
-    .dropdown-content,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    .dropdown-content,
-  :root.dark
-    body:has(#navbar[data-dynamic-transparent="none"])
-    .dropdown-content,
-  :root.dark
-    body:has(#navbar[data-dynamic-transparent="none"])
-    #navbar
-    .dropdown-content {
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"][data-is-home="true"] .dropdown-content,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] .dropdown-content,
+  :root.dark body:has(#navbar[data-dynamic-transparent="none"]) .dropdown-content,
+  :root.dark body:has(#navbar[data-dynamic-transparent="none"]) #navbar .dropdown-content {
     background: var(--card-bg) !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
   }
 
   /* 音乐播放器 - 超高优先级 */
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    .music-player
-    .mini-player,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    .music-player
-    .expanded-player,
-  body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    .music-player
-    .playlist-panel,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * .music-player .mini-player,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * .music-player .expanded-player,
+  body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * .music-player .playlist-panel,
   body:has(#navbar[data-dynamic-transparent="none"]) .music-player .mini-player,
-  body:has(#navbar[data-dynamic-transparent="none"])
-    .music-player
-    .expanded-player,
-  body:has(#navbar[data-dynamic-transparent="none"])
-    .music-player
-    .playlist-panel {
+  body:has(#navbar[data-dynamic-transparent="none"]) .music-player .expanded-player,
+  body:has(#navbar[data-dynamic-transparent="none"]) .music-player .playlist-panel {
     backdrop-filter: none !important;
     background: var(--card-bg) !important;
   }
 
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    .music-player
-    .mini-player,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    .music-player
-    .expanded-player,
-  :root.dark
-    body:has(#banner-wrapper)
-    #navbar[data-dynamic-transparent="none"]
-    ~ *
-    .music-player
-    .playlist-panel,
-  :root.dark
-    body:has(#navbar[data-dynamic-transparent="none"])
-    .music-player
-    .mini-player,
-  :root.dark
-    body:has(#navbar[data-dynamic-transparent="none"])
-    .music-player
-    .expanded-player,
-  :root.dark
-    body:has(#navbar[data-dynamic-transparent="none"])
-    .music-player
-    .playlist-panel {
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * .music-player .mini-player,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * .music-player .expanded-player,
+  :root.dark body:has(#banner-wrapper) #navbar[data-dynamic-transparent="none"] ~ * .music-player .playlist-panel,
+  :root.dark body:has(#navbar[data-dynamic-transparent="none"]) .music-player .mini-player,
+  :root.dark body:has(#navbar[data-dynamic-transparent="none"]) .music-player .expanded-player,
+  :root.dark body:has(#navbar[data-dynamic-transparent="none"]) .music-player .playlist-panel {
     background: var(--card-bg) !important;
   }
 }
