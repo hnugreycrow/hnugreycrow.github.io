@@ -90,6 +90,17 @@ const useJapaneseBadge = siteConfig.toc.useJapaneseBadge;
         display: none;
     }
 
+    /* 当前章节高亮 */
+    :global(.floating-toc-item.active) {
+        background: var(--btn-regular-bg);
+        border-radius: 0.5rem;
+    }
+
+    :global(.floating-toc-item.active .floating-toc-text) {
+        color: var(--primary);
+        font-weight: 500;
+    }
+
     /* 移动端隐藏，使用顶栏的MobileTOC */
     @media (max-width: 1024px) {
         .floating-toc-wrapper {
@@ -112,6 +123,18 @@ class FloatingTOC {
     private content: HTMLElement | null;
     private wrapper: HTMLElement | null;
     private isOpen = false;
+    /** 自动展开的滚动阈值（px） */
+    private scrollThreshold = 240;
+    /** 是否已经自动展开过（只触发一次） */
+    private autoOpened = false;
+    /** 页面进入时间，用于“克制式”延迟判断 */
+    private enterTime = Date.now();
+    /** 停留多久后才允许自动展开（ms） */
+    private delayMs = 1200;
+    /** IntersectionObserver 实例（用于章节高亮） */
+    private observer?: IntersectionObserver;
+    /** 当前高亮的标题 id */
+    private activeId: string | null = null;
 
     constructor() {
         this.btn = document.getElementById('floating-toc-btn');
@@ -124,6 +147,7 @@ class FloatingTOC {
 
     private init() {
         this.generateTOC();
+        this.observeHeadings();
         this.bindEvents();
     }
 
@@ -184,16 +208,30 @@ class FloatingTOC {
     }
 
     private bindEvents() {
+        // 滚动触发自动展开（只触发一次）
+        window.addEventListener('scroll', () => {
+            if (this.autoOpened || this.isOpen) return;
+            // 没滚够，不考虑
+            if (window.scrollY < this.scrollThreshold) return;
+            // 停留时间不够，不考虑
+            if (Date.now() - this.enterTime < this.delayMs) return;
+
+            this.autoOpened = true;
+            this.open();
+        });
+
+
         this.btn?.addEventListener('click', (e) => {
             e.stopPropagation();
             this.toggle();
         });
 
-        document.addEventListener('click', (e) => {
-            if (this.isOpen && !this.wrapper?.contains(e.target as Node)) {
-                this.close();
-            }
-        });
+        // 点击目录外面，关闭目录
+        // document.addEventListener('click', (e) => {
+        //     if (this.isOpen && !this.wrapper?.contains(e.target as Node)) {
+        //         this.close();
+        //     }
+        // });
 
         this.content?.addEventListener('click', (e) => {
             const link = (e.target as HTMLElement).closest('a');
@@ -205,7 +243,8 @@ class FloatingTOC {
                     if (element) {
                         const top = element.getBoundingClientRect().top + window.scrollY - 80;
                         window.scrollTo({ top, behavior: 'smooth' });
-                        this.close();
+                        // 跳转不关闭目录
+                        // this.close();
                     }
                 }
             }
@@ -241,6 +280,75 @@ class FloatingTOC {
     private reinit() {
         this.close();
         this.generateTOC();
+        this.observeHeadings();
+    }
+
+    /**
+     * 使用 IntersectionObserver 监听文章标题
+     * 用于：
+     * - 当前章节高亮
+     * - 自动滚动 TOC
+     */
+    private observeHeadings() {
+        const headings = Array.from(
+            document.querySelectorAll<HTMLElement>('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]')
+        );
+
+        if (!headings.length) return;
+
+        this.observer?.disconnect();
+
+        this.observer = new IntersectionObserver(
+            (entries) => {
+                // 只处理正在进入视口的标题
+                const visible = entries
+                    .filter(e => e.isIntersecting)
+                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+                if (!visible.length) return;
+
+                const id = visible[0].target.id;
+                if (id !== this.activeId) {
+                    this.activeId = id;
+                    this.setActiveItem(id);
+                }
+            },
+            {
+                root: null,
+                rootMargin: '-80px 0px -60% 0px',
+                threshold: 0,
+            }
+        );
+
+        headings.forEach(h => this.observer!.observe(h));
+    }
+
+    /**
+     * 设置 TOC 当前高亮项
+     * 并在必要时滚动 TOC 内容区（克制）
+     */
+    private setActiveItem(id: string) {
+        if (!this.content) return;
+
+        const items = this.content.querySelectorAll<HTMLElement>('.floating-toc-item');
+        let activeItem: HTMLElement | null = null;
+
+        items.forEach(item => {
+            const href = item.getAttribute('href')?.slice(1);
+            const isActive = href === id;
+            item.classList.toggle('active', isActive);
+            if (isActive) activeItem = item;
+        });
+
+        // 自动滚动 TOC（克制）
+        if (activeItem) {
+            const domElement = activeItem as HTMLElement;
+            domElement.scrollIntoView({
+                block: 'center',
+                inline: 'nearest',
+                behavior: 'smooth',
+            });
+        }
     }
 }
 
