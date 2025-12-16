@@ -152,6 +152,13 @@ class FloatingTOC {
     }
 
     private generateTOC() {
+        // 检查是否为文章页面
+        const isPostPage = window.location.pathname.includes('/posts/');
+        if (!isPostPage) {
+            // 如果不是文章页面，隐藏TOC
+            this.wrapper?.classList.add('no-toc');
+            return;
+        }
         const headings = document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]');
         
         if (headings.length === 0) {
