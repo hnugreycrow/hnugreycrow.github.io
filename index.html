@@ -1,1053 +1,203 @@
-
-
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
-<head>
-  <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="hnugreycrow">
-  <meta name="keywords" content="">
-  
-    <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>hnugreycrow's blog</title><meta name="author" content="hnugreycrow"><meta name="copyright" content="hnugreycrow"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="hnugreycrow&#39;s blog">
 <meta property="og:url" content="https://hnugreycrow.github.io/index.html">
 <meta property="og:site_name" content="hnugreycrow&#39;s blog">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hnugreycrow.github.io/img/avatar.png">
 <meta property="article:author" content="hnugreycrow">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>hnugreycrow&#39;s blog</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-  
-<link rel="stylesheet" href="/css/custom.css">
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"hnugreycrow.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"a9b9704b8a35ccabd111c1448183702a","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"eeAwcmG8iNZQHNhjHPIdprKw-gzGzoHsz","app_key":"t0nCPF5ek4tVioN7mVhksCS7","server_url":"https://eeawcmg8.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hnugreycrow.github.io/img/avatar.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "hnugreycrow's blog",
+  "alternateName": [
+    "hnugreycrow.github.io"
+  ],
+  "url": "https://hnugreycrow.github.io/"
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://hnugreycrow.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
     }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
 
-  
-    <!-- Baidu Analytics -->
-    <script async>
-      if (!Fluid.ctx.dnt) {
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?a9b9704b8a35ccabd111c1448183702a";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
       }
-    </script>
+    }
   
-
-  
-
-  
-
-  
-
-  
-    
-  
-
-
-
-  
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 100vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>hnugreycrow&#39;s blog</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
-                <i class="iconfont icon-link-fill"></i>
-                <span>友链</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/wallpapers/0d980ee24f43443cabab6c099ee3842120240606.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="欢迎来到我的博客"></span>
-          
-        </div>
-
-        
-      </div>
-
       
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          style="margin-top: 0">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/11/07/365fb68131e2/" target="_self">
-          一个剪贴板管理工具
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2025/11/07/365fb68131e2/" target="_self">
-        <div>
-          eidetic &#x2F;aɪˈdetɪk&#x2F; ：形容词，意为”异常清晰的，过目不忘的” 正如其名，希望这个工具能帮你记住每一个复制的瞬间。  Eideticlip 是一款基于 Electron 和 Vue 3 开发的智能剪贴板管理工具。它能够自动记录您复制的所有文本内容，构建完整的剪贴板历史，让您随时回溯、查找并重用之前的复制记录。 作为学习 Electron 开发的一个小项目，它在
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-11-07 21:10" pubdate>
-              2025-11-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%85%B6%E4%BB%96/" class="category-chain-item">其他</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Electron/">#Electron</a>
-            
-              <a href="/tags/vue/">#vue</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2025/09/01/50951d80d876/" target="_self">
-          <img src="/img/posts/problem.png" srcset="/img/loading.gif" lazyload alt="Electron中导入better-sqlite3：为什么import不行，require却可以？">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/09/01/50951d80d876/" target="_self">
-          Electron中导入better-sqlite3：为什么import不行，require却可以？
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2025/09/01/50951d80d876/" target="_self">
-        <div>
-          在Electron开发过程中，我遇到一个有趣的问题：使用import Database from &quot;better-sqlite3&quot;导入模块时，不仅出现类型声明文件缺失的警告，还会报__filename is not defined的运行时错误。而换成const Database = require(&quot;better-sqlite3&quot;)后，一切正常。这个现象背后
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-09-01 22:42" pubdate>
-              2025-09-01
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B8%A9%E5%9D%91/" class="category-chain-item">技术踩坑</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Electron/">#Electron</a>
-            
-              <a href="/tags/ESM/">#ESM</a>
-            
-              <a href="/tags/CommonJS/">#CommonJS</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2025/08/22/ef79f9bbfc55/" target="_self">
-          <img src="/img/posts/vue.png" srcset="/img/loading.gif" lazyload alt="Vue3 笔记：透传 Attributes">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/08/22/ef79f9bbfc55/" target="_self">
-          Vue3 笔记：透传 Attributes
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2025/08/22/ef79f9bbfc55/" target="_self">
-        <div>
-          在 Vue 组件开发中，属性传递是核心场景之一。props 适用于明确声明的属性，但当需要灵活传递未声明的属性或事件、封装第三方组件时，透传 Attributes 成为更高效的解决方案。 一、什么是透传 Attributes？官方定义：透传 Attributes 指传递给组件但未被声明为 props 或 emits 的 attribute 或 v-on 事件监听器，最常见的包括 class、sty
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-08-22 23:51" pubdate>
-              2025-08-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Vue/" class="category-chain-item">Vue</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>
-            
-              <a href="/tags/Vue/">#Vue</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2025/08/18/4e40f7605990/" target="_self">
-          <img src="/img/posts/vue.png" srcset="/img/loading.gif" lazyload alt="Vue3 笔记：深入响应式系统">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/08/18/4e40f7605990/" target="_self">
-          Vue3 笔记：深入响应式系统
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2025/08/18/4e40f7605990/" target="_self">
-        <div>
-          什么是响应性响应性是一种声明式处理变化的编程范式：当依赖数据变化时，依赖其计算的结果会自动更新。例如 Excel 中单元格通过公式关联，修改源单元格时目标单元格自动更新；而 JavaScript 默认不具备此特性，需通过特定机制实现。 官方文档：深入响应式系统 | Vue.js (vuejs.org) Vue 中响应性的实现原理Vue 通过拦截对象属性的读写操作，追踪依赖并在数据变化时触发更新，核
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-08-18 11:27" pubdate>
-              2025-08-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Vue/" class="category-chain-item">Vue</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>
-            
-              <a href="/tags/Vue/">#Vue</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2025/08/16/7d7a56076d74/" target="_self">
-          <img src="/img/posts/vue.png" srcset="/img/loading.gif" lazyload alt="Vue3 笔记：响应式基础">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/08/16/7d7a56076d74/" target="_self">
-          Vue3 笔记：响应式基础
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2025/08/16/7d7a56076d74/" target="_self">
-        <div>
-          最近翻 Vue3 文档，重新过了一遍响应式的基础内容。之前用的时候总有些细节记不清，比如 ref 和 reactive 到底该怎么选、为什么有时候改了数据页面不更，这次特意整理了笔记（过程中也借助了大模型辅助梳理逻辑、补充细节😉），主要是给自己后续查着方便，内容以复习要点为主，可能有理解不到位的地方，先记下来慢慢修正。 官方文档：响应式基础 | Vue.js (vuejs.org) 一. 声明响
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-08-16 21:15" pubdate>
-              2025-08-16
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Vue/" class="category-chain-item">Vue</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>
-            
-              <a href="/tags/Vue/">#Vue</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2025/08/14/c2a5f831d2a0/" target="_self">
-          <img src="/img/posts/docker.png" srcset="/img/loading.gif" lazyload alt="Docker学习笔记(三)：部署MySQL">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/08/14/c2a5f831d2a0/" target="_self">
-          Docker学习笔记(三)：部署MySQL
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2025/08/14/c2a5f831d2a0/" target="_self">
-        <div>
-          在之前的服务器环境中，手动安装并配置MySQL的过程较为繁琐，因此我转而采用Docker容器化方案进行部署，通过标准化镜像和持久化存储机制，实现了更高效的数据库环境管理与版本控制。 这篇笔记就记录下用 Docker 部署 MySQL 的全过程，给自己留个存档。 一、准备工作1. 搜索MySQL镜像（可选）1docker search mysql  ❌问题：搜索出现超时，配置了国内镜像源也没用 2.
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-08-14 20:28" pubdate>
-              2025-08-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/" class="category-chain-item">容器技术</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/" class="category-chain-item">Docker</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Docker/">#Docker</a>
-            
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2025/08/14/b91f32b9d176/" target="_self">
-          <img src="/img/posts/docker.png" srcset="/img/loading.gif" lazyload alt="Docker学习笔记(二)：容器数据卷">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/08/14/b91f32b9d176/" target="_self">
-          Docker学习笔记(二)：容器数据卷
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2025/08/14/b91f32b9d176/" target="_self">
-        <div>
-          一、数据卷核心概念1.1 定义数据卷是宿主机文件系统中的一个目录或文件，通过挂载机制与容器内指定路径关联，实现宿主机与容器的双向数据共享。 1.2 本质 类似Linux的mount命令，容器访问挂载路径时实际操作的是宿主机数据卷 数据卷独立于容器生命周期，容器删除后数据仍保存在宿主机  二、数据卷的三大核心作用数据卷的设计初衷，就是为了解决容器与数据分离的问题，其核心作用可以概括为三点： 2.1
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-08-14 11:06" pubdate>
-              2025-08-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/" class="category-chain-item">容器技术</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/" class="category-chain-item">Docker</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Docker/">#Docker</a>
-            
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2025/08/13/e37a265aefa7/" target="_self">
-          <img src="/img/posts/docker.png" srcset="/img/loading.gif" lazyload alt="Docker学习笔记(一)：Docker常用命令">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/08/13/e37a265aefa7/" target="_self">
-          Docker学习笔记(一)：Docker常用命令
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2025/08/13/e37a265aefa7/" target="_self">
-        <div>
-          整理了 Docker 核心命令的用法，从服务管理到容器操作，方便后续复习查阅。 一、Docker服务基础操作（守护进程管理）1.1 服务启停控制 启动：systemctl start docker✅ 核心功能：启动Docker守护进程（dockerd），初始化镜像&#x2F;容器管理环境⚠️ 注意：启动失败用journalctl -u docker查日志   停止：systemctl stop d
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-08-13 20:25" pubdate>
-              2025-08-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/" class="category-chain-item">容器技术</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/" class="category-chain-item">Docker</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Docker/">#Docker</a>
-            
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2025/08/13/f15e0618f3e1/" target="_self">
-          <img src="/img/posts/problem.png" srcset="/img/loading.gif" lazyload alt="解决SpringBoot中Lombok注解失效的那些坑">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/08/13/f15e0618f3e1/" target="_self">
-          解决SpringBoot中Lombok注解失效的那些坑
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2025/08/13/f15e0618f3e1/" target="_self">
-        <div>
-          在 SpringBoot 项目开发中，Lombok 注解突然失效是一个很常见的问题，表现为明明添加了 @Data 等注解，却在编译时出现 “找不到符号”（如缺失 getter&#x2F;setter 方法）的错误。本文记录了我在项目中遇到该问题的排查过程，分析了 Lombok 注解失效与 Maven 编译插件（maven-compiler-plugin）配置、版本管理之间的关系，并总结了可行的解决
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-08-13 15:06" pubdate>
-              2025-08-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B8%A9%E5%9D%91/" class="category-chain-item">技术踩坑</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/SpringBoot/">#SpringBoot</a>
-            
-              <a href="/tags/Lombok/">#Lombok</a>
-            
-              <a href="/tags/Bug/">#Bug</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="leancloud-site-pv-container" style="display: none">
-        总访问量 
-        <span id="leancloud-site-pv"></span>
-         次
-      </span>
-    
-    
-      <span id="leancloud-site-uv-container" style="display: none">
-        总访客数 
-        <span id="leancloud-site-uv"></span>
-         人
-      </span>
-    
-    
-
-  
-
-</div>
-
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
       }
-      var text = subtitle.getAttribute('data-typed-text');
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
       
-        typing(text);
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
       
-    })(window, document);
-  </script>
-
-
-
-
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
   
-    <script  src="/js/img-lazyload.js" ></script>
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'hnugreycrow\'s blog',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/wallpapers/xlbvb19zylx0n2hyfh-17654210459039.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">hnugreycrow's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">hnugreycrow's blog</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/hnugreycrow" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2025/11/07/365fb68131e2/" title="一个剪贴板管理工具"><img class="post-bg" src="/img/wallpapers/xlbvb19zylx0n2hyfh-17654210459039.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一个剪贴板管理工具"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/11/07/365fb68131e2/" title="一个剪贴板管理工具">一个剪贴板管理工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-11-07T13:10:19.000Z" title="发表于 2025-11-07 21:10:19">2025-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></span></div><div class="content"> eidetic &#x2F;aɪˈdetɪk&#x2F; ：形容词，意为”异常清晰的，过目不忘的” 正如其名，希望这个工具能帮你记住每一个复制的瞬间。  Eideticlip 是一款基于 Electron 和 Vue 3 开发的智能剪贴板管理工具。它能够自动记录您复制的所有文本内容，构建完整的剪贴板历史，让您随时回溯、查找并重用之前的复制记录。 作为学习 Electron 开发的一个小项目，它在功能上可能不如 Windows 系统自带的剪贴板历史完善，但提供了更加个性化和可控的管理体验。 核心功能亮点📋 智能历史记录 自动保存：后台静默记录所有复制的文本内容 快速检索：轻松查找之前的复制记录，支持关键词搜索 一键重用：点击即可重新使用历史剪贴板内容  ⌨️ 高效操作体验 全局快捷键：自定义唤醒快捷键，随时调出剪贴板历史 系统托盘集成：最小化至系统托盘，不干扰正常工作流程 即时呼出：通过快捷键快速唤出界面，提升工作效率  🎨 个性化定制 主题切换：支持亮色与暗色主题，适应不同使用环境 数据保存周期：可自定义历史记录的保存时长 快捷键自定义：根据使用习惯设置专属快捷键  界面展...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/10/08/998aa6db036a/" title="Vue3 笔记：响应式基础"><img class="post-bg" src="/img/posts/vue.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue3 笔记：响应式基础"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/10/08/998aa6db036a/" title="Vue3 笔记：响应式基础">Vue3 笔记：响应式基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-08T15:45:03.206Z" title="发表于 2025-10-08 23:45:03">2025-10-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Vue/">Vue</a></span></div><div class="content">最近翻 Vue3 文档，重新过了一遍响应式的基础内容。之前用的时候总有些细节记不清，比如 ref 和 reactive 到底该怎么选、为什么有时候改了数据页面不更，这次特意整理了笔记（过程中也借助了大模型辅助梳理逻辑、补充细节😉），主要是给自己后续查着方便，内容以复习要点为主，可能有理解不到位的地方，先记下来慢慢修正。 官方文档：响应式基础 | Vue.js (vuejs.org) 一. 声明响应式状态1. 组合式 API：ref()定义：ref() 接收参数，并将其包裹在一个带有 .value 属性的 ref 对象中返回： 123import &#123; ref &#125; from &#x27;vue&#x27;const count = ref(0)count.value++ // 修改值   模板使用：无需 .value，自动解包；可直接在事件监听器中修改（如@click&#x3D;”count++”）。 优势：支持所有数据类型（原始值、对象等），可传递给函数并保持响应性。 简化语法：在&lt;script setup&gt;中，顶层声明的ref和方法可直接在模板使...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/09/01/50951d80d876/" title="Electron中导入better-sqlite3：为什么import不行，require却可以？"><img class="post-bg" src="/img/posts/problem.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Electron中导入better-sqlite3：为什么import不行，require却可以？"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/09/01/50951d80d876/" title="Electron中导入better-sqlite3：为什么import不行，require却可以？">Electron中导入better-sqlite3：为什么import不行，require却可以？</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-09-01T14:42:46.000Z" title="发表于 2025-09-01 22:42:46">2025-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E8%B8%A9%E5%9D%91/">技术踩坑</a></span></div><div class="content">在Electron开发过程中，我遇到一个有趣的问题：使用import Database from &quot;better-sqlite3&quot;导入模块时，不仅出现类型声明文件缺失的警告，还会报__filename is not defined的运行时错误。而换成const Database = require(&quot;better-sqlite3&quot;)后，一切正常。这个现象背后，其实是JavaScript两种主流模块系统——ESM与CommonJS的差异在作祟。 问题现象与直接原因当使用ES模块语法导入better-sqlite3时，会遇到两个问题：  类型检查错误：无法找到模块“better-sqlite3”的声明文件 运行时错误：ReferenceError: __filename is not defined  而切换到CommonJS的require语法后，这两个问题都消失了。要理解其中的原因，我们需要先深入了解ESM与CommonJS这两种模块系统的核心差异。 模块化的两种 “流派”：ESM 和 CommonJSJavaScript 一开始是没有 “...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/08/22/ef79f9bbfc55/" title="Vue3 笔记：透传 Attributes"><img class="post-bg" src="/img/posts/vue.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue3 笔记：透传 Attributes"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/08/22/ef79f9bbfc55/" title="Vue3 笔记：透传 Attributes">Vue3 笔记：透传 Attributes</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-22T15:51:12.000Z" title="发表于 2025-08-22 23:51:12">2025-08-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Vue/">Vue</a></span></div><div class="content">在 Vue 组件开发中，属性传递是核心场景之一。props 适用于明确声明的属性，但当需要灵活传递未声明的属性或事件、封装第三方组件时，透传 Attributes 成为更高效的解决方案。 一、什么是透传 Attributes？官方定义：透传 Attributes 指传递给组件但未被声明为 props 或 emits 的 attribute 或 v-on 事件监听器，最常见的包括 class、style、id 以及自定义事件等。 在 Vue3 中，透传 Attributes 会被收集到组件实例的 $attrs 中，可通过 useAttrs()（script setup）或 this.$attrs（选项式 API）访问。 访问 $attrs 的两种方式 script setup 中：useAttrs ()  12import &#123; useAttrs &#125; from &#x27;vue&#x27;;const attrs = useAttrs();  选项式 API 中：this.$attrs  12345export default &#123;  mounted()...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/08/18/4e40f7605990/" title="Vue3 笔记：深入响应式系统"><img class="post-bg" src="/img/posts/vue.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue3 笔记：深入响应式系统"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/08/18/4e40f7605990/" title="Vue3 笔记：深入响应式系统">Vue3 笔记：深入响应式系统</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-18T03:27:43.000Z" title="发表于 2025-08-18 11:27:43">2025-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Vue/">Vue</a></span></div><div class="content">什么是响应性响应性是一种声明式处理变化的编程范式：当依赖数据变化时，依赖其计算的结果会自动更新。例如 Excel 中单元格通过公式关联，修改源单元格时目标单元格自动更新；而 JavaScript 默认不具备此特性，需通过特定机制实现。 官方文档：深入响应式系统 | Vue.js (vuejs.org) Vue 中响应性的实现原理Vue 通过拦截对象属性的读写操作，追踪依赖并在数据变化时触发更新，核心依赖Proxy（用于reactive）和getter&#x2F;setter（用于ref）实现。 1. 响应式对象的创建 reactive()实现：通过 Proxy 创建对象代理，拦截属性的get（读取）和set（修改）操作： 123456789101112function reactive(obj) &#123;  return new Proxy(obj, &#123;    get(target, key) &#123;      track(target, key); // 追踪依赖      return target[key];    &#125;,    set(targ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/08/14/c2a5f831d2a0/" title="Docker学习笔记(三)：部署MySQL"><img class="post-bg" src="/img/posts/docker.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker学习笔记(三)：部署MySQL"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/08/14/c2a5f831d2a0/" title="Docker学习笔记(三)：部署MySQL">Docker学习笔记(三)：部署MySQL</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-14T12:28:32.000Z" title="发表于 2025-08-14 20:28:32">2025-08-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/">容器技术</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/">Docker</a></span></div><div class="content">在之前的服务器环境中，手动安装并配置MySQL的过程较为繁琐，因此我转而采用Docker容器化方案进行部署，通过标准化镜像和持久化存储机制，实现了更高效的数据库环境管理与版本控制。 这篇笔记就记录下用 Docker 部署 MySQL 的全过程，给自己留个存档。 一、准备工作1. 搜索MySQL镜像（可选）1docker search mysql  ❌问题：搜索出现超时，配置了国内镜像源也没用 2. 拉取MySQL 5.7镜像因为听说指定版本拉取更稳妥，避免后续出现版本兼容问题，所以我选择了 5.7 版本： 1docker pull mysql:5.7  3. 创建MySQL目录1234mkdir -p ~/mysql/&#123;log,data,conf&#125;# 进入创建好的mysql目录cd ~/mysql   log目录打算用来存 MySQL 的运行日志  data目录很重要，用来存数据库的数据，这样就算容器没了，数据也还在  conf目录用来放一些自定义的配置文件   二、部署MySQL容器1. 运行MySQL容器123456docker run -p 3307:3...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/08/14/b91f32b9d176/" title="Docker学习笔记(二)：容器数据卷"><img class="post-bg" src="/img/posts/docker.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker学习笔记(二)：容器数据卷"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/08/14/b91f32b9d176/" title="Docker学习笔记(二)：容器数据卷">Docker学习笔记(二)：容器数据卷</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-14T03:06:26.000Z" title="发表于 2025-08-14 11:06:26">2025-08-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/">容器技术</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/">Docker</a></span></div><div class="content">一、数据卷核心概念1.1 定义数据卷是宿主机文件系统中的一个目录或文件，通过挂载机制与容器内指定路径关联，实现宿主机与容器的双向数据共享。 1.2 本质 类似Linux的mount命令，容器访问挂载路径时实际操作的是宿主机数据卷 数据卷独立于容器生命周期，容器删除后数据仍保存在宿主机  二、数据卷的三大核心作用数据卷的设计初衷，就是为了解决容器与数据分离的问题，其核心作用可以概括为三点： 2.1 容器数据持久化 场景：数据库、日志文件等需要长期保存的数据 案例：MySQL容器挂载数据卷后，即使容器崩溃，数据库文件仍可通过数据卷恢复  2.2 宿主机与容器双向交互 实时同步特性： 宿主机修改卷目录文件 → 容器内立即生效（如本地代码编辑后容器热更新） 容器生成数据（日志、配置）→ 实时同步到宿主机（方便本地查看分析）    2.3 多容器数据共享 场景：前端容器与后端容器共享静态资源、多个服务共享配置文件 案例：Nginx（展示静态页）与Node.js（生成静态页）通过数据卷自动同步资源  三、数据卷的基础操作实践3.1 创建并挂载数据卷（基础命令）使用docker run命令时，...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/08/13/e37a265aefa7/" title="Docker学习笔记(一)：Docker常用命令"><img class="post-bg" src="/img/posts/docker.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker学习笔记(一)：Docker常用命令"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/08/13/e37a265aefa7/" title="Docker学习笔记(一)：Docker常用命令">Docker学习笔记(一)：Docker常用命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-13T12:25:40.000Z" title="发表于 2025-08-13 20:25:40">2025-08-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/">容器技术</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/">Docker</a></span></div><div class="content">整理了 Docker 核心命令的用法，从服务管理到容器操作，方便后续复习查阅。 一、Docker服务基础操作（守护进程管理）1.1 服务启停控制 启动：systemctl start docker✅ 核心功能：启动Docker守护进程（dockerd），初始化镜像&#x2F;容器管理环境⚠️ 注意：启动失败用journalctl -u docker查日志   停止：systemctl stop docker✅ 核心功能：终止守护进程及所有运行中容器⚠️ 注意：先手动停止重要容器，避免数据未持久化   重启：systemctl restart docker✅ 核心场景：修改配置文件（如/etc/docker/daemon.json）后生效  1.2 服务状态查询 命令：systemctl status docker✅ 核心功能：查看服务运行状态及最近日志🔍 状态解读：   绿色active (running)：正常运行   红色inactive (dead)：已停止    二、镜像操作命令（Image）2.1 镜像获取与搜索 拉取镜像：docker pull &lt;镜像名:标签...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/08/13/f15e0618f3e1/" title="解决SpringBoot中Lombok注解失效的那些坑"><img class="post-bg" src="/img/posts/problem.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解决SpringBoot中Lombok注解失效的那些坑"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/08/13/f15e0618f3e1/" title="解决SpringBoot中Lombok注解失效的那些坑">解决SpringBoot中Lombok注解失效的那些坑</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-13T07:06:28.000Z" title="发表于 2025-08-13 15:06:28">2025-08-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E8%B8%A9%E5%9D%91/">技术踩坑</a></span></div><div class="content">在 SpringBoot 项目开发中，Lombok 注解突然失效是一个很常见的问题，表现为明明添加了 @Data 等注解，却在编译时出现 “找不到符号”（如缺失 getter&#x2F;setter 方法）的错误。本文记录了我在项目中遇到该问题的排查过程，分析了 Lombok 注解失效与 Maven 编译插件（maven-compiler-plugin）配置、版本管理之间的关系，并总结了可行的解决方案和最佳实践。   在开发SpringBoot项目时，相信很多同学都遇到过Lombok注解突然失效的问题：代码里明明加了@Data注解，编译时却报”找不到符号”（比如缺失getter&#x2F;setter方法）。最近我在项目中就遇到了类似问题，通过排查终于找到原因，在这里记录一下整个过程和解决方案。 问题现象项目中使用了Lombok的@Data、@Getter等注解，但编译时出现一系列”找不到符号”错误： 1234567java: 找不到符号  符号:   变量 log  位置: 类 org.hnu.tablerecognition.common.interceptor.JwtTok...</div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">hnugreycrow</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/hnugreycrow" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/11/07/365fb68131e2/" title="一个剪贴板管理工具"><img src="/img/wallpapers/xlbvb19zylx0n2hyfh-17654210459039.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一个剪贴板管理工具"/></a><div class="content"><a class="title" href="/2025/11/07/365fb68131e2/" title="一个剪贴板管理工具">一个剪贴板管理工具</a><time datetime="2025-11-07T13:10:19.000Z" title="发表于 2025-11-07 21:10:19">2025-11-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/08/998aa6db036a/" title="Vue3 笔记：响应式基础"><img src="/img/posts/vue.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue3 笔记：响应式基础"/></a><div class="content"><a class="title" href="/2025/10/08/998aa6db036a/" title="Vue3 笔记：响应式基础">Vue3 笔记：响应式基础</a><time datetime="2025-10-08T15:45:03.206Z" title="发表于 2025-10-08 23:45:03">2025-10-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/09/01/50951d80d876/" title="Electron中导入better-sqlite3：为什么import不行，require却可以？"><img src="/img/posts/problem.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Electron中导入better-sqlite3：为什么import不行，require却可以？"/></a><div class="content"><a class="title" href="/2025/09/01/50951d80d876/" title="Electron中导入better-sqlite3：为什么import不行，require却可以？">Electron中导入better-sqlite3：为什么import不行，require却可以？</a><time datetime="2025-09-01T14:42:46.000Z" title="发表于 2025-09-01 22:42:46">2025-09-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/22/ef79f9bbfc55/" title="Vue3 笔记：透传 Attributes"><img src="/img/posts/vue.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue3 笔记：透传 Attributes"/></a><div class="content"><a class="title" href="/2025/08/22/ef79f9bbfc55/" title="Vue3 笔记：透传 Attributes">Vue3 笔记：透传 Attributes</a><time datetime="2025-08-22T15:51:12.000Z" title="发表于 2025-08-22 23:51:12">2025-08-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/18/4e40f7605990/" title="Vue3 笔记：深入响应式系统"><img src="/img/posts/vue.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue3 笔记：深入响应式系统"/></a><div class="content"><a class="title" href="/2025/08/18/4e40f7605990/" title="Vue3 笔记：深入响应式系统">Vue3 笔记：深入响应式系统</a><time datetime="2025-08-18T03:27:43.000Z" title="发表于 2025-08-18 11:27:43">2025-08-18</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vue/"><span class="card-category-list-name">Vue</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%B6%E4%BB%96/"><span class="card-category-list-name">其他</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">容器技术</span><span class="card-category-list-count">3</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">3</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B8%A9%E5%9D%91/"><span class="card-category-list-name">技术踩坑</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/SpringBoot/" style="font-size: 1.1em; color: #999">SpringBoot</a> <a href="/tags/vue/" style="font-size: 1.1em; color: #999">vue</a> <a href="/tags/Lombok/" style="font-size: 1.1em; color: #999">Lombok</a> <a href="/tags/Docker/" style="font-size: 1.37em; color: #99a4b2">Docker</a> <a href="/tags/Bug/" style="font-size: 1.1em; color: #999">Bug</a> <a href="/tags/ESM/" style="font-size: 1.1em; color: #999">ESM</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 1.5em; color: #99a9bf">学习笔记</a> <a href="/tags/Electron/" style="font-size: 1.23em; color: #999ea6">Electron</a> <a href="/tags/CommonJS/" style="font-size: 1.1em; color: #999">CommonJS</a> <a href="/tags/Vue/" style="font-size: 1.37em; color: #99a4b2">Vue</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
   
-
-
-
-
-  <script defer src="/js/leancloud.js" ></script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":300},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
-</html>
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              九月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">6</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">9</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-05-30T16:23:15.448Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/wallpapers/xlbvb19zylx0n2hyfh-17654210459039.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By hnugreycrow</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":300},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body></html>
