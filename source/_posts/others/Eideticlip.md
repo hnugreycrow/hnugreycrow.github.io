@@ -7,7 +7,7 @@ categories:
   - 其他
 tags: 
   - Electron
-  - vue 
+  - Vue 
 ---
 
 > **eidetic** /aɪˈdetɪk/ ：形容词，意为"异常清晰的，过目不忘的"
