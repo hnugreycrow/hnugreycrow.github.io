@@ -1,0 +1,7 @@
+- class_name: 友情链接
+  class_desc: 那些人，那些事
+  link_list:
+    - name: XiaoYi
+      link: https://xiaooyi.github.io/
+      avatar: https://sky-take-out-single.oss-cn-beijing.aliyuncs.com/hexo%E5%8D%9A%E5%AE%A2%E5%B0%81%E9%9D%A2/259a1a3cd42562cc1b899dfcab203497.jpg
+      descr: 立志成为一名顶端后端开发者
