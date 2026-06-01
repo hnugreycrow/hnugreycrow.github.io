@@ -5,3 +5,15 @@
       link: https://xiaooyi.github.io/
       avatar: https://sky-take-out-single.oss-cn-beijing.aliyuncs.com/hexo%E5%8D%9A%E5%AE%A2%E5%B0%81%E9%9D%A2/259a1a3cd42562cc1b899dfcab203497.jpg
       descr: 立志成为一名顶端后端开发者
+
+- class_name: 网站
+  class_desc: 值得推荐的网站
+  link_list:
+    - name: Hexo
+      link: https://hexo.io/zh-tw/
+      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+      descr: 快速、简单且强大的网志框架
+    - name: Butterfly
+      link: https://butterfly.js.org/
+      avatar: https://butterfly.js.org/img/butterfly-icon.png
+      descr: A Hexo theme：Butterfly
