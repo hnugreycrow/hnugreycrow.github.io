@@ -7,7 +7,6 @@ updated: 2025-08-18 14:00:00
 category_bar: true
 series: Docker
 categories:
-  - 容器技术
   - Docker
 tags:
   - Docker
