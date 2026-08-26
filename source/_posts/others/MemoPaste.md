@@ -1,7 +1,6 @@
 ---
 title: 一个剪贴板管理工具
 date: 2025-11-07 21:10:19
-updated: 2025-11-07 21:10:19
 cover: img/posts/MemoPaste.png
 categories:
   - 其他
